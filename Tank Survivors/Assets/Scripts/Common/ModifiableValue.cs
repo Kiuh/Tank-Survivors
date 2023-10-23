@@ -7,9 +7,9 @@ namespace Common
 {
     public enum ModificationPriority
     {
-        Low,
-        Medium,
-        High,
+        Low = 0,
+        Medium = 1,
+        High = 2,
     }
 
     public class ValueModification<T>
@@ -30,15 +30,8 @@ namespace Common
         [SerializeField]
         private T sourceValue;
 
-        [SerializeField]
-        [InspectorReadOnly]
-        private T cachedValue;
-
-        [SerializeField]
-        [InspectorReadOnly]
-        private bool isDirty = true;
-
         private List<ValueModification<T>> modifications = new();
+        public List<ValueModification<T>> Modifications => modifications;
         public T SourceValue
         {
             get => sourceValue;
@@ -52,31 +45,12 @@ namespace Common
 
         public T GetModifiedValue()
         {
-            if (isDirty)
+            T value = SourceValue;
+            foreach (ValueModification<T> modification in modifications.OrderBy(x => x.Priority))
             {
-                T value = SourceValue;
-                foreach (
-                    ValueModification<T> modification in modifications.OrderBy(x => x.Priority)
-                )
-                {
-                    value = modification.Func(value);
-                }
-                cachedValue = value;
-                isDirty = false;
+                value = modification.Func(value);
             }
-            return cachedValue;
-        }
-
-        public void AddModification(ValueModification<T> modification)
-        {
-            modifications.Add(modification);
-            isDirty = true;
-        }
-
-        public void RemoveModification(ValueModification<T> modification)
-        {
-            _ = modifications.Remove(modification);
-            isDirty = true;
+            return value;
         }
     }
 }

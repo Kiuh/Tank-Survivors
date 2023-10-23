@@ -38,7 +38,7 @@ namespace Common
         public void AddModification(ValueModification<float> modification)
         {
             float oldMaxValue = maxValue.GetModifiedValue();
-            maxValue.AddModification(modification);
+            maxValue.Modifications.Add(modification);
             float newMaxValue = maxValue.GetModifiedValue();
             currentValue = TransformToNewValue(oldMaxValue, newMaxValue, currentValue, minValue);
         }
@@ -46,7 +46,7 @@ namespace Common
         public void RemoveModification(ValueModification<float> modification)
         {
             float oldMaxValue = maxValue.GetModifiedValue();
-            maxValue.RemoveModification(modification);
+            maxValue.Modifications.Add(modification);
             float newMaxValue = maxValue.GetModifiedValue();
             currentValue = TransformToNewValue(oldMaxValue, newMaxValue, currentValue, minValue);
         }

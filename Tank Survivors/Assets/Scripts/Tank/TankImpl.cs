@@ -1,5 +1,10 @@
 using Common;
 using DataStructs;
+using General;
+using System.Collections.Generic;
+using System.Linq;
+using Tank.Upgrades;
+using Tank.Weapons;
 using UnityEngine;
 
 namespace Tank
@@ -8,6 +13,9 @@ namespace Tank
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : MonoBehaviour
     {
+        [SerializeField]
+        private GameContext gameContext;
+
         [SerializeField]
         private ModifiableValueContainer health;
         public ModifiableValueContainer Health => health;
@@ -52,9 +60,26 @@ namespace Tank
         private ModifiableValue<Percentage> fireRateModifier;
         public ModifiableValue<Percentage> FireRateModifier => fireRateModifier;
 
+        private List<ITankUpgrade> tankUpgrades = new();
+        private List<IWeapon> weapons = new();
+
+        private void Awake()
+        {
+            tankUpgrades = gameContext.GameConfig.PlayerUpgradesConfig.TankUpgrades.ToList();
+            weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+        }
+
         private void Update()
         {
             // TODO: pickup pickups
+        }
+
+        public List<IUpgradablePiece> GetAvailableUpgrades()
+        {
+            List<IUpgradablePiece> availableUpgrades = new();
+            availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
+            availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
+            return availableUpgrades.Where(x => !x.IsReachedMaxLevel).ToList();
         }
     }
 }

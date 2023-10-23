@@ -56,7 +56,7 @@ namespace Tank.Upgrades
 
         public void ApplyUpgrade(TankImpl tank)
         {
-            tank.Speed.AddModification(
+            tank.Speed.Modifications.Add(
                 new ValueModification<float>((x) => x + addingValue, ModificationPriority.Medium)
             );
         }
