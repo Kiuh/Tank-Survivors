@@ -5,14 +5,19 @@ using UnityEngine;
 
 namespace Common
 {
-    public enum ModificationPriority { }
+    public enum ModificationPriority
+    {
+        Low,
+        Medium,
+        High,
+    }
 
     public class ValueModification<T>
     {
         public Func<T, T> Func { get; set; }
-        public int Priority;
+        public ModificationPriority Priority;
 
-        public ValueModification(Func<T, T> func, int priority)
+        public ValueModification(Func<T, T> func, ModificationPriority priority)
         {
             Func = func;
             Priority = priority;
