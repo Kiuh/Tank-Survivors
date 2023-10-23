@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.annulusgames.unity-codegen": {
+      "version": "https://github.com/AnnulusGames/UnityCodeGen.git?path=/Assets/UnityCodeGen",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f938d8a010a32498bd5cf04187fa3caaa51c5d93"
+    },
     "com.unity.2d.animation": {
       "version": "10.0.3",
       "depth": 1,
@@ -272,16 +279,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "com.unity.visualscripting": {
-      "version": "1.8.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
