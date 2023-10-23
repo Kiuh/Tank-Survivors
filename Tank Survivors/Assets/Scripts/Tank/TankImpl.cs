@@ -65,13 +65,17 @@ namespace Tank
 
         private void Awake()
         {
-            tankUpgrades = gameContext.GameConfig.PlayerUpgradesConfig.TankUpgrades.ToList();
+            tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+            gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 
         private void Update()
         {
-            // TODO: pickup pickups
+            foreach (IWeapon weapon in weapons)
+            {
+                weapon.ProceedAttack();
+            }
         }
 
         public List<IUpgradablePiece> GetAvailableUpgrades()

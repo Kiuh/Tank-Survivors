@@ -3,5 +3,8 @@
 namespace Tank.Weapons
 {
     [InterfaceEditor]
-    public interface IWeapon : IUpgradablePiece { }
+    public interface IWeapon : IUpgradablePiece
+    {
+        public void ProceedAttack();
+    }
 }

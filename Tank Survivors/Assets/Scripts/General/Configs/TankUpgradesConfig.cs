@@ -6,11 +6,11 @@ using UnityEngine;
 namespace General.Configs
 {
     [CreateAssetMenu(
-        fileName = "PlayerUpgradesConfig",
-        menuName = "Configs/PlayerUpgradesConfig",
+        fileName = "TankUpgradesConfig",
+        menuName = "Configs/TankUpgradesConfig",
         order = 2
     )]
-    public class PlayerUpgradesConfig : ScriptableObject
+    public class TankUpgradesConfig : ScriptableObject
     {
         [SerializeField]
         private List<SerializedTankUpgrade> tankUpgrades;

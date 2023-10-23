@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b57f0e950a1b8248a5750d7eed235f8, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
+  TankStartProperties: {fileID: 11400000, guid: e6e5f94542d56aa4bb3c34c6bafa17dd, type: 2}
   EnemiesConfig: {fileID: 11400000, guid: fc911a0dcc46de341b52c049302cb930, type: 2}
-  PlayerUpgradesConfig: {fileID: 11400000, guid: 7ebf3a03185f250478160bb6f7a256b4, type: 2}
+  TankUpgradesConfig: {fileID: 11400000, guid: 5eb6d8befa0f4af45bbdf72dca0498cc, type: 2}
   WeaponsConfig: {fileID: 11400000, guid: b9b24e96dfb1ca34cb513c6fc70f9bbd, type: 2}
