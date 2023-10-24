@@ -1,5 +1,5 @@
-﻿using Tank;
-using DataStructs;
+﻿using DataStructs;
+using Tank;
 using UnityEngine;
 
 namespace General.Configs
@@ -14,10 +14,6 @@ namespace General.Configs
         [SerializeField]
         private float health;
         public float Health => health;
-
-        [SerializeField]
-        private uint experience;
-        public uint Experience => experience;
 
         [SerializeField]
         private float speed;
@@ -58,7 +54,6 @@ namespace General.Configs
         public void AssignStartProperties(TankImpl tank)
         {
             tank.Health.BaseValue = health;
-            tank.Experience.ValueContainer.BaseValue = experience;
             tank.Speed.SourceValue = speed;
             tank.PickupRadius.SourceValue = pickupRadius;
             tank.Armor.SourceValue = armor;

@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952c8acd53d948244bc38f6398ca4e72, type: 3}
   m_Name: TankUpgradesConfig
   m_EditorClassIdentifier: 
-  tankUpgrades: []
+  tankUpgrades:
+  - selectedType: SpeedUpgrade
+    speedUpgrade:
+      maxLevel: 0
+      upgradeList:
+      - selectedType: SimpleAddingLeveledSpeedUpgrade
+        simpleAddingLeveledSpeedUpgrade:
+          level: 0
+          addingValue: 0

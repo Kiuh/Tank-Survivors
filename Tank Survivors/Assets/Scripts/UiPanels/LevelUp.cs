@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Tank;
+using UnityEngine;
 
-namespace Tank
+namespace UiPanels
 {
-    [AddComponentMenu("Tank.LevelUpPanel")]
-    public class LevelUpPanel : MonoBehaviour
+    [AddComponentMenu("UiPanels.LevelUp")]
+    public class LevelUp : MonoBehaviour
     {
         [SerializeField]
         private TankImpl tank;

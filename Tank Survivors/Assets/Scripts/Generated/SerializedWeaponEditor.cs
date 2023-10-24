@@ -5,12 +5,12 @@ using UnityEditor;
 using UnityEngine;
 using Tank.Weapons;
 
-namespace SerializedInterface.Inspector
+namespace SerializedInterface.Inspector 
 {
     [CustomPropertyDrawer(typeof(SerializedWeapon))]
     public class SerializedWeaponDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { };
+        private string[] implementingTypeNames = { "BasicGun" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

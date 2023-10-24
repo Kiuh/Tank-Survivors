@@ -11,13 +11,14 @@ namespace Tank.Weapons
         [SerializeField] 
         private string selectedType;
 
-
+        [SerializeField]
+        private BasicGun basicGun;
 
         public IWeapon ToWeapon()
         {
             return selectedType switch
             {
-
+                "BasicGun" => basicGun,
                 _ => throw new NotImplementedException(),
             };
         }

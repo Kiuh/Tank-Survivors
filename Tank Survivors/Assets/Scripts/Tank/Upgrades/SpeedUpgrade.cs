@@ -11,7 +11,8 @@ namespace Tank.Upgrades
     {
         public uint UpgradingLevel { get; }
         public void ApplyUpgrade(TankImpl tank);
-        public PresentationInformation GetPresentationInformation();
+        public UpgradeVariantInformation GetUpgradeInformation();
+        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant);
     }
 
     [Serializable]
@@ -28,19 +29,22 @@ namespace Tank.Upgrades
             upgradeList.Select(x => x.ToLeveledSpeedUpgrade());
 
         public uint CurrentLevel => currentLevel;
-        public bool IsReachedMaxLevel => currentLevel >= maxLevel;
 
-        public void ApplyUpgrade(TankImpl tank)
+        public uint MaxLevel => maxLevel;
+
+        public void ApplyUpgrade(TankImpl tank, UpgradeVariantInformation upgradeVariant)
         {
-            Upgrades.First(x => x.UpgradingLevel == currentLevel).ApplyUpgrade(tank);
+            Upgrades.First(x => x.IsMyUpgrade(upgradeVariant)).ApplyUpgrade(tank);
             currentLevel++;
         }
 
-        public PresentationInformation GetPresentationInformation()
+        public NextUpgradeInformation GetNextUpgradeInformation()
         {
-            return Upgrades
-                .First(x => x.UpgradingLevel == currentLevel)
-                .GetPresentationInformation();
+            return NextUpgradeInformation.Construct(
+                Upgrades
+                    .Where(x => x.UpgradingLevel == currentLevel)
+                    .Select(x => x.GetUpgradeInformation())
+            );
         }
     }
 
@@ -61,8 +65,15 @@ namespace Tank.Upgrades
             );
         }
 
-        public PresentationInformation GetPresentationInformation()
+        public UpgradeVariantInformation GetUpgradeInformation()
         {
+            // TODO: implement
+            throw new NotImplementedException();
+        }
+
+        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant)
+        {
+            // TODO: implement
             throw new NotImplementedException();
         }
     }

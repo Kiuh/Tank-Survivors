@@ -1,6 +1,7 @@
 using Common;
 using DataStructs;
 using General;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tank.Upgrades;
@@ -10,6 +11,7 @@ using UnityEngine;
 namespace Tank
 {
     [SelectionBase]
+    [RequireComponent(typeof(Collider2D))]
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : MonoBehaviour
     {
@@ -61,7 +63,12 @@ namespace Tank
         public ModifiableValue<Percentage> FireRateModifier => fireRateModifier;
 
         private List<ITankUpgrade> tankUpgrades = new();
+        public IEnumerable<ITankUpgrade> TankUpgrades => tankUpgrades;
+
         private List<IWeapon> weapons = new();
+        public IEnumerable<IWeapon> Weapons => weapons;
+
+        public event Action OnDeath;
 
         private void Awake()
         {
@@ -84,6 +91,21 @@ namespace Tank
             availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
             availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
             return availableUpgrades.Where(x => !x.IsReachedMaxLevel).ToList();
+        }
+
+        public void Heal(float healAmount)
+        {
+            health.Value = Mathf.Min(health.Value + healAmount, health.MaxValue);
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            health.Value -= damageAmount;
+            if (health.Value <= 0)
+            {
+                health.Value = 0;
+                OnDeath?.Invoke();
+            }
         }
     }
 }
