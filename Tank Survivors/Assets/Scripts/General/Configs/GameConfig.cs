@@ -9,5 +9,6 @@ namespace General.Configs
         public EnemiesConfig EnemiesConfig;
         public TankUpgradesConfig TankUpgradesConfig;
         public WeaponsConfig WeaponsConfig;
+        public LevelProgressionConfig LevelProgressionConfig;
     }
 }

@@ -23,8 +23,8 @@ namespace Tank
         public ModifiableValueContainer Health => health;
 
         [SerializeField]
-        private Experience experience;
-        public Experience Experience => experience;
+        private PlayerLevel playerLevel;
+        public PlayerLevel PlayerLevel => playerLevel;
 
         [SerializeField]
         private ModifiableValue<float> speed;
@@ -68,12 +68,16 @@ namespace Tank
         private List<IWeapon> weapons = new();
         public IEnumerable<IWeapon> Weapons => weapons;
 
+        private LevelProgression levelProgression;
+        public LevelProgression LevelProgression => levelProgression;
+
         public event Action OnDeath;
 
         private void Awake()
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+            levelProgression = gameContext.GameConfig.LevelProgressionConfig.LevelProgression;
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 
