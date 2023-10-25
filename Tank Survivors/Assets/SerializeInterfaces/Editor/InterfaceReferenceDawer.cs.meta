@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1611bef1bf3b078498f6defd690993ac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Editor/InterfaceReferenceDawer.cs
+  uploadId: 519547

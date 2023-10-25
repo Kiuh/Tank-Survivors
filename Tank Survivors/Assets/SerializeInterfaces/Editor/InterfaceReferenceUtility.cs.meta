@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0e9d39e105322a14db0ae1d03abc844b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Editor/InterfaceReferenceUtility.cs
+  uploadId: 519547

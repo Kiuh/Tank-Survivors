@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5277c94b6d23fda4c95eef0e88483480
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Editor/UIElements/ToggleGroup.cs
+  uploadId: 519547

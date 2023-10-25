@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fd812a07569cd49abd9ff146a2cfa1, type: 3}
+  m_Name: WeaponsConfig
+  m_EditorClassIdentifier: 
+  weapons:
+  - selectedType: BasicGun
+    basicGun:
+      maxLevel: 0
+      damage:
+        sourceValue: 0
+      fireRange:
+        sourceValue: 0
+      projectileSize:
+        sourceValue: 0
+      penetration:
+        sourceValue: 0
+      projectilesPerShoot:
+        sourceValue: 0
+      fireRate:
+        sourceValue: 0
+      criticalChance:
+        sourceValue:
+          value: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 1
+      leveledBasicGunUpgrades:
+      - selectedType: BasicGunDamageUp
+        basicGunDamageUp:
+          upgradingLevel: 0
+          damageUpValue: 0
+      - selectedType: BasicGunDamageUp
+        basicGunDamageUp:
+          upgradingLevel: 0
+          damageUpValue: 0

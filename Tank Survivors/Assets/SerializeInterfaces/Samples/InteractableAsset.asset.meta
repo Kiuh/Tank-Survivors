@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4fcf980c632de154b9f91c4e6a8ada6c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Samples/InteractableAsset.asset
+  uploadId: 519547

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: dda6b835c5d897f4d89d07ab7aedb398
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Samples/Scripts/IInteractable.cs
+  uploadId: 519547

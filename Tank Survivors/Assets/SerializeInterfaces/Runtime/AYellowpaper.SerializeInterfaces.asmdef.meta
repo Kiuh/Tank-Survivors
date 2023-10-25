@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 31976cc9e85bdd9459e856fcb40d0d50
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187505
+  packageName: Serialize Interfaces!
+  packageVersion: 1.1.4
+  assetPath: Assets/SerializeInterfaces/Runtime/AYellowpaper.SerializeInterfaces.asmdef
+  uploadId: 519547
