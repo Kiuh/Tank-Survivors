@@ -12,28 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a09c37d120d5e145aae85b83f60067a, type: 3}
   m_Name: LevelProgressionConfig
   m_EditorClassIdentifier: 
-  curveLevels: 0
-  curveProgression:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  levelProgression:
+    startLevelExperience: 100
+    curveLength: 1
+    limitLevel: 20
+    overlimitExperienceDelta: 100
+    curveProgression:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 6.220126
+        outSlope: 6.220126
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.032608695
+      - serializedVersion: 3
+        time: 0.13590716
+        value: 0.77117145
+        inSlope: 0.69346416
+        outSlope: 0.69346416
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.07093881
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.112508535
+        outSlope: 0.112508535
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.08385128
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4

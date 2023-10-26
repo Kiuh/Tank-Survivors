@@ -14,31 +14,39 @@ namespace DataStructs
 
         [SerializeField]
         [InspectorReadOnly]
-        private uint experienceCount;
-        public uint ExperienceCount => experienceCount;
+        private float experienceCount;
+        public float ExperienceCount => experienceCount;
 
         [SerializeField]
-        private uint maxExperienceCount;
-        public uint MaxExperienceCount
-        {
-            get => maxExperienceCount;
-            set => maxExperienceCount = Math.Max(value, maxExperienceCount);
-        }
+        [InspectorReadOnly]
+        private ModifiableValue<float> maxExperienceCount;
+        public float MaxExperienceCount => maxExperienceCount.SourceValue;
 
-        public event Action<float> OnExperienceChange;
+        public event Action OnExperienceChange;
         public event Action OnLevelUp;
 
-        public void AddExperience(uint value)
+        public PlayerLevel(LevelProgression progression)
+        {
+            maxExperienceCount = new ModifiableValue<float>(progression.FirstLevelExperience);
+            maxExperienceCount.Modifications.Add(
+                new ValueModification<float>(
+                    (x) => x * progression.ExperienceUpValue,
+                    ModificationPriority.Medium));
+            AddExperience(progression.DefaultExperience);
+        }
+
+        public void AddExperience(float value)
         {
             experienceCount += value;
-            if (experienceCount >= maxExperienceCount)
+            while (experienceCount >= maxExperienceCount.SourceValue)
             {
-                experienceCount %= maxExperienceCount;
+                experienceCount -= maxExperienceCount.SourceValue;
+                maxExperienceCount.SourceValue = maxExperienceCount.GetModifiedValue();
                 currentLevel++;
                 OnLevelUp?.Invoke();
             }
 
-            OnExperienceChange?.Invoke((float)experienceCount / maxExperienceCount);
+            OnExperienceChange?.Invoke();
         }
     }
 }

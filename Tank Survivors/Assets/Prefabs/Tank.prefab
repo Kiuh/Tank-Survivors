@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2534944405157877418}
   - component: {fileID: 6248849171119708045}
   - component: {fileID: 3604841203896641056}
-  - component: {fileID: 3988086519652927431}
   - component: {fileID: 884524269833878458}
   - component: {fileID: 5739520290492218742}
   m_Layer: 0
@@ -57,7 +56,8 @@ MonoBehaviour:
   playerLevel:
     currentLevel: 0
     experienceCount: 0
-    maxExperienceCount: 0
+    maxExperienceCount:
+      sourceValue: 0
   speed:
     sourceValue: 0
   pickupRadius:
@@ -108,19 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: {fileID: 6248849171119708045}
---- !u!114 &3988086519652927431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6538827704598400681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571e6f7a97e2b0f4c9921829108be17a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tank: {fileID: 2534944405157877418}
 --- !u!58 &884524269833878458
 CircleCollider2D:
   m_ObjectHideFlags: 0

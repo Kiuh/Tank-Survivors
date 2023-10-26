@@ -6,23 +6,16 @@ namespace DataStructs
     public struct LevelProgression
     {
         [SerializeField]
-        private uint startLevelExperience;
-        public uint StartLevelExperience => startLevelExperience;
+        private float firstLevelExperience;
+        public float FirstLevelExperience => firstLevelExperience;
 
         [SerializeField]
-        private float curveLength;
-        public float CurveLength => curveLength;
+        [Range(1f, 10f)]
+        private float experienceUpValue;
+        public float ExperienceUpValue => experienceUpValue;
 
         [SerializeField]
-        private uint limitLevel;
-        public uint LimitLevel => limitLevel;
-
-        [SerializeField]
-        private uint overlimitExperienceDelta;
-        public uint OverlimitExperienceDelta => overlimitExperienceDelta;
-
-        [SerializeField]
-        private AnimationCurve curveProgression;
-        public AnimationCurve CurveProgression => curveProgression;
+        private float defaultExperience;
+        public float DefaultExperience => defaultExperience;
     }
 }
