@@ -23,31 +23,38 @@ namespace DataStructs
         private ModifiableValue<float> maxExperienceCount;
         public float MaxExperienceCount => maxExperienceCount.SourceValue;
 
-        public event Action OnExperienceChange;
+        private LevelProgressionConfig progressionConfig;
+
         public event Action OnLevelUp;
 
         public PlayerLevel(LevelProgressionConfig progressionConfig)
         {
+            this.progressionConfig = progressionConfig;
             maxExperienceCount = new ModifiableValue<float>(progressionConfig.FirstLevelExperience);
-            maxExperienceCount.Modifications.Add(
-                new ValueModification<float>(
-                    (x) => x * progressionConfig.ExperienceUpValue,
-                    ModificationPriority.Medium));
+            AddModification();
             AddExperience(progressionConfig.DefaultExperience);
         }
 
         public void AddExperience(float value)
         {
             experienceCount += value;
-            while (experienceCount >= maxExperienceCount.SourceValue)
+
+            float maxExperience = maxExperienceCount.GetModifiedValue();
+            while (experienceCount >= maxExperience)
             {
-                experienceCount -= maxExperienceCount.SourceValue;
-                maxExperienceCount.SourceValue = maxExperienceCount.GetModifiedValue();
+                experienceCount -= maxExperience;
+                AddModification();
                 currentLevel++;
                 OnLevelUp?.Invoke();
             }
+        }
 
-            OnExperienceChange?.Invoke();
+        private void AddModification()
+        {
+            maxExperienceCount.Modifications.Add(
+                new ValueModification<float>(
+                    (x) => x * progressionConfig.ExperienceUpValue,
+                    ModificationPriority.Medium));
         }
     }
 }
