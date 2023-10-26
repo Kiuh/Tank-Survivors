@@ -11,7 +11,7 @@ namespace UiPanels
 
         private void Awake()
         {
-            tank.Experience.OnLevelUp += LevelUpRelease;
+            tank.PlayerLevel.OnLevelUp += LevelUpRelease;
         }
 
         public void LevelUpRelease()
