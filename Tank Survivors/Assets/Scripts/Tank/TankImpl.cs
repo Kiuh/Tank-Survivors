@@ -68,16 +68,13 @@ namespace Tank
         private List<IWeapon> weapons = new();
         public IEnumerable<IWeapon> Weapons => weapons;
 
-        private LevelProgression levelProgression;
-        public LevelProgression LevelProgression => levelProgression;
-
         public event Action OnDeath;
 
         private void Awake()
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
-            playerLevel = new(gameContext.GameConfig.LevelProgressionConfig.LevelProgression);
+            playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 

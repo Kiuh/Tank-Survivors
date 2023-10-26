@@ -1,4 +1,5 @@
 ﻿using Common;
+using General.Configs;
 using System;
 using UnityEngine;
 
@@ -25,14 +26,14 @@ namespace DataStructs
         public event Action OnExperienceChange;
         public event Action OnLevelUp;
 
-        public PlayerLevel(LevelProgression progression)
+        public PlayerLevel(LevelProgressionConfig progressionConfig)
         {
-            maxExperienceCount = new ModifiableValue<float>(progression.FirstLevelExperience);
+            maxExperienceCount = new ModifiableValue<float>(progressionConfig.FirstLevelExperience);
             maxExperienceCount.Modifications.Add(
                 new ValueModification<float>(
-                    (x) => x * progression.ExperienceUpValue,
+                    (x) => x * progressionConfig.ExperienceUpValue,
                     ModificationPriority.Medium));
-            AddExperience(progression.DefaultExperience);
+            AddExperience(progressionConfig.DefaultExperience);
         }
 
         public void AddExperience(float value)

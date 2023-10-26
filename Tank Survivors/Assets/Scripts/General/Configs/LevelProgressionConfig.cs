@@ -1,4 +1,3 @@
-using DataStructs;
 using UnityEngine;
 
 namespace General.Configs
@@ -11,7 +10,16 @@ namespace General.Configs
     public class LevelProgressionConfig : ScriptableObject
     {
         [SerializeField]
-        private LevelProgression levelProgression;
-        public LevelProgression LevelProgression => levelProgression;
+        private float firstLevelExperience;
+        public float FirstLevelExperience => firstLevelExperience;
+
+        [SerializeField]
+        [Range(1f, 10f)]
+        private float experienceUpValue;
+        public float ExperienceUpValue => experienceUpValue;
+
+        [SerializeField]
+        private float defaultExperience;
+        public float DefaultExperience => defaultExperience;
     }
 }
