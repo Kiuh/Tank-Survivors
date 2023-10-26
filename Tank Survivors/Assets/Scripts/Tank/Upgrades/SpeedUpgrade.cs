@@ -2,50 +2,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tank.UpgradablePiece;
 using UnityEngine;
 
 namespace Tank.Upgrades
 {
     [InterfaceEditor]
-    public interface ILeveledSpeedUpgrade
-    {
-        public uint UpgradingLevel { get; }
-        public void ApplyUpgrade(TankImpl tank);
-        public UpgradeVariantInformation GetUpgradeInformation();
-        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant);
-    }
+    public interface ILeveledSpeedUpgrade : ILeveledUpgrade { }
 
     [Serializable]
     public class SpeedUpgrade : ITankUpgrade
     {
+        [SerializeField]
+        [InspectorReadOnly]
         private uint currentLevel = 0;
+        public uint CurrentLevel
+        {
+            get => currentLevel;
+            set => currentLevel = value;
+        }
 
         [SerializeField]
         private uint maxLevel;
+        public uint MaxLevel => maxLevel;
+
+        [SerializeField]
+        private string upgradeName;
+        public string UpgradeName => upgradeName;
 
         [SerializeField]
         private List<SerializedLeveledSpeedUpgrade> upgradeList;
-        public IEnumerable<ILeveledSpeedUpgrade> Upgrades =>
+        public IEnumerable<ILeveledUpgrade> Upgrades =>
             upgradeList.Select(x => x.ToLeveledSpeedUpgrade());
-
-        public uint CurrentLevel => currentLevel;
-
-        public uint MaxLevel => maxLevel;
-
-        public void ApplyUpgrade(TankImpl tank, UpgradeVariantInformation upgradeVariant)
-        {
-            Upgrades.First(x => x.IsMyUpgrade(upgradeVariant)).ApplyUpgrade(tank);
-            currentLevel++;
-        }
-
-        public NextUpgradeInformation GetNextUpgradeInformation()
-        {
-            return NextUpgradeInformation.Construct(
-                Upgrades
-                    .Where(x => x.UpgradingLevel == currentLevel)
-                    .Select(x => x.GetUpgradeInformation())
-            );
-        }
     }
 
     [Serializable]
@@ -58,23 +46,18 @@ namespace Tank.Upgrades
         private float addingValue;
         public uint UpgradingLevel => level;
 
+        [SerializeField]
+        private string description;
+        public string Description => description;
+
+        private string guid = System.Guid.NewGuid().ToString();
+        public string Guid => guid;
+
         public void ApplyUpgrade(TankImpl tank)
         {
             tank.Speed.Modifications.Add(
                 new ValueModification<float>((x) => x + addingValue, ModificationPriority.Medium)
             );
-        }
-
-        public UpgradeVariantInformation GetUpgradeInformation()
-        {
-            // TODO: implement
-            throw new NotImplementedException();
-        }
-
-        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant)
-        {
-            // TODO: implement
-            throw new NotImplementedException();
         }
     }
 }

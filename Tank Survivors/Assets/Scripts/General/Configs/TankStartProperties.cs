@@ -13,43 +13,36 @@ namespace General.Configs
     {
         [SerializeField]
         private float health;
-        public float Health => health;
 
         [SerializeField]
         private float speed;
-        public float Speed => speed;
 
         [SerializeField]
         private float pickupRadius;
-        public float PickupRadius => pickupRadius;
 
         [SerializeField]
         private float armor;
-        public float Armor => armor;
 
         [SerializeField]
         private Percentage criticalChance;
-        public Percentage CriticalChance => criticalChance;
 
         [SerializeField]
         private Percentage evadeChance;
-        public Percentage EvadeChance => evadeChance;
 
         [SerializeField]
         private Percentage damageModifier;
-        public Percentage DamageModifier => damageModifier;
 
         [SerializeField]
         private Percentage projectileSize;
-        public Percentage ProjectileSize => projectileSize;
 
         [SerializeField]
         private Percentage rangeModifier;
-        public Percentage RangeModifier => rangeModifier;
 
         [SerializeField]
         private Percentage fireRateModifier;
-        public Percentage FireRateModifier => fireRateModifier;
+
+        [SerializeField]
+        private uint levelUpChoicesCount;
 
         public void AssignStartProperties(TankImpl tank)
         {
@@ -63,6 +56,7 @@ namespace General.Configs
             tank.ProjectileSize.SourceValue = projectileSize;
             tank.RangeModifier.SourceValue = rangeModifier;
             tank.FireRateModifier.SourceValue = fireRateModifier;
+            tank.LevelUpChoicesCount.SourceValue = levelUpChoicesCount;
         }
     }
 }

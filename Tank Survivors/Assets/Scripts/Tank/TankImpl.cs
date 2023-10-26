@@ -4,6 +4,7 @@ using General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
 using UnityEngine;
@@ -25,6 +26,10 @@ namespace Tank
         [SerializeField]
         private Experience experience;
         public Experience Experience => experience;
+
+        [SerializeField]
+        private ModifiableValue<uint> levelUpChoicesCount;
+        public ModifiableValue<uint> LevelUpChoicesCount => levelUpChoicesCount;
 
         [SerializeField]
         private ModifiableValue<float> speed;
@@ -85,12 +90,12 @@ namespace Tank
             }
         }
 
-        public List<IUpgradablePiece> GetAvailableUpgrades()
+        public IEnumerable<IUpgradablePiece> GetAvailableUpgrades()
         {
             List<IUpgradablePiece> availableUpgrades = new();
             availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
             availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
-            return availableUpgrades.Where(x => !x.IsReachedMaxLevel).ToList();
+            return availableUpgrades.Where(x => !x.IsReachedMaxLevel);
         }
 
         public void Heal(float healAmount)

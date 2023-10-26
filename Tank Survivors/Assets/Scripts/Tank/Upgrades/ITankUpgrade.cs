@@ -1,4 +1,5 @@
 ﻿using Common;
+using Tank.UpgradablePiece;
 
 namespace Tank.Upgrades
 {

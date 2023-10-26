@@ -3,18 +3,13 @@ using DataStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tank.UpgradablePiece;
 using UnityEngine;
 
 namespace Tank.Weapons
 {
     [InterfaceEditor]
-    public interface ILeveledBasicGunUpgrade
-    {
-        public uint UpgradingLevel { get; }
-        public void ApplyUpgrade(TankImpl tank);
-        public UpgradeVariantInformation GetUpgradeInformation();
-        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant);
-    }
+    public interface ILeveledBasicGunUpgrade : ILeveledUpgrade { }
 
     public class BasicGun
         : IWeapon,
@@ -26,8 +21,14 @@ namespace Tank.Weapons
             IHaveProjectilesPerShoot,
             IHaveProjectileSize
     {
+        [SerializeField]
+        [InspectorReadOnly]
         private uint currentLevel;
-        public uint CurrentLevel => currentLevel;
+        public uint CurrentLevel
+        {
+            get => currentLevel;
+            set => currentLevel = value;
+        }
 
         [SerializeField]
         private uint maxLevel;
@@ -67,28 +68,18 @@ namespace Tank.Weapons
 
         [SerializeField]
         private List<SerializedLeveledBasicGunUpgrade> leveledBasicGunUpgrades;
-        public IEnumerable<ILeveledBasicGunUpgrade> LeveledBasicGunUpgrades =>
-            leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
 
-        public NextUpgradeInformation GetNextUpgradeInformation()
-        {
-            return NextUpgradeInformation.Construct(
-                LeveledBasicGunUpgrades
-                    .Where(x => x.UpgradingLevel == currentLevel)
-                    .Select(x => x.GetUpgradeInformation())
-            );
-        }
+        [SerializeField]
+        private string upgradeName;
+        public string UpgradeName => upgradeName;
+
+        public IEnumerable<ILeveledUpgrade> Upgrades =>
+            leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
 
         public void ProceedAttack()
         {
             // TODO: implement
             throw new NotImplementedException();
-        }
-
-        public void ApplyUpgrade(TankImpl tank, UpgradeVariantInformation upgradeVariant)
-        {
-            LeveledBasicGunUpgrades.First(x => x.IsMyUpgrade(upgradeVariant)).ApplyUpgrade(tank);
-            currentLevel++;
         }
     }
 
@@ -102,24 +93,19 @@ namespace Tank.Weapons
         private float damageUpValue;
         public uint UpgradingLevel => upgradingLevel;
 
+        [SerializeField]
+        private string description;
+        public string Description => description;
+
+        private string guid = System.Guid.NewGuid().ToString();
+        public string Guid => guid;
+
         public void ApplyUpgrade(TankImpl tank)
         {
             BasicGun weapon = tank.Weapons.First(x => x is BasicGun) as BasicGun;
             weapon.Damage.Modifications.Add(
                 new ValueModification<float>((x) => x + damageUpValue, ModificationPriority.Medium)
             );
-        }
-
-        public UpgradeVariantInformation GetUpgradeInformation()
-        {
-            // TODO: implement
-            throw new NotImplementedException();
-        }
-
-        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant)
-        {
-            // TODO: implement
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Common;
 using DataStructs;
+using Tank.UpgradablePiece;
 
 namespace Tank.Weapons
 {

@@ -1,5 +1,6 @@
 ﻿using UiPanels;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace General
 {
@@ -9,7 +10,13 @@ namespace General
         [SerializeField]
         private Pause pause;
 
-        // TODO: get input
+        [SerializeField]
+        private Button pauseButton;
+
+        private void Awake()
+        {
+            pauseButton.onClick.AddListener(SetPause);
+        }
 
         public void SetPause()
         {
