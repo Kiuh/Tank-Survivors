@@ -53,12 +53,11 @@ MonoBehaviour:
     maxValue:
       sourceValue: 0
     currentValue: 0
-  experience:
-    valueContainer:
-      maxValue:
-        sourceValue: 0
-      currentValue: 0
+  playerLevel:
     currentLevel: 0
+    experienceCount: 0
+    maxExperienceCount:
+      sourceValue: 0
   speed:
     sourceValue: 0
   pickupRadius:

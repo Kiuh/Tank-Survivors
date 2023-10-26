@@ -24,8 +24,8 @@ namespace Tank
         public ModifiableValueContainer Health => health;
 
         [SerializeField]
-        private Experience experience;
-        public Experience Experience => experience;
+        private PlayerLevel playerLevel;
+        public PlayerLevel PlayerLevel => playerLevel;
 
         [SerializeField]
         private ModifiableValue<uint> levelUpChoicesCount;
@@ -79,6 +79,7 @@ namespace Tank
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+            playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 

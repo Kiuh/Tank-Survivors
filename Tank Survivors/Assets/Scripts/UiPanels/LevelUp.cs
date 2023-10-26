@@ -32,7 +32,7 @@ namespace UiPanels
 
         private void Awake()
         {
-            tank.Experience.OnLevelUp += LevelUpRelease;
+            tank.PlayerLevel.OnLevelUp += LevelUpRelease;
             skipButton.onClick.AddListener(() => levelUpPanel.SetActive(false));
         }
 
