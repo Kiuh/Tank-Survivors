@@ -8,9 +8,6 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
-    [InterfaceEditor]
-    public interface ILeveledBasicGunUpgrade : ILeveledUpgrade { }
-
     public class BasicGun
         : IWeapon,
             IHaveDamage,
@@ -83,6 +80,9 @@ namespace Tank.Weapons
         }
     }
 
+    [InterfaceEditor]
+    public interface ILeveledBasicGunUpgrade : ILeveledUpgrade { }
+
     [Serializable]
     public class BasicGunDamageUp : ILeveledBasicGunUpgrade
     {
@@ -96,9 +96,6 @@ namespace Tank.Weapons
         [SerializeField]
         private string description;
         public string Description => description;
-
-        private string guid = System.Guid.NewGuid().ToString();
-        public string Guid => guid;
 
         public void ApplyUpgrade(TankImpl tank)
         {

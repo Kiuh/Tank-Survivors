@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Common
@@ -8,7 +7,7 @@ namespace Common
     {
         public static T GetRandom<T>(this List<T> list)
         {
-            return list[Random.Range(0, list.Count())];
+            return list[Random.Range(0, list.Count)];
         }
 
         public static T TakeRandom<T>(this List<T> list)

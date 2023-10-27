@@ -78,10 +78,10 @@ namespace UiPanels
                     upgradeBlocksViewRoot
                 );
                 upgradeBlock.UpgradeName = upgrade.UpgradeName;
-                foreach (UpgradeVariantInformation variant in upgrade.GetNextUpgradeInformation())
+                foreach (ILeveledUpgrade variant in upgrade.GetNextUpgrades())
                 {
                     UpgradeVariantView upgradeVariant = upgradeBlock.CreateUpgradeVariantView();
-                    upgradeVariant.InformationText = variant.UpgradeInformation;
+                    upgradeVariant.InformationText = variant.Description;
                     upgradeVariant.Button.onClick.AddListener(() =>
                     {
                         upgrade.ApplyUpgrade(tank, variant);

@@ -7,9 +7,6 @@ using UnityEngine;
 
 namespace Tank.Upgrades
 {
-    [InterfaceEditor]
-    public interface ILeveledSpeedUpgrade : ILeveledUpgrade { }
-
     [Serializable]
     public class SpeedUpgrade : ITankUpgrade
     {
@@ -36,6 +33,9 @@ namespace Tank.Upgrades
             upgradeList.Select(x => x.ToLeveledSpeedUpgrade());
     }
 
+    [InterfaceEditor]
+    public interface ILeveledSpeedUpgrade : ILeveledUpgrade { }
+
     [Serializable]
     public class SimpleAddingLeveledSpeedUpgrade : ILeveledSpeedUpgrade
     {
@@ -49,9 +49,6 @@ namespace Tank.Upgrades
         [SerializeField]
         private string description;
         public string Description => description;
-
-        private string guid = System.Guid.NewGuid().ToString();
-        public string Guid => guid;
 
         public void ApplyUpgrade(TankImpl tank)
         {

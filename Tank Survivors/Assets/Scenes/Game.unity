@@ -1076,6 +1076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelUpPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5983668921239789107, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9208286662801774954, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: tank
       value: 
@@ -1096,6 +1100,10 @@ PrefabInstance:
     - target: {fileID: 328837066940100759, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
       propertyPath: m_Name
       value: Death Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 328837066940100759, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1872833960509328771, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
       propertyPath: tank
@@ -1285,6 +1293,10 @@ PrefabInstance:
     - target: {fileID: 8457508881701370372, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
       propertyPath: m_Name
       value: Pause Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457508881701370372, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

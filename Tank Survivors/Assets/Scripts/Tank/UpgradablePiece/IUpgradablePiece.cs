@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Tank.UpgradablePiece
 {
@@ -10,33 +12,25 @@ namespace Tank.UpgradablePiece
         public uint MaxLevel { get; }
         public bool IsReachedMaxLevel => CurrentLevel >= MaxLevel;
         public IEnumerable<ILeveledUpgrade> Upgrades { get; }
-        public void ApplyUpgrade(TankImpl tank, UpgradeVariantInformation upgradeVariant)
+        public void ApplyUpgrade(TankImpl tank, ILeveledUpgrade leveledUpgrade)
         {
-            Upgrades.First(x => x.IsMyUpgrade(upgradeVariant)).ApplyUpgrade(tank);
+            if (!Upgrades.Contains(leveledUpgrade))
+            {
+                Debug.LogError("Given ILeveledUpgrade not contains in IUpgradablePiece");
+            }
+            leveledUpgrade.ApplyUpgrade(tank);
             CurrentLevel++;
         }
-        public IEnumerable<UpgradeVariantInformation> GetNextUpgradeInformation()
+        public IEnumerable<ILeveledUpgrade> GetNextUpgrades()
         {
-            return Upgrades
-                .Where(x => x.UpgradingLevel == CurrentLevel)
-                .Select(x => x.GetUpgradeInformation());
+            return Upgrades.Where(x => x.UpgradingLevel == CurrentLevel);
         }
     }
 
     public interface ILeveledUpgrade
     {
-        public string Guid { get; }
         public string Description { get; }
         public uint UpgradingLevel { get; }
-
         public void ApplyUpgrade(TankImpl tank);
-        public UpgradeVariantInformation GetUpgradeInformation()
-        {
-            return new UpgradeVariantInformation(Description, Guid);
-        }
-        public bool IsMyUpgrade(UpgradeVariantInformation upgradeVariant)
-        {
-            return upgradeVariant.Guid == Guid;
-        }
     }
 }
