@@ -33,7 +33,7 @@ namespace UiPanels
         private void Awake()
         {
             tank.PlayerLevel.OnLevelUp += LevelUpRelease;
-            skipButton.onClick.AddListener(() => levelUpPanel.SetActive(false));
+            skipButton.onClick.AddListener(ButtonSkipPress);
         }
 
         public void LevelUpRelease()
@@ -46,6 +46,19 @@ namespace UiPanels
             else
             {
                 levelUpStack++;
+            }
+        }
+
+        public void ButtonSkipPress()
+        {
+            if (levelUpStack > 0)
+            {
+                levelUpStack--;
+                FillLevelUp();
+            }
+            else
+            {
+                levelUpPanel.SetActive(false);
             }
         }
 
