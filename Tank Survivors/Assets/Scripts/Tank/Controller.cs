@@ -8,9 +8,12 @@ namespace Tank
         [SerializeField]
         private Moving moving;
 
+        [SerializeField]
+        private Joystick joystick;
+
         private void Update()
         {
-            // TODO: Input logics
+            moving.MovementDirection = joystick.Direction;
         }
     }
 }
