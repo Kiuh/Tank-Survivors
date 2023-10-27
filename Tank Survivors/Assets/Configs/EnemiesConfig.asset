@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3c741dde91d8044a18aa12ee590ee4, type: 3}
   m_Name: EnemiesConfig
   m_EditorClassIdentifier: 
-  enemyProducers:
-  - selectedType: DefaultEnemyProducer
-    defaultEnemyProducer:
-      enemyPrefab:
-        _underlyingValue: {fileID: 0}
+  enemyProducers: []

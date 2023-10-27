@@ -31,7 +31,14 @@ namespace Common
         private T sourceValue;
 
         private List<ValueModification<T>> modifications = new();
-        public List<ValueModification<T>> Modifications => modifications;
+        public List<ValueModification<T>> Modifications
+        {
+            get
+            {
+                modifications ??= new List<ValueModification<T>>();
+                return modifications;
+            }
+        }
         public T SourceValue
         {
             get => sourceValue;
@@ -46,7 +53,9 @@ namespace Common
         public T GetModifiedValue()
         {
             T value = SourceValue;
-            foreach (ValueModification<T> modification in modifications.OrderBy(x => x.Priority))
+            foreach (
+                ValueModification<T> modification in Modifications.OrderBy(x => (int)x.Priority)
+            )
             {
                 value = modification.Func(value);
             }

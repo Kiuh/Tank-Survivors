@@ -54,7 +54,9 @@ namespace DataStructs
             maxExperienceCount.Modifications.Add(
                 new ValueModification<float>(
                     (x) => x * progressionConfig.ExperienceUpValue,
-                    ModificationPriority.Medium));
+                    ModificationPriority.Medium
+                )
+            );
         }
     }
 }

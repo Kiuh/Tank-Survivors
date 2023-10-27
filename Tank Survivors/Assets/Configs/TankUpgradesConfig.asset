@@ -15,9 +15,12 @@ MonoBehaviour:
   tankUpgrades:
   - selectedType: SpeedUpgrade
     speedUpgrade:
-      maxLevel: 0
+      currentLevel: 0
+      maxLevel: 5
+      upgradeName: Speed Upgrade
       upgradeList:
       - selectedType: SimpleAddingLeveledSpeedUpgrade
         simpleAddingLeveledSpeedUpgrade:
-          level: 0
-          addingValue: 0
+          level: 1
+          addingValue: 10
+          description: Add +10 Speed

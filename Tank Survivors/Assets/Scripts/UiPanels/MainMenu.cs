@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using General;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace UiPanels
@@ -10,9 +10,6 @@ namespace UiPanels
         [SerializeField]
         private Button playButton;
 
-        [SerializeField]
-        private string nextScene;
-
         private void Awake()
         {
             playButton.onClick.AddListener(PlayButtonClick);
@@ -20,7 +17,7 @@ namespace UiPanels
 
         private void PlayButtonClick()
         {
-            SceneManager.LoadScene(nextScene);
+            ScenesController.Instance.LoadScene(InGameScene.GameplayScene);
         }
     }
 }

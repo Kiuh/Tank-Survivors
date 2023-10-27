@@ -3,7 +3,6 @@ using System.Text;
 using Tank;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UiPanels
@@ -29,17 +28,15 @@ namespace UiPanels
         [SerializeField]
         private Button leaveButton;
 
-        [SerializeField]
-        private string repeatSceneName;
-
-        [SerializeField]
-        private string leaveSceneName;
-
         private void Awake()
         {
             tank.OnDeath += ShowLosePanel;
-            repeatButton.onClick.AddListener(() => SceneManager.LoadScene(repeatSceneName));
-            leaveButton.onClick.AddListener(() => SceneManager.LoadScene(leaveSceneName));
+            repeatButton.onClick.AddListener(
+                () => ScenesController.Instance.LoadScene(InGameScene.GameplayScene)
+            );
+            leaveButton.onClick.AddListener(
+                () => ScenesController.Instance.LoadScene(InGameScene.MainScene)
+            );
         }
 
         private void ShowLosePanel()

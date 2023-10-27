@@ -1,12 +1,10 @@
+using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
-using UnityEditor;
-
-namespace Common.Inspector
+namespace Common
 {
     [CustomPropertyDrawer(typeof(InspectorReadOnlyAttribute))]
-    public class InspectorReadOnlyAttributeDrawer : PropertyDrawer
+    public class InspectorReadOnlyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -16,10 +14,4 @@ namespace Common.Inspector
             GUI.enabled = prev_gui_state;
         }
     }
-}
-#endif
-
-namespace Common
-{
-    public class InspectorReadOnlyAttribute : PropertyAttribute { }
 }

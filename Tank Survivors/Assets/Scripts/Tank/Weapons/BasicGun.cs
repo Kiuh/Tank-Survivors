@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
+    [Serializable]
     public class BasicGun
         : IWeapon,
             IHaveDamage,
