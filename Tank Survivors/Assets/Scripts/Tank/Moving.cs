@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Tank
 {
@@ -8,9 +9,36 @@ namespace Tank
         [SerializeField]
         private TankImpl tank;
 
-        public void Move()
+        [SerializeField]
+        private Rigidbody2D tankRigidBody;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private Vector2 movementDirection;
+        public Vector2 MovementDirection
         {
-            // TODO: Move logics
+            get => movementDirection;
+            set => movementDirection = value;
+        }
+
+        public void FixedUpdate()
+        {
+            if (MovementDirection == Vector2.zero)
+            {
+                return;
+            }
+
+            Move(tank.Speed.GetModifiedValue());
+        }
+
+        private void Move(float movementSpeed)
+        {
+            tankRigidBody.MovePosition(
+                tankRigidBody.position + (movementSpeed * Time.fixedDeltaTime * MovementDirection)
+            );
+            float lookRotationAngle =
+                Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
+            transform.eulerAngles = Vector3.forward * -lookRotationAngle;
         }
     }
 }
