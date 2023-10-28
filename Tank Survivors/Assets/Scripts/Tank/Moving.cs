@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common;
+using UnityEngine;
 
 namespace Tank
 {
@@ -7,14 +8,17 @@ namespace Tank
     {
         [SerializeField]
         private TankImpl tank;
-        private float movementSpeed;
-        private Rigidbody2D tankRigidBody;
-        public Vector2 MovementDirection { get; set; }
 
-        public void Start()
+        [SerializeField]
+        private Rigidbody2D tankRigidBody;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private Vector2 movementDirection;
+        public Vector2 MovementDirection
         {
-            tankRigidBody = tank.GetComponent<Rigidbody2D>();
-            movementSpeed = tank.Speed.SourceValue;
+            get => movementDirection;
+            set => movementDirection = value;
         }
 
         public void FixedUpdate()
@@ -24,16 +28,17 @@ namespace Tank
                 return;
             }
 
-            Move();
+            Move(tank.Speed.GetModifiedValue());
         }
 
-        private void Move()
+        private void Move(float movementSpeed)
         {
             tankRigidBody.MovePosition(
                 tankRigidBody.position + (movementSpeed * Time.fixedDeltaTime * MovementDirection)
             );
-            float angle = Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
-            transform.eulerAngles = Vector3.forward * -angle;
+            float lookRotationAngle =
+                Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
+            transform.eulerAngles = Vector3.forward * -lookRotationAngle;
         }
     }
 }

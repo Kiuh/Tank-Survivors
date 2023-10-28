@@ -9,7 +9,7 @@ namespace Tank
         private Moving moving;
 
         [SerializeField]
-        private Joystick joystick;
+        private joystick.Joystick joystick;
 
         private void Update()
         {
