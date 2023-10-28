@@ -3,12 +3,12 @@
 using System;
 using UnityEngine;
 
-namespace General.EnemyProducers 
+namespace Enemies.Producers
 {
     [Serializable]
     public class SerializedEnemyProducer
     {
-        [SerializeField] 
+        [SerializeField]
         private string selectedType;
 
         [SerializeField]

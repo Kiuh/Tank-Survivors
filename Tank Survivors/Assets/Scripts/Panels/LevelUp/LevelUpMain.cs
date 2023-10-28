@@ -6,16 +6,16 @@ using Tank.UpgradablePiece;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UiPanels
+namespace Panels.LevelUp
 {
-    [AddComponentMenu("UiPanels.LevelUp")]
-    public class LevelUp : MonoBehaviour
+    [AddComponentMenu("Panels.LevelUp.LevelUpMain")]
+    public class LevelUpMain : MonoBehaviour
     {
         [SerializeField]
         private TankImpl tank;
 
         [SerializeField]
-        private UpgradeBlockView upgradeBlockViewPrefab;
+        private UpgradeBlock upgradeBlockPrefab;
 
         [SerializeField]
         private Transform upgradeBlocksViewRoot;
@@ -41,7 +41,7 @@ namespace UiPanels
             if (!levelUpPanel.activeSelf)
             {
                 levelUpPanel.SetActive(true);
-                FillLevelUp();
+                UpdateUpgradesList();
             }
             else
             {
@@ -54,7 +54,7 @@ namespace UiPanels
             if (levelUpStack > 0)
             {
                 levelUpStack--;
-                FillLevelUp();
+                UpdateUpgradesList();
             }
             else
             {
@@ -62,7 +62,7 @@ namespace UiPanels
             }
         }
 
-        private void FillLevelUp()
+        private void UpdateUpgradesList()
         {
             List<IUpgradablePiece> upgrades = tank.GetAvailableUpgrades()
                 .ToList()
@@ -73,14 +73,11 @@ namespace UiPanels
             }
             foreach (IUpgradablePiece upgrade in upgrades)
             {
-                UpgradeBlockView upgradeBlock = Instantiate(
-                    upgradeBlockViewPrefab,
-                    upgradeBlocksViewRoot
-                );
+                UpgradeBlock upgradeBlock = Instantiate(upgradeBlockPrefab, upgradeBlocksViewRoot);
                 upgradeBlock.UpgradeName = upgrade.UpgradeName;
                 foreach (ILeveledUpgrade variant in upgrade.GetNextUpgrades())
                 {
-                    UpgradeVariantView upgradeVariant = upgradeBlock.CreateUpgradeVariantView();
+                    UpgradeVariant upgradeVariant = upgradeBlock.CreateUpgradeVariantView();
                     upgradeVariant.InformationText = variant.Description;
                     upgradeVariant.Button.onClick.AddListener(() =>
                     {
@@ -88,7 +85,7 @@ namespace UiPanels
                         if (levelUpStack > 0)
                         {
                             levelUpStack--;
-                            FillLevelUp();
+                            UpdateUpgradesList();
                         }
                         else
                         {

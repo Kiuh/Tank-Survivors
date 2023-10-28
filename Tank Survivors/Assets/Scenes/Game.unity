@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2e9c92ab329ff49a55015be58ba54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause: {fileID: 1353383997}
+  pauseController: {fileID: 0}
   pauseButton: {fileID: 719892496}
 --- !u!224 &984428813 stripped
 RectTransform:
@@ -728,17 +728,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4100499043533567350, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
   m_PrefabInstance: {fileID: 6465031630679340536}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1353383997 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6921678370980232282, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
-  m_PrefabInstance: {fileID: 6465031630679340536}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 975521aee97859a478168305b9d7496d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1371286461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1186,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: tank
+      value: 
+      objectReference: {fileID: 4915852016372238850}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 806785736}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1290,6 +1287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6821073547468362380, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
+      propertyPath: globalInput
+      value: 
+      objectReference: {fileID: 911460112}
     - target: {fileID: 6921678370980232282, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
       propertyPath: globalInput
       value: 

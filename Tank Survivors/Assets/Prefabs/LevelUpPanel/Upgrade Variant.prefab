@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 7568374138468497018}
   - component: {fileID: 7606235311029653050}
   m_Layer: 5
-  m_Name: Upgrade Piece
+  m_Name: Upgrade Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4643896717350283631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef01ad31b14d73418bad545174fdcea, type: 3}
+  m_Script: {fileID: 11500000, guid: a34243370b7676844a478ff26ce57c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1249266115290337447}

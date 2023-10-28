@@ -2,10 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Tank.UpgradablePiece
+namespace Panels.LevelUp
 {
-    [AddComponentMenu("Tank.UpgradablePiece.UpgradeVariantView")]
-    public class UpgradeVariantView : MonoBehaviour
+    [AddComponentMenu("Panels.LevelUp.UpgradeVariant")]
+    public class UpgradeVariant : MonoBehaviour
     {
         [SerializeField]
         private Button button;

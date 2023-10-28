@@ -206,12 +206,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3972962284494125070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d96dc9d42373d84cae3b89e6373a437, type: 3}
+  m_Script: {fileID: 11500000, guid: b93537f859a69c546a4928978a055b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeNameLabel: {fileID: 4767737996227913134}
-  upgradeVariantViewPrefab: {fileID: 7606235311029653050, guid: 93b2b90fcc3fa1d439d611f7b4d6469a, type: 3}
-  upgradeVariantViewParent: {fileID: 7307546445978034456}
+  upgradeVariantPrefab: {fileID: 7606235311029653050, guid: 93b2b90fcc3fa1d439d611f7b4d6469a, type: 3}
+  upgradeVariantViewRoot: {fileID: 7307546445978034456}
 --- !u!1 &6951579230886045854
 GameObject:
   m_ObjectHideFlags: 0

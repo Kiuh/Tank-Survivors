@@ -1,10 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Tank.UpgradablePiece
+namespace Panels.LevelUp
 {
-    [AddComponentMenu("Tank.UpgradablePiece.UpgradeBlockView")]
-    public class UpgradeBlockView : MonoBehaviour
+    [AddComponentMenu("Panels.LevelUp.UpgradeBlock")]
+    public class UpgradeBlock : MonoBehaviour
     {
         [SerializeField]
         private TMP_Text upgradeNameLabel;
@@ -15,14 +15,14 @@ namespace Tank.UpgradablePiece
         }
 
         [SerializeField]
-        private UpgradeVariantView upgradeVariantViewPrefab;
+        private UpgradeVariant upgradeVariantPrefab;
 
         [SerializeField]
         private Transform upgradeVariantViewRoot;
 
-        public UpgradeVariantView CreateUpgradeVariantView()
+        public UpgradeVariant CreateUpgradeVariantView()
         {
-            return Instantiate(upgradeVariantViewPrefab, upgradeVariantViewRoot);
+            return Instantiate(upgradeVariantPrefab, upgradeVariantViewRoot);
         }
     }
 }

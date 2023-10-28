@@ -2,7 +2,7 @@
 using Tank;
 using UnityEngine;
 
-namespace General.EnemyProducers
+namespace Enemies.Producers
 {
     [InterfaceEditor]
     public interface IEnemyProducer

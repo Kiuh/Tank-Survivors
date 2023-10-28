@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2450157710332944171}
   - component: {fileID: 5565646125482970415}
   - component: {fileID: 1872833960509328771}
+  - component: {fileID: 5938184197448680983}
   m_Layer: 5
   m_Name: Death Panel
   m_TagString: Untagged
@@ -92,14 +93,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478460b04a9ab1c4eb91777c28fbed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 0}
-  timer: {fileID: 0}
+  controller: {fileID: 5938184197448680983}
   losePanel: {fileID: 328837066940100759}
   infoLabel: {fileID: 131065584502676387}
   repeatButton: {fileID: 7758946855617314914}
   leaveButton: {fileID: 5148440343715694452}
-  repeatSceneName: Game
-  leaveSceneName: MainMenu
+--- !u!114 &5938184197448680983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328837066940100759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0896147872c10e54baf08db4b51feca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 0}
+  timer: {fileID: 0}
+  view: {fileID: 1872833960509328771}
 --- !u!1 &364112174811216836
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace General.Configs
+namespace Configs
 {
     [CreateAssetMenu(
         fileName = "LevelProgressionConfig",
         menuName = "Configs/LevelProgressionConfig",
         order = 5
     )]
-    public class LevelProgressionConfig : ScriptableObject
+    public class LevelProgression : ScriptableObject
     {
         [SerializeField]
         private float firstLevelExperience;

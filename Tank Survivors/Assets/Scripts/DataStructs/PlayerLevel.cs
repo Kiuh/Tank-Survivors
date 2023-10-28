@@ -1,5 +1,5 @@
 ﻿using Common;
-using General.Configs;
+using Configs;
 using System;
 using UnityEngine;
 
@@ -23,11 +23,11 @@ namespace DataStructs
         private ModifiableValue<float> maxExperienceCount;
         public float MaxExperienceCount => maxExperienceCount.SourceValue;
 
-        private LevelProgressionConfig progressionConfig;
+        private LevelProgression progressionConfig;
 
         public event Action OnLevelUp;
 
-        public PlayerLevel(LevelProgressionConfig progressionConfig)
+        public PlayerLevel(LevelProgression progressionConfig)
         {
             this.progressionConfig = progressionConfig;
             maxExperienceCount = new ModifiableValue<float>(progressionConfig.FirstLevelExperience);

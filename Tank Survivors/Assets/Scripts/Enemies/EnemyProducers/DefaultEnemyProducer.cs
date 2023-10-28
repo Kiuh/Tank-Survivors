@@ -1,10 +1,9 @@
 ﻿using AYellowpaper;
-using Enemies;
 using System;
 using Tank;
 using UnityEngine;
 
-namespace General.EnemyProducers
+namespace Enemies.Producers
 {
     [Serializable]
     public class DefaultEnemyProducer : IEnemyProducer

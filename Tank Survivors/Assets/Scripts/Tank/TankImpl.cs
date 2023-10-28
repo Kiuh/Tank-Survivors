@@ -12,7 +12,6 @@ using UnityEngine;
 namespace Tank
 {
     [SelectionBase]
-    [RequireComponent(typeof(Collider2D))]
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : MonoBehaviour
     {
@@ -77,8 +76,8 @@ namespace Tank
 
         private void Awake()
         {
-            tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
-            weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+            tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
+            weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
             playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }

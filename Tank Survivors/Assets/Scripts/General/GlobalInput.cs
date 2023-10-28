@@ -1,4 +1,4 @@
-﻿using UiPanels;
+﻿using Panels.Pause;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +8,7 @@ namespace General
     public class GlobalInput : MonoBehaviour
     {
         [SerializeField]
-        private Pause pause;
+        private Controller pauseController;
 
         [SerializeField]
         private Button pauseButton;
@@ -21,13 +21,13 @@ namespace General
         public void SetPause()
         {
             Time.timeScale = 0.0f;
-            pause.ShowPausePanel();
+            pauseController.ShowPause();
         }
 
         public void UnSetPause()
         {
             Time.timeScale = 1.0f;
-            pause.HidePausePanel();
+            pauseController.HidePause();
         }
     }
 }

@@ -3,18 +3,17 @@ using System.Linq;
 using Tank.Upgrades;
 using UnityEngine;
 
-namespace General.Configs
+namespace Configs
 {
     [CreateAssetMenu(
         fileName = "TankUpgradesConfig",
         menuName = "Configs/TankUpgradesConfig",
         order = 2
     )]
-    public class TankUpgradesConfig : ScriptableObject
+    public class TankUpgrades : ScriptableObject
     {
         [SerializeField]
-        private List<SerializedTankUpgrade> tankUpgrades;
-        public IEnumerable<ITankUpgrade> TankUpgrades =>
-            tankUpgrades.Select(x => x.ToTankUpgrade());
+        private List<SerializedTankUpgrade> upgrades;
+        public IEnumerable<ITankUpgrade> Upgrades => upgrades.Select(x => x.ToTankUpgrade());
     }
 }

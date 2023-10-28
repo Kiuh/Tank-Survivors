@@ -2,7 +2,7 @@
 using Tank;
 using UnityEngine;
 
-namespace General.Configs
+namespace Configs
 {
     [CreateAssetMenu(
         fileName = "TankStartProperties",

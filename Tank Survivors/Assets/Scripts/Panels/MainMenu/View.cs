@@ -1,12 +1,14 @@
-﻿using General;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UiPanels
+namespace Panels.MainMenu
 {
-    [AddComponentMenu("UiPanels.MainMenu")]
-    public class MainMenu : MonoBehaviour
+    [AddComponentMenu("Panels.MainMenu.View")]
+    public class View : MonoBehaviour
     {
+        [SerializeField]
+        private Controller controller;
+
         [SerializeField]
         private Button playButton;
 
@@ -17,7 +19,7 @@ namespace UiPanels
 
         private void PlayButtonClick()
         {
-            ScenesController.Instance.LoadScene(InGameScene.GameplayScene);
+            controller.Play();
         }
     }
 }

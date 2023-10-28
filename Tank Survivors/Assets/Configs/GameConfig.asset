@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b57f0e950a1b8248a5750d7eed235f8, type: 3}
+  m_Script: {fileID: 11500000, guid: c811a19772e7d574ba3a485707b0c9fe, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   TankStartProperties: {fileID: 11400000, guid: e6e5f94542d56aa4bb3c34c6bafa17dd, type: 2}
