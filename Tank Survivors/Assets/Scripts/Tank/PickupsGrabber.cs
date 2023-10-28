@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Tank
 {
-    [RequireComponent(typeof(CircleCollider2D))]
     [AddComponentMenu("Tank.PickupsGrabber")]
     public class PickupsGrabber : MonoBehaviour
     {

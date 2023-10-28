@@ -1,4 +1,4 @@
-﻿using General.Configs;
+﻿using Configs;
 using UnityEngine;
 
 namespace General
@@ -7,7 +7,7 @@ namespace General
     public class GameContext : MonoBehaviour
     {
         [SerializeField]
-        private GameConfig gameConfig;
-        public GameConfig GameConfig => gameConfig;
+        private Game gameConfig;
+        public Game GameConfig => gameConfig;
     }
 }

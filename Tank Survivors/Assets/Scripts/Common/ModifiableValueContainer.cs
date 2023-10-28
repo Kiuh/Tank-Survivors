@@ -7,7 +7,7 @@ namespace Common
     public class ModifiableValueContainer
     {
         [SerializeField]
-        private ModifiableValue<float> maxValue;
+        private ModifiableValue<float> maxValue = new(0);
 
         [SerializeField]
         [InspectorReadOnly]

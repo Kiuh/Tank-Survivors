@@ -1,38 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
-namespace Tank
+namespace Tank.UpgradablePiece
 {
-    public struct NextUpgradeInformation
-    {
-        // TODO: implement
-
-        public UpgradeVariantInformation GetSelectedUpgradeVariant()
-        {
-            // TODO: implement
-            throw new NotImplementedException();
-        }
-
-        public static NextUpgradeInformation Construct(
-            IEnumerable<UpgradeVariantInformation> upgradeVariants
-        )
-        {
-            // TODO: implement
-            throw new NotImplementedException();
-        }
-    }
-
-    public struct UpgradeVariantInformation
-    {
-        // TODO: implement
-    }
-
     public interface IUpgradablePiece
     {
-        public uint CurrentLevel { get; }
+        public string UpgradeName { get; }
+        public uint CurrentLevel { get; set; }
         public uint MaxLevel { get; }
         public bool IsReachedMaxLevel => CurrentLevel >= MaxLevel;
-        public void ApplyUpgrade(TankImpl tank, UpgradeVariantInformation upgradeVariant);
-        public NextUpgradeInformation GetNextUpgradeInformation();
+        public IEnumerable<ILeveledUpgrade> Upgrades { get; }
+        public void ApplyUpgrade(TankImpl tank, ILeveledUpgrade leveledUpgrade)
+        {
+            if (!Upgrades.Contains(leveledUpgrade))
+            {
+                Debug.LogError("Given ILeveledUpgrade not contains in IUpgradablePiece");
+            }
+            leveledUpgrade.ApplyUpgrade(tank);
+            CurrentLevel++;
+        }
+        public IEnumerable<ILeveledUpgrade> GetNextUpgrades()
+        {
+            return Upgrades.Where(x => x.UpgradingLevel == CurrentLevel);
+        }
+    }
+
+    public interface ILeveledUpgrade
+    {
+        public string Description { get; }
+        public uint UpgradingLevel { get; }
+        public void ApplyUpgrade(TankImpl tank);
     }
 }

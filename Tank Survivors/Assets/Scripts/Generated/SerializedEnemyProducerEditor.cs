@@ -3,9 +3,9 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using General.EnemyProducers;
+using Enemies.Producers;
 
-namespace SerializedInterface.Inspector 
+namespace SerializedInterface.Inspector
 {
     [CustomPropertyDrawer(typeof(SerializedEnemyProducer))]
     public class SerializedEnemyProducerDrawer : PropertyDrawer

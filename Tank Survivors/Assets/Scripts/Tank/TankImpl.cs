@@ -4,6 +4,7 @@ using General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
 using UnityEngine;
@@ -11,7 +12,6 @@ using UnityEngine;
 namespace Tank
 {
     [SelectionBase]
-    [RequireComponent(typeof(Collider2D))]
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : MonoBehaviour
     {
@@ -25,6 +25,10 @@ namespace Tank
         [SerializeField]
         private PlayerLevel playerLevel;
         public PlayerLevel PlayerLevel => playerLevel;
+
+        [SerializeField]
+        private ModifiableValue<uint> levelUpChoicesCount;
+        public ModifiableValue<uint> LevelUpChoicesCount => levelUpChoicesCount;
 
         [SerializeField]
         private ModifiableValue<float> speed;
@@ -72,8 +76,8 @@ namespace Tank
 
         private void Awake()
         {
-            tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.TankUpgrades.ToList();
-            weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
+            tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
+            weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
             playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
@@ -86,12 +90,12 @@ namespace Tank
             }
         }
 
-        public List<IUpgradablePiece> GetAvailableUpgrades()
+        public IEnumerable<IUpgradablePiece> GetAvailableUpgrades()
         {
             List<IUpgradablePiece> availableUpgrades = new();
             availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
             availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
-            return availableUpgrades.Where(x => !x.IsReachedMaxLevel).ToList();
+            return availableUpgrades.Where(x => !x.IsReachedMaxLevel);
         }
 
         public void Heal(float healAmount)

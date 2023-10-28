@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TankStartProperties
   m_EditorClassIdentifier: 
   health: 100
-  speed: 0
-  pickupRadius: 0
-  armor: 0
+  speed: 20
+  pickupRadius: 10
+  armor: 5
   criticalChance:
     value: 0
   evadeChance:
@@ -28,3 +28,4 @@ MonoBehaviour:
     value: 1
   fireRateModifier:
     value: 1
+  levelUpChoicesCount: 3
