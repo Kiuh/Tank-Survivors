@@ -21,18 +21,42 @@ namespace joystick
             set => deadZone = Mathf.Abs(value);
         }
 
-        public AxisOptions AxisOptions { get => AxisOptions; set => axisOptions = value; }
-        public bool SnapX { get => snapX; set => snapX = value; }
-        public bool SnapY { get => snapY; set => snapY = value; }
+        public AxisOptions AxisOptions
+        {
+            get => AxisOptions;
+            set => axisOptions = value;
+        }
+        public bool SnapX
+        {
+            get => snapX;
+            set => snapX = value;
+        }
+        public bool SnapY
+        {
+            get => snapY;
+            set => snapY = value;
+        }
 
-        [SerializeField] private float handleRange = 1;
-        [SerializeField] private float deadZone = 0;
-        [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
-        [SerializeField] private bool snapX = false;
-        [SerializeField] private bool snapY = false;
+        [SerializeField]
+        private float handleRange = 1;
 
-        [SerializeField] protected RectTransform background = null;
-        [SerializeField] private RectTransform handle = null;
+        [SerializeField]
+        private float deadZone = 0;
+
+        [SerializeField]
+        private AxisOptions axisOptions = AxisOptions.Both;
+
+        [SerializeField]
+        private bool snapX = false;
+
+        [SerializeField]
+        private bool snapY = false;
+
+        [SerializeField]
+        protected RectTransform background = null;
+
+        [SerializeField]
+        private RectTransform handle = null;
         private RectTransform baseRect = null;
 
         private Canvas canvas;
@@ -80,7 +104,12 @@ namespace joystick
             handle.anchoredPosition = input * radius * handleRange;
         }
 
-        protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
+        protected virtual void HandleInput(
+            float magnitude,
+            Vector2 normalised,
+            Vector2 radius,
+            Camera cam
+        )
         {
             if (magnitude > deadZone)
             {
@@ -165,7 +194,14 @@ namespace joystick
         protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
         {
             _ = Vector2.zero;
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out Vector2 localPoint))
+            if (
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    baseRect,
+                    screenPosition,
+                    cam,
+                    out Vector2 localPoint
+                )
+            )
             {
                 Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
                 return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
@@ -174,5 +210,10 @@ namespace joystick
         }
     }
 
-    public enum AxisOptions { Both, Horizontal, Vertical }
+    public enum AxisOptions
+    {
+        Both,
+        Horizontal,
+        Vertical
+    }
 }
