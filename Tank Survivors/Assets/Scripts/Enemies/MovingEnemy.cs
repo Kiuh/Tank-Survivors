@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class MovingEnemy : MonoBehaviour, IEnemy
+    public abstract class MovingEnemy : MonoBehaviour, IEnemy
     {
         [SerializeField]
         //[InspectorReadOnly]
@@ -15,7 +15,7 @@ namespace Enemies
         [SerializeField]
         private Rigidbody2D enemyRigidBody;
         public Rigidbody2D EnemyRigidBody => enemyRigidBody;
-     
+
         [SerializeField]
         private float health;
         public float Health => health;
@@ -47,7 +47,7 @@ namespace Enemies
 
         public virtual void Move() { }
 
-        public void TakeDAmage(float damageAmount)
+        public void TakeDamage(float damageAmount)
         {
             health -= damageAmount;
             if (health <= 0)
