@@ -1,14 +1,20 @@
 using Common;
+using System;
 using System.Collections;
 using Tank;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Soldier : MovingEnemy
+    [AddComponentMenu("Enemies.Soldier")]
+    public class Soldier : MonoBehaviour, IEnemy
     {
         [SerializeField]
         private Configs.Soldier soldierConfig;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private float health;
 
         [SerializeField]
         [InspectorReadOnly]
@@ -16,39 +22,77 @@ namespace Enemies
 
         [SerializeField]
         [InspectorReadOnly]
+        private float movementSpeed;
+
+        [SerializeField]
+        [InspectorReadOnly]
         private float timeForNextHit;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private TankImpl tank;
+
+        [SerializeField]
+        private Rigidbody2D enemyRigidBody;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private Vector2 movementDirection;
 
         [SerializeField]
         [InspectorReadOnly]
         private bool isTouchingTank;
 
-        public new void Initialize(TankImpl tank)
+        [SerializeField]
+        [InspectorReadOnly]
+        private bool isMoving;
+
+        public event Action OnDeath;
+
+        public void Initialize(TankImpl tank)
         {
+            health = soldierConfig.Health;
+            movementSpeed = soldierConfig.MovementSpeed;
             damage = soldierConfig.Damage;
             timeForNextHit = soldierConfig.TimeForNextHit;
-            MovingEnemyConfig = soldierConfig.MovingEnemyConfig;
-            base.Initialize(tank);
+            StartMovement();
         }
 
-        public override void Move()
+        public void StartMovement()
         {
-            CalculateDirectionToTank();
-            RotateToTank();
-            EnemyRigidBody.MovePosition(
-                EnemyRigidBody.position + (MovementDirection * Time.fixedDeltaTime)
-            );
+            isMoving = true;
+            _ = StartCoroutine(Move());
+        }
+
+        public void StopMovement()
+        {
+            isMoving = false;
+            StopCoroutine(Move());
+        }
+
+        public IEnumerator Move()
+        {
+            while (isMoving)
+            {
+                CalculateDirectionToTank();
+                RotateToTank();
+                enemyRigidBody.MovePosition(
+                    enemyRigidBody.position + (movementDirection * Time.fixedDeltaTime)
+                );
+                yield return new WaitForFixedUpdate();
+            }
         }
 
         private void CalculateDirectionToTank()
         {
-            Vector2 direction = Tank.transform.position - transform.position;
-            MovementDirection = direction.normalized * MovementSpeed;
+            Vector2 direction = tank.transform.position - transform.position;
+            movementDirection = direction.normalized * movementSpeed;
         }
 
         private void RotateToTank()
         {
             float rotationAngle =
-                Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
+                Mathf.Atan2(movementDirection.x, movementDirection.y) * Mathf.Rad2Deg;
             transform.eulerAngles = Vector3.forward * -rotationAngle;
         }
 
@@ -56,8 +100,18 @@ namespace Enemies
         {
             while (isTouchingTank)
             {
-                Tank.TakeDamage(damage);
+                tank.TakeDamage(damage);
                 yield return new WaitForSeconds(timeForNextHit);
+            }
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                health = 0;
+                OnDeath?.Invoke();
             }
         }
 

@@ -2,16 +2,12 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(
-        fileName = "DroneConfig",
-        menuName = "Configs/EnemiesConfigs/DroneConfig",
-        order = 2
-    )]
+    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/Drone", order = 1)]
     public class Drone : ScriptableObject
     {
         [SerializeField]
-        private MovingEnemy movingEnemyConfig;
-        public MovingEnemy MovingEnemyConfig => movingEnemyConfig;
+        private float health;
+        public float Health => health;
 
         [SerializeField]
         private float damage;
@@ -24,5 +20,9 @@ namespace Configs
         [SerializeField]
         private float timeToExplode;
         public float TimeToExplode => timeToExplode;
+
+        [SerializeField]
+        private float movementSpeed;
+        public float MovementSpeed => movementSpeed;
     }
 }

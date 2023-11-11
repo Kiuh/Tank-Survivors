@@ -1,14 +1,20 @@
 using Common;
+using System;
 using System.Collections;
 using Tank;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Drone : MovingEnemy
+    [AddComponentMenu("Enemies.Drone")]
+    public class Drone : MonoBehaviour, IEnemy
     {
         [SerializeField]
         private Configs.Drone droneConfig;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private float health;
 
         [SerializeField]
         [InspectorReadOnly]
@@ -16,10 +22,11 @@ namespace Enemies
 
         [SerializeField]
         [InspectorReadOnly]
-        private float explosionRadius;
+        private float movementSpeed;
 
         [SerializeField]
-        private CircleCollider2D explosiveArea;
+        [InspectorReadOnly]
+        private float explosionRadius;
 
         [SerializeField]
         [InspectorReadOnly]
@@ -27,42 +34,102 @@ namespace Enemies
 
         [SerializeField]
         [InspectorReadOnly]
+        private TankImpl tank;
+
+        [SerializeField]
+        private Rigidbody2D enemyRigidBody;
+
+        [SerializeField]
+        private CircleCollider2D explosiveArea;
+
+        [SerializeField]
+        [InspectorReadOnly]
+        private Vector2 movementDirection;
+
+        [SerializeField]
+        [InspectorReadOnly]
         private bool isGonnaExplode = false;
         private bool isTankClose;
 
-        public new void Initialize(TankImpl tank)
+        [SerializeField]
+        [InspectorReadOnly]
+        private bool isMoving;
+
+        public event Action OnDeath;
+
+        public void Initialize(TankImpl tank)
         {
+            health = droneConfig.Health;
+            movementSpeed = droneConfig.MovementSpeed;
             damage = droneConfig.Damage;
             explosionRadius = droneConfig.ExplosionRadius;
             timeToExplode = droneConfig.TimeToExplode;
-            MovingEnemyConfig = droneConfig.MovingEnemyConfig;
             explosiveArea.radius = explosionRadius;
-            base.Initialize(tank);
+            this.tank = tank;
+            StartMovement();
         }
 
-        public override void Move()
+        public void StartMovement()
         {
-            CalculateDirectionToTank();
-            RotateToTank();
-            EnemyRigidBody.MovePosition(
-                EnemyRigidBody.position + (MovementDirection * Time.fixedDeltaTime)
-            );
+            isMoving = true;
+            _ = StartCoroutine(Move());
+        }
+
+        public void StopMovement()
+        {
+            isMoving = false;
+            StopCoroutine(Move());
+        }
+
+        private IEnumerator Move()
+        {
+            while (isMoving)
+            {
+                CalculateDirectionToTank();
+                RotateToTank();
+                enemyRigidBody.MovePosition(
+                    enemyRigidBody.position + (movementDirection * Time.fixedDeltaTime)
+                );
+                yield return new WaitForFixedUpdate();
+            }
         }
 
         private void CalculateDirectionToTank()
         {
-            Vector2 direction = Tank.transform.position - transform.position;
-            MovementDirection = direction.normalized * MovementSpeed;
+            Vector2 direction = tank.transform.position - transform.position;
+            movementDirection = direction.normalized * movementSpeed;
         }
 
         private void RotateToTank()
         {
             float rotationAngle =
-                Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
+                Mathf.Atan2(movementDirection.x, movementDirection.y) * Mathf.Rad2Deg;
             transform.eulerAngles = Vector3.forward * -rotationAngle;
         }
 
-        private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+        private IEnumerator Explode()
+        {
+            StopMovement();
+            enemyRigidBody.isKinematic = true;
+            yield return new WaitForSeconds(timeToExplode);
+            if (isTankClose)
+            {
+                tank.TakeDamage(damage);
+            }
+            OnDeath?.Invoke();
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                health = 0;
+                OnDeath?.Invoke();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
@@ -82,18 +149,6 @@ namespace Enemies
             {
                 isTankClose = false;
             }
-        }
-
-        private IEnumerator Explode()
-        {
-            StopMovement();
-            EnemyRigidBody.isKinematic = true;
-            yield return new WaitForSeconds(timeToExplode);
-            if (isTankClose)
-            {
-                Tank.TakeDamage(damage);
-            }
-            TakeDamage(Health);
         }
     }
 }

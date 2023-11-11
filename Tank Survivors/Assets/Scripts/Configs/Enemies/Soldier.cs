@@ -2,16 +2,16 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(
-        fileName = "SoldierConfig",
-        menuName = "Configs/EnemiesConfigs/SoldierConfig",
-        order = 1
-    )]
+    [CreateAssetMenu(fileName = "SoldierConfig", menuName = "Configs/Enemies/Soldier", order = 0)]
     public class Soldier : ScriptableObject
     {
         [SerializeField]
-        private MovingEnemy movingEnemyConfig;
-        public MovingEnemy MovingEnemyConfig => movingEnemyConfig;
+        private float health;
+        public float Health => health;
+
+        [SerializeField]
+        private float movementSpeed;
+        public float MovementSpeed => movementSpeed;
 
         [SerializeField]
         private float damage;
