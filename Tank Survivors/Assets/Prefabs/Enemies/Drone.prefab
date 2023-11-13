@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3017579110327134564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.06, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,18 +172,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507836ed0042aae41b8d40e8dea69a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droneConfig:
+    health: 0
+    damage: 0
+    explosionRadius: 0
+    timeToExplode: 0
+    movementSpeed: 0
+  health: 0
+  damage: 15
+  movementSpeed: 2
+  explosionRadius: 0.5
+  timeToExplode: 5
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
-  health: 0
-  movementSpeed: 2
-  movementDirection: {x: 0, y: 0}
-  isMoving: 0
-  droneConfig: {fileID: 11400000, guid: ea1516d58b8c8bc47bdcaf957f8e65c0, type: 2}
-  damage: 15
-  explosionRadius: 0.5
   explosiveArea: {fileID: 3433241106660565001}
-  timeToExplode: 5
+  movementDirection: {x: 0, y: 0}
   isGonnaExplode: 0
+  isMoving: 0
 --- !u!50 &2677439162934494719
 Rigidbody2D:
   serializedVersion: 4

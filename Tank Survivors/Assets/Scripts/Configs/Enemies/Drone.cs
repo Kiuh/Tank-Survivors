@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/Drone", order = 1)]
-    public class Drone : ScriptableObject
+    [Serializable]
+    public class Drone
     {
         [SerializeField]
         private float health;

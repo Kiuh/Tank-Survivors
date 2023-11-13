@@ -806,6 +806,22 @@ PrefabInstance:
       propertyPath: tank
       value: 
       objectReference: {fileID: 1891124458}
+    - target: {fileID: 2317129207149102629, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: soldierConfig.damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317129207149102629, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: soldierConfig.health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317129207149102629, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: soldierConfig.movementSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317129207149102629, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: soldierConfig.timeForNextHit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342746660543064952, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.992
@@ -845,6 +861,18 @@ PrefabInstance:
     - target: {fileID: 4342746660543064952, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637406204187879018, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637406204187879018, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637406204187879018, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
