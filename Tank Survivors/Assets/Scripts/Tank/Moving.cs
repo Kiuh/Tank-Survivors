@@ -23,11 +23,6 @@ namespace Tank
 
         public void FixedUpdate()
         {
-            if (MovementDirection == Vector2.zero)
-            {
-                return;
-            }
-
             Move(tank.Speed.GetModifiedValue());
         }
 
@@ -36,9 +31,12 @@ namespace Tank
             tankRigidBody.MovePosition(
                 tankRigidBody.position + (movementSpeed * Time.fixedDeltaTime * MovementDirection)
             );
-            float lookRotationAngle =
-                Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
-            transform.eulerAngles = Vector3.forward * -lookRotationAngle;
+            if (MovementDirection != Vector2.zero)
+            {
+                float lookRotationAngle =
+                    Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
+                transform.eulerAngles = Vector3.forward * -lookRotationAngle;
+            }
         }
     }
 }
