@@ -86,7 +86,7 @@ namespace Tank
         {
             foreach (IWeapon weapon in weapons)
             {
-                weapon.ProceedAttack();
+                weapon.ProceedAttack(Time.deltaTime);
             }
         }
 

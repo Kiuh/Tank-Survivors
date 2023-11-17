@@ -1,13 +1,14 @@
 ﻿using Common;
 using DataStructs;
 using Tank.UpgradablePiece;
+using Tank.Weapons.Projectiles;
 
 namespace Tank.Weapons
 {
     [InterfaceEditor]
     public interface IWeapon : IUpgradablePiece
     {
-        public void ProceedAttack();
+        public void ProceedAttack(float deltaTime);
     }
 
     public interface IHaveDamage
@@ -44,5 +45,10 @@ namespace Tank.Weapons
     {
         public ModifiableValue<Percentage> CriticalChance { get; }
         public ModifiableValue<Percentage> CriticalMultiplier { get; }
+    }
+
+    public interface IHaveProjectile
+    {
+        public Projectile ProjectilePrefab { get; }
     }
 }
