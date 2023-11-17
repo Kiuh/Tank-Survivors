@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tank.UpgradablePiece;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -17,7 +18,8 @@ namespace Tank.Weapons
             IHaveFireRate,
             IHavePenetration,
             IHaveProjectilesPerShoot,
-            IHaveProjectileSize
+            IHaveProjectileSize,
+            IHaveProjectile
     {
         [SerializeField]
         [InspectorReadOnly]
@@ -74,10 +76,39 @@ namespace Tank.Weapons
         public IEnumerable<ILeveledUpgrade> Upgrades =>
             leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
 
-        public void ProceedAttack()
+        [SerializeField]
+        private Projectile projectilePrefab;
+        public Projectile ProjectilePrefab => projectilePrefab;
+
+        private float remainingTime;
+
+        public void ProceedAttack(float deltaTime)
         {
-            // TODO: implement
-            throw new NotImplementedException();
+            remainingTime -= deltaTime;
+
+            if (remainingTime < 0f)
+            {
+                remainingTime += fireRate.GetModifiedValue();
+                for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
+                {
+                    float resultDamage = damage.GetModifiedValue() * (1f + 
+                        (criticalChance.SourceValue.TryChance() ? 0f : criticalMultiplier.GetModifiedValue().Value));
+
+                    Projectile projectile = UnityEngine.Object
+                        .Instantiate(projectilePrefab, Vector3.zero, Quaternion.identity); // TODO: projectile spawn positon
+                    projectile.Init(
+                        resultDamage,
+                        projectileSize.GetModifiedValue(),
+                        fireRange.GetModifiedValue(),
+                        penetration.GetModifiedValue(),
+                        Vector3.up); // TODO: direction towards the enemy
+                }
+            }
+        }
+
+        public BasicGun()
+        {
+            remainingTime = fireRate.GetModifiedValue();
         }
     }
 
