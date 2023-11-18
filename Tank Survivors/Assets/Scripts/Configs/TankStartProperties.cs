@@ -49,7 +49,7 @@ namespace Configs
             tank.Health.BaseValue = health;
             tank.Speed.SourceValue = speed;
             tank.PickupRadius.SourceValue = pickupRadius;
-            tank.Armor.SourceValue = armor;
+            tank.Armor.BaseValue = armor;
             tank.CriticalChance.SourceValue = criticalChance;
             tank.EvadeChance.SourceValue = evadeChance;
             tank.DamageModifier.SourceValue = damageModifier;
