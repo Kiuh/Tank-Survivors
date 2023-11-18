@@ -10,7 +10,9 @@ namespace Tank.PickUps
 
         [SerializeField]
         [Range(0.0f, 1.0f)]
-        private float timeSlowerStrength;
+        private float timeSlowerPercentage;
+
+        private readonly float defaultTimeScale = 1.0f;
 
         private bool grabbed;
         public bool Grabbed => grabbed;
@@ -28,9 +30,9 @@ namespace Tank.PickUps
 
         private IEnumerator StartTimeSLower()
         {
-            Time.timeScale = timeSlowerStrength;
-            yield return new WaitForSeconds(time);
-            Time.timeScale = 1.0f;
+            Time.timeScale = timeSlowerPercentage;
+            yield return new WaitForSecondsRealtime(time);
+            Time.timeScale = defaultTimeScale;
         }
     }
 }

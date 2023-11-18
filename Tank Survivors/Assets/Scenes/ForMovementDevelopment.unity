@@ -399,12 +399,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1075597817}
     - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
+      propertyPath: armor.sourceValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
       propertyPath: speed.sourceValue
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
       propertyPath: health.currentValue
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
+      propertyPath: health.maxValue.sourceValue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3604841203896641056, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
       propertyPath: joystick

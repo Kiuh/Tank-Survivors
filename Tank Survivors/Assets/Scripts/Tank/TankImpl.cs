@@ -39,8 +39,8 @@ namespace Tank
         public ModifiableValue<float> PickupRadius => pickupRadius;
 
         [SerializeField]
-        private ModifiableValue<float> armor;
-        public ModifiableValue<float> Armor => armor;
+        private ModifiableValueContainer armor;
+        public ModifiableValueContainer Armor => armor;
 
         [SerializeField]
         private ModifiableValue<Percentage> criticalChance;
@@ -101,6 +101,11 @@ namespace Tank
         public void Heal(float healAmount)
         {
             health.Value = Mathf.Min(health.Value + healAmount, health.MaxValue);
+        }
+
+        public void FixArmor(float armorAmount)
+        {
+            armor.Value = Mathf.Min(armor.Value + armorAmount, armor.MaxValue);
         }
 
         public void TakeDamage(float damageAmount)

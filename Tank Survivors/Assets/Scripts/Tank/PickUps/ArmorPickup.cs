@@ -18,6 +18,7 @@ namespace Tank.PickUps
         public void Grab(TankImpl tank)
         {
             grabbed = true;
+            tank.FixArmor(armorAmount);
         }
     }
 }
