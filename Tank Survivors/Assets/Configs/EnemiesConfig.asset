@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
   m_Name: EnemiesConfig
   m_EditorClassIdentifier: 
-  enemyProducers: []
+  enemyProducers:
+  - selectedType: DefaultEnemyProducer
+    defaultEnemyProducer:
+      enemyPrefab:
+        _underlyingValue: {fileID: 0}
+      spawnInterval: 0.62
+      startCircleRadius: 1
+      endCircleRadius: 5
