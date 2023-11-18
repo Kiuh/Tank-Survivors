@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Tank.PickUps
 {
+    [AddComponentMenu("Tank.PickUps.HealPickUp")]
     public class HealPickUp : MonoBehaviour, IPickUp
     {
         [SerializeField]

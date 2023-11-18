@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Tank.PickUps
 {
+    [AddComponentMenu("Tank.PickUps.ExperiencePickUp")]
     public class ExperiencePickUp : MonoBehaviour, IPickUp
     {
         [SerializeField]

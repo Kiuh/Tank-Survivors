@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Tank.PickUps
 {
+    [AddComponentMenu("Tank.PickUps.ArmorPickup")]
     public class ArmorPickup : MonoBehaviour, IPickUp
     {
         [SerializeField]

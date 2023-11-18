@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Tank.PickUps
 {
+    [AddComponentMenu("Tank.PickUps.TimeSlowerPickUp")]
     public class TimeSlowerPickUp : MonoBehaviour, IPickUp
     {
         [SerializeField]
