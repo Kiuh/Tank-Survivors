@@ -35,7 +35,7 @@ namespace Tank.Weapons.Projectiles
             transform.Translate(Time.deltaTime * direction);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.transform.TryGetComponent(out IEnemy enemy))
             {

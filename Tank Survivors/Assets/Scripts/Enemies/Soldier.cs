@@ -55,6 +55,7 @@ namespace Enemies
             movementSpeed = soldierConfig.MovementSpeed;
             damage = soldierConfig.Damage;
             timeForNextHit = soldierConfig.TimeForNextHit;
+            this.tank = tank;
             StartMovement();
         }
 
@@ -111,6 +112,7 @@ namespace Enemies
             if (health <= 0)
             {
                 health = 0;
+                OnDeath += ()=>Destroy(gameObject);
                 OnDeath?.Invoke();
             }
         }
