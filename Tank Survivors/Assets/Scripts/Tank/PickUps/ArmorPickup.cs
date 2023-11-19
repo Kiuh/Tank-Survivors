@@ -8,18 +8,18 @@ namespace Tank.PickUps
         [SerializeField]
         private float armorAmount;
 
-        private bool grabbed;
-        public bool Grabbed => grabbed;
+        public bool Grabbed { get; private set; }
 
         private void OnEnable()
         {
-            grabbed = false;
+            Grabbed = false;
         }
 
         public void Grab(TankImpl tank)
         {
-            grabbed = true;
+            Grabbed = true;
             tank.FixArmor(armorAmount);
+            Destroy(gameObject);
         }
     }
 }

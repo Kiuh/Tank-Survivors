@@ -12,4 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fd812a07569cd49abd9ff146a2cfa1, type: 3}
   m_Name: WeaponsConfig
   m_EditorClassIdentifier: 
-  weapons: []
+  weapons:
+  - selectedType: BasicGun
+    basicGun:
+      currentLevel: 0
+      maxLevel: 0
+      damage:
+        sourceValue: 5
+      fireRange:
+        sourceValue: 10
+      projectileSize:
+        sourceValue: 1
+      penetration:
+        sourceValue: 1
+      projectilesPerShoot:
+        sourceValue: 1
+      fireRate:
+        sourceValue: 0.4
+      criticalChance:
+        sourceValue:
+          value: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
+      leveledBasicGunUpgrades: []
+      upgradeName: 
+      projectilePrefab: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}

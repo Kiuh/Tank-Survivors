@@ -78,6 +78,7 @@ namespace Tank
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
+            weapons.ForEach(x => x.Initialize());
             playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }

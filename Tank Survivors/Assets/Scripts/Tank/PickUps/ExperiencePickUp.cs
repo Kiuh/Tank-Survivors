@@ -20,6 +20,7 @@ namespace Tank.PickUps
         {
             grabbed = true;
             tank.PlayerLevel.AddExperience(experienceAmount);
+            Destroy(gameObject);
         }
     }
 }

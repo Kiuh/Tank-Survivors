@@ -66,6 +66,7 @@ namespace Enemies
             timeToExplode = droneConfig.TimeToExplode;
             explosiveArea.radius = explosionRadius;
             this.tank = tank;
+            OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
 

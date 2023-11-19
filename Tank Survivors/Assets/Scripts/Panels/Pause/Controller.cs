@@ -30,11 +30,13 @@ namespace Panels.Pause
 
         public void Repeat()
         {
+            globalInput.UnSetPause();
             ScenesController.Instance.LoadScene(InGameScene.GameplayScene);
         }
 
         public void Leave()
         {
+            globalInput.UnSetPause();
             ScenesController.Instance.LoadScene(InGameScene.MainScene);
         }
     }

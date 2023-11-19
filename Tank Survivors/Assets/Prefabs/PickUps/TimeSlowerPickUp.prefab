@@ -136,3 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   timeSlowerPercentage: 0.2
+  spriteRenderer: {fileID: 337425409110343240}

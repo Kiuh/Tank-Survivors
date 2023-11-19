@@ -106,7 +106,7 @@ namespace Tank.Weapons
             }
         }
 
-        public BasicGun()
+        public void Initialize()
         {
             remainingTime = fireRate.GetModifiedValue();
         }
