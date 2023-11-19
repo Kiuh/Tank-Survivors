@@ -30,7 +30,7 @@ namespace Panels.LevelUp
         [InspectorReadOnly]
         private uint levelUpStack = 0;
 
-        private void Awake()
+        private void OnEnable()
         {
             tank.PlayerLevel.OnLevelUp += LevelUpRelease;
             skipButton.onClick.AddListener(ButtonSkipPress);
@@ -38,6 +38,7 @@ namespace Panels.LevelUp
 
         public void LevelUpRelease()
         {
+            Time.timeScale = 0.0f;
             if (!levelUpPanel.activeSelf)
             {
                 levelUpPanel.SetActive(true);
@@ -58,6 +59,7 @@ namespace Panels.LevelUp
             }
             else
             {
+                Time.timeScale = 1.0f;
                 levelUpPanel.SetActive(false);
             }
         }
@@ -90,6 +92,7 @@ namespace Panels.LevelUp
                         else
                         {
                             levelUpPanel.SetActive(false);
+                            Time.timeScale = 1.0f;
                         }
                     });
                 }

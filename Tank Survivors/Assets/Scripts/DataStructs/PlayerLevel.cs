@@ -2,6 +2,7 @@
 using Configs;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DataStructs
 {
@@ -27,7 +28,7 @@ namespace DataStructs
 
         public event Action OnLevelUp;
 
-        public PlayerLevel(LevelProgression progressionConfig)
+        public void Initialize(LevelProgression progressionConfig)
         {
             this.progressionConfig = progressionConfig;
             maxExperienceCount = new ModifiableValue<float>(progressionConfig.FirstLevelExperience);

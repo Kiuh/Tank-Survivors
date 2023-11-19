@@ -79,7 +79,7 @@ namespace Tank
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
             weapons.ForEach(x => x.Initialize());
-            playerLevel = new(gameContext.GameConfig.LevelProgressionConfig);
+            playerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 
@@ -96,6 +96,7 @@ namespace Tank
             List<IUpgradablePiece> availableUpgrades = new();
             availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
             availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
+            Debug.Log(availableUpgrades.Count);
             return availableUpgrades.Where(x => !x.IsReachedMaxLevel);
         }
 
