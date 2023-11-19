@@ -33,7 +33,14 @@ namespace Tank
                 tank.Health.MaxValue,
                 lerpSpeed
             );
-            // TODO: for experience
+
+            LerpSize(
+                experienceFrontBar,
+                experienceBackground,
+                tank.PlayerLevel.ExperienceCount,
+                tank.PlayerLevel.MaxExperienceCount,
+                lerpSpeed
+            );
         }
 
         private void LerpSize(
