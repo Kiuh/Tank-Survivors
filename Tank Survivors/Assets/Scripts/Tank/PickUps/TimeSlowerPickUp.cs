@@ -13,6 +13,9 @@ namespace Tank.PickUps
         [Range(0.0f, 1.0f)]
         private float timeSlowerPercentage;
 
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
+
         private readonly float defaultTimeScale = 1.0f;
 
         private bool grabbed;
@@ -27,6 +30,7 @@ namespace Tank.PickUps
         {
             grabbed = true;
             _ = StartCoroutine(StartTimeSLower());
+            spriteRenderer.enabled = false;
         }
 
         private IEnumerator StartTimeSLower()
@@ -34,6 +38,7 @@ namespace Tank.PickUps
             Time.timeScale = timeSlowerPercentage;
             yield return new WaitForSecondsRealtime(time);
             Time.timeScale = defaultTimeScale;
+            Destroy(gameObject);
         }
     }
 }

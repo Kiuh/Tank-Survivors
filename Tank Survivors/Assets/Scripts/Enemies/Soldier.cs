@@ -55,6 +55,8 @@ namespace Enemies
             movementSpeed = soldierConfig.MovementSpeed;
             damage = soldierConfig.Damage;
             timeForNextHit = soldierConfig.TimeForNextHit;
+            this.tank = tank;
+            OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
 

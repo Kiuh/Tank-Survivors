@@ -127,10 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soldierConfig:
-    health: 0
-    movementSpeed: 0
-    damage: 0
-    timeForNextHit: 0
+    health: 10
+    movementSpeed: 1
+    damage: 1
+    timeForNextHit: 1
   health: 100
   damage: 10
   movementSpeed: 1

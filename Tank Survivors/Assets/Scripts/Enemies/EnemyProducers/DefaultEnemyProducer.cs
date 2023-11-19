@@ -20,11 +20,17 @@ namespace Enemies.Producers
         [SerializeField]
         private float endCircleRadius;
 
+        [SerializeField]
+        private float startTime;
+
+        [SerializeField]
+        private float endTime;
+
         private float timer = 0;
 
-        public float StartTime => throw new NotImplementedException();
+        public float StartTime => startTime;
 
-        public float EndTime => throw new NotImplementedException();
+        public float EndTime => endTime;
 
         public void Produce(TankImpl tank, Transform enemyRoot)
         {
@@ -40,6 +46,7 @@ namespace Enemies.Producers
                     )
                     .GetComponent<IEnemy>()
                     .Initialize(tank);
+                timer = spawnInterval;
             }
         }
 

@@ -9,6 +9,7 @@ namespace Tank.Weapons
     public interface IWeapon : IUpgradablePiece
     {
         public void ProceedAttack(float deltaTime);
+        public void Initialize();
     }
 
     public interface IHaveDamage

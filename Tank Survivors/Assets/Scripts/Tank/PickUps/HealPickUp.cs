@@ -20,6 +20,7 @@ namespace Tank.PickUps
         {
             grabbed = true;
             tank.Heal(healAmount);
+            Destroy(gameObject);
         }
     }
 }
