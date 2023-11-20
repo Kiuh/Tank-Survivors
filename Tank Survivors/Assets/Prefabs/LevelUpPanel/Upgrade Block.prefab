@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 7307546445978034456}
   - component: {fileID: 3301938282454045027}
   - component: {fileID: 3628198666133470340}
-  - component: {fileID: 4514251634176929555}
   - component: {fileID: 7724880606518623250}
+  - component: {fileID: 9104254489051778156}
   m_Layer: 5
   m_Name: Upgrade Block
   m_TagString: Untagged
@@ -183,7 +183,23 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
---- !u!114 &4514251634176929555
+--- !u!114 &7724880606518623250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3972962284494125070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93537f859a69c546a4928978a055b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layoutGroup: {fileID: 3301938282454045027}
+  upgradeNameLabel: {fileID: 4767737996227913134}
+  upgradeVariantPrefab: {fileID: 7606235311029653050, guid: 93b2b90fcc3fa1d439d611f7b4d6469a, type: 3}
+  upgradeVariantViewRoot: {fileID: 7307546445978034456}
+--- !u!114 &9104254489051778156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,21 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &7724880606518623250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972962284494125070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93537f859a69c546a4928978a055b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeNameLabel: {fileID: 4767737996227913134}
-  upgradeVariantPrefab: {fileID: 7606235311029653050, guid: 93b2b90fcc3fa1d439d611f7b4d6469a, type: 3}
-  upgradeVariantViewRoot: {fileID: 7307546445978034456}
 --- !u!1 &6951579230886045854
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +249,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 25}
+  m_SizeDelta: {x: 0, y: 17.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6298067794977906656
 CanvasRenderer:
@@ -364,6 +365,6 @@ MonoBehaviour:
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
   m_LayoutPriority: 1

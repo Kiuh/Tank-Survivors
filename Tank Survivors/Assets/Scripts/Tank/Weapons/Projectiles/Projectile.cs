@@ -12,10 +12,16 @@ namespace Tank.Weapons.Projectiles
 
         private Vector3 startPosition;
 
-        public void Init(float damage, float size, float fireRange, int penetration, Vector3 direction)
+        public void Init(
+            float damage,
+            float size,
+            float fireRange,
+            int penetration,
+            Vector3 direction
+        )
         {
             this.damage = damage;
-            transform.localScale = new Vector3 (size, size, 1);
+            transform.localScale = new Vector3(size, size, 1);
             this.fireRange = fireRange;
             this.penetration = penetration;
             this.direction = direction;
@@ -42,7 +48,9 @@ namespace Tank.Weapons.Projectiles
                 enemy.TakeDamage(damage);
                 penetration--;
                 if (penetration <= 0)
+                {
                     Destroy(gameObject);
+                }
             }
         }
     }
