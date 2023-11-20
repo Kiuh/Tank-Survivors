@@ -1681,14 +1681,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelUpPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 7239369463563140255, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8517772859225345236, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0013427734
-      objectReference: {fileID: 0}
     - target: {fileID: 9208286662801774954, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: tank
       value: 
@@ -2818,7 +2810,7 @@ Canvas:
   m_GameObject: {fileID: 1997328082}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1886751205}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

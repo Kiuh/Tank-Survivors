@@ -502,7 +502,6 @@ MonoBehaviour:
   levelUpPanel: {fileID: 7239369463563140255}
   skipButton: {fileID: 8641254219004294143}
   levelUpStack: 0
-  layoutGroup: {fileID: 0}
 --- !u!1 &6170510641409400596
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &378923915409555997
 RectTransform:
   m_ObjectHideFlags: 0
