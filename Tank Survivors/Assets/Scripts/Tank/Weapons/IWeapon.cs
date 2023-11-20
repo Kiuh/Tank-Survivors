@@ -1,7 +1,9 @@
 ﻿using Common;
 using DataStructs;
+using Tank.Towers;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Projectiles;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -9,7 +11,7 @@ namespace Tank.Weapons
     public interface IWeapon : IUpgradablePiece
     {
         public void ProceedAttack(float deltaTime);
-        public void Initialize();
+        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder);
     }
 
     public interface IHaveDamage
@@ -51,5 +53,16 @@ namespace Tank.Weapons
     public interface IHaveProjectile
     {
         public Projectile ProjectilePrefab { get; }
+    }
+
+    public interface IHaveProjectileSpeed
+    {
+        public ModifiableValue<float> ProjectileSpeed { get; }
+    }
+
+    public interface IHaveTower<T>
+        where T : ITower
+    {
+        public T TowerPrefab { get; }
     }
 }

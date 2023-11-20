@@ -17,24 +17,27 @@ MonoBehaviour:
     basicGun:
       currentLevel: 0
       maxLevel: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
       damage:
         sourceValue: 5
       fireRange:
         sourceValue: 10
-      projectileSize:
-        sourceValue: 1
-      penetration:
-        sourceValue: 1
-      projectilesPerShoot:
-        sourceValue: 1
-      fireRate:
-        sourceValue: 0.4
       criticalChance:
         sourceValue:
           value: 0
-      criticalMultiplier:
-        sourceValue:
-          value: 0
-      leveledBasicGunUpgrades: []
-      upgradeName: 
+      fireRate:
+        sourceValue: 0.4
+      penetration:
+        sourceValue: 1
       projectilePrefab: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
+      projectileSize:
+        sourceValue: 1
+      projectileSpeed:
+        sourceValue: 5
+      projectilesPerShoot:
+        sourceValue: 1
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 6267967647746527568, guid: 4997d5c0438945b45b4b828047c25dec, type: 3}
+      upgradeName: 

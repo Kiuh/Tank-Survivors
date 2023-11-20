@@ -6,19 +6,28 @@ namespace Tank.Weapons.Projectiles
     public class Projectile : MonoBehaviour
     {
         private float damage;
+        private float speed;
         private float fireRange;
         private int penetration;
         private Vector3 direction;
 
         private Vector3 startPosition;
 
-        public void Init(float damage, float size, float fireRange, int penetration, Vector3 direction)
+        public void Init(
+            float damage,
+            float speed,
+            float size,
+            float fireRange,
+            int penetration,
+            Vector3 direction
+        )
         {
             this.damage = damage;
-            transform.localScale = new Vector3 (size, size, 1);
+            this.speed = speed;
+            transform.localScale = new Vector3(size, size, 1);
             this.fireRange = fireRange;
             this.penetration = penetration;
-            this.direction = direction;
+            this.direction = direction.normalized;
         }
 
         private void Start()
@@ -32,7 +41,7 @@ namespace Tank.Weapons.Projectiles
             {
                 Destroy(gameObject);
             }
-            transform.Translate(Time.deltaTime * direction);
+            transform.Translate(Time.deltaTime * speed * direction);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
