@@ -80,6 +80,7 @@ namespace Tank
         private void Awake()
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
+            tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
             weapons.ForEach(x => x.Initialize(gameObject.transform, enemyFinder));
             playerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
@@ -99,7 +100,6 @@ namespace Tank
             List<IUpgradablePiece> availableUpgrades = new();
             availableUpgrades.AddRange(tankUpgrades.Cast<IUpgradablePiece>());
             availableUpgrades.AddRange(weapons.Cast<IUpgradablePiece>());
-            Debug.Log(availableUpgrades.Count);
             return availableUpgrades.Where(x => !x.IsReachedMaxLevel);
         }
 

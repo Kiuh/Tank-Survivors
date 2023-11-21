@@ -2,7 +2,6 @@
 using Configs;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace DataStructs
 {

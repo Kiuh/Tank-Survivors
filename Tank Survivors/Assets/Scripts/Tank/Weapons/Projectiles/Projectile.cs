@@ -51,7 +51,9 @@ namespace Tank.Weapons.Projectiles
                 enemy.TakeDamage(damage);
                 penetration--;
                 if (penetration <= 0)
+                {
                     Destroy(gameObject);
+                }
             }
         }
     }
