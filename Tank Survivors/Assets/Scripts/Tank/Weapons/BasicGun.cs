@@ -3,6 +3,7 @@ using DataStructs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tank.Towers;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
@@ -17,9 +18,11 @@ namespace Tank.Weapons
             IHaveCriticalChance,
             IHaveFireRate,
             IHavePenetration,
-            IHaveProjectilesPerShoot,
+            IHaveProjectile,
             IHaveProjectileSize,
-            IHaveProjectile
+            IHaveProjectileSpeed,
+            IHaveProjectilesPerShoot,
+            IHaveTower<SingleShotTower>
     {
         [SerializeField]
         [InspectorReadOnly]
@@ -35,6 +38,10 @@ namespace Tank.Weapons
         public uint MaxLevel => maxLevel;
 
         [SerializeField]
+        private ModifiableValue<Percentage> criticalMultiplier;
+        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
+
+        [SerializeField]
         private ModifiableValue<float> damage;
         public ModifiableValue<float> Damage => damage;
 
@@ -43,31 +50,39 @@ namespace Tank.Weapons
         public ModifiableValue<float> FireRange => fireRange;
 
         [SerializeField]
-        private ModifiableValue<float> projectileSize;
-        public ModifiableValue<float> ProjectileSize => projectileSize;
-
-        [SerializeField]
-        private ModifiableValue<int> penetration;
-        public ModifiableValue<int> Penetration => penetration;
-
-        [SerializeField]
-        private ModifiableValue<int> projectilesPerShoot;
-        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
+        private ModifiableValue<Percentage> criticalChance;
+        public ModifiableValue<Percentage> CriticalChance => criticalChance;
 
         [SerializeField]
         private ModifiableValue<float> fireRate;
         public ModifiableValue<float> FireRate => fireRate;
 
         [SerializeField]
-        private ModifiableValue<Percentage> criticalChance;
-        public ModifiableValue<Percentage> CriticalChance => criticalChance;
+        private ModifiableValue<int> penetration;
+        public ModifiableValue<int> Penetration => penetration;
 
         [SerializeField]
-        private ModifiableValue<Percentage> criticalMultiplier;
-        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
+        private Projectile projectilePrefab;
+        public Projectile ProjectilePrefab => projectilePrefab;
+
+        [SerializeField]
+        private ModifiableValue<float> projectileSize;
+        public ModifiableValue<float> ProjectileSize => projectileSize;
+
+        [SerializeField]
+        private ModifiableValue<float> projectileSpeed;
+        public ModifiableValue<float> ProjectileSpeed => projectileSpeed;
+
+        [SerializeField]
+        private ModifiableValue<int> projectilesPerShoot;
+        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
 
         [SerializeField]
         private List<SerializedLeveledBasicGunUpgrade> leveledBasicGunUpgrades;
+
+        [SerializeField]
+        private SingleShotTower towerPrefab;
+        public SingleShotTower TowerPrefab => towerPrefab;
 
         [SerializeField]
         private string upgradeName;
@@ -76,51 +91,62 @@ namespace Tank.Weapons
         public IEnumerable<ILeveledUpgrade> Upgrades =>
             leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
 
-        [SerializeField]
-        private Projectile projectilePrefab;
-        public Projectile ProjectilePrefab => projectilePrefab;
+        private SingleShotTower tower;
+        private Transform tankRoot;
+        private EnemyFinder enemyFinder;
 
-        private float remainingTime;
+        private float remainingTime = 0f;
 
         public void ProceedAttack(float deltaTime)
         {
+            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
+            if (nearestEnemy == null)
+            {
+                return;
+            }
+
             remainingTime -= deltaTime;
 
             if (remainingTime < 0f)
             {
                 remainingTime += fireRate.GetModifiedValue();
+                Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
+
                 for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
                 {
-                    float resultDamage =
-                        damage.GetModifiedValue()
-                        * (
-                            1f
-                            + (
-                                criticalChance.SourceValue.TryChance()
-                                    ? 0f
-                                    : criticalMultiplier.GetModifiedValue().Value
-                            )
-                        );
+                    tower.RotateTo(shotDirection);
 
                     Projectile projectile = UnityEngine.Object.Instantiate(
                         projectilePrefab,
-                        Vector3.zero,
+                        tower.GetShotPoint(),
                         Quaternion.identity
-                    ); // TODO: projectile spawn positon
+                    );
+
                     projectile.Init(
-                        resultDamage,
+                        damage.GetModifiedValue()
+                            * (
+                                1f
+                                + (
+                                    criticalChance.SourceValue.TryChance()
+                                        ? 0f
+                                        : criticalMultiplier.GetModifiedValue().Value
+                                )
+                            ),
+                        projectileSpeed.GetModifiedValue(),
                         projectileSize.GetModifiedValue(),
                         fireRange.GetModifiedValue(),
                         penetration.GetModifiedValue(),
-                        Vector3.up
-                    ); // TODO: direction towards the enemy
+                        shotDirection
+                    );
                 }
             }
         }
 
-        public void Initialize()
+        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
-            remainingTime = fireRate.GetModifiedValue();
+            this.tankRoot = tankRoot;
+            this.enemyFinder = enemyFinder;
+            tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);
         }
     }
 

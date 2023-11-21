@@ -66,6 +66,9 @@ namespace Tank
         private ModifiableValue<Percentage> fireRateModifier;
         public ModifiableValue<Percentage> FireRateModifier => fireRateModifier;
 
+        [SerializeField]
+        private EnemyFinder enemyFinder;
+
         private List<ITankUpgrade> tankUpgrades = new();
         public IEnumerable<ITankUpgrade> TankUpgrades => tankUpgrades;
 
@@ -79,7 +82,7 @@ namespace Tank
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
-            weapons.ForEach(x => x.Initialize());
+            weapons.ForEach(x => x.Initialize(gameObject.transform, enemyFinder));
             playerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
