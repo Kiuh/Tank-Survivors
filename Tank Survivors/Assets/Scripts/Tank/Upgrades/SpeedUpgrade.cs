@@ -11,7 +11,6 @@ namespace Tank.Upgrades
     public class SpeedUpgrade : ITankUpgrade
     {
         [SerializeField]
-        [InspectorReadOnly]
         private uint currentLevel = 0;
         public uint CurrentLevel
         {
@@ -31,6 +30,11 @@ namespace Tank.Upgrades
         private List<SerializedLeveledSpeedUpgrade> upgradeList;
         public IEnumerable<ILeveledUpgrade> Upgrades =>
             upgradeList.Select(x => x.ToLeveledSpeedUpgrade());
+
+        public void Initialize()
+        {
+            currentLevel = 0;
+        }
     }
 
     [InterfaceEditor]

@@ -91,17 +91,29 @@ namespace Tank.Weapons
                 remainingTime += fireRate.GetModifiedValue();
                 for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
                 {
-                    float resultDamage = damage.GetModifiedValue() * (1f + 
-                        (criticalChance.SourceValue.TryChance() ? 0f : criticalMultiplier.GetModifiedValue().Value));
+                    float resultDamage =
+                        damage.GetModifiedValue()
+                        * (
+                            1f
+                            + (
+                                criticalChance.SourceValue.TryChance()
+                                    ? 0f
+                                    : criticalMultiplier.GetModifiedValue().Value
+                            )
+                        );
 
-                    Projectile projectile = UnityEngine.Object
-                        .Instantiate(projectilePrefab, Vector3.zero, Quaternion.identity); // TODO: projectile spawn positon
+                    Projectile projectile = UnityEngine.Object.Instantiate(
+                        projectilePrefab,
+                        Vector3.zero,
+                        Quaternion.identity
+                    ); // TODO: projectile spawn positon
                     projectile.Init(
                         resultDamage,
                         projectileSize.GetModifiedValue(),
                         fireRange.GetModifiedValue(),
                         penetration.GetModifiedValue(),
-                        Vector3.up); // TODO: direction towards the enemy
+                        Vector3.up
+                    ); // TODO: direction towards the enemy
                 }
             }
         }

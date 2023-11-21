@@ -15,9 +15,11 @@ namespace Sheet
 
         private void Update()
         {
-            Vector2 newOffset = new Vector2(
-                transform.position.x / transform.localScale.x,
-                transform.position.y / transform.localScale.y);
+            Vector2 newOffset =
+                new(
+                    transform.position.x / transform.localScale.x,
+                    transform.position.y / transform.localScale.y
+                );
 
             material.mainTextureOffset = newOffset;
         }

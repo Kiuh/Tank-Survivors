@@ -25,6 +25,8 @@ namespace Tank.UpgradablePiece
         {
             return Upgrades.Where(x => x.UpgradingLevel == CurrentLevel);
         }
+
+        public void Initialize();
     }
 
     public interface ILeveledUpgrade

@@ -18,7 +18,7 @@ namespace Panels.LevelUp
         private UpgradeBlock upgradeBlockPrefab;
 
         [SerializeField]
-        private Transform upgradeBlocksViewRoot;
+        private RectTransform upgradeBlocksViewRoot;
 
         [SerializeField]
         private GameObject levelUpPanel;
@@ -69,9 +69,9 @@ namespace Panels.LevelUp
             List<IUpgradablePiece> upgrades = tank.GetAvailableUpgrades()
                 .ToList()
                 .TakeRandom(tank.LevelUpChoicesCount.GetModifiedValue());
-            while (upgradeBlocksViewRoot.childCount > 0)
+            foreach (RectTransform child in upgradeBlocksViewRoot)
             {
-                Destroy(upgradeBlocksViewRoot.GetChild(0).gameObject);
+                Destroy(child.gameObject);
             }
             foreach (IUpgradablePiece upgrade in upgrades)
             {
