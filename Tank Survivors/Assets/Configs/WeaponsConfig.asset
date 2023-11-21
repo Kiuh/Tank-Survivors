@@ -16,7 +16,7 @@ MonoBehaviour:
   - selectedType: BasicGun
     basicGun:
       currentLevel: 0
-      maxLevel: 0
+      maxLevel: 2
       criticalMultiplier:
         sourceValue:
           value: 0
@@ -38,6 +38,16 @@ MonoBehaviour:
         sourceValue: 5
       projectilesPerShoot:
         sourceValue: 1
-      leveledBasicGunUpgrades: []
+      leveledBasicGunUpgrades:
+      - selectedType: BasicGunDamageUp
+        basicGunDamageUp:
+          upgradingLevel: 0
+          damageUpValue: 10
+          description: Damage Up +10
+      - selectedType: BasicGunDamageUp
+        basicGunDamageUp:
+          upgradingLevel: 1
+          damageUpValue: 10
+          description: Damage Up +10
       towerPrefab: {fileID: 6267967647746527568, guid: 4997d5c0438945b45b4b828047c25dec, type: 3}
-      upgradeName: 
+      upgradeName: Base Gun
