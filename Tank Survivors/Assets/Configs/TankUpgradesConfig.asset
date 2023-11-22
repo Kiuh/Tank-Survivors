@@ -22,7 +22,7 @@ MonoBehaviour:
       - selectedType: SimpleAddingLeveledSpeedUpgrade
         simpleAddingLeveledSpeedUpgrade:
           level: 1
-          addingValue: 15
+          addingValue: 10
           description: +15 Speed
       - selectedType: SimpleAddingLeveledSpeedUpgrade
         simpleAddingLeveledSpeedUpgrade:
