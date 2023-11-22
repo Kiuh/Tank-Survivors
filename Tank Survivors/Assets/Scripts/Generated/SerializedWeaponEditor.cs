@@ -10,7 +10,7 @@ namespace SerializedInterface.Inspector
     [CustomPropertyDrawer(typeof(SerializedWeapon))]
     public class SerializedWeaponDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { "BasicGun" };
+        private string[] implementingTypeNames = { "BasicGun", "Minigun" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
