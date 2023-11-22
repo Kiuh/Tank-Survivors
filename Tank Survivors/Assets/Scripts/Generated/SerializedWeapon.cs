@@ -31,6 +31,7 @@ namespace Tank.Weapons
         {
             return selectedType switch
             {
+                "RailGun" => railGun,
                 "DoubleShotGun" => doubleShotGun,
                 "BasicGun" => basicGun,
                 "Minigun" => minigun,
