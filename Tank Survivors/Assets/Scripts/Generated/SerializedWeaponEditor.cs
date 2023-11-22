@@ -3,6 +3,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
+using Assets.Scripts.Tank.Weapons;
 using Tank.Weapons;
 
 namespace SerializedInterface.Inspector 
@@ -10,7 +11,7 @@ namespace SerializedInterface.Inspector
     [CustomPropertyDrawer(typeof(SerializedWeapon))]
     public class SerializedWeaponDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { "BasicGun" };
+        private string[] implementingTypeNames = { "RailGun", "BasicGun" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

@@ -13,41 +13,51 @@ MonoBehaviour:
   m_Name: WeaponsConfig
   m_EditorClassIdentifier: 
   weapons:
-  - selectedType: BasicGun
-    basicGun:
+  - selectedType: RailGun
+    railGun:
       currentLevel: 0
-      maxLevel: 2
+      maxLevel: 0
       criticalMultiplier:
         sourceValue:
           value: 0
       damage:
-        sourceValue: 5
+        sourceValue: 10
       fireRange:
         sourceValue: 10
       criticalChance:
         sourceValue:
           value: 0
       fireRate:
-        sourceValue: 0.4
+        sourceValue: 0.5
+      rayDuration: 0.45
+      rayPrefab: {fileID: 5214112393458791443, guid: 163ba8c090dd37f45af034244415350b, type: 3}
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 89765787069609111, guid: 543a000d0f79b8d42be59257ec1cadff, type: 3}
+      upgradeName: 
+    basicGun:
+      currentLevel: 0
+      maxLevel: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
+      damage:
+        sourceValue: 0
+      fireRange:
+        sourceValue: 0
+      criticalChance:
+        sourceValue:
+          value: 0
+      fireRate:
+        sourceValue: 0
       penetration:
-        sourceValue: 1
-      projectilePrefab: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
+        sourceValue: 0
+      projectilePrefab: {fileID: 0}
       projectileSize:
-        sourceValue: 1
+        sourceValue: 0
       projectileSpeed:
-        sourceValue: 5
+        sourceValue: 0
       projectilesPerShoot:
-        sourceValue: 1
-      leveledBasicGunUpgrades:
-      - selectedType: BasicGunDamageUp
-        basicGunDamageUp:
-          upgradingLevel: 0
-          damageUpValue: 10
-          description: Damage Up +10
-      - selectedType: BasicGunDamageUp
-        basicGunDamageUp:
-          upgradingLevel: 1
-          damageUpValue: 10
-          description: Damage Up +10
-      towerPrefab: {fileID: 6267967647746527568, guid: 4997d5c0438945b45b4b828047c25dec, type: 3}
-      upgradeName: Base Gun
+        sourceValue: 0
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 0}
+      upgradeName: 

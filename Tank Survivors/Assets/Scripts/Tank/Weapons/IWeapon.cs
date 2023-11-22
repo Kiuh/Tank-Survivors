@@ -65,4 +65,9 @@ namespace Tank.Weapons
     {
         public T TowerPrefab { get; }
     }
+
+    public interface IHaveRay
+    {
+        public RayRenderer RayPrefab { get; }
+    }
 }
