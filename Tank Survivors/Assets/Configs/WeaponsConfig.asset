@@ -13,8 +13,35 @@ MonoBehaviour:
   m_Name: WeaponsConfig
   m_EditorClassIdentifier: 
   weapons:
-  - selectedType: RailGun
-    railGun:
+  - selectedType: BasicGun
+    doubleShotGun:
+      currentLevel: 0
+      maxLevel: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
+      damage:
+        sourceValue: 0
+      fireRange:
+        sourceValue: 0
+      criticalChance:
+        sourceValue:
+          value: 0
+      fireRate:
+        sourceValue: 0
+      penetration:
+        sourceValue: 0
+      projectilePrefab: {fileID: 0}
+      projectileSize:
+        sourceValue: 0
+      projectileSpeed:
+        sourceValue: 0
+      projectilesPerShoot:
+        sourceValue: 0
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 0}
+      upgradeName: 
+    basicGun:
       currentLevel: 0
       maxLevel: 0
       criticalMultiplier:
@@ -33,6 +60,61 @@ MonoBehaviour:
       rayPrefab: {fileID: 5214112393458791443, guid: 163ba8c090dd37f45af034244415350b, type: 3}
       leveledBasicGunUpgrades: []
       towerPrefab: {fileID: 89765787069609111, guid: 543a000d0f79b8d42be59257ec1cadff, type: 3}
+      upgradeName: 
+    basicGun:
+      currentLevel: 0
+      maxLevel: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
+      damage:
+        sourceValue: 0
+      fireRange:
+        sourceValue: 0
+      criticalChance:
+        sourceValue:
+          value: 0
+      fireRate:
+        sourceValue: 0
+      penetration:
+        sourceValue: 0
+      projectilePrefab: {fileID: 0}
+      projectileSize:
+        sourceValue: 0
+      projectileSpeed:
+        sourceValue: 0
+      projectilesPerShoot:
+        sourceValue: 1
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 6267967647746527568, guid: 4997d5c0438945b45b4b828047c25dec, type: 3}
+      upgradeName: 
+  - selectedType: DoubleShotGun
+    doubleShotGun:
+      currentLevel: 0
+      maxLevel: 0
+      criticalMultiplier:
+        sourceValue:
+          value: 0
+      damage:
+        sourceValue: 5
+      fireRange:
+        sourceValue: 10
+      criticalChance:
+        sourceValue:
+          value: 0
+      fireRate:
+        sourceValue: 0.3
+      penetration:
+        sourceValue: 0
+      projectilePrefab: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
+      projectileSize:
+        sourceValue: 1
+      projectileSpeed:
+        sourceValue: 5
+      projectilesPerShoot:
+        sourceValue: 1
+      leveledBasicGunUpgrades: []
+      towerPrefab: {fileID: 4117414406607137283, guid: 3f50c9d7616495b41bd87b72e00e2c64, type: 3}
       upgradeName: 
     basicGun:
       currentLevel: 0

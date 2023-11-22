@@ -14,16 +14,24 @@ namespace Tank.Weapons
 
         [SerializeField]
         private RailGun railGun;
+      
+        [SerializeField]
+        private DoubleShotGun doubleShotGun;
 
         [SerializeField]
         private BasicGun basicGun;
+
+        [SerializeField]
+        private Minigun minigun;
 
         public IWeapon ToWeapon()
         {
             return selectedType switch
             {
                 "RailGun" => railGun,
+                "DoubleShotGun" => doubleShotGun,
                 "BasicGun" => basicGun,
+                "Minigun" => minigun,
                 _ => throw new NotImplementedException(),
             };
         }
