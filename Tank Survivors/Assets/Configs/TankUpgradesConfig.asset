@@ -20,20 +20,23 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  upgrades:
-  - selectedType: TankUpgrade
-    tankUpgrade:
-      currentLevel: 0
-      maxLevel: 0
-      upgradeName: 
-      upgradeList:
-      - selectedType: LeveledTankUpgrade
-        leveledTankUpgrade:
-          level: 0
-          addingValue: 0
-          description: 
-          upgradeList:
-          - selectedType: SpeedUpgrade
-            speedUpgrade:
-              operationValue: -1.89
+    SerializationNodes:
+    - Name: upgrades
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Tank.Upgrades.SerializedTankUpgrade,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|Tank.Upgrades.SerializedTankUpgrade, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

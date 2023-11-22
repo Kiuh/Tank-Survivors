@@ -1963,6 +1963,10 @@ PrefabInstance:
       propertyPath: gameContext
       value: 
       objectReference: {fileID: 1075597817}
+    - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
     - target: {fileID: 3604841203896641056, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
       propertyPath: joystick
       value: 

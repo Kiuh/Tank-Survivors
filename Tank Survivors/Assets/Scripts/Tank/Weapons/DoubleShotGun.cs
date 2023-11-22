@@ -1,5 +1,6 @@
 ﻿using Common;
 using DataStructs;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Assets.Scripts.Tank.Weapons
             IHaveTower<DoubleShotTower>
     {
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private uint currentLevel;
         public uint CurrentLevel
         {

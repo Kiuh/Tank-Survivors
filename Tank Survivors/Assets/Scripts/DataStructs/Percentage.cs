@@ -1,20 +1,20 @@
-﻿using System;
-using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using System;
 
 namespace DataStructs
 {
     [Serializable]
     public struct Percentage
     {
-        [Range(0, 3)]
-        [SerializeField]
-        private float value;
-
-        public float Value => value;
+        [MinValue(0)]
+        [ShowInInspector]
+        [LabelText("Percentages")]
+        [Unit(Units.Percent)]
+        public float Value { get; private set; }
 
         public bool TryChance()
         {
-            return UnityEngine.Random.Range(0f, 1f) < value;
+            return UnityEngine.Random.Range(0f, 1f) < Value;
         }
     }
 }

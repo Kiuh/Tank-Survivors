@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,6 +26,8 @@ namespace Common
     }
 
     [Serializable]
+    [InlineProperty(LabelWidth = 120)]
+    [HideReferenceObjectPicker]
     public class ModifiableValue<T>
     {
         [SerializeField]
@@ -43,6 +46,11 @@ namespace Common
         {
             get => sourceValue;
             set => sourceValue = value;
+        }
+
+        public ModifiableValue()
+        {
+            SourceValue = default;
         }
 
         public ModifiableValue(T sourceValue)

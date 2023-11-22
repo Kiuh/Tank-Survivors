@@ -1,4 +1,4 @@
-using Common;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using Tank;
@@ -13,38 +13,38 @@ namespace Enemies
         private Configs.Soldier soldierConfig;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float health;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float damage;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float movementSpeed;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float timeForNextHit;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private TankImpl tank;
 
         [SerializeField]
         private Rigidbody2D enemyRigidBody;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private Vector2 movementDirection;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private bool isTouchingTank;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private bool isMoving;
 
         public event Action OnDeath;

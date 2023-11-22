@@ -1,4 +1,4 @@
-﻿using Common;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tank
@@ -13,7 +13,7 @@ namespace Tank
         private Rigidbody2D tankRigidBody;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private Vector2 movementDirection;
         public Vector2 MovementDirection
         {

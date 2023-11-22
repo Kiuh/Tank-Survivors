@@ -1,4 +1,5 @@
 ﻿using Common;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
 using Tank;
@@ -27,7 +28,7 @@ namespace Panels.LevelUp
         private Button skipButton;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private uint levelUpStack = 0;
 
         private void OnEnable()

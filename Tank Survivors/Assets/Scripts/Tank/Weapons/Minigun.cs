@@ -1,5 +1,6 @@
 ﻿using Common;
 using DataStructs;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Tank.Weapons
             IHaveTower<SingleShotTower>
     {
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private uint currentLevel;
         public uint CurrentLevel
         {

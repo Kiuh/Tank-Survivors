@@ -1,6 +1,7 @@
 using Common;
 using DataStructs;
 using General;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,12 @@ namespace Tank
         private GameContext gameContext;
 
         [SerializeField]
+        [BoxGroup("Health"), HideLabel]
         private ModifiableValueContainer health;
         public ModifiableValueContainer Health => health;
 
         [SerializeField]
+        [BoxGroup("PlayerLevel"), HideLabel]
         private PlayerLevel playerLevel;
         public PlayerLevel PlayerLevel => playerLevel;
 
@@ -39,6 +42,7 @@ namespace Tank
         public ModifiableValue<float> PickupRadius => pickupRadius;
 
         [SerializeField]
+        [BoxGroup("Armor"), HideLabel]
         private ModifiableValueContainer armor;
         public ModifiableValueContainer Armor => armor;
 

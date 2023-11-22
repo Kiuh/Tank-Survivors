@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using Tank.Upgrades;
@@ -13,7 +14,7 @@ namespace Configs
     )]
     public class TankUpgrades : SerializedScriptableObject
     {
-        [SerializeField]
+        [OdinSerialize]
         private List<SerializedTankUpgrade> upgrades;
         public IEnumerable<ITankUpgrade> Upgrades => upgrades.Select(x => x.ToTankUpgrade());
     }
