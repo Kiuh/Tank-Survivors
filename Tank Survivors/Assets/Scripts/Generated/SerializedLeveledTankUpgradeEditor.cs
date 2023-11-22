@@ -3,14 +3,14 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using Enemies.Producers;
+using Tank.Upgrades;
 
 namespace SerializedInterface.Inspector 
 {
-    [CustomPropertyDrawer(typeof(SerializedEnemyProducer))]
-    public class SerializedEnemyProducerDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(SerializedLeveledTankUpgrade))]
+    public class SerializedLeveledTankUpgradeDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { "DefaultEnemyProducer" };
+        private string[] implementingTypeNames = { "LeveledTankUpgrade" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

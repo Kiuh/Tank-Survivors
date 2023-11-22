@@ -6,19 +6,19 @@ using UnityEngine;
 namespace Tank.Upgrades 
 {
     [Serializable]
-    public class SerializedLeveledSpeedUpgrade
+    public class SerializedPropertyUpgrade
     {
         [SerializeField] 
         private string selectedType;
 
         [SerializeField]
-        private SimpleAddingLeveledSpeedUpgrade simpleAddingLeveledSpeedUpgrade;
+        private SpeedUpgrade speedUpgrade;
 
-        public ILeveledSpeedUpgrade ToLeveledSpeedUpgrade()
+        public IPropertyUpgrade ToPropertyUpgrade()
         {
             return selectedType switch
             {
-                "SimpleAddingLeveledSpeedUpgrade" => simpleAddingLeveledSpeedUpgrade,
+                "SpeedUpgrade" => speedUpgrade,
                 _ => throw new NotImplementedException(),
             };
         }

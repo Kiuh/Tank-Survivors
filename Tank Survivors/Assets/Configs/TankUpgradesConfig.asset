@@ -12,30 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012e3558a283a25499149c9923020fac, type: 3}
   m_Name: TankUpgradesConfig
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   upgrades:
-  - selectedType: SpeedUpgrade
-    speedUpgrade:
+  - selectedType: TankUpgrade
+    tankUpgrade:
       currentLevel: 0
-      maxLevel: 2
-      upgradeName: Speed upgrade
+      maxLevel: 0
+      upgradeName: 
       upgradeList:
-      - selectedType: SimpleAddingLeveledSpeedUpgrade
-        simpleAddingLeveledSpeedUpgrade:
-          level: 1
-          addingValue: 10
-          description: +15 Speed
-      - selectedType: SimpleAddingLeveledSpeedUpgrade
-        simpleAddingLeveledSpeedUpgrade:
+      - selectedType: LeveledTankUpgrade
+        leveledTankUpgrade:
           level: 0
-          addingValue: 10
-          description: +10 Speed
-      - selectedType: SimpleAddingLeveledSpeedUpgrade
-        simpleAddingLeveledSpeedUpgrade:
-          level: 0
-          addingValue: 5
-          description: + 5 Speed
-      - selectedType: SimpleAddingLeveledSpeedUpgrade
-        simpleAddingLeveledSpeedUpgrade:
-          level: 1
-          addingValue: 5
-          description: + 5 Speed
+          addingValue: 0
+          description: 
+          upgradeList:
+          - selectedType: SpeedUpgrade
+            speedUpgrade:
+              operationValue: -1.89

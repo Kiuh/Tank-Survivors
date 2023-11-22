@@ -7,10 +7,10 @@ using Tank.Upgrades;
 
 namespace SerializedInterface.Inspector 
 {
-    [CustomPropertyDrawer(typeof(SerializedLeveledSpeedUpgrade))]
-    public class SerializedLeveledSpeedUpgradeDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(SerializedPropertyUpgrade))]
+    public class SerializedPropertyUpgradeDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { "SimpleAddingLeveledSpeedUpgrade" };
+        private string[] implementingTypeNames = { "SpeedUpgrade" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

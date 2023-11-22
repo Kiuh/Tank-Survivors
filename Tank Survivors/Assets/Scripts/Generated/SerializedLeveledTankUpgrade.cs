@@ -6,19 +6,19 @@ using UnityEngine;
 namespace Tank.Upgrades 
 {
     [Serializable]
-    public class SerializedTankUpgrade
+    public class SerializedLeveledTankUpgrade
     {
         [SerializeField] 
         private string selectedType;
 
         [SerializeField]
-        private TankUpgrade tankUpgrade;
+        private LeveledTankUpgrade leveledTankUpgrade;
 
-        public ITankUpgrade ToTankUpgrade()
+        public ILeveledTankUpgrade ToLeveledTankUpgrade()
         {
             return selectedType switch
             {
-                "TankUpgrade" => tankUpgrade,
+                "LeveledTankUpgrade" => leveledTankUpgrade,
                 _ => throw new NotImplementedException(),
             };
         }

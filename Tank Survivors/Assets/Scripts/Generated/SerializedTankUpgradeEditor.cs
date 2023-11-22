@@ -10,7 +10,7 @@ namespace SerializedInterface.Inspector
     [CustomPropertyDrawer(typeof(SerializedTankUpgrade))]
     public class SerializedTankUpgradeDrawer : PropertyDrawer
     {
-        private string[] implementingTypeNames = { "SpeedUpgrade" };
+        private string[] implementingTypeNames = { "TankUpgrade" };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
