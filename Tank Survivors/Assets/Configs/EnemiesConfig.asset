@@ -26,8 +26,17 @@ MonoBehaviour:
     defaultEnemyProducer:
       enemyPrefab:
         _underlyingValue: {fileID: 2594527795599940514, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
-      spawnInterval: 10
+      spawnInterval: 12.9
       startCircleRadius: 10
       endCircleRadius: 15
       startTime: 0
       endTime: 120
+  - selectedType: DefaultEnemyProducer
+    defaultEnemyProducer:
+      enemyPrefab:
+        _underlyingValue: {fileID: 4942160106164820235, guid: 641081256b9441043abffb83714bf3ca, type: 3}
+      spawnInterval: 0.54
+      startCircleRadius: 10.37
+      endCircleRadius: 13.61
+      startTime: 0
+      endTime: 202.18

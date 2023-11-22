@@ -30,10 +30,6 @@ namespace Enemies
 
         [SerializeField]
         [InspectorReadOnly]
-        private float timeToExplode;
-
-        [SerializeField]
-        [InspectorReadOnly]
         private TankImpl tank;
 
         [SerializeField]
@@ -48,11 +44,6 @@ namespace Enemies
 
         [SerializeField]
         [InspectorReadOnly]
-        private bool isGonnaExplode = false;
-        private bool isTankClose;
-
-        [SerializeField]
-        [InspectorReadOnly]
         private bool isMoving;
 
         public event Action OnDeath;
@@ -63,7 +54,6 @@ namespace Enemies
             movementSpeed = droneConfig.MovementSpeed;
             damage = droneConfig.Damage;
             explosionRadius = droneConfig.ExplosionRadius;
-            timeToExplode = droneConfig.TimeToExplode;
             explosiveArea.radius = explosionRadius;
             this.tank = tank;
             OnDeath += () => Destroy(gameObject);
@@ -108,18 +98,6 @@ namespace Enemies
             transform.eulerAngles = Vector3.forward * -rotationAngle;
         }
 
-        private IEnumerator Explode()
-        {
-            StopMovement();
-            enemyRigidBody.isKinematic = true;
-            yield return new WaitForSeconds(timeToExplode);
-            if (isTankClose)
-            {
-                tank.TakeDamage(damage);
-            }
-            OnDeath?.Invoke();
-        }
-
         public void TakeDamage(float damageAmount)
         {
             health -= damageAmount;
@@ -134,21 +112,7 @@ namespace Enemies
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
-                isTankClose = true;
-                if (isGonnaExplode)
-                {
-                    return;
-                }
-                isGonnaExplode = true;
-                _ = StartCoroutine(Explode());
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.TryGetComponent(out TankImpl _))
-            {
-                isTankClose = false;
+                tank.TakeDamage(damage);
             }
         }
     }
