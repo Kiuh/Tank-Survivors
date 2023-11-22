@@ -2,6 +2,7 @@
 
 using System;
 using UnityEngine;
+using Assets.Scripts.Tank.Weapons;
 
 namespace Tank.Weapons 
 {
@@ -12,12 +13,16 @@ namespace Tank.Weapons
         private string selectedType;
 
         [SerializeField]
+        private DoubleShotGun doubleShotGun;
+
+        [SerializeField]
         private BasicGun basicGun;
 
         public IWeapon ToWeapon()
         {
             return selectedType switch
             {
+                "DoubleShotGun" => doubleShotGun,
                 "BasicGun" => basicGun,
                 _ => throw new NotImplementedException(),
             };
