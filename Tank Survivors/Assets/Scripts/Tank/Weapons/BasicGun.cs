@@ -144,6 +144,7 @@ namespace Tank.Weapons
 
         public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
+            CurrentLevel = 0;
             this.tankRoot = tankRoot;
             this.enemyFinder = enemyFinder;
             tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);
