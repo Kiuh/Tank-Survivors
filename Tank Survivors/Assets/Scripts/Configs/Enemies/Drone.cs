@@ -19,11 +19,11 @@ namespace Configs
         public float ExplosionRadius => explosionRadius;
 
         [SerializeField]
-        private float timeToExplode;
-        public float TimeToExplode => timeToExplode;
-
-        [SerializeField]
         private float movementSpeed;
         public float MovementSpeed => movementSpeed;
+
+        [SerializeField]
+        private float experienceDropAmount;
+        public float ExperienceDropAmount => experienceDropAmount;
     }
 }

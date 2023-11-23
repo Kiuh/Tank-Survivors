@@ -175,19 +175,18 @@ MonoBehaviour:
   droneConfig:
     health: 5
     damage: 15
-    explosionRadius: 1
-    timeToExplode: 3
+    explosionRadius: 0.5
     movementSpeed: 3
+    experienceDropAmount: 2
+  experiencePickupPrefab: {fileID: 632944525156465173, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
   health: 0
   damage: 15
   movementSpeed: 2
   explosionRadius: 0.5
-  timeToExplode: 5
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
   explosiveArea: {fileID: 3433241106660565001}
   movementDirection: {x: 0, y: 0}
-  isGonnaExplode: 0
   isMoving: 0
 --- !u!50 &2677439162934494719
 Rigidbody2D:

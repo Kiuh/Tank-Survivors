@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using Tank;
+using Tank.PickUps;
 using UnityEngine;
 
 namespace Enemies
@@ -11,6 +12,9 @@ namespace Enemies
     {
         [SerializeField]
         private Configs.Drone droneConfig;
+
+        [SerializeField]
+        private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
         [ReadOnly]
@@ -30,10 +34,6 @@ namespace Enemies
 
         [SerializeField]
         [ReadOnly]
-        private float timeToExplode;
-
-        [SerializeField]
-        [ReadOnly]
         private TankImpl tank;
 
         [SerializeField]
@@ -45,12 +45,7 @@ namespace Enemies
         [SerializeField]
         [ReadOnly]
         private Vector2 movementDirection;
-
-        [SerializeField]
-        [ReadOnly]
-        private bool isGonnaExplode = false;
-        private bool isTankClose;
-
+        
         [SerializeField]
         [ReadOnly]
         private bool isMoving;
@@ -59,13 +54,13 @@ namespace Enemies
 
         public void Initialize(TankImpl tank)
         {
-            health = droneConfig.Health;
-            movementSpeed = droneConfig.MovementSpeed;
-            damage = droneConfig.Damage;
-            explosionRadius = droneConfig.ExplosionRadius;
-            timeToExplode = droneConfig.TimeToExplode;
-            explosiveArea.radius = explosionRadius;
             this.tank = tank;
+            health = droneConfig.Health;
+            damage = droneConfig.Damage;
+            explosiveArea.radius = explosionRadius;
+            movementSpeed = droneConfig.MovementSpeed;
+            explosionRadius = droneConfig.ExplosionRadius;
+            OnDeath += DropExperience;
             OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
@@ -108,18 +103,6 @@ namespace Enemies
             transform.eulerAngles = Vector3.forward * -rotationAngle;
         }
 
-        private IEnumerator Explode()
-        {
-            StopMovement();
-            enemyRigidBody.isKinematic = true;
-            yield return new WaitForSeconds(timeToExplode);
-            if (isTankClose)
-            {
-                tank.TakeDamage(damage);
-            }
-            OnDeath?.Invoke();
-        }
-
         public void TakeDamage(float damageAmount)
         {
             health -= damageAmount;
@@ -130,25 +113,18 @@ namespace Enemies
             }
         }
 
+        private void DropExperience()
+        {
+            Instantiate(experiencePickupPrefab, transform.position, Quaternion.identity)
+                .GetComponent<ExperiencePickUp>()
+                .Initialize(droneConfig.ExperienceDropAmount);
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
-                isTankClose = true;
-                if (isGonnaExplode)
-                {
-                    return;
-                }
-                isGonnaExplode = true;
-                _ = StartCoroutine(Explode());
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.TryGetComponent(out TankImpl _))
-            {
-                isTankClose = false;
+                tank.TakeDamage(damage);
             }
         }
     }

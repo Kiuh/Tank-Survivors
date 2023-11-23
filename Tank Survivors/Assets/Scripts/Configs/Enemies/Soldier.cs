@@ -21,5 +21,9 @@ namespace Configs
         [SerializeField]
         private float timeForNextHit;
         public float TimeForNextHit => timeForNextHit;
+
+        [SerializeField]
+        private float experienceDropAmount;
+        public float ExperienceDropAmount => experienceDropAmount;
     }
 }

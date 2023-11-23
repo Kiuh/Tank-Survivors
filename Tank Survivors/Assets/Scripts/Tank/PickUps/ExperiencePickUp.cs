@@ -11,9 +11,9 @@ namespace Tank.PickUps
         private bool grabbed;
         public bool Grabbed => grabbed;
 
-        private void OnEnable()
+        public void Initialize(float experienceAmount)
         {
-            grabbed = false;
+            this.experienceAmount = experienceAmount;
         }
 
         public void Grab(TankImpl tank)
