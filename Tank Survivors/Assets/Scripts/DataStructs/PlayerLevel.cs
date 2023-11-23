@@ -26,7 +26,7 @@ namespace DataStructs
         [ReadOnly]
         [OdinSerialize]
         private ModifiableValue<float> maxExperienceCount = new();
-        public float MaxExperienceCount => maxExperienceCount.SourceValue;
+        public float MaxExperienceCount => maxExperienceCount.GetModifiedValue();
 
         private LevelProgression progressionConfig;
 

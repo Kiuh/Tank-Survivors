@@ -13,66 +13,12 @@ MonoBehaviour:
   m_Name: EnemiesConfig
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 1
     SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
+    ReferencedUnityObjects:
+    - {fileID: 1268963177108698579, guid: e29d2f09a8d4fd749bd73d0a257df1ce, type: 3}
+    SerializedBytesString: IkVuZW15UHJvZHVjZXJzIjogew0KICAgICIkaWQiOiAwLA0KICAgICIkdHlwZSI6ICIwfFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbRW5lbWllcy5Qcm9kdWNlcnMuSUVuZW15UHJvZHVjZXIsIEFzc2VtYmx5LUNTaGFycF1dLCBtc2NvcmxpYiIsDQogICAgIiRybGVuZ3RoIjogMSwNCiAgICAiJHJjb250ZW50IjogWw0KICAgICAgICB7DQogICAgICAgICAgICAiJGlkIjogMSwNCiAgICAgICAgICAgICIkdHlwZSI6ICIxfEVuZW1pZXMuUHJvZHVjZXJzLkNvbnN0YW50RW5lbXlQcm9kdWNlciwgQXNzZW1ibHktQ1NoYXJwIiwNCiAgICAgICAgICAgICJlbmVteVByZWZhYiI6ICRlcmVmOjAsDQogICAgICAgICAgICAic3Bhd25JbnRlcnZhbCI6IDEsDQogICAgICAgICAgICAic3RhcnRDaXJjbGVSYWRpdXMiOiAxMCwNCiAgICAgICAgICAgICJlbmRDaXJjbGVSYWRpdXMiOiAyMA0KICAgICAgICB9DQogICAgXQ0KfQ==
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: EnemyProducers
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Enemies.Producers.IEnemyProducer,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 1|Enemies.Producers.ConstantEnemyProducer, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 6
-      Data: 
-    - Name: spawnInterval
-      Entry: 4
-      Data: 0
-    - Name: startCircleRadius
-      Entry: 4
-      Data: 0
-    - Name: endCircleRadius
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Enemies.Producers.DefaultEnemyProducer, Assembly-CSharp
-    - Name: enemyPrefab
-      Entry: 6
-      Data: 
-    - Name: spawnInterval
-      Entry: 4
-      Data: 0
-    - Name: startCircleRadius
-      Entry: 4
-      Data: 0
-    - Name: endCircleRadius
-      Entry: 4
-      Data: 0
-    - Name: startTime
-      Entry: 4
-      Data: 0
-    - Name: endTime
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []

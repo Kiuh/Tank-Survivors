@@ -14,6 +14,7 @@ namespace Enemies.Producers
         private GameObject enemyPrefab;
 
         [SerializeField]
+        [Unit(Units.Second)]
         [FoldoutGroup("DefaultEnemyProducer")]
         private float spawnInterval;
 

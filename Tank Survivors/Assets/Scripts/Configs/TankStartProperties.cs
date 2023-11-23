@@ -47,6 +47,7 @@ namespace Configs
         public void AssignStartProperties(TankImpl tank)
         {
             tank.Health.BaseValue = health;
+            tank.Health.Value = health;
             tank.Speed.SourceValue = speed;
             tank.PickupRadius.SourceValue = pickupRadius;
             tank.Armor.BaseValue = armor;
