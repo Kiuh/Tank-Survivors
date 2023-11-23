@@ -1,7 +1,5 @@
-﻿using Common;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tank.Towers;
@@ -29,7 +27,7 @@ namespace Tank.Weapons
         [FoldoutGroup("$UpgradeName")]
         [OdinSerialize]
         [ShowInInspector]
-        private List<ILeveledWeaponUpgrade> leveledUpgrades;
+        private List<LeveledWeaponUpgrade> leveledUpgrades;
 
         public abstract List<IWeaponModule> Modules { get; protected set; }
 
@@ -141,31 +139,6 @@ namespace Tank.Weapons
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tankRoot
             );
-        }
-    }
-
-    public interface ILeveledWeaponUpgrade : ILeveledUpgrade { }
-
-    [Serializable]
-    public class DamageUpgrade : ILeveledWeaponUpgrade
-    {
-        [SerializeField]
-        private float value;
-
-        [OdinSerialize]
-        public uint UpgradingLevel { get; private set; }
-
-        [OdinSerialize]
-        public string Description { get; private set; }
-
-        public void ApplyUpgrade(TankImpl tank)
-        {
-            BasicGun weapon = tank.Weapons.First(x => x is BasicGun) as BasicGun;
-            weapon
-                .GetModule<DamageModule>()
-                .Damage.Modifications.Add(
-                    new ValueModification<float>((x) => x + value, ModificationPriority.Medium)
-                );
         }
     }
 }

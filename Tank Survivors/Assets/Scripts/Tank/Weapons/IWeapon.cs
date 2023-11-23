@@ -2,6 +2,7 @@
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System.Collections.Generic;
 using Tank.Towers;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Projectiles;
@@ -14,6 +15,7 @@ namespace Tank.Weapons
     {
         public void ProceedAttack(float deltaTime);
         public void Initialize(Transform tankRoot, EnemyFinder enemyFinder);
+        public abstract List<IWeaponModule> Modules { get; }
     }
 
     [HideReferenceObjectPicker]

@@ -3,7 +3,6 @@ using DataStructs;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Tank.Towers;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Projectiles;
@@ -64,9 +63,6 @@ namespace Tank.Weapons
         public ModifiableValue<float> DamageRadius => damageRadius;
 
         [SerializeField]
-        private List<SerializedLeveledBasicGunUpgrade> leveledBasicGunUpgrades;
-
-        [SerializeField]
         private SingleShotTower towerPrefab;
         public SingleShotTower TowerPrefab => towerPrefab;
 
@@ -74,8 +70,9 @@ namespace Tank.Weapons
         private string upgradeName;
         public string UpgradeName => upgradeName;
 
-        public IEnumerable<ILeveledUpgrade> Upgrades =>
-            leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
+        public List<IWeaponModule> Modules => throw new NotImplementedException();
+
+        public IEnumerable<ILeveledUpgrade> Upgrades => throw new NotImplementedException();
 
         private SingleShotTower tower;
         private Transform tankRoot;
