@@ -187,4 +187,17 @@ namespace Tank.Weapons
                 );
         }
     }
+
+    [Serializable]
+    public class RayDuration : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<RayDurationModule, IWeaponModule>()
+                .RayDuration.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
 }

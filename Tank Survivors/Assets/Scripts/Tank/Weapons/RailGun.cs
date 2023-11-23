@@ -1,11 +1,9 @@
-﻿using Common;
-using DataStructs;
-using Enemies;
+﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using Tank;
 using Tank.Towers;
-using Tank.UpgradablePiece;
 using Tank.Weapons;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
@@ -13,64 +11,32 @@ using UnityEngine;
 namespace Assets.Scripts.Tank.Weapons
 {
     [Serializable]
-    public class RailGun : IWeapon
+    public class RailGun : GunBase
     {
-        [SerializeField]
-        [InspectorReadOnly]
-        private uint currentLevel;
-        public uint CurrentLevel
-        {
-            get => currentLevel;
-            set => currentLevel = value;
-        }
-
-        [SerializeField]
-        private uint maxLevel;
-        public uint MaxLevel => maxLevel;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalMultiplier;
-        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
-
-        [SerializeField]
-        private ModifiableValue<float> damage;
-        public ModifiableValue<float> Damage => damage;
-
-        [SerializeField]
-        private ModifiableValue<float> fireRange;
-        public ModifiableValue<float> FireRange => fireRange;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalChance;
-        public ModifiableValue<Percentage> CriticalChance => criticalChance;
-
-        [SerializeField]
-        private ModifiableValue<float> fireRate;
-        public ModifiableValue<float> FireRate => fireRate;
-
-        [SerializeField]
-        private RayRenderer rayRenderer;
-        public RayRenderer ProjectilePrefab => rayRenderer;
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("$UpgradeName")]
+        public override List<IWeaponModule> Modules { get; protected set; } =
+            new()
+            {
+                new DamageModule(),
+                new FireRateModule(),
+                new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
+                new FireRangeModule(),
+                new ProjectileModule<RayRenderer>(),
+                new RayDurationModule(),
+                new TowerModule<SingleShotTower>(),
+            };
 
         [SerializeField]
         private float rayDuration;
         public float RayDuration => rayDuration;
-
-        [SerializeField]
-        private RayRenderer rayPrefab;
-        public RayRenderer RayPrefab => rayPrefab;
-
-        [SerializeField]
-        private SingleShotTower towerPrefab;
-        public SingleShotTower TowerPrefab => towerPrefab;
-
-        [SerializeField]
-        private string upgradeName;
-        public string UpgradeName => upgradeName;
-
-        public List<IWeaponModule> Modules => throw new NotImplementedException();
-
-        public IEnumerable<ILeveledUpgrade> Upgrades => throw new NotImplementedException();
 
         private SingleShotTower tower;
         private Transform tankRoot;
@@ -78,7 +44,7 @@ namespace Assets.Scripts.Tank.Weapons
 
         private float remainingTime = 0f;
 
-        public void ProceedAttack(float deltaTime)
+        public override void ProceedAttack(float deltaTime)
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
@@ -86,53 +52,53 @@ namespace Assets.Scripts.Tank.Weapons
                 return;
             }
 
-            remainingTime -= deltaTime;
+            remainingTime -= Time.deltaTime;
 
             if (remainingTime < 0f)
             {
-                remainingTime += fireRate.GetModifiedValue();
+                remainingTime += GetModule<FireRateModule>().FireRate.GetModifiedValue();
                 Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
 
                 tower.RotateTo(shotDirection);
 
-                RaycastHit2D[] collisions = Physics2D.RaycastAll(
-                    tower.GetShotPoint(),
-                    shotDirection,
-                    fireRange.GetModifiedValue()
+                float fireRange = GetModule<FireRangeModule>().FireRange.GetModifiedValue();
+
+                RayRenderer ray = UnityEngine.Object.Instantiate(
+                    GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
                 );
 
-                RayRenderer ray = UnityEngine.Object.Instantiate(rayPrefab);
-                Vector3 endPoint =
-                    tankRoot.position + (shotDirection.normalized * fireRange.GetModifiedValue());
-                ray.Initialize(rayDuration, tower.GetShotPoint(), endPoint);
-                ray.Show();
-
-                foreach (RaycastHit2D collision in collisions)
+                float damage = GetModule<DamageModule>().Damage.GetModifiedValue();
+                bool isCritical = GetModule<CriticalChanceModule>().CriticalChance
+                    .GetModifiedValue()
+                    .TryChance();
+                if (isCritical)
                 {
-                    if (collision.transform.TryGetComponent<IEnemy>(out IEnemy enemy))
-                    {
-                        enemy.TakeDamage(
-                            damage.GetModifiedValue()
-                                * (
-                                    1f
-                                    + (
-                                        criticalChance.SourceValue.TryChance()
-                                            ? 0f
-                                            : criticalMultiplier.GetModifiedValue().Value
-                                    )
-                                )
-                        );
-                    }
+                    float criticalMultiplier =
+                        GetModule<CriticalMultiplierModule>().CriticalMultiplier
+                            .GetModifiedValue()
+                            .Value;
+                    damage *= 1f + criticalMultiplier;
                 }
+
+                ray.Initialize(
+                    damage,
+                    GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
+                    tower.GetShotPoint(),
+                    tankRoot.position + (shotDirection.normalized * fireRange)
+                );
+                ray.Show();
             }
         }
 
-        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
+        public override void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
             this.tankRoot = tankRoot;
             this.enemyFinder = enemyFinder;
-            tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);
+            tower = UnityEngine.Object.Instantiate(
+                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
+                tankRoot
+            );
         }
     }
 }
