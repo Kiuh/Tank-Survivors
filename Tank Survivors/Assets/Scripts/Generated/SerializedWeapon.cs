@@ -11,7 +11,7 @@ namespace Tank.Weapons
     [HideReferenceObjectPicker]
     public class SerializedWeapon
     {
-        private static string[] names = new string[] { "DoubleShotGun", "RailGun", "BasicGun", "GranadeLauncherGun", "Minigun" };
+        private static string[] names = new string[] { "DoubleShotGun", "RailGun", "BasicGun", "GrenadeLauncherGun", "Minigun" };
 
         [ShowInInspector]
         [ValueDropdown("names")]
@@ -34,8 +34,8 @@ namespace Tank.Weapons
 
         [ShowInInspector]
         [NonSerialized, OdinSerialize]
-        [ShowIf("@this.selectedType == \"GranadeLauncherGun\"")]
-        private GranadeLauncherGun granadeLauncherGun;
+        [ShowIf("@this.selectedType == \"GrenadeLauncherGun\"")]
+        private GrenadeLauncherGun grenadeLauncherGun;
 
         [ShowInInspector]
         [NonSerialized, OdinSerialize]
@@ -49,7 +49,7 @@ namespace Tank.Weapons
                 "DoubleShotGun" => doubleShotGun,
                 "RailGun" => railGun,
                 "BasicGun" => basicGun,
-                "GranadeLauncherGun" => granadeLauncherGun,
+                "GrenadeLauncherGun" => grenadeLauncherGun,
                 "Minigun" => minigun,
                 _ => throw new NotImplementedException(),
             };

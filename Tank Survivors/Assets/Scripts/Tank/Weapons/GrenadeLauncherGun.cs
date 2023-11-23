@@ -12,7 +12,7 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class GranadeLauncherGun
+    public class GrenadeLauncherGun
         : IWeapon,
             IHaveDamage,
             IHaveCriticalChance,
