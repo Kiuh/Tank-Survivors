@@ -12,18 +12,7 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class Minigun
-        : IWeapon,
-            IHaveDamage,
-            IHaveFireRange,
-            IHaveCriticalChance,
-            IHaveFireRate,
-            IHavePenetration,
-            IHaveProjectile<SimpleProjectile>,
-            IHaveProjectileSize,
-            IHaveProjectileSpeed,
-            IHaveProjectilesPerShoot,
-            IHaveTower<SingleShotTower>
+    public class Minigun : IWeapon
     {
         [SerializeField]
         [ReadOnly]

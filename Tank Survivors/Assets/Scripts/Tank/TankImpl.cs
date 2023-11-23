@@ -2,6 +2,7 @@ using Common;
 using DataStructs;
 using General;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Tank
 {
     [SelectionBase]
     [AddComponentMenu("Tank.TankImpl")]
-    public class TankImpl : MonoBehaviour
+    public class TankImpl : SerializedMonoBehaviour
     {
         [SerializeField]
         private GameContext gameContext;
@@ -73,8 +74,14 @@ namespace Tank
         [SerializeField]
         private EnemyFinder enemyFinder;
 
+        [ReadOnly]
+        [OdinSerialize]
+        [ShowInInspector]
         private List<TankUpgrade> tankUpgrades = new();
 
+        [ReadOnly]
+        [OdinSerialize]
+        [ShowInInspector]
         private List<IWeapon> weapons = new();
         public IEnumerable<IWeapon> Weapons => weapons;
 
@@ -84,7 +91,7 @@ namespace Tank
         {
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             tankUpgrades.ForEach(x => x.Initialize());
-            weapons = gameContext.GameConfig.WeaponsConfig.GetWeapons.ToList();
+            weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
             weapons.ForEach(x => x.Initialize(gameObject.transform, enemyFinder));
             playerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);

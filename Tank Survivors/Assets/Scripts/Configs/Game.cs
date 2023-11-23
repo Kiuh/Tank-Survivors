@@ -8,7 +8,7 @@ namespace Configs
         public TankStartProperties TankStartProperties;
         public Enemies EnemiesConfig;
         public TankUpgrades TankUpgradesConfig;
-        public Weapons WeaponsConfig;
+        public TankWeapons WeaponsConfig;
         public LevelProgression LevelProgressionConfig;
     }
 }

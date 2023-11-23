@@ -19,9 +19,9 @@ namespace Tank.Weapons
         [ShowInInspector]
         [NonSerialized, OdinSerialize]
         [ShowIf("@this.selectedType == \"BasicGunDamageUp\"")]
-        private BasicGunDamageUp basicGunDamageUp;
+        private DamageUpgrade basicGunDamageUp;
 
-        public ILeveledBasicGunUpgrade ToLeveledBasicGunUpgrade()
+        public ILeveledWeaponUpgrade ToLeveledBasicGunUpgrade()
         {
             return selectedType switch
             {

@@ -1,6 +1,6 @@
 ﻿using Common;
-using DataStructs;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,86 +11,66 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
-    [Serializable]
-    public class BasicGun
-        : IWeapon,
-            IHaveDamage,
-            IHaveFireRange,
-            IHaveCriticalChance,
-            IHaveFireRate,
-            IHavePenetration,
-            IHaveProjectile<SimpleProjectile>,
-            IHaveProjectileSize,
-            IHaveProjectileSpeed,
-            IHaveProjectilesPerShoot,
-            IHaveTower<SingleShotTower>
+    public abstract class GunBase : IWeapon
     {
-        [SerializeField]
-        [ReadOnly]
-        private uint currentLevel;
-        public uint CurrentLevel
+        [FoldoutGroup("$UpgradeName")]
+        [OdinSerialize]
+        [LabelText("Weapon Name")]
+        public string UpgradeName { get; private set; }
+
+        [FoldoutGroup("$UpgradeName")]
+        [OdinSerialize]
+        public uint CurrentLevel { get; set; }
+
+        [FoldoutGroup("$UpgradeName")]
+        [OdinSerialize]
+        public uint MaxLevel { get; private set; }
+
+        [FoldoutGroup("$UpgradeName")]
+        [OdinSerialize]
+        [ShowInInspector]
+        private List<ILeveledWeaponUpgrade> leveledUpgrades;
+
+        public abstract List<IWeaponModule> Modules { get; protected set; }
+
+        public T GetModule<T>()
+            where T : class, IWeaponModule
         {
-            get => currentLevel;
-            set => currentLevel = value;
+            IWeaponModule module = Modules.FirstOrDefault(x => x is T);
+            return module == null ? null : module as T;
         }
 
-        [SerializeField]
-        private uint maxLevel;
-        public uint MaxLevel => maxLevel;
+        public IEnumerable<ILeveledUpgrade> Upgrades => leveledUpgrades;
 
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalMultiplier;
-        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
+        public abstract void Initialize(Transform tankRoot, EnemyFinder enemyFinder);
 
-        [SerializeField]
-        private ModifiableValue<float> damage;
-        public ModifiableValue<float> Damage => damage;
+        public abstract void ProceedAttack(float deltaTime);
+    }
 
-        [SerializeField]
-        private ModifiableValue<float> fireRange;
-        public ModifiableValue<float> FireRange => fireRange;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalChance;
-        public ModifiableValue<Percentage> CriticalChance => criticalChance;
-
-        [SerializeField]
-        private ModifiableValue<float> fireRate;
-        public ModifiableValue<float> FireRate => fireRate;
-
-        [SerializeField]
-        private ModifiableValue<int> penetration;
-        public ModifiableValue<int> Penetration => penetration;
-
-        [SerializeField]
-        private SimpleProjectile projectilePrefab;
-        public SimpleProjectile ProjectilePrefab => projectilePrefab;
-
-        [SerializeField]
-        private ModifiableValue<float> projectileSize;
-        public ModifiableValue<float> ProjectileSize => projectileSize;
-
-        [SerializeField]
-        private ModifiableValue<float> projectileSpeed;
-        public ModifiableValue<float> ProjectileSpeed => projectileSpeed;
-
-        [SerializeField]
-        private ModifiableValue<int> projectilesPerShoot;
-        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
-
-        [SerializeField]
-        private List<SerializedLeveledBasicGunUpgrade> leveledBasicGunUpgrades;
-
-        [SerializeField]
-        private SingleShotTower towerPrefab;
-        public SingleShotTower TowerPrefab => towerPrefab;
-
-        [SerializeField]
-        private string upgradeName;
-        public string UpgradeName => upgradeName;
-
-        public IEnumerable<ILeveledUpgrade> Upgrades =>
-            leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
+    public class BasicGun : GunBase
+    {
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("$UpgradeName")]
+        public override List<IWeaponModule> Modules { get; protected set; } =
+            new()
+            {
+                new DamageModule(),
+                new FireRateModule(),
+                new CriticalChanceModule(),
+                new FireRangeModule(),
+                new PenetrationModule(),
+                new ProjectileModule<SimpleProjectile>(),
+                new ProjectileSizeModule(),
+                new ProjectileSpeedModule(),
+                new ProjectilesPerShootModule(),
+                new TowerModule<SingleShotTower>(),
+            };
 
         private SingleShotTower tower;
         private Transform tankRoot;
@@ -98,7 +78,7 @@ namespace Tank.Weapons
 
         private float remainingTime = 0f;
 
-        public void ProceedAttack(float deltaTime)
+        public override void ProceedAttack(float deltaTime)
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
@@ -110,71 +90,82 @@ namespace Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += fireRate.GetModifiedValue();
+                remainingTime += GetModule<FireRateModule>().FireRate.GetModifiedValue();
                 Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
 
-                for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
+                for (
+                    int i = 0;
+                    i
+                        < GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+                    i++
+                )
                 {
                     tower.RotateTo(shotDirection);
 
                     SimpleProjectile projectile = UnityEngine.Object.Instantiate(
-                        projectilePrefab,
+                        GetModule<ProjectileModule<SimpleProjectile>>().ProjectilePrefab,
                         tower.GetShotPoint(),
                         Quaternion.identity
                     );
 
+                    float damage = GetModule<DamageModule>().Damage.GetModifiedValue();
+                    bool isCritical = GetModule<CriticalChanceModule>().CriticalChance
+                        .GetModifiedValue()
+                        .TryChance();
+                    if (isCritical)
+                    {
+                        float criticalMultiplier =
+                            GetModule<CriticalChanceModule>().CriticalMultiplier
+                                .GetModifiedValue()
+                                .Value;
+                        damage *= 1f + criticalMultiplier;
+                    }
                     projectile.Initialize(
-                        damage.GetModifiedValue()
-                            * (
-                                1f
-                                + (
-                                    criticalChance.SourceValue.TryChance()
-                                        ? 0f
-                                        : criticalMultiplier.GetModifiedValue().Value
-                                )
-                            ),
-                        projectileSpeed.GetModifiedValue(),
-                        projectileSize.GetModifiedValue(),
-                        fireRange.GetModifiedValue(),
-                        penetration.GetModifiedValue(),
+                        damage,
+                        GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
+                        GetModule<ProjectileSizeModule>().ProjectileSize.GetModifiedValue(),
+                        GetModule<FireRangeModule>().FireRange.GetModifiedValue(),
+                        GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
                         shotDirection
                     );
                 }
             }
         }
 
-        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
+        public override void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
             this.tankRoot = tankRoot;
             this.enemyFinder = enemyFinder;
-            tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);
+            tower = UnityEngine.Object.Instantiate(
+                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
+                tankRoot
+            );
         }
     }
 
-    [InterfaceEditor]
-    public interface ILeveledBasicGunUpgrade : ILeveledUpgrade { }
+    public interface ILeveledWeaponUpgrade : ILeveledUpgrade { }
 
     [Serializable]
-    public class BasicGunDamageUp : ILeveledBasicGunUpgrade
+    public class DamageUpgrade : ILeveledWeaponUpgrade
     {
         [SerializeField]
-        private uint upgradingLevel;
+        private float value;
 
-        [SerializeField]
-        private float damageUpValue;
-        public uint UpgradingLevel => upgradingLevel;
+        [OdinSerialize]
+        public uint UpgradingLevel { get; private set; }
 
-        [SerializeField]
-        private string description;
-        public string Description => description;
+        [OdinSerialize]
+        public string Description { get; private set; }
 
         public void ApplyUpgrade(TankImpl tank)
         {
             BasicGun weapon = tank.Weapons.First(x => x is BasicGun) as BasicGun;
-            weapon.Damage.Modifications.Add(
-                new ValueModification<float>((x) => x + damageUpValue, ModificationPriority.Medium)
-            );
+            weapon
+                .GetModule<DamageModule>()
+                .Damage.Modifications.Add(
+                    new ValueModification<float>((x) => x + value, ModificationPriority.Medium)
+                );
         }
     }
 }

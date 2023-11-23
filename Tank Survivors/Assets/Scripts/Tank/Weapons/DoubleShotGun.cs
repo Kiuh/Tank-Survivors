@@ -4,28 +4,15 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Tank;
 using Tank.Towers;
 using Tank.UpgradablePiece;
-using Tank.Weapons;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
 
-namespace Assets.Scripts.Tank.Weapons
+namespace Tank.Weapons
 {
     [Serializable]
-    public class DoubleShotGun
-        : IWeapon,
-            IHaveDamage,
-            IHaveFireRange,
-            IHaveCriticalChance,
-            IHaveFireRate,
-            IHavePenetration,
-            IHaveProjectile<SimpleProjectile>,
-            IHaveProjectileSize,
-            IHaveProjectileSpeed,
-            IHaveProjectilesPerShoot,
-            IHaveTower<DoubleShotTower>
+    public class DoubleShotGun : IWeapon
     {
         [SerializeField]
         [ReadOnly]

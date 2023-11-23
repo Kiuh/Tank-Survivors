@@ -10,15 +10,17 @@ namespace Tank
 
         public Transform GetNearestTransformOrNull()
         {
-            var objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
+            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
             if (objects.Length == 0)
+            {
                 return null;
+            }
 
             Transform nearestEnemy = null;
-            foreach (var obj in objects)
+            foreach (Collider2D obj in objects)
             {
-                if (obj.gameObject.TryGetComponent<IEnemy>(out var enemy))
+                if (obj.gameObject.TryGetComponent<IEnemy>(out IEnemy enemy))
                 {
                     if (
                         nearestEnemy == null

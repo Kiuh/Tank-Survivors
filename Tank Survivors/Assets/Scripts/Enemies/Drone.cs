@@ -45,7 +45,7 @@ namespace Enemies
         [SerializeField]
         [ReadOnly]
         private Vector2 movementDirection;
-        
+
         [SerializeField]
         [ReadOnly]
         private bool isMoving;

@@ -12,17 +12,7 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class GrenadeLauncherGun
-        : IWeapon,
-            IHaveDamage,
-            IHaveCriticalChance,
-            IHaveFireRate,
-            IHaveProjectile<FlyingProjectile>,
-            IHaveProjectileSize,
-            IHaveProjectileSpeed,
-            IHaveProjectilesPerShoot,
-            IHaveProjectileDamageRadius,
-            IHaveTower<SingleShotTower>
+    public class GrenadeLauncherGun : IWeapon
     {
         [SerializeField]
         [ReadOnly]

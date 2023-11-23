@@ -14,14 +14,7 @@ using UnityEngine;
 namespace Assets.Scripts.Tank.Weapons
 {
     [Serializable]
-    public class RailGun
-        : IWeapon,
-            IHaveDamage,
-            IHaveFireRange,
-            IHaveCriticalChance,
-            IHaveFireRate,
-            IHaveProjectile<RayRenderer>,
-            IHaveTower<SingleShotTower>
+    public class RailGun : IWeapon
     {
         [SerializeField]
         [InspectorReadOnly]
@@ -105,7 +98,7 @@ namespace Assets.Scripts.Tank.Weapons
 
                 tower.RotateTo(shotDirection);
 
-                var collisions = Physics2D.RaycastAll(
+                RaycastHit2D[] collisions = Physics2D.RaycastAll(
                     tower.GetShotPoint(),
                     shotDirection,
                     fireRange.GetModifiedValue()
@@ -113,13 +106,13 @@ namespace Assets.Scripts.Tank.Weapons
 
                 RayRenderer ray = UnityEngine.Object.Instantiate(rayPrefab);
                 Vector3 endPoint =
-                    tankRoot.position + shotDirection.normalized * fireRange.GetModifiedValue();
+                    tankRoot.position + (shotDirection.normalized * fireRange.GetModifiedValue());
                 ray.Initialize(rayDuration, tower.GetShotPoint(), endPoint);
                 ray.Show();
 
-                foreach (var collision in collisions)
+                foreach (RaycastHit2D collision in collisions)
                 {
-                    if (collision.transform.TryGetComponent<IEnemy>(out var enemy))
+                    if (collision.transform.TryGetComponent<IEnemy>(out IEnemy enemy))
                     {
                         enemy.TakeDamage(
                             damage.GetModifiedValue()

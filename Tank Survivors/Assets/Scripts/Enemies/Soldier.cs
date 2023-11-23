@@ -4,7 +4,6 @@ using System.Collections;
 using Tank;
 using Tank.PickUps;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Enemies
 {

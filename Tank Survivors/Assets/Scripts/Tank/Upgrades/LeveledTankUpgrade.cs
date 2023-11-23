@@ -11,7 +11,6 @@ namespace Tank.Upgrades
     public class LeveledTankUpgrade : ILeveledUpgrade
     {
         [FoldoutGroup("$UpgradingLevel")]
-        [MinValue(0)]
         [OdinSerialize]
         public uint UpgradingLevel { get; private set; }
 
