@@ -2,6 +2,7 @@ using Common;
 using System;
 using System.Collections;
 using Tank;
+using Tank.PickUps;
 using UnityEngine;
 
 namespace Enemies
@@ -11,6 +12,9 @@ namespace Enemies
     {
         [SerializeField]
         private Configs.Drone droneConfig;
+
+        [SerializeField]
+        private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
         [InspectorReadOnly]
@@ -50,12 +54,13 @@ namespace Enemies
 
         public void Initialize(TankImpl tank)
         {
-            health = droneConfig.Health;
-            movementSpeed = droneConfig.MovementSpeed;
-            damage = droneConfig.Damage;
-            explosionRadius = droneConfig.ExplosionRadius;
-            explosiveArea.radius = explosionRadius;
             this.tank = tank;
+            health = droneConfig.Health;
+            damage = droneConfig.Damage;
+            explosiveArea.radius = explosionRadius;
+            movementSpeed = droneConfig.MovementSpeed;
+            explosionRadius = droneConfig.ExplosionRadius;
+            OnDeath += DropExperience;
             OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
@@ -106,6 +111,13 @@ namespace Enemies
                 health = 0;
                 OnDeath?.Invoke();
             }
+        }
+
+        private void DropExperience()
+        {
+            Instantiate(experiencePickupPrefab, transform.position, Quaternion.identity)
+                .GetComponent<ExperiencePickUp>()
+                .Initialize(droneConfig.ExperienceDropAmount);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

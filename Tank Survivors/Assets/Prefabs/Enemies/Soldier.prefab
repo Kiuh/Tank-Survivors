@@ -131,6 +131,8 @@ MonoBehaviour:
     movementSpeed: 1
     damage: 1
     timeForNextHit: 1
+    experienceDropAmount: 5
+  experiencePickupPrefab: {fileID: 632944525156465173, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
   health: 100
   damage: 10
   movementSpeed: 1

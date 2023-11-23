@@ -2,7 +2,9 @@ using Common;
 using System;
 using System.Collections;
 using Tank;
+using Tank.PickUps;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Enemies
 {
@@ -11,6 +13,9 @@ namespace Enemies
     {
         [SerializeField]
         private Configs.Soldier soldierConfig;
+
+        [SerializeField]
+        private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
         [InspectorReadOnly]
@@ -51,11 +56,12 @@ namespace Enemies
 
         public void Initialize(TankImpl tank)
         {
-            health = soldierConfig.Health;
-            movementSpeed = soldierConfig.MovementSpeed;
-            damage = soldierConfig.Damage;
-            timeForNextHit = soldierConfig.TimeForNextHit;
             this.tank = tank;
+            health = soldierConfig.Health;
+            damage = soldierConfig.Damage;
+            movementSpeed = soldierConfig.MovementSpeed;
+            timeForNextHit = soldierConfig.TimeForNextHit;
+            OnDeath += DropExperience;
             OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
@@ -115,6 +121,13 @@ namespace Enemies
                 health = 0;
                 OnDeath?.Invoke();
             }
+        }
+
+        private void DropExperience()
+        {
+            Instantiate(experiencePickupPrefab, transform.position, Quaternion.identity)
+                .GetComponent<ExperiencePickUp>()
+                .Initialize(soldierConfig.ExperienceDropAmount);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

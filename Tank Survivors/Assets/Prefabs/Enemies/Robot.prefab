@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7105571496359225119}
   - component: {fileID: 4942160106164820235}
   - component: {fileID: 1003298091916130801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +140,8 @@ MonoBehaviour:
     movementSpeed: 0.5
     damage: 10
     timeForNextHit: 3
+    experienceDropAmount: 15
+  experiencePickupPrefab: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
   health: 0
   damage: 0
   movementSpeed: 0
@@ -164,7 +166,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -175,4 +177,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

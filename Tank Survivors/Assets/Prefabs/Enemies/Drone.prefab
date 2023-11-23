@@ -177,6 +177,8 @@ MonoBehaviour:
     damage: 15
     explosionRadius: 0.5
     movementSpeed: 3
+    experienceDropAmount: 2
+  experiencePickupPrefab: {fileID: 632944525156465173, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
   health: 0
   damage: 15
   movementSpeed: 2
