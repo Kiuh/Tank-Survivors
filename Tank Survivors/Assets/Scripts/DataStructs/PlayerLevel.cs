@@ -1,5 +1,6 @@
 ﻿using Common;
 using Configs;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 
@@ -9,17 +10,17 @@ namespace DataStructs
     public class PlayerLevel
     {
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private uint currentLevel = 0;
         public uint CurrentLevel => currentLevel;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float experienceCount;
         public float ExperienceCount => experienceCount;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private ModifiableValue<float> maxExperienceCount;
         public float MaxExperienceCount => maxExperienceCount.SourceValue;
 

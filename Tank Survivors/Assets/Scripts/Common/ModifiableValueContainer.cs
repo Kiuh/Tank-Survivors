@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 namespace Common
@@ -10,8 +11,8 @@ namespace Common
         private ModifiableValue<float> maxValue = new(0);
 
         [SerializeField]
-        [InspectorReadOnly]
-        private readonly float minValue;
+        [ReadOnly]
+        private float minValue;
         public float BaseValue
         {
             get => maxValue.SourceValue;

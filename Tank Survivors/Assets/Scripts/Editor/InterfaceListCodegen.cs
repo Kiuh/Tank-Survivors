@@ -21,7 +21,6 @@ public class InterfaceEditorGenerator : ICodeGenerator
         foreach (Type interface_type in interface_types)
         {
             GenerateSerializedInterface(context, interface_type);
-            GenerateSerializedInterfaceEditor(context, interface_type);
         }
     }
 
@@ -33,10 +32,14 @@ public class InterfaceEditorGenerator : ICodeGenerator
         IEnumerable<Type> implemented_for_types = ClassNamesImplementingInterface(interface_type);
         string usings = ComposeUsings(implemented_for_types, ns);
 
+        string name_list = implemented_for_types
+            .Select(t => $"\"{t.Name}\"")
+            .Aggregate("", (x, y) => x + (x.Length == 0 ? "" : ", ") + y);
+
         string fields = implemented_for_types
             .Select(
-                ty =>
-                    $"        [SerializeField]\r\n        private {ty.Name} {PascalToCamelCase(ty.Name)};"
+                type =>
+                    $"        [ShowInInspector]\r\n        [NonSerialized, OdinSerialize]\r\n        [ShowIf(\"@this.selectedType == \\\"{type.Name}\\\"\")]\r\n        private {type.Name} {PascalToCamelCase(type.Name)};"
             )
             .Aggregate("", (x, y) => x + (x.Length == 0 ? "" : "\r\n\r\n") + y);
 
@@ -47,6 +50,7 @@ public class InterfaceEditorGenerator : ICodeGenerator
         string template_path =
             Application.dataPath + "/Scripts/Editor/SerializedInterfaceTemplate.txt";
         string code = File.ReadAllText(template_path);
+        code = code.Replace("|=NAME_LIST=|", name_list);
         code = code.Replace("|=USINGS=|", usings);
         code = code.Replace("|=NAMESPACE=|", ns);
         code = code.Replace("|=INTERFACE_NAME=|", interface_name);
@@ -56,30 +60,6 @@ public class InterfaceEditorGenerator : ICodeGenerator
 
         context.OverrideFolderPath("Assets/Scripts/Generated");
         context.AddCode($"Serialized{interface_name[1..]}.cs", code);
-    }
-
-    private void GenerateSerializedInterfaceEditor(GeneratorContext context, Type interface_type)
-    {
-        string interface_name = interface_type.Name;
-        string ns = interface_type.Namespace;
-
-        IEnumerable<Type> implemented_for_types = ClassNamesImplementingInterface(interface_type);
-        string usings = ComposeUsings(implemented_for_types, "");
-
-        string implementing_type_names = implemented_for_types
-            .Select(t => '"' + t.Name + '"')
-            .Aggregate("", (x, y) => x + (x.Length == 0 ? "" : ", ") + y);
-
-        string template_path =
-            Application.dataPath + "/Scripts/Editor/SerializedInterfaceEditorTemplate.txt";
-        string code = File.ReadAllText(template_path);
-
-        code = code.Replace("|=USINGS=|", usings);
-        code = code.Replace("|=INTERFACE_CLASS_NAME=|", interface_name[1..]);
-        code = code.Replace("|=IMPLEMENTING_TYPE_NAMES=|", implementing_type_names);
-
-        context.OverrideFolderPath("Assets/Scripts/Generated");
-        context.AddCode($"Serialized{interface_name[1..]}Editor.cs", code);
     }
 
     private IEnumerable<Type> ClassNamesImplementingInterface(Type interface_type)

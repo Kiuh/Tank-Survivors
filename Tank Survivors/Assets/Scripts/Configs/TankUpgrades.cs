@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections.Generic;
-using System.Linq;
 using Tank.Upgrades;
 using UnityEngine;
 
@@ -13,8 +13,9 @@ namespace Configs
     )]
     public class TankUpgrades : SerializedScriptableObject
     {
-        [SerializeField]
-        private List<SerializedTankUpgrade> upgrades;
-        public IEnumerable<ITankUpgrade> Upgrades => upgrades.Select(x => x.ToTankUpgrade());
+        [OdinSerialize]
+        [ListDrawerSettings(DraggableItems = false)]
+        [LabelText("All Tank Upgrades")]
+        public List<TankUpgrade> Upgrades { get; private set; }
     }
 }

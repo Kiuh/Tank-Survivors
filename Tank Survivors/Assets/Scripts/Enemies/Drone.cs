@@ -1,4 +1,4 @@
-using Common;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using Tank;
@@ -17,23 +17,23 @@ namespace Enemies
         private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float health;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float damage;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float movementSpeed;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private float explosionRadius;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private TankImpl tank;
 
         [SerializeField]
@@ -43,11 +43,11 @@ namespace Enemies
         private CircleCollider2D explosiveArea;
 
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private Vector2 movementDirection;
-
+        
         [SerializeField]
-        [InspectorReadOnly]
+        [ReadOnly]
         private bool isMoving;
 
         public event Action OnDeath;
