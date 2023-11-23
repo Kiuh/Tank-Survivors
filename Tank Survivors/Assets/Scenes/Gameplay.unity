@@ -1960,10 +1960,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
-      propertyPath: gameContext
-      value: 
-      objectReference: {fileID: 1075597817}
-    - target: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 2534944405157877418, guid: 053b740e0cae6484791acbaade49e12b, type: 3}

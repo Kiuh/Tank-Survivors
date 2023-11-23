@@ -1,16 +1,15 @@
 ﻿using Enemies.Producers;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "EnemiesConfig", menuName = "Configs/EnemiesConfig", order = 1)]
-    public class Enemies : ScriptableObject
+    public class Enemies : SerializedScriptableObject
     {
-        [SerializeField]
-        private List<SerializedEnemyProducer> enemyProducers;
-        public IEnumerable<IEnemyProducer> EnemyProducers =>
-            enemyProducers.Select(x => x.ToEnemyProducer());
+        [OdinSerialize]
+        public List<IEnemyProducer> EnemyProducers { get; private set; }
     }
 }

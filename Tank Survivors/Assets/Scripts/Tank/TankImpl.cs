@@ -17,69 +17,84 @@ namespace Tank
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : SerializedMonoBehaviour
     {
+        [FoldoutGroup("General Bindings")]
+        [PropertyOrder(0)]
         [SerializeField]
         private GameContext gameContext;
 
-        [SerializeField]
-        [BoxGroup("Health"), HideLabel]
-        private ModifiableValueContainer health;
-        public ModifiableValueContainer Health => health;
-
-        [SerializeField]
-        [BoxGroup("PlayerLevel"), HideLabel]
-        private PlayerLevel playerLevel;
-        public PlayerLevel PlayerLevel => playerLevel;
-
-        [SerializeField]
-        private ModifiableValue<uint> levelUpChoicesCount;
-        public ModifiableValue<uint> LevelUpChoicesCount => levelUpChoicesCount;
-
-        [SerializeField]
-        private ModifiableValue<float> speed;
-        public ModifiableValue<float> Speed => speed;
-
-        [SerializeField]
-        private ModifiableValue<float> pickupRadius;
-        public ModifiableValue<float> PickupRadius => pickupRadius;
-
-        [SerializeField]
-        [BoxGroup("Armor"), HideLabel]
-        private ModifiableValueContainer armor;
-        public ModifiableValueContainer Armor => armor;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalChance;
-        public ModifiableValue<Percentage> CriticalChance => criticalChance;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> evadeChance;
-        public ModifiableValue<Percentage> EvadeChance => evadeChance;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> damageModifier;
-        public ModifiableValue<Percentage> DamageModifier => damageModifier;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> projectileSize;
-        public ModifiableValue<Percentage> ProjectileSize => projectileSize;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> rangeModifier;
-        public ModifiableValue<Percentage> RangeModifier => rangeModifier;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> fireRateModifier;
-        public ModifiableValue<Percentage> FireRateModifier => fireRateModifier;
-
+        [FoldoutGroup("General Bindings")]
+        [PropertyOrder(0)]
         [SerializeField]
         private EnemyFinder enemyFinder;
 
         [ReadOnly]
         [OdinSerialize]
+        [FoldoutGroup("Health"), HideLabel]
+        public ModifiableValueContainer Health { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("PlayerLevel"), HideLabel]
+        public PlayerLevel PlayerLevel { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<uint> LevelUpChoicesCount { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<float> Speed { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<float> PickupRadius { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Armor"), HideLabel]
+        public ModifiableValueContainer Armor { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<Percentage> CriticalChance { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<Percentage> EvadeChance { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<Percentage> DamageModifier { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats", order: 1)]
+        public ModifiableValue<Percentage> ProjectileSize { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<Percentage> RangeModifier { get; private set; } = new();
+
+        [ReadOnly]
+        [OdinSerialize]
+        [FoldoutGroup("Tank Stats")]
+        public ModifiableValue<Percentage> FireRateModifier { get; private set; } = new();
+
+        [ReadOnly]
+        [PropertyOrder(2)]
+        [OdinSerialize]
         [ShowInInspector]
         private List<TankUpgrade> tankUpgrades = new();
 
         [ReadOnly]
+        [PropertyOrder(2)]
         [OdinSerialize]
         [ShowInInspector]
         private List<IWeapon> weapons = new();
@@ -93,7 +108,7 @@ namespace Tank
             tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
             weapons.ForEach(x => x.Initialize(gameObject.transform, enemyFinder));
-            playerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
+            PlayerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
 
@@ -115,20 +130,20 @@ namespace Tank
 
         public void Heal(float healAmount)
         {
-            health.Value = Mathf.Min(health.Value + healAmount, health.MaxValue);
+            Health.Value = Mathf.Min(Health.Value + healAmount, Health.MaxValue);
         }
 
         public void FixArmor(float armorAmount)
         {
-            armor.Value = Mathf.Min(armor.Value + armorAmount, armor.MaxValue);
+            Armor.Value = Mathf.Min(Armor.Value + armorAmount, Armor.MaxValue);
         }
 
         public void TakeDamage(float damageAmount)
         {
-            health.Value -= damageAmount;
-            if (health.Value <= 0)
+            Health.Value -= damageAmount;
+            if (Health.Value <= 0)
             {
-                health.Value = 0;
+                Health.Value = 0;
                 OnDeath?.Invoke();
             }
         }

@@ -53,45 +53,229 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48900d6516a933c4b93599c14f59d522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Health
+      Entry: 7
+      Data: 0|Common.ModifiableValueContainer, Assembly-CSharp
+    - Name: maxValue
+      Entry: 7
+      Data: 1|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: minValue
+      Entry: 4
+      Data: 0
+    - Name: currentValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PlayerLevel
+      Entry: 7
+      Data: 2|DataStructs.PlayerLevel, Assembly-CSharp
+    - Name: currentLevel
+      Entry: 3
+      Data: 0
+    - Name: experienceCount
+      Entry: 4
+      Data: 0
+    - Name: maxExperienceCount
+      Entry: 7
+      Data: 3|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: LevelUpChoicesCount
+      Entry: 7
+      Data: 4|Common.ModifiableValue`1[[System.UInt32, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Speed
+      Entry: 7
+      Data: 5|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PickupRadius
+      Entry: 7
+      Data: 6|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Armor
+      Entry: 7
+      Data: 7|Common.ModifiableValueContainer, Assembly-CSharp
+    - Name: maxValue
+      Entry: 7
+      Data: 8|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+    - Name: sourceValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: minValue
+      Entry: 4
+      Data: 0
+    - Name: currentValue
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: CriticalChance
+      Entry: 7
+      Data: 9|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: EvadeChance
+      Entry: 7
+      Data: 10|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DamageModifier
+      Entry: 7
+      Data: 11|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ProjectileSize
+      Entry: 7
+      Data: 12|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: RangeModifier
+      Entry: 7
+      Data: 13|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: FireRateModifier
+      Entry: 7
+      Data: 14|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+        Assembly-CSharp
+    - Name: sourceValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tankUpgrades
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Tank.Upgrades.TankUpgrade, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: weapons
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Tank.Weapons.IWeapon, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   gameContext: {fileID: 0}
-  health:
-    maxValue:
-      sourceValue: 0
-    currentValue: 100
-  playerLevel:
-    currentLevel: 0
-    experienceCount: 0
-    maxExperienceCount:
-      sourceValue: 0
-  levelUpChoicesCount:
-    sourceValue: 0
-  speed:
-    sourceValue: 10
-  pickupRadius:
-    sourceValue: 0
-  armor:
-    maxValue:
-      sourceValue: 10
-    currentValue: 0
-  criticalChance:
-    sourceValue:
-      value: 0
-  evadeChance:
-    sourceValue:
-      value: 0
-  damageModifier:
-    sourceValue:
-      value: 0
-  projectileSize:
-    sourceValue:
-      value: 0
-  rangeModifier:
-    sourceValue:
-      value: 0
-  fireRateModifier:
-    sourceValue:
-      value: 0
-  enemyFinder: {fileID: 8857565095553156260}
+  enemyFinder: {fileID: 0}
 --- !u!114 &8857565095553156260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +405,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.4614547, y: 0.4178816}
     oldSize: {x: 2, y: 2}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5

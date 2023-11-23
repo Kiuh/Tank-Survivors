@@ -12,4 +12,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
   m_Name: EnemiesConfig
   m_EditorClassIdentifier: 
-  enemyProducers: []
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 3017579110327134564, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: EnemyProducers
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Enemies.Producers.IEnemyProducer,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|Enemies.Producers.ConstantEnemyProducer, Assembly-CSharp
+    - Name: enemyPrefab
+      Entry: 10
+      Data: 0
+    - Name: spawnInterval
+      Entry: 4
+      Data: 0
+    - Name: startCircleRadius
+      Entry: 4
+      Data: 0
+    - Name: endCircleRadius
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Enemies.Producers.DefaultEnemyProducer, Assembly-CSharp
+    - Name: enemyPrefab
+      Entry: 6
+      Data: 
+    - Name: spawnInterval
+      Entry: 4
+      Data: 0
+    - Name: startCircleRadius
+      Entry: 4
+      Data: 0
+    - Name: endCircleRadius
+      Entry: 4
+      Data: 0
+    - Name: startTime
+      Entry: 4
+      Data: 0
+    - Name: endTime
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

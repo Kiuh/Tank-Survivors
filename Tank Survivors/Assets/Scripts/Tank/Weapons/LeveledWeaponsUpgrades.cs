@@ -49,7 +49,7 @@ namespace Tank.Weapons
     [Serializable]
     [InlineProperty]
     [HideReferenceObjectPicker]
-    public abstract class BaseModuleUpgrade<T> : IModuleUpgrade
+    public abstract class BaseModuleMathUpgrade<T> : IModuleUpgrade
     {
         [OdinSerialize]
         [FoldoutGroup("@GetType()")]
@@ -72,7 +72,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class Damage : BaseModuleUpgrade<float>
+    public class Damage : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -85,7 +85,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class FireRange : BaseModuleUpgrade<float>
+    public class FireRange : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -98,7 +98,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class ProjectileSize : BaseModuleUpgrade<float>
+    public class ProjectileSize : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -111,7 +111,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class Penetration : BaseModuleUpgrade<int>
+    public class Penetration : BaseModuleMathUpgrade<int>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -124,7 +124,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class ProjectilesPerShoot : BaseModuleUpgrade<int>
+    public class ProjectilesPerShoot : BaseModuleMathUpgrade<int>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -137,7 +137,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class FireRate : BaseModuleUpgrade<float>
+    public class FireRate : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -150,7 +150,7 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class CriticalChance : BaseModuleUpgrade<Percentage>
+    public class CriticalChance : BaseModuleMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
@@ -163,13 +163,26 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    public class CriticalMultiplier : BaseModuleUpgrade<Percentage>
+    public class CriticalMultiplier : BaseModuleMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
             weapon.Modules
                 .GetConcrete<CriticalMultiplierModule, IWeaponModule>()
                 .CriticalMultiplier.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class ProjectileDamageRadius : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<ProjectileDamageRadiusModule, IWeaponModule>()
+                .DamageRadius.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
         }

@@ -1,10 +1,10 @@
-﻿using Common;
+﻿using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
 namespace Enemies.Producers
 {
-    [InterfaceEditor]
+    [HideReferenceObjectPicker]
     public interface IEnemyProducer
     {
         public float StartTime { get; }

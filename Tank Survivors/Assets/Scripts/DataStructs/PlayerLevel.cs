@@ -1,14 +1,18 @@
 ﻿using Common;
 using Configs;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using UnityEngine;
 
 namespace DataStructs
 {
     [Serializable]
+    [HideReferenceObjectPicker]
     public class PlayerLevel
     {
+        public PlayerLevel() { }
+
         [SerializeField]
         [ReadOnly]
         private uint currentLevel = 0;
@@ -19,9 +23,9 @@ namespace DataStructs
         private float experienceCount;
         public float ExperienceCount => experienceCount;
 
-        [SerializeField]
         [ReadOnly]
-        private ModifiableValue<float> maxExperienceCount;
+        [OdinSerialize]
+        private ModifiableValue<float> maxExperienceCount = new();
         public float MaxExperienceCount => maxExperienceCount.SourceValue;
 
         private LevelProgression progressionConfig;

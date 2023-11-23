@@ -15,7 +15,7 @@ namespace Tank.Upgrades
     [Serializable]
     [InlineProperty]
     [HideReferenceObjectPicker]
-    public abstract class BasePropertyUpgrade<T> : IPropertyUpgrade
+    public abstract class BasePropertyMathUpgrade<T> : IPropertyUpgrade
     {
         [OdinSerialize]
         [FoldoutGroup("@GetType()")]
@@ -38,7 +38,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class Speed : BasePropertyUpgrade<float>
+    public class Speed : BasePropertyMathUpgrade<float>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -49,7 +49,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class CriticalChance : BasePropertyUpgrade<Percentage>
+    public class CriticalChance : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -60,7 +60,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class MaxHealth : BasePropertyUpgrade<float>
+    public class MaxHealth : BasePropertyMathUpgrade<float>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -71,7 +71,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class LevelUpChoicesCount : BasePropertyUpgrade<uint>
+    public class LevelUpChoicesCount : BasePropertyMathUpgrade<uint>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -82,7 +82,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class PickupRadius : BasePropertyUpgrade<float>
+    public class PickupRadius : BasePropertyMathUpgrade<float>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -93,7 +93,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class Armor : BasePropertyUpgrade<float>
+    public class Armor : BasePropertyMathUpgrade<float>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -104,7 +104,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class EvadeChance : BasePropertyUpgrade<Percentage>
+    public class EvadeChance : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -115,7 +115,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class DamageModifier : BasePropertyUpgrade<Percentage>
+    public class DamageModifier : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -126,7 +126,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class ProjectileSize : BasePropertyUpgrade<Percentage>
+    public class ProjectileSize : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -137,7 +137,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class RangeModifier : BasePropertyUpgrade<Percentage>
+    public class RangeModifier : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {
@@ -148,7 +148,7 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class FireRateModifier : BasePropertyUpgrade<Percentage>
+    public class FireRateModifier : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
         {

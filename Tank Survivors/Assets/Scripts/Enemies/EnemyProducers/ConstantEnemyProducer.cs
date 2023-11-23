@@ -1,4 +1,4 @@
-using AYellowpaper;
+using Sirenix.OdinInspector;
 using System;
 using Tank;
 using UnityEngine;
@@ -8,8 +8,9 @@ namespace Enemies.Producers
     [Serializable]
     public class ConstantEnemyProducer : IEnemyProducer
     {
+        [AssetsOnly]
         [SerializeField]
-        private InterfaceReference<IEnemy, MonoBehaviour> enemyPrefab;
+        private GameObject enemyPrefab;
 
         [SerializeField]
         private float spawnInterval;
@@ -33,7 +34,7 @@ namespace Enemies.Producers
             {
                 UnityEngine.Object
                     .Instantiate(
-                        enemyPrefab.UnderlyingValue.gameObject,
+                        enemyPrefab,
                         tank.transform.position + GetRandomPoint(),
                         Quaternion.identity,
                         enemyRoot
