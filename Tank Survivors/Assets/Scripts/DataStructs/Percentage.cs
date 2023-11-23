@@ -1,7 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
-using Unity.Android.Gradle.Manifest;
 
 namespace DataStructs
 {
