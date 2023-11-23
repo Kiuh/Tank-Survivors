@@ -10,21 +10,27 @@ namespace Enemies.Producers
     {
         [AssetsOnly]
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private GameObject enemyPrefab;
 
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private float spawnInterval;
 
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private float startCircleRadius;
 
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private float endCircleRadius;
 
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private float startTime;
 
         [SerializeField]
+        [FoldoutGroup("DefaultEnemyProducer")]
         private float endTime;
 
         private float timer = 0;

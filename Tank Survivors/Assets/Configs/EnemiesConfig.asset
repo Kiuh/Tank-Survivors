@@ -15,8 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 3017579110327134564, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -33,8 +32,8 @@ MonoBehaviour:
       Entry: 7
       Data: 1|Enemies.Producers.ConstantEnemyProducer, Assembly-CSharp
     - Name: enemyPrefab
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: spawnInterval
       Entry: 4
       Data: 0
