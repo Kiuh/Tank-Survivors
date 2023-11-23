@@ -1,82 +1,39 @@
-﻿using Common;
-using DataStructs;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using Tank.Towers;
-using Tank.UpgradablePiece;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
 {
     [Serializable]
-    public class DoubleShotGun : IWeapon
+    public class DoubleShotGun : GunBase
     {
-        [SerializeField]
-        [ReadOnly]
-        private uint currentLevel;
-        public uint CurrentLevel
-        {
-            get => currentLevel;
-            set => currentLevel = value;
-        }
-
-        [SerializeField]
-        private uint maxLevel;
-        public uint MaxLevel => maxLevel;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalMultiplier;
-        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
-
-        [SerializeField]
-        private ModifiableValue<float> damage;
-        public ModifiableValue<float> Damage => damage;
-
-        [SerializeField]
-        private ModifiableValue<float> fireRange;
-        public ModifiableValue<float> FireRange => fireRange;
-
-        [SerializeField]
-        private ModifiableValue<Percentage> criticalChance;
-        public ModifiableValue<Percentage> CriticalChance => criticalChance;
-
-        [SerializeField]
-        private ModifiableValue<float> fireRate;
-        public ModifiableValue<float> FireRate => fireRate;
-
-        [SerializeField]
-        private ModifiableValue<int> penetration;
-        public ModifiableValue<int> Penetration => penetration;
-
-        [SerializeField]
-        private SimpleProjectile projectilePrefab;
-        public SimpleProjectile ProjectilePrefab => projectilePrefab;
-
-        [SerializeField]
-        private ModifiableValue<float> projectileSize;
-        public ModifiableValue<float> ProjectileSize => projectileSize;
-
-        [SerializeField]
-        private ModifiableValue<float> projectileSpeed;
-        public ModifiableValue<float> ProjectileSpeed => projectileSpeed;
-
-        [SerializeField]
-        private ModifiableValue<int> projectilesPerShoot;
-        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
-
-        [SerializeField]
-        private DoubleShotTower towerPrefab;
-        public DoubleShotTower TowerPrefab => towerPrefab;
-
-        [SerializeField]
-        private string upgradeName;
-        public string UpgradeName => upgradeName;
-
-        public List<IWeaponModule> Modules => throw new NotImplementedException();
-
-        public IEnumerable<ILeveledUpgrade> Upgrades => throw new NotImplementedException();
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("$UpgradeName")]
+        public override List<IWeaponModule> Modules { get; protected set; } =
+            new()
+            {
+                new DamageModule(),
+                new FireRateModule(),
+                new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
+                new FireRangeModule(),
+                new PenetrationModule(),
+                new ProjectileModule<SimpleProjectile>(),
+                new ProjectileSizeModule(),
+                new ProjectileSpeedModule(),
+                new ProjectilesPerShootModule(),
+                new TowerModule<DoubleShotTower>(),
+            };
 
         private DoubleShotTower tower;
         private Transform tankRoot;
@@ -84,7 +41,7 @@ namespace Tank.Weapons
 
         private float remainingTime = 0f;
 
-        public void ProceedAttack(float deltaTime)
+        public override void ProceedAttack(float deltaTime)
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
@@ -92,48 +49,57 @@ namespace Tank.Weapons
                 return;
             }
 
-            remainingTime -= deltaTime;
+            remainingTime -= Time.deltaTime;
 
             if (remainingTime < 0f)
             {
-                remainingTime += fireRate.GetModifiedValue();
+                remainingTime += GetModule<FireRateModule>().FireRate.GetModifiedValue();
                 Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
 
-                for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
+                int projectilesCount =
+                    GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+                for (int i = 0; i < projectilesCount; i++)
                 {
                     tower.RotateTo(shotDirection);
 
                     SimpleProjectile projectile = UnityEngine.Object.Instantiate(
-                        projectilePrefab,
+                        GetModule<ProjectileModule<SimpleProjectile>>().ProjectilePrefab,
                         tower.GetShotPoint(),
                         Quaternion.identity
                     );
 
+                    float damage = GetModule<DamageModule>().Damage.GetModifiedValue();
+                    bool isCritical = GetModule<CriticalChanceModule>().CriticalChance
+                        .GetModifiedValue()
+                        .TryChance();
+                    if (isCritical)
+                    {
+                        float criticalMultiplier =
+                            GetModule<CriticalMultiplierModule>().CriticalMultiplier
+                                .GetModifiedValue()
+                                .Value;
+                        damage *= 1f + criticalMultiplier;
+                    }
                     projectile.Initialize(
-                        damage.GetModifiedValue()
-                            * (
-                                1f
-                                + (
-                                    criticalChance.SourceValue.TryChance()
-                                        ? 0f
-                                        : criticalMultiplier.GetModifiedValue().Value
-                                )
-                            ),
-                        projectileSpeed.GetModifiedValue(),
-                        projectileSize.GetModifiedValue(),
-                        fireRange.GetModifiedValue(),
-                        penetration.GetModifiedValue(),
+                        damage,
+                        GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
+                        GetModule<ProjectileSizeModule>().ProjectileSize.GetModifiedValue(),
+                        GetModule<FireRangeModule>().FireRange.GetModifiedValue(),
+                        GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
                         shotDirection
                     );
                 }
             }
         }
 
-        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
+        public override void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
             this.tankRoot = tankRoot;
             this.enemyFinder = enemyFinder;
-            tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);
+            tower = UnityEngine.Object.Instantiate(
+                GetModule<TowerModule<DoubleShotTower>>().TowerPrefab,
+                tankRoot
+            );
         }
     }
 }

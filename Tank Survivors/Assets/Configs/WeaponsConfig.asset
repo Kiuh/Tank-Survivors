@@ -35,7 +35,7 @@ MonoBehaviour:
       Data: 1|Tank.Weapons.BasicGun, Assembly-CSharp
     - Name: UpgradeName
       Entry: 1
-      Data: Weapon
+      Data: Basic Gun
     - Name: CurrentLevel
       Entry: 3
       Data: 0
@@ -48,47 +48,7 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 3|Tank.Weapons.LeveledWeaponUpgrade, Assembly-CSharp
-    - Name: UpgradingLevel
-      Entry: 3
       Data: 0
-    - Name: Description
-      Entry: 1
-      Data: Add +10 Damage
-    - Name: moduleUpgrades
-      Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[Tank.Weapons.IModuleUpgrade, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 5|Tank.Weapons.Damage, Assembly-CSharp
-    - Name: MathOperation
-      Entry: 3
-      Data: 0
-    - Name: OperationValue
-      Entry: 4
-      Data: 10
-    - Name: ModificationPriority
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -97,17 +57,17 @@ MonoBehaviour:
       Data: 
     - Name: Modules
       Entry: 7
-      Data: 6|System.Collections.Generic.List`1[[Tank.Weapons.IWeaponModule, Assembly-CSharp]],
+      Data: 3|System.Collections.Generic.List`1[[Tank.Weapons.IWeaponModule, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 10
     - Name: 
       Entry: 7
-      Data: 7|Tank.Weapons.DamageModule, Assembly-CSharp
+      Data: 4|Tank.Weapons.DamageModule, Assembly-CSharp
     - Name: Damage
       Entry: 7
-      Data: 8|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: 5|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 4
       Data: 5
@@ -119,10 +79,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|Tank.Weapons.FireRateModule, Assembly-CSharp
+      Data: 6|Tank.Weapons.FireRateModule, Assembly-CSharp
     - Name: FireRate
       Entry: 7
-      Data: 10|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: 7|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 4
       Data: 0.2
@@ -134,26 +94,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 11|Tank.Weapons.CriticalChanceModule, Assembly-CSharp
+      Data: 8|Tank.Weapons.CriticalChanceModule, Assembly-CSharp
     - Name: CriticalChance
       Entry: 7
-      Data: 12|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
-        Assembly-CSharp
-    - Name: sourceValue
-      Entry: 7
-      Data: DataStructs.Percentage, Assembly-CSharp
-    - Name: Value
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: CriticalMultiplier
-      Entry: 7
-      Data: 13|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
+      Data: 9|Common.ModifiableValue`1[[DataStructs.Percentage, Assembly-CSharp]],
         Assembly-CSharp
     - Name: sourceValue
       Entry: 7
@@ -172,10 +116,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 14|Tank.Weapons.FireRangeModule, Assembly-CSharp
+      Data: 10|Tank.Weapons.FireRangeModule, Assembly-CSharp
     - Name: FireRange
       Entry: 7
-      Data: 15|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: 11|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 4
       Data: 50
@@ -187,10 +131,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 16|Tank.Weapons.PenetrationModule, Assembly-CSharp
+      Data: 12|Tank.Weapons.PenetrationModule, Assembly-CSharp
     - Name: Penetration
       Entry: 7
-      Data: 17|Common.ModifiableValue`1[[System.Int32, mscorlib]], Assembly-CSharp
+      Data: 13|Common.ModifiableValue`1[[System.Int32, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 3
       Data: 0
@@ -202,7 +146,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 18|Tank.Weapons.ProjectileModule`1[[Tank.Weapons.Projectiles.SimpleProjectile,
+      Data: 14|Tank.Weapons.ProjectileModule`1[[Tank.Weapons.Projectiles.SimpleProjectile,
         Assembly-CSharp]], Assembly-CSharp
     - Name: ProjectilePrefab
       Entry: 10
@@ -212,10 +156,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 19|Tank.Weapons.ProjectileSizeModule, Assembly-CSharp
+      Data: 15|Tank.Weapons.ProjectileSizeModule, Assembly-CSharp
     - Name: ProjectileSize
       Entry: 7
-      Data: 20|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: 16|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 4
       Data: 1
@@ -227,10 +171,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 21|Tank.Weapons.ProjectileSpeedModule, Assembly-CSharp
+      Data: 17|Tank.Weapons.ProjectileSpeedModule, Assembly-CSharp
     - Name: ProjectileSpeed
       Entry: 7
-      Data: 22|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
+      Data: 18|Common.ModifiableValue`1[[System.Single, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 4
       Data: 1
@@ -242,10 +186,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 23|Tank.Weapons.ProjectilesPerShootModule, Assembly-CSharp
+      Data: 19|Tank.Weapons.ProjectilesPerShootModule, Assembly-CSharp
     - Name: ProjectilesPerShoot
       Entry: 7
-      Data: 24|Common.ModifiableValue`1[[System.Int32, mscorlib]], Assembly-CSharp
+      Data: 20|Common.ModifiableValue`1[[System.Int32, mscorlib]], Assembly-CSharp
     - Name: sourceValue
       Entry: 3
       Data: 1
@@ -257,7 +201,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 25|Tank.Weapons.TowerModule`1[[Tank.Towers.SingleShotTower, Assembly-CSharp]],
+      Data: 21|Tank.Weapons.TowerModule`1[[Tank.Towers.SingleShotTower, Assembly-CSharp]],
         Assembly-CSharp
     - Name: TowerPrefab
       Entry: 10
