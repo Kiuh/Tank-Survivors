@@ -116,4 +116,12 @@ namespace Tank.Weapons
         [FoldoutGroup("Tower")]
         public T TowerPrefab { get; private set; }
     }
+
+    public class RayDurationModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Ray Duration")]
+        public ModifiableValue<float> RayDuration { get; private set; } = new();
+    }
 }

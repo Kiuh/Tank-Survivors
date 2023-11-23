@@ -1,3 +1,4 @@
+using Enemies;
 using System.Collections;
 using UnityEngine;
 
@@ -8,21 +9,31 @@ namespace Tank.Weapons.Projectiles
     {
         private LineRenderer lineRenderer;
 
+        private float damage;
+
         private float duration = 1f;
         private float timeRamaining;
 
         private Color startColor;
         private Color endColor;
 
+        private Vector3 startPoint;
+        private Vector3 endPoint;
+
         private void Awake()
         {
             lineRenderer = GetComponent<LineRenderer>();
         }
 
-        public void Initialize(float duration, Vector3 startPoint, Vector3 endPoint)
+        public void Initialize(float damage, float duration, Vector3 startPoint, Vector3 endPoint)
         {
+            this.damage = damage;
+
             this.duration = duration;
             timeRamaining = duration;
+
+            this.startPoint = startPoint;
+            this.endPoint = endPoint;
 
             lineRenderer.SetPosition(0, startPoint);
             lineRenderer.SetPosition(1, endPoint);
@@ -40,9 +51,22 @@ namespace Tank.Weapons.Projectiles
         {
             lineRenderer.enabled = true;
 
+            Vector3 direction = endPoint - startPoint;
+            float distance = (endPoint - startPoint).magnitude;
+
             while (timeRamaining > 0f)
             {
                 SetAlpha(timeRamaining / duration);
+
+                RaycastHit2D[] collisions = Physics2D.RaycastAll(startPoint, direction, distance);
+
+                foreach (RaycastHit2D collision in collisions)
+                {
+                    if (collision.transform.TryGetComponent(out IEnemy enemy))
+                    {
+                        enemy.TakeDamage(damage);
+                    }
+                }
 
                 yield return null;
                 timeRamaining -= Time.deltaTime;
