@@ -39,7 +39,7 @@ public class InterfaceEditorGenerator : ICodeGenerator
         string fields = implemented_for_types
             .Select(
                 type =>
-                    $"        [ShowInInspector]\r\n        [ShowIf(\"@this.selectedType == \\\"{type.Name}\\\"\")]\r\n        private {type.Name} {PascalToCamelCase(type.Name)};"
+                    $"        [ShowInInspector]\r\n        [NonSerialized, OdinSerialize]\r\n        [ShowIf(\"@this.selectedType == \\\"{type.Name}\\\"\")]\r\n        private {type.Name} {PascalToCamelCase(type.Name)};"
             )
             .Aggregate("", (x, y) => x + (x.Length == 0 ? "" : "\r\n\r\n") + y);
 

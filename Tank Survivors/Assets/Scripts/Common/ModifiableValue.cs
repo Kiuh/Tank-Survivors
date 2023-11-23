@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +58,10 @@ namespace Common
         {
             SourceValue = sourceValue;
         }
+
+        [ShowInInspector]
+        [OdinSerialize]
+        private T ModifiedValue => GetModifiedValue();
 
         public T GetModifiedValue()
         {

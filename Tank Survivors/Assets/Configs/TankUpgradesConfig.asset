@@ -21,16 +21,131 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: upgrades
+    - Name: Upgrades
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Tank.Upgrades.SerializedTankUpgrade,
+      Data: 0|System.Collections.Generic.List`1[[Tank.Upgrades.TankUpgrade, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 1|Tank.Upgrades.TankUpgrade, Assembly-CSharp
+    - Name: UpgradeName
+      Entry: 1
+      Data: Speed Upgrade
+    - Name: CurrentLevel
+      Entry: 3
+      Data: 1
+    - Name: MaxLevel
+      Entry: 3
+      Data: 2
+    - Name: upgradeList
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Tank.Upgrades.LeveledTankUpgrade,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|Tank.Upgrades.SerializedTankUpgrade, Assembly-CSharp
+      Data: 3|Tank.Upgrades.LeveledTankUpgrade, Assembly-CSharp
+    - Name: UpgradingLevel
+      Entry: 3
+      Data: 0
+    - Name: Description
+      Entry: 1
+      Data: Add +20 Awade Chance
+    - Name: propertyUpgrades
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Tank.Upgrades.IPropertyUpgrade,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 5|Tank.Upgrades.EvadeChance, Assembly-CSharp
+    - Name: MathOperation
+      Entry: 3
+      Data: 0
+    - Name: OperationValue
+      Entry: 7
+      Data: DataStructs.Percentage, Assembly-CSharp
+    - Name: Value
+      Entry: 4
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ModificationPriority
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|Tank.Upgrades.TankUpgrade, Assembly-CSharp
+    - Name: UpgradeName
+      Entry: 1
+      Data: Wery Cool Upgrade
+    - Name: CurrentLevel
+      Entry: 3
+      Data: 0
+    - Name: MaxLevel
+      Entry: 3
+      Data: 1
+    - Name: upgradeList
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Tank.Upgrades.LeveledTankUpgrade,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 8|Tank.Upgrades.LeveledTankUpgrade, Assembly-CSharp
+    - Name: UpgradingLevel
+      Entry: 3
+      Data: 0
+    - Name: Description
+      Entry: 1
+      Data: 'Wow
+
+        You are can get in
+
+        Yay'
+    - Name: propertyUpgrades
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 

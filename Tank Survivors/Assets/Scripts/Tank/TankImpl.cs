@@ -73,8 +73,7 @@ namespace Tank
         [SerializeField]
         private EnemyFinder enemyFinder;
 
-        private List<ITankUpgrade> tankUpgrades = new();
-        public IEnumerable<ITankUpgrade> TankUpgrades => tankUpgrades;
+        private List<TankUpgrade> tankUpgrades = new();
 
         private List<IWeapon> weapons = new();
         public IEnumerable<IWeapon> Weapons => weapons;

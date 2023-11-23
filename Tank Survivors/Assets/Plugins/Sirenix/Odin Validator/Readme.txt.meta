@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 151ca3ac64d79f9478810af1f27c4c57
+timeCreated: 1556895130
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 227861
+  packageName: Odin Validator
+  packageVersion: 3.2.1.0
+  assetPath: Assets/Plugins/Sirenix/Odin Validator/Readme.txt
+  uploadId: 623211
