@@ -19,7 +19,7 @@ namespace Tank.Weapons
             IHaveCriticalChance,
             IHaveFireRate,
             IHavePenetration,
-            IHaveProjectile,
+            IHaveProjectile<SimpleProjectile>,
             IHaveProjectileSize,
             IHaveProjectileSpeed,
             IHaveProjectilesPerShoot,
@@ -63,8 +63,8 @@ namespace Tank.Weapons
         public ModifiableValue<int> Penetration => penetration;
 
         [SerializeField]
-        private Projectile projectilePrefab;
-        public Projectile ProjectilePrefab => projectilePrefab;
+        private SimpleProjectile projectilePrefab;
+        public SimpleProjectile ProjectilePrefab => projectilePrefab;
 
         [SerializeField]
         private ModifiableValue<float> projectileSize;
@@ -117,13 +117,13 @@ namespace Tank.Weapons
                 {
                     tower.RotateTo(shotDirection);
 
-                    Projectile projectile = UnityEngine.Object.Instantiate(
+                    SimpleProjectile projectile = UnityEngine.Object.Instantiate(
                         projectilePrefab,
                         tower.GetShotPoint(),
                         Quaternion.identity
                     );
 
-                    projectile.Init(
+                    projectile.Initialize(
                         damage.GetModifiedValue()
                             * (
                                 1f

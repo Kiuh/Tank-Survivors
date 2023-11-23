@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public class SimpleProjectile : MonoBehaviour, IProjectile
     {
         private float damage;
         private float speed;
@@ -13,7 +13,7 @@ namespace Tank.Weapons.Projectiles
 
         private Vector3 startPosition;
 
-        public void Init(
+        public void Initialize(
             float damage,
             float speed,
             float size,

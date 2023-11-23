@@ -1,31 +1,28 @@
-﻿using Common;
+using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Tank;
 using Tank.Towers;
 using Tank.UpgradablePiece;
-using Tank.Weapons;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
 
-namespace Assets.Scripts.Tank.Weapons
+namespace Tank.Weapons
 {
     [Serializable]
-    public class DoubleShotGun
+    public class GranadeLauncherGun
         : IWeapon,
             IHaveDamage,
-            IHaveFireRange,
             IHaveCriticalChance,
             IHaveFireRate,
-            IHavePenetration,
-            IHaveProjectile<SimpleProjectile>,
+            IHaveProjectile<FlyingProjectile>,
             IHaveProjectileSize,
             IHaveProjectileSpeed,
             IHaveProjectilesPerShoot,
-            IHaveTower<DoubleShotTower>
+            IHaveProjectileDamageRadius,
+            IHaveTower<SingleShotTower>
     {
         [SerializeField]
         [ReadOnly]
@@ -49,10 +46,6 @@ namespace Assets.Scripts.Tank.Weapons
         public ModifiableValue<float> Damage => damage;
 
         [SerializeField]
-        private ModifiableValue<float> fireRange;
-        public ModifiableValue<float> FireRange => fireRange;
-
-        [SerializeField]
         private ModifiableValue<Percentage> criticalChance;
         public ModifiableValue<Percentage> CriticalChance => criticalChance;
 
@@ -61,12 +54,8 @@ namespace Assets.Scripts.Tank.Weapons
         public ModifiableValue<float> FireRate => fireRate;
 
         [SerializeField]
-        private ModifiableValue<int> penetration;
-        public ModifiableValue<int> Penetration => penetration;
-
-        [SerializeField]
-        private SimpleProjectile projectilePrefab;
-        public SimpleProjectile ProjectilePrefab => projectilePrefab;
+        private FlyingProjectile projectilePrefab;
+        public FlyingProjectile ProjectilePrefab => projectilePrefab;
 
         [SerializeField]
         private ModifiableValue<float> projectileSize;
@@ -77,15 +66,19 @@ namespace Assets.Scripts.Tank.Weapons
         public ModifiableValue<float> ProjectileSpeed => projectileSpeed;
 
         [SerializeField]
-        private ModifiableValue<int> projectilesPerShoot;
-        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
+        private ModifiableValue<int> projectilePerShot;
+        public ModifiableValue<int> ProjectilesPerShoot => projectilePerShot;
+
+        [SerializeField]
+        private ModifiableValue<float> damageRadius;
+        public ModifiableValue<float> DamageRadius => damageRadius;
 
         [SerializeField]
         private List<SerializedLeveledBasicGunUpgrade> leveledBasicGunUpgrades;
 
         [SerializeField]
-        private DoubleShotTower towerPrefab;
-        public DoubleShotTower TowerPrefab => towerPrefab;
+        private SingleShotTower towerPrefab;
+        public SingleShotTower TowerPrefab => towerPrefab;
 
         [SerializeField]
         private string upgradeName;
@@ -94,7 +87,7 @@ namespace Assets.Scripts.Tank.Weapons
         public IEnumerable<ILeveledUpgrade> Upgrades =>
             leveledBasicGunUpgrades.Select(x => x.ToLeveledBasicGunUpgrade());
 
-        private DoubleShotTower tower;
+        private SingleShotTower tower;
         private Transform tankRoot;
         private EnemyFinder enemyFinder;
 
@@ -115,11 +108,11 @@ namespace Assets.Scripts.Tank.Weapons
                 remainingTime += fireRate.GetModifiedValue();
                 Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
 
-                for (int i = 0; i < projectilesPerShoot.GetModifiedValue(); i++)
+                for (int i = 0; i < projectilePerShot.GetModifiedValue(); i++)
                 {
                     tower.RotateTo(shotDirection);
 
-                    SimpleProjectile projectile = UnityEngine.Object.Instantiate(
+                    FlyingProjectile projectile = UnityEngine.Object.Instantiate(
                         projectilePrefab,
                         tower.GetShotPoint(),
                         Quaternion.identity
@@ -137,16 +130,17 @@ namespace Assets.Scripts.Tank.Weapons
                             ),
                         projectileSpeed.GetModifiedValue(),
                         projectileSize.GetModifiedValue(),
-                        fireRange.GetModifiedValue(),
-                        penetration.GetModifiedValue(),
-                        shotDirection
+                        damageRadius.GetModifiedValue(),
+                        nearestEnemy.position
                     );
+                    projectile.StartFly();
                 }
             }
         }
 
         public void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
         {
+            CurrentLevel = 0;
             this.tankRoot = tankRoot;
             this.enemyFinder = enemyFinder;
             tower = UnityEngine.Object.Instantiate(towerPrefab, tankRoot);

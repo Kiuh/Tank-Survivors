@@ -20,7 +20,7 @@ namespace Assets.Scripts.Tank.Weapons
             IHaveFireRange,
             IHaveCriticalChance,
             IHaveFireRate,
-            IHaveRay,
+            IHaveProjectile<RayRenderer>,
             IHaveTower<SingleShotTower>
     {
         [SerializeField]
@@ -55,6 +55,10 @@ namespace Assets.Scripts.Tank.Weapons
         [SerializeField]
         private ModifiableValue<float> fireRate;
         public ModifiableValue<float> FireRate => fireRate;
+
+        [SerializeField]
+        private RayRenderer rayRenderer;
+        public RayRenderer ProjectilePrefab => rayRenderer;
 
         [SerializeField]
         private float rayDuration;
@@ -117,7 +121,17 @@ namespace Assets.Scripts.Tank.Weapons
                 {
                     if (collision.transform.TryGetComponent<IEnemy>(out var enemy))
                     {
-                        enemy.TakeDamage(damage.GetModifiedValue());
+                        enemy.TakeDamage(
+                            damage.GetModifiedValue()
+                                * (
+                                    1f
+                                    + (
+                                        criticalChance.SourceValue.TryChance()
+                                            ? 0f
+                                            : criticalMultiplier.GetModifiedValue().Value
+                                    )
+                                )
+                        );
                     }
                 }
             }
