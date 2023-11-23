@@ -1,4 +1,5 @@
 ﻿using Common;
+using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
@@ -75,9 +76,102 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            (weapon.Modules.First(x => x is DamageModule) as DamageModule).Damage.Modifications.Add(
-                new(MathOperation.ToFloatFunction(OperationValue), ModificationPriority)
-            );
+            weapon.Modules
+                .GetConcrete<DamageModule, IWeaponModule>()
+                .Damage.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class FireRange : BaseModuleUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<FireRangeModule, IWeaponModule>()
+                .FireRange.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class ProjectileSize : BaseModuleUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<ProjectileSizeModule, IWeaponModule>()
+                .ProjectileSize.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class Penetration : BaseModuleUpgrade<int>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<PenetrationModule, IWeaponModule>()
+                .Penetration.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class ProjectilesPerShoot : BaseModuleUpgrade<int>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<ProjectilesPerShootModule, IWeaponModule>()
+                .ProjectilesPerShoot.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class FireRate : BaseModuleUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<FireRateModule, IWeaponModule>()
+                .FireRate.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class CriticalChance : BaseModuleUpgrade<Percentage>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<CriticalChanceModule, IWeaponModule>()
+                .CriticalChance.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class CriticalMultiplier : BaseModuleUpgrade<Percentage>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<CriticalMultiplierModule, IWeaponModule>()
+                .CriticalMultiplier.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
         }
     }
 }

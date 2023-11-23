@@ -43,7 +43,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.Speed.Modifications.Add(
-                new(MathOperation.ToFloatFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -54,7 +54,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.CriticalChance.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -65,7 +65,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.Health.AddModification(
-                new(MathOperation.ToFloatFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -76,7 +76,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.LevelUpChoicesCount.Modifications.Add(
-                new(MathOperation.ToUIntFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -87,7 +87,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.PickupRadius.Modifications.Add(
-                new(MathOperation.ToFloatFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -98,7 +98,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.Armor.AddModification(
-                new(MathOperation.ToFloatFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -109,7 +109,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.EvadeChance.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -120,7 +120,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.DamageModifier.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -131,7 +131,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.ProjectileSize.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -142,7 +142,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.RangeModifier.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }
@@ -153,7 +153,7 @@ namespace Tank.Upgrades
         public override void ApplyUpgrade(TankImpl tank)
         {
             tank.FireRateModifier.Modifications.Add(
-                new(MathOperation.ToPercentageFunction(OperationValue), ModificationPriority)
+                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
             );
         }
     }

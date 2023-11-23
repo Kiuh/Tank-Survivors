@@ -72,11 +72,14 @@ namespace Tank.Weapons
     public class CriticalChanceModule : IWeaponModule
     {
         [OdinSerialize]
-        [FoldoutGroup("Critical Shoot")]
+        [FoldoutGroup("Critical Chance")]
         public ModifiableValue<Percentage> CriticalChance { get; private set; } = new();
+    }
 
+    public class CriticalMultiplierModule : IWeaponModule
+    {
         [OdinSerialize]
-        [FoldoutGroup("Critical Shoot")]
+        [FoldoutGroup("Critical Damage")]
         public ModifiableValue<Percentage> CriticalMultiplier { get; private set; } = new();
     }
 

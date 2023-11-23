@@ -14,10 +14,7 @@ namespace Common
 
     public static class MathOperationTools
     {
-        public static Func<float, float> ToFloatFunction(
-            this MathOperation mathOperation,
-            float value
-        )
+        public static Func<float, float> ToFunction(this MathOperation mathOperation, float value)
         {
             return mathOperation switch
             {
@@ -30,7 +27,7 @@ namespace Common
             };
         }
 
-        public static Func<Percentage, Percentage> ToPercentageFunction(
+        public static Func<Percentage, Percentage> ToFunction(
             this MathOperation mathOperation,
             Percentage value
         )
@@ -48,7 +45,20 @@ namespace Common
             };
         }
 
-        public static Func<uint, uint> ToUIntFunction(this MathOperation mathOperation, uint value)
+        public static Func<uint, uint> ToFunction(this MathOperation mathOperation, uint value)
+        {
+            return mathOperation switch
+            {
+                MathOperation.Plus => (source) => source + value,
+                MathOperation.Minus => (source) => source - value,
+                MathOperation.Mul => (source) => source * value,
+                MathOperation.Divide
+                    => value == 0 ? throw new DivideByZeroException() : (source) => source / value,
+                _ => (source) => source
+            };
+        }
+
+        public static Func<int, int> ToFunction(this MathOperation mathOperation, int value)
         {
             return mathOperation switch
             {

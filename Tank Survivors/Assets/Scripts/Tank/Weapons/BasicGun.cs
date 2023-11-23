@@ -61,6 +61,7 @@ namespace Tank.Weapons
                 new DamageModule(),
                 new FireRateModule(),
                 new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
                 new FireRangeModule(),
                 new PenetrationModule(),
                 new ProjectileModule<SimpleProjectile>(),
@@ -113,7 +114,7 @@ namespace Tank.Weapons
                     if (isCritical)
                     {
                         float criticalMultiplier =
-                            GetModule<CriticalChanceModule>().CriticalMultiplier
+                            GetModule<CriticalMultiplierModule>().CriticalMultiplier
                                 .GetModifiedValue()
                                 .Value;
                         damage *= 1f + criticalMultiplier;
