@@ -60,6 +60,7 @@ namespace Tank.Weapons.Projectiles
                     enemy.TakeDamage(damage);
                 }
             }
+            Destroy(gameObject);
         }
     }
 }
