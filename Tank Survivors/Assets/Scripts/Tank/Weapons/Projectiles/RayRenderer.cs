@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Tank.Weapons.Projectiles
 {
     [RequireComponent(typeof(LineRenderer))]
-    public class RayRenderer : MonoBehaviour
+    public class RayRenderer : MonoBehaviour, IProjectile
     {
         private LineRenderer lineRenderer;
 

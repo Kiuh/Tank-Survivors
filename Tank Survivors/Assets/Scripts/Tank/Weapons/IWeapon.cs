@@ -50,9 +50,9 @@ namespace Tank.Weapons
         public ModifiableValue<Percentage> CriticalMultiplier { get; }
     }
 
-    public interface IHaveProjectile
+    public interface IHaveProjectile<T> where T : IProjectile
     {
-        public Projectile ProjectilePrefab { get; }
+        public T ProjectilePrefab { get; }
     }
 
     public interface IHaveProjectileSpeed
@@ -60,14 +60,14 @@ namespace Tank.Weapons
         public ModifiableValue<float> ProjectileSpeed { get; }
     }
 
+    public interface IHaveProjectileDamageRadius
+    {
+        public ModifiableValue<float> DamageRadius { get; }
+    }
+
     public interface IHaveTower<T>
         where T : ITower
     {
         public T TowerPrefab { get; }
-    }
-
-    public interface IHaveRay
-    {
-        public RayRenderer RayPrefab { get; }
     }
 }
