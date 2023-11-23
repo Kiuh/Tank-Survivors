@@ -13,13 +13,7 @@ MonoBehaviour:
   m_Name: InspectorConfig
   m_EditorClassIdentifier: 
   enableOdinInInspector: 1
-  defaultEditorBehaviour: 9
+  defaultEditorBehaviour: 11
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs:
-    - DrawnTypeName: AYellowpaper.Samples.InteractableAsset, Assembly-CSharp
-      EditorTypeName: 
-    - DrawnTypeName: AYellowpaper.Samples.InteractableComponent, Assembly-CSharp
-      EditorTypeName: 
-    - DrawnTypeName: AYellowpaper.Samples.InteractableTest, Assembly-CSharp
-      EditorTypeName: 
+    configs: []
