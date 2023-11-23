@@ -60,7 +60,7 @@ namespace Enemies
             damage = soldierConfig.Damage;
             movementSpeed = soldierConfig.MovementSpeed;
             timeForNextHit = soldierConfig.TimeForNextHit;
-            OnDeath += DropExperience;
+            OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();
         }

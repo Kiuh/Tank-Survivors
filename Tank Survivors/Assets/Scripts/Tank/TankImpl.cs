@@ -27,6 +27,11 @@ namespace Tank
         [SerializeField]
         private EnemyFinder enemyFinder;
 
+        [FoldoutGroup("General Bindings")]
+        [PropertyOrder(0)]
+        [OdinSerialize]
+        public EnemyPickupsGenerator EnemyPickupsGenerator { get; private set; }
+
         [ReadOnly]
         [OdinSerialize]
         [FoldoutGroup("Health"), HideLabel]

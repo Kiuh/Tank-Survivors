@@ -60,7 +60,7 @@ namespace Enemies
             explosiveArea.radius = explosionRadius;
             movementSpeed = droneConfig.MovementSpeed;
             explosionRadius = droneConfig.ExplosionRadius;
-            OnDeath += DropExperience;
+            OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();
         }
