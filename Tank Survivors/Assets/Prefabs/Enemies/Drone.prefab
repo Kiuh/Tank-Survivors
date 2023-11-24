@@ -279,7 +279,7 @@ MonoBehaviour:
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
   explosiveArea: {fileID: 3433241106660565001}
-  explosiveAreaVisualization: {fileID: 0}
+  explosiveAreaVisualization: {fileID: 4060764603155430094}
   movementDirection: {x: 0, y: 0}
   isMoving: 0
 --- !u!50 &2677439162934494719
