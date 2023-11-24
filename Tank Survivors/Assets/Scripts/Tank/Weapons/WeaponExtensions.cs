@@ -15,15 +15,15 @@ namespace Assets.Scripts.Tank.Weapons
             TankImpl tank
         )
         {
-            var damageValue = damage.GetPrecentageModifiableValue(tank.DamageModifier);
+            var damageModifiableValue = damage.GetPrecentageModifiableValue(tank.DamageModifier);
 
             bool isCritical = (
                 criticalChance.GetModifiedValue() + tank.CriticalChance.GetModifiedValue()
             ).TryChance();
 
             return isCritical
-                ? damageValue.GetPrecentageValue(criticalMultiplier)
-                : damageValue.GetModifiedValue();
+                ? damageModifiableValue.GetPrecentageValue(criticalMultiplier)
+                : damageModifiableValue.GetModifiedValue();
         }
     }
 }

@@ -105,28 +105,5 @@ namespace Tank.Weapons
                 tank.transform
             );
         }
-
-        public float GetModifiedDamage()
-        {
-            var damage = GetModule<DamageModule>().Damage.GetPrecentageModifiableValue(
-                tank.DamageModifier
-            );
-
-            bool isCritical = (
-                GetModule<CriticalChanceModule>().CriticalChance.GetModifiedValue()
-                + tank.CriticalChance.GetModifiedValue()
-            ).TryChance();
-
-            if (isCritical)
-            {
-                return damage.GetPrecentageValue(
-                    GetModule<CriticalMultiplierModule>().CriticalMultiplier
-                );
-            }
-            else
-            {
-                return damage.GetModifiedValue();
-            }
-        }
     }
 }
