@@ -32,7 +32,7 @@ namespace Tank.Weapons.Projectiles
             float speed,
             float size,
             float damageRadius,
-            Vector3 endPoint
+            Vector3 direction
         )
         {
             this.damage = damage;
@@ -41,9 +41,9 @@ namespace Tank.Weapons.Projectiles
             this.damageRadius = damageRadius;
             transform.localScale = new Vector3(size, size, 1f);
             startPoint = transform.position;
-            this.endPoint = endPoint;
+            endPoint = startPoint + direction;
 
-            hitMark = Instantiate(hitMarkPrefab, endPoint, Quaternion.identity);
+            hitMark = Instantiate(hitMarkPrefab, startPoint + direction, Quaternion.identity);
             hitMark.localScale = new Vector3(damageRadius, damageRadius, 1f);
         }
 

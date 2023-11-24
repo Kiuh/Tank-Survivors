@@ -2,6 +2,7 @@
 using DataStructs;
 using Tank;
 using Tank.Weapons;
+using UnityEngine;
 
 namespace Assets.Scripts.Tank.Weapons
 {
@@ -24,6 +25,15 @@ namespace Assets.Scripts.Tank.Weapons
             return isCritical
                 ? damageModifiableValue.GetPrecentageValue(criticalMultiplier)
                 : damageModifiableValue.GetModifiedValue();
+        }
+
+        public static Vector3 GetSpreadDirection(this GunBase gun, Vector3 direction, float angle)
+        {
+            Quaternion rotation = Quaternion.AngleAxis(
+                Random.Range(-angle, angle),
+                Vector3.forward
+            );
+            return rotation * direction;
         }
     }
 }

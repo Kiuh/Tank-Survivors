@@ -200,4 +200,17 @@ namespace Tank.Weapons
                 );
         }
     }
+
+    [Serializable]
+    public class ProjectileSpreadAngle : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.Modules
+                .GetConcrete<ProjectileSpreadAngleModule, IWeaponModule>()
+                .SpreadAngle.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
 }
