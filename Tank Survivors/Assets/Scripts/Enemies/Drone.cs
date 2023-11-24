@@ -2,7 +2,6 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using Tank;
-using Tank.PickUps;
 using UnityEngine;
 
 namespace Enemies
@@ -12,9 +11,6 @@ namespace Enemies
     {
         [SerializeField]
         private Configs.Drone droneConfig;
-
-        [SerializeField]
-        private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
         [ReadOnly]
@@ -43,6 +39,9 @@ namespace Enemies
         private CircleCollider2D explosiveArea;
 
         [SerializeField]
+        private SpriteRenderer explosiveAreaVizualization;
+
+        [SerializeField]
         [ReadOnly]
         private Vector2 movementDirection;
 
@@ -57,9 +56,10 @@ namespace Enemies
             this.tank = tank;
             health = droneConfig.Health;
             damage = droneConfig.Damage;
-            explosiveArea.radius = explosionRadius;
-            movementSpeed = droneConfig.MovementSpeed;
             explosionRadius = droneConfig.ExplosionRadius;
+            explosiveArea.radius = explosionRadius;
+            explosiveAreaVizualization.transform.localScale = 2.0f * explosionRadius * Vector3.one;
+            movementSpeed = droneConfig.MovementSpeed;
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();
@@ -113,18 +113,12 @@ namespace Enemies
             }
         }
 
-        private void DropExperience()
-        {
-            Instantiate(experiencePickupPrefab, transform.position, Quaternion.identity)
-                .GetComponent<ExperiencePickUp>()
-                .Initialize(droneConfig.ExperienceDropAmount);
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
                 tank.TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
     }

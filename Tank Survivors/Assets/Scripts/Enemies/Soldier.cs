@@ -2,7 +2,6 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using Tank;
-using Tank.PickUps;
 using UnityEngine;
 
 namespace Enemies
@@ -12,9 +11,6 @@ namespace Enemies
     {
         [SerializeField]
         private Configs.Soldier soldierConfig;
-
-        [SerializeField]
-        private ExperiencePickUp experiencePickupPrefab;
 
         [SerializeField]
         [ReadOnly]
@@ -120,13 +116,6 @@ namespace Enemies
                 health = 0;
                 OnDeath?.Invoke();
             }
-        }
-
-        private void DropExperience()
-        {
-            Instantiate(experiencePickupPrefab, transform.position, Quaternion.identity)
-                .GetComponent<ExperiencePickUp>()
-                .Initialize(soldierConfig.ExperienceDropAmount);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
