@@ -39,6 +39,9 @@ namespace Enemies
         private CircleCollider2D explosiveArea;
 
         [SerializeField]
+        private SpriteRenderer explosiveAreaVizualization;
+
+        [SerializeField]
         [ReadOnly]
         private Vector2 movementDirection;
 
@@ -55,6 +58,7 @@ namespace Enemies
             damage = droneConfig.Damage;
             explosionRadius = droneConfig.ExplosionRadius;
             explosiveArea.radius = explosionRadius;
+            explosiveAreaVizualization.transform.localScale = 2.0f * explosionRadius * Vector3.one;
             movementSpeed = droneConfig.MovementSpeed;
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);

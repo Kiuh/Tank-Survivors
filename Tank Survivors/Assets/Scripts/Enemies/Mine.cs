@@ -29,6 +29,9 @@ namespace Enemies
         [SerializeField]
         private CircleCollider2D explosiveArea;
 
+        [SerializeField]
+        private SpriteRenderer explosiveAreaVisualization;
+
         public event Action OnDeath;
 
         public void Initialize(TankImpl tank)
@@ -38,6 +41,7 @@ namespace Enemies
             damage = mineConfig.Damage;
             explosiveRadius = mineConfig.ExplosionRadius;
             explosiveArea.radius = explosiveRadius;
+            explosiveAreaVisualization.transform.localScale = 2.0f * explosiveRadius * Vector3.one;
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
         }
