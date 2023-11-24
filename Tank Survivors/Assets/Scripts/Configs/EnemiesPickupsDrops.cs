@@ -21,9 +21,9 @@ namespace Configs
         [ShowInInspector]
         public string Name { get; private set; }
 
+#if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
         {
-#if UNITY_EDITOR
             string[] guids = AssetDatabase.FindAssets(
                 "t:Prefab",
                 new string[] { "Assets/Prefabs/Enemies" }
@@ -38,8 +38,8 @@ namespace Configs
                     yield return enemy.EnemyName;
                 }
             }
-#endif
         }
+#endif
     }
 
     [Serializable]
@@ -51,9 +51,9 @@ namespace Configs
         [ShowInInspector]
         public string Name { get; private set; }
 
+#if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
         {
-#if UNITY_EDITOR
             string[] guids = AssetDatabase.FindAssets(
                 "t:Prefab",
                 new string[] { "Assets/Prefabs/PickUps" }
@@ -68,8 +68,8 @@ namespace Configs
                     yield return enemy.PickupName;
                 }
             }
-#endif
         }
+#endif
     }
 
     [Serializable]
