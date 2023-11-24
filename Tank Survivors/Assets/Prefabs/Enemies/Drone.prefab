@@ -259,19 +259,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 1
-    SerializedBytes: 
+    SerializedBytes: 22456e656d794e616d65223a202244726f6e6522
     ReferencedUnityObjects: []
-    SerializedBytesString: IkVuZW15TmFtZSI6ICJEcm9uZSI=
+    SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
   droneConfig:
-    health: 5
-    damage: 15
+    health: 10
+    damage: 10
     explosionRadius: 0.5
     movementSpeed: 3
-    experienceDropAmount: 2
+    experienceDropAmount: 10
   health: 0
   damage: 15
   movementSpeed: 2

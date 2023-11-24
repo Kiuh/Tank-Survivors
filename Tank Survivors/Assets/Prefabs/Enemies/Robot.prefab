@@ -145,11 +145,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   soldierConfig:
-    health: 50
-    movementSpeed: 0.5
-    damage: 10
+    health: 300
+    movementSpeed: 2
+    damage: 50
     timeForNextHit: 3
-    experienceDropAmount: 15
+    experienceDropAmount: 50
   health: 0
   damage: 0
   movementSpeed: 0

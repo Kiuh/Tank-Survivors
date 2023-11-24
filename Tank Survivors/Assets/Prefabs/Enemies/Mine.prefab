@@ -211,7 +211,7 @@ MonoBehaviour:
     SerializationNodes: []
   mineConfig:
     health: 1
-    damage: 20
+    damage: 50
     explosionRadius: 0.5
   health: 0
   damage: 0

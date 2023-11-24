@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,11 +136,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   soldierConfig:
-    health: 10
-    movementSpeed: 1
-    damage: 1
+    health: 150
+    movementSpeed: 3
+    damage: 40
     timeForNextHit: 1
-    experienceDropAmount: 5
+    experienceDropAmount: 35
   health: 100
   damage: 10
   movementSpeed: 1
