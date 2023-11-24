@@ -3,6 +3,7 @@ using Sirenix.Serialization;
 using System;
 using Tank;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 namespace Enemies
 {
@@ -32,6 +33,12 @@ namespace Enemies
 
         [SerializeField]
         private SpriteRenderer explosiveAreaVisualization;
+
+        [SerializeField]
+        private ParticleSystem particle;
+
+        [SerializeField]
+        private SpriteRenderer sprite;
 
         [OdinSerialize]
         public string EnemyName { get; private set; }
@@ -64,8 +71,12 @@ namespace Enemies
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
+                particle.transform.localScale = new Vector3(explosiveRadius, explosiveRadius, 1.0f);
+                particle.Play();
+                explosiveArea.enabled = false;
+                sprite.enabled = false;
                 tank.TakeDamage(damage);
-                Destroy(gameObject);
+                Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
             }
         }
     }
