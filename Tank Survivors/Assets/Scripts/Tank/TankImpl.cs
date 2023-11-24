@@ -112,7 +112,7 @@ namespace Tank
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
-            weapons.ForEach(x => x.Initialize(gameObject.transform, enemyFinder));
+            weapons.ForEach(x => x.Initialize(this, enemyFinder));
             PlayerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
@@ -121,7 +121,7 @@ namespace Tank
         {
             foreach (IWeapon weapon in weapons)
             {
-                weapon.ProceedAttack(Time.deltaTime);
+                weapon.ProceedAttack();
             }
         }
 

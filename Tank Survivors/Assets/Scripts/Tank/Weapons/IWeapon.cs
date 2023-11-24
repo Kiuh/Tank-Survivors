@@ -13,8 +13,8 @@ namespace Tank.Weapons
     [HideReferenceObjectPicker]
     public interface IWeapon : IUpgradablePiece
     {
-        public void ProceedAttack(float deltaTime);
-        public void Initialize(Transform tankRoot, EnemyFinder enemyFinder);
+        public void ProceedAttack();
+        public void Initialize(TankImpl tank, EnemyFinder enemyFinder);
         public abstract List<IWeaponModule> Modules { get; }
     }
 

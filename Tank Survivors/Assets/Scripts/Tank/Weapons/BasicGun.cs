@@ -1,5 +1,8 @@
-﻿using Sirenix.OdinInspector;
+﻿using Assets.Scripts.Tank.Weapons;
+using Common;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tank.Towers;
@@ -40,11 +43,12 @@ namespace Tank.Weapons
 
         public IEnumerable<ILeveledUpgrade> Upgrades => leveledUpgrades;
 
-        public abstract void Initialize(Transform tankRoot, EnemyFinder enemyFinder);
+        public abstract void Initialize(TankImpl tank, EnemyFinder enemyFinder);
 
-        public abstract void ProceedAttack(float deltaTime);
+        public abstract void ProceedAttack();
     }
 
+    [Serializable]
     public class BasicGun : GunBase
     {
         [OdinSerialize]
@@ -72,12 +76,12 @@ namespace Tank.Weapons
             };
 
         private SingleShotTower tower;
-        private Transform tankRoot;
+        private TankImpl tank;
         private EnemyFinder enemyFinder;
 
         private float remainingTime = 0f;
 
-        public override void ProceedAttack(float deltaTime)
+        public override void ProceedAttack()
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
@@ -85,19 +89,19 @@ namespace Tank.Weapons
                 return;
             }
 
-            remainingTime -= deltaTime;
+            remainingTime -= Time.deltaTime;
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetModifiedValue();
-                Vector3 shotDirection = nearestEnemy.position - tankRoot.position;
+                remainingTime += GetModule<FireRateModule>().FireRate.GetPrecentageValue(
+                    tank.FireRateModifier
+                );
+                Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
-                for (
-                    int i = 0;
-                    i
-                        < GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
-                    i++
-                )
+                int projectilesCount =
+                    GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+
+                for (int i = 0; i < projectilesCount; i++)
                 {
                     tower.RotateTo(shotDirection);
 
@@ -107,23 +111,22 @@ namespace Tank.Weapons
                         Quaternion.identity
                     );
 
-                    float damage = GetModule<DamageModule>().Damage.GetModifiedValue();
-                    bool isCritical = GetModule<CriticalChanceModule>().CriticalChance
-                        .GetModifiedValue()
-                        .TryChance();
-                    if (isCritical)
-                    {
-                        float criticalMultiplier =
-                            GetModule<CriticalMultiplierModule>().CriticalMultiplier
-                                .GetModifiedValue()
-                                .Value;
-                        damage *= 1f + criticalMultiplier;
-                    }
+                    float damage = this.GetModifiedDamage(
+                        GetModule<DamageModule>().Damage,
+                        GetModule<CriticalChanceModule>().CriticalChance,
+                        GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                        tank
+                    );
+
                     projectile.Initialize(
                         damage,
                         GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>().ProjectileSize.GetModifiedValue(),
-                        GetModule<FireRangeModule>().FireRange.GetModifiedValue(),
+                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPrecentageValue(
+                            tank.ProjectileSize
+                        ),
+                        GetModule<FireRangeModule>().FireRange.GetPrecentageValue(
+                            tank.RangeModifier
+                        ),
                         GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
                         shotDirection
                     );
@@ -131,14 +134,14 @@ namespace Tank.Weapons
             }
         }
 
-        public override void Initialize(Transform tankRoot, EnemyFinder enemyFinder)
+        public override void Initialize(TankImpl tank, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
-            this.tankRoot = tankRoot;
+            this.tank = tank;
             this.enemyFinder = enemyFinder;
             tower = UnityEngine.Object.Instantiate(
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tankRoot
+                tank.transform
             );
         }
     }
