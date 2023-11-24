@@ -7,7 +7,16 @@ namespace Tank.Weapons.Projectiles
     public class FlyingProjectile : MonoBehaviour, IProjectile
     {
         [SerializeField]
-        private float scaleModifier = 1.5f;
+        private Transform hitMarkPrefab;
+
+        [SerializeField]
+        private ParticleSystem particles;
+
+        [SerializeField]
+        private SpriteRenderer sprite;
+
+        [SerializeField]
+        private float scaleModifier = 0.5f;
 
         private float damage;
         private float speed;
@@ -15,6 +24,8 @@ namespace Tank.Weapons.Projectiles
         private float damageRadius;
         private Vector3 startPoint;
         private Vector3 endPoint;
+
+        private Transform hitMark;
 
         public void Initialize(
             float damage,
@@ -27,9 +38,13 @@ namespace Tank.Weapons.Projectiles
             this.damage = damage;
             this.speed = speed;
             this.size = size;
+            this.damageRadius = damageRadius;
             transform.localScale = new Vector3(size, size, 1f);
             startPoint = transform.position;
             this.endPoint = endPoint;
+
+            hitMark = Instantiate(hitMarkPrefab, endPoint, Quaternion.identity);
+            hitMark.localScale = new Vector3(damageRadius, damageRadius, 1f);
         }
 
         public void StartFly()
@@ -47,10 +62,16 @@ namespace Tank.Weapons.Projectiles
                 t += Time.deltaTime * speed / distance;
 
                 transform.position = Vector3.Lerp(startPoint, endPoint, t);
-                float scale = size + Mathf.PingPong(Time.time, (size * scaleModifier) - 1);
+                float scale = GetScale(t);
                 transform.localScale = new Vector3(scale, scale, 1f);
                 yield return null;
             }
+
+            Destroy(hitMark.gameObject);
+
+            particles.transform.localScale = new Vector3(damageRadius, damageRadius, 1f);
+            particles.Play();
+            sprite.enabled = false;
 
             Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, damageRadius);
             foreach (Collider2D collision in collisions)
@@ -60,7 +81,12 @@ namespace Tank.Weapons.Projectiles
                     enemy.TakeDamage(damage);
                 }
             }
-            Destroy(gameObject);
+            Destroy(gameObject, particles.main.duration * particles.main.startLifetimeMultiplier);
+        }
+
+        private float GetScale(float t)
+        {
+            return size + 2f * scaleModifier * (t < 0.5f ? t : (1 - t));
         }
     }
 }
