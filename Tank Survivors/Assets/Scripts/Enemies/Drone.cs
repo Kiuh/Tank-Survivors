@@ -43,6 +43,12 @@ namespace Enemies
         private SpriteRenderer explosiveAreaVisualization;
 
         [SerializeField]
+        private ParticleSystem particle;
+
+        [SerializeField]
+        private SpriteRenderer sprite;
+
+        [SerializeField]
         [ReadOnly]
         private Vector2 movementDirection;
 
@@ -121,8 +127,13 @@ namespace Enemies
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
+                StopMovement();
+                particle.transform.localScale = new Vector3(explosionRadius, explosionRadius, 1.0f);
+                particle.Play();
+                sprite.enabled = false;
+                explosiveArea.enabled = false;
                 tank.TakeDamage(damage);
-                Destroy(gameObject);
+                Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
             }
         }
     }
