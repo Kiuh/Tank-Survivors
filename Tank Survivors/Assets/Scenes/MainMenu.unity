@@ -289,7 +289,7 @@ MonoBehaviour:
   - InGameScene: 0
     SceneName: Assets/Scenes/MainMenu.unity
   - InGameScene: 1
-    SceneName: Assets/Scenes/ForMovementDevelopment.unity
+    SceneName: Assets/Scenes/Gameplay.unity
 --- !u!1 &655600382
 GameObject:
   m_ObjectHideFlags: 0
