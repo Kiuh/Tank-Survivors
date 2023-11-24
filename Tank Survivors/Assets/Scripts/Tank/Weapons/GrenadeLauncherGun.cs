@@ -33,7 +33,8 @@ namespace Tank.Weapons
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
                 new TowerModule<SingleShotTower>(),
-                new ProjectileDamageRadiusModule()
+                new ProjectileDamageRadiusModule(),
+                new ProjectileSpreadAngleModule()
             };
 
         private SingleShotTower tower;
@@ -64,7 +65,12 @@ namespace Tank.Weapons
 
                 for (int i = 0; i < projectileCount; i++)
                 {
-                    tower.RotateTo(shotDirection);
+                    Vector3 spreadDirection = this.GetSpreadDirection(
+                        shotDirection,
+                        GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                    );
+
+                    tower.RotateTo(spreadDirection);
 
                     FlyingProjectile projectile = UnityEngine.Object.Instantiate(
                         GetModule<ProjectileModule<FlyingProjectile>>().ProjectilePrefab,
@@ -86,7 +92,7 @@ namespace Tank.Weapons
                             tank.ProjectileSize
                         ),
                         GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                        nearestEnemy.position
+                        spreadDirection
                     );
                     projectile.StartFly();
                 }

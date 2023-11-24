@@ -33,7 +33,8 @@ namespace Tank.Weapons
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
-                new TowerModule<SingleShotTower>()
+                new TowerModule<SingleShotTower>(),
+                new ProjectileSpreadAngleModule()
             };
 
         private SingleShotTower tower;
@@ -64,7 +65,12 @@ namespace Tank.Weapons
 
                 for (int i = 0; i < projectilesCount; i++)
                 {
-                    tower.RotateTo(shotDirection);
+                    Vector3 spreadDirection = this.GetSpreadDirection(
+                        shotDirection,
+                        GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                    );
+
+                    tower.RotateTo(spreadDirection);
 
                     SimpleProjectile projectile = UnityEngine.Object.Instantiate(
                         GetModule<ProjectileModule<SimpleProjectile>>().ProjectilePrefab,
@@ -89,7 +95,7 @@ namespace Tank.Weapons
                             tank.RangeModifier
                         ),
                         GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
-                        shotDirection
+                        spreadDirection
                     );
                 }
             }

@@ -124,4 +124,12 @@ namespace Tank.Weapons
         [FoldoutGroup("Ray Duration")]
         public ModifiableValue<float> RayDuration { get; private set; } = new();
     }
+
+    public class ProjectileSpreadAngleModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Spread Angle")]
+        public ModifiableValue<float> SpreadAngle { get; private set; } = new();
+    }
 }
