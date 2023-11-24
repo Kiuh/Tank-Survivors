@@ -77,8 +77,7 @@ namespace Tank.Weapons
     {
         [OdinSerialize]
         [HideLabel]
-        [AssetsOnly]
-        [AssetSelector]
+        [AssetList]
         [FoldoutGroup("Projectile")]
         public T ProjectilePrefab { get; private set; }
     }
@@ -105,8 +104,7 @@ namespace Tank.Weapons
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Tower")]
-        [AssetsOnly]
-        [AssetSelector]
+        [AssetList]
         public T TowerPrefab { get; private set; }
     }
 

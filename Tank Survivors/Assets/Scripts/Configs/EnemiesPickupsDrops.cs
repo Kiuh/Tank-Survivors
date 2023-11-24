@@ -5,7 +5,9 @@ using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using Tank.PickUps;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Configs
@@ -21,6 +23,7 @@ namespace Configs
 
         private IEnumerable<string> GetNamesList()
         {
+#if UNITY_EDITOR
             string[] guids = AssetDatabase.FindAssets(
                 "t:Prefab",
                 new string[] { "Assets/Prefabs/Enemies" }
@@ -35,6 +38,7 @@ namespace Configs
                     yield return enemy.EnemyName;
                 }
             }
+#endif
         }
     }
 
@@ -49,6 +53,7 @@ namespace Configs
 
         private IEnumerable<string> GetNamesList()
         {
+#if UNITY_EDITOR
             string[] guids = AssetDatabase.FindAssets(
                 "t:Prefab",
                 new string[] { "Assets/Prefabs/PickUps" }
@@ -63,6 +68,7 @@ namespace Configs
                     yield return enemy.PickupName;
                 }
             }
+#endif
         }
     }
 

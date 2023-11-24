@@ -29,7 +29,7 @@ namespace Tank.Upgrades
         [NonSerialized, OdinSerialize]
         [LabelText("List of Upgrades in levels")]
         [PropertyOrder(1)]
-        private List<LeveledTankUpgrade> upgradeList;
+        private List<LeveledTankUpgrade> upgradeList = new();
         public IEnumerable<ILeveledUpgrade> Upgrades => upgradeList;
 
         public void Initialize()

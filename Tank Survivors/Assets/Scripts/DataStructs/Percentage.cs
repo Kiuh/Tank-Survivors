@@ -21,7 +21,7 @@ namespace DataStructs
 
         public bool TryChance()
         {
-            return UnityEngine.Random.Range(0f, 1f) < Value;
+            return UnityEngine.Random.Range(0f, 1f) < Value / 100;
         }
 
         public static Percentage operator +(Percentage a, Percentage b)

@@ -272,6 +272,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -341,6 +345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1720293868142889394, guid: 077ec90d5d10e8e4faee99ee70944dd7, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1720293868142889394, guid: 077ec90d5d10e8e4faee99ee70944dd7, type: 3}
     - target: {fileID: 3734099001812557708, guid: 077ec90d5d10e8e4faee99ee70944dd7, type: 3}
       propertyPath: m_Name
       value: ArmorPickUp
@@ -587,6 +595,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -656,6 +668,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -725,6 +741,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -794,6 +814,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -863,6 +887,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1000,6 +1028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1170,6 +1202,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1346,6 +1382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1415,6 +1455,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1484,6 +1528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1810,6 +1858,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 632944525156465173, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 632944525156465173, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
     - target: {fileID: 3816240034858184738, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
       propertyPath: m_Name
       value: RegularXPPickUp
@@ -1885,6 +1937,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3081499776125683335, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3081499776125683335, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
     - target: {fileID: 6827374683090020991, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
       propertyPath: m_Name
       value: HealthPickUp
@@ -2164,6 +2220,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2233,6 +2293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2358,6 +2422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeSlowerPickUp
       objectReference: {fileID: 0}
+    - target: {fileID: 5867032444198978231, guid: 9a1527a8eb796bd47b72dfac0d02d390, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5867032444198978231, guid: 9a1527a8eb796bd47b72dfac0d02d390, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2371,6 +2439,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2440,6 +2512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2614,12 +2690,18 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 1
     SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
+    ReferencedUnityObjects:
+    - {fileID: 3734099001812557708, guid: 077ec90d5d10e8e4faee99ee70944dd7, type: 3}
+    - {fileID: 7257315302054335807, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+    - {fileID: 6827374683090020991, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
+    - {fileID: 3816240034858184738, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
+    - {fileID: 2648407716351878230, guid: 9a1527a8eb796bd47b72dfac0d02d390, type: 3}
+    SerializedBytesString: InBpY2tVcHMiOiB7DQogICAgIiRpZCI6IDAsDQogICAgIiR0eXBlIjogIjB8U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tVbml0eUVuZ2luZS5HYW1lT2JqZWN0LCBVbml0eUVuZ2luZS5Db3JlTW9kdWxlXV0sIG1zY29ybGliIiwNCiAgICAiJHJsZW5ndGgiOiA1LA0KICAgICIkcmNvbnRlbnQiOiBbDQogICAgICAgICRlcmVmOjAsDQogICAgICAgICRlcmVmOjEsDQogICAgICAgICRlcmVmOjIsDQogICAgICAgICRlcmVmOjMsDQogICAgICAgICRlcmVmOjQNCiAgICBdDQp9
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  enemiesPickups: {fileID: 11400000, guid: 56da2acbad44b674588c42b714afee40, type: 2}
 --- !u!1 &1863661493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2960,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4548275327279394129, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - target: {fileID: 7042650677494269519, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

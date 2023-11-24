@@ -10,5 +10,6 @@ namespace Configs
         public TankUpgrades TankUpgradesConfig;
         public TankWeapons WeaponsConfig;
         public LevelProgression LevelProgressionConfig;
+        public EnemiesPickupsDrops EnemiesPickupsDropsConfig;
     }
 }

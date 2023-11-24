@@ -22,7 +22,7 @@ namespace Tank.Upgrades
         [FoldoutGroup("$UpgradingLevel")]
         [NonSerialized, OdinSerialize]
         [PropertyOrder(1)]
-        private List<IPropertyUpgrade> propertyUpgrades;
+        private List<IPropertyUpgrade> propertyUpgrades = new();
 
         public void ApplyUpgrade(TankImpl tank)
         {

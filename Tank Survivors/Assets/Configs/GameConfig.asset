@@ -17,3 +17,4 @@ MonoBehaviour:
   TankUpgradesConfig: {fileID: 11400000, guid: 5eb6d8befa0f4af45bbdf72dca0498cc, type: 2}
   WeaponsConfig: {fileID: 11400000, guid: b9b24e96dfb1ca34cb513c6fc70f9bbd, type: 2}
   LevelProgressionConfig: {fileID: 11400000, guid: 27e9bbfb210a2be47ba66b7a82ebfd20, type: 2}
+  EnemiesPickupsDropsConfig: {fileID: 11400000, guid: 56da2acbad44b674588c42b714afee40, type: 2}

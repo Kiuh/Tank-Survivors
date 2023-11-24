@@ -10,8 +10,14 @@ namespace Enemies.Producers
     {
         [AssetsOnly]
         [SerializeField]
+        [AssetList(CustomFilterMethod = "EnemiesFilter")]
         [FoldoutGroup("ConstantEnemyProducer")]
         private GameObject enemyPrefab;
+
+        private bool EnemiesFilter(GameObject obj)
+        {
+            return obj.TryGetComponent<IEnemy>(out _);
+        }
 
         [SerializeField]
         [FoldoutGroup("ConstantEnemyProducer")]
