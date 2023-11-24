@@ -16,7 +16,7 @@ namespace General
         private EnemiesPickupsDrops enemiesPickups;
 
         [OdinSerialize]
-        [AssetList(CustomFilterMethod = "PickupsFilter")]
+        [AssetList(CustomFilterMethod = "PickupsFilter", AutoPopulate = true)]
         private List<GameObject> pickUps;
 
         private bool PickupsFilter(GameObject obj)
