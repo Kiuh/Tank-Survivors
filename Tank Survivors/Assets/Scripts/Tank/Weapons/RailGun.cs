@@ -35,10 +35,6 @@ namespace Assets.Scripts.Tank.Weapons
                 new TowerModule<SingleShotTower>(),
             };
 
-        [SerializeField]
-        private float rayDuration;
-        public float RayDuration => rayDuration;
-
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
