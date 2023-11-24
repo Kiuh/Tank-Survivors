@@ -23,7 +23,6 @@ namespace Tank.PickUps
         public void Grab(TankImpl tank)
         {
             Grabbed = true;
-            tank.FixArmor(armorAmount);
             Destroy(gameObject);
         }
     }

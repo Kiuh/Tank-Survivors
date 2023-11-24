@@ -59,11 +59,6 @@ namespace Tank
 
         [ReadOnly]
         [OdinSerialize]
-        [FoldoutGroup("Armor"), HideLabel]
-        public ModifiableValueContainer Armor { get; private set; } = new();
-
-        [ReadOnly]
-        [OdinSerialize]
         [FoldoutGroup("Tank Stats")]
         public ModifiableValue<Percentage> CriticalChance { get; private set; } = new();
 
@@ -138,13 +133,10 @@ namespace Tank
             Health.Value = Mathf.Min(Health.Value + healAmount, Health.MaxValue);
         }
 
-        public void FixArmor(float armorAmount)
-        {
-            Armor.Value = Mathf.Min(Armor.Value + armorAmount, Armor.MaxValue);
-        }
-
         public void TakeDamage(float damageAmount)
         {
+            if (EvadeChance.GetModifiedValue().TryChance())
+                return;
             Health.Value -= damageAmount;
             if (Health.Value <= 0)
             {

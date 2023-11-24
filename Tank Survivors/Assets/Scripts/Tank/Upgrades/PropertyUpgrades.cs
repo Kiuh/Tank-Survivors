@@ -93,17 +93,6 @@ namespace Tank.Upgrades
     }
 
     [Serializable]
-    public class Armor : BasePropertyMathUpgrade<float>
-    {
-        public override void ApplyUpgrade(TankImpl tank)
-        {
-            tank.Armor.AddModification(
-                new(MathOperation.ToFunction(OperationValue), ModificationPriority)
-            );
-        }
-    }
-
-    [Serializable]
     public class EvadeChance : BasePropertyMathUpgrade<Percentage>
     {
         public override void ApplyUpgrade(TankImpl tank)
