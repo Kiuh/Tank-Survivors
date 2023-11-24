@@ -1,0 +1,64 @@
+using Sirenix.OdinInspector;
+using System;
+using Tank;
+using UnityEngine;
+
+namespace Enemies
+{
+    public class Mine : MonoBehaviour, IEnemy
+    {
+        [SerializeField]
+        private Configs.Mine mineConfig;
+
+        [SerializeField]
+        [ReadOnly]
+        private float health;
+
+        [SerializeField]
+        [ReadOnly]
+        private float damage;
+
+        [SerializeField]
+        [ReadOnly]
+        private float explosiveRadius;
+
+        [SerializeField]
+        [ReadOnly]
+        private TankImpl tank;
+
+        [SerializeField]
+        private CircleCollider2D explosiveArea;
+
+        public event Action OnDeath;
+
+        public void Initialize(TankImpl tank)
+        {
+            this.tank = tank;
+            health = mineConfig.Health;
+            damage = mineConfig.Damage;
+            explosiveRadius = mineConfig.ExplosionRadius;
+            explosiveArea.radius = explosiveRadius;
+            OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
+            OnDeath += () => Destroy(gameObject);
+        }
+
+        public void TakeDamage(float damageAmount)
+        {
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                health = 0;
+                OnDeath?.Invoke();
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.TryGetComponent(out TankImpl _))
+            {
+                tank.TakeDamage(damage);
+                Destroy(gameObject);
+            }
+        }
+    }
+}
