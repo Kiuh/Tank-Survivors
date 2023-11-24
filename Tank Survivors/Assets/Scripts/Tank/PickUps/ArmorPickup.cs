@@ -1,14 +1,19 @@
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Tank.PickUps
 {
     [AddComponentMenu("Tank.PickUps.ArmorPickup")]
-    public class ArmorPickup : MonoBehaviour, IPickUp
+    public class ArmorPickup : SerializedMonoBehaviour, IPickUp
     {
         [SerializeField]
         private float armorAmount;
 
         public bool Grabbed { get; private set; }
+
+        [OdinSerialize]
+        public string PickupName { get; private set; }
 
         private void OnEnable()
         {

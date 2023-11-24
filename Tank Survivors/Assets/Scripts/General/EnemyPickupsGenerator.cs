@@ -6,9 +6,6 @@ namespace General
 {
     public class EnemyPickupsGenerator : SerializedMonoBehaviour
     {
-        public void GeneratePickup(IEnemy enemy, Transform position)
-        {
-            // TODO: generate
-        }
+        public void GeneratePickup(IEnemy enemy, Transform position) { }
     }
 }

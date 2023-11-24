@@ -134,6 +134,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3917f497cc68f64a99c64c0005a48ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiVGltZSBTbG93ZXIi
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   time: 10
   timeSlowerPercentage: 0.2
   spriteRenderer: {fileID: 337425409110343240}

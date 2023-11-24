@@ -1,10 +1,12 @@
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections;
 using UnityEngine;
 
 namespace Tank.PickUps
 {
     [AddComponentMenu("Tank.PickUps.TimeSlowerPickUp")]
-    public class TimeSlowerPickUp : MonoBehaviour, IPickUp
+    public class TimeSlowerPickUp : SerializedMonoBehaviour, IPickUp
     {
         [SerializeField]
         private float time;
@@ -20,6 +22,9 @@ namespace Tank.PickUps
 
         private bool grabbed;
         public bool Grabbed => grabbed;
+
+        [OdinSerialize]
+        public string PickupName { get; private set; }
 
         private void OnEnable()
         {

@@ -200,6 +200,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52837a24e4c1d534589e1f992bbf49e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IkVuZW15TmFtZSI6ICJNaW5lIg==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   mineConfig:
     health: 1
     damage: 20

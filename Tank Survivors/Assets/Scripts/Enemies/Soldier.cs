@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections;
 using Tank;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace Enemies
 {
     [AddComponentMenu("Enemies.Soldier")]
-    public class Soldier : MonoBehaviour, IEnemy
+    public class Soldier : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
         private Configs.Soldier soldierConfig;
@@ -46,6 +47,9 @@ namespace Enemies
         [SerializeField]
         [ReadOnly]
         private bool isMoving;
+
+        [OdinSerialize]
+        public string EnemyName { get; private set; }
 
         public event Action OnDeath;
 

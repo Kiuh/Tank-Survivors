@@ -144,4 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d8e340bba05df48a0a513e7b93c2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiQXJtb3Ii
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   armorAmount: 20

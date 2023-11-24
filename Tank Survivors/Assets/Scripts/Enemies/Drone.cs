@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections;
 using Tank;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace Enemies
 {
     [AddComponentMenu("Enemies.Drone")]
-    public class Drone : MonoBehaviour, IEnemy
+    public class Drone : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
         private Configs.Drone droneConfig;
@@ -39,7 +40,7 @@ namespace Enemies
         private CircleCollider2D explosiveArea;
 
         [SerializeField]
-        private SpriteRenderer explosiveAreaVizualization;
+        private SpriteRenderer explosiveAreaVisualization;
 
         [SerializeField]
         [ReadOnly]
@@ -48,6 +49,9 @@ namespace Enemies
         [SerializeField]
         [ReadOnly]
         private bool isMoving;
+
+        [OdinSerialize]
+        public string EnemyName { get; private set; }
 
         public event Action OnDeath;
 
@@ -58,7 +62,7 @@ namespace Enemies
             damage = droneConfig.Damage;
             explosionRadius = droneConfig.ExplosionRadius;
             explosiveArea.radius = explosionRadius;
-            explosiveAreaVizualization.transform.localScale = 2.0f * explosionRadius * Vector3.one;
+            explosiveAreaVisualization.transform.localScale = 2.0f * explosionRadius * Vector3.one;
             movementSpeed = droneConfig.MovementSpeed;
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);

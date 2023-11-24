@@ -1,6 +1,4 @@
 ﻿using Common;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using Tank;
@@ -14,27 +12,6 @@ namespace Assets.Scripts.Tank.Weapons
     [Serializable]
     public class RailGun : GunBase
     {
-        [OdinSerialize]
-        [ListDrawerSettings(
-            HideAddButton = true,
-            HideRemoveButton = true,
-            AlwaysAddDefaultValue = true,
-            DraggableItems = false
-        )]
-        [FoldoutGroup("$UpgradeName")]
-        public override List<IWeaponModule> Modules { get; protected set; } =
-            new()
-            {
-                new DamageModule(),
-                new FireRateModule(),
-                new CriticalChanceModule(),
-                new CriticalMultiplierModule(),
-                new FireRangeModule(),
-                new ProjectileModule<RayRenderer>(),
-                new RayDurationModule(),
-                new TowerModule<SingleShotTower>(),
-            };
-
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
@@ -43,6 +20,11 @@ namespace Assets.Scripts.Tank.Weapons
 
         public override void ProceedAttack()
         {
+            if (tower == null)
+            {
+                return;
+            }
+
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
             {
@@ -53,14 +35,14 @@ namespace Assets.Scripts.Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPrecentageValue(
+                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
                     tank.FireRateModifier
                 );
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
                 tower.RotateTo(shotDirection);
 
-                float fireRange = GetModule<FireRangeModule>().FireRange.GetPrecentageValue(
+                float fireRange = GetModule<FireRangeModule>().FireRange.GetPercentagesValue(
                     tank.RangeModifier
                 );
 
@@ -68,7 +50,7 @@ namespace Assets.Scripts.Tank.Weapons
                     GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
                 );
 
-                float damage = this.GetModifiedDamage(
+                float damage = GetModifiedDamage(
                     GetModule<DamageModule>().Damage,
                     GetModule<CriticalChanceModule>().CriticalChance,
                     GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -90,10 +72,29 @@ namespace Assets.Scripts.Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
+        }
+
+        public override void CreateGun()
+        {
             tower = UnityEngine.Object.Instantiate(
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        protected override List<IWeaponModule> GetBaseModules()
+        {
+            return new()
+            {
+                new DamageModule(),
+                new FireRateModule(),
+                new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
+                new FireRangeModule(),
+                new ProjectileModule<RayRenderer>(),
+                new RayDurationModule(),
+                new TowerModule<SingleShotTower>(),
+            };
         }
     }
 }

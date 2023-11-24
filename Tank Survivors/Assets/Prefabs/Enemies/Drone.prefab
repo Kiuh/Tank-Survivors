@@ -257,6 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507836ed0042aae41b8d40e8dea69a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IkVuZW15TmFtZSI6ICJEcm9uZSI=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   droneConfig:
     health: 5
     damage: 15
@@ -270,7 +279,7 @@ MonoBehaviour:
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
   explosiveArea: {fileID: 3433241106660565001}
-  explosiveAreaVizualization: {fileID: 4060764603155430094}
+  explosiveAreaVisualization: {fileID: 0}
   movementDirection: {x: 0, y: 0}
   isMoving: 0
 --- !u!50 &2677439162934494719

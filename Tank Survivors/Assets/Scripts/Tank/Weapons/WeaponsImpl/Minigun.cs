@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.Tank.Weapons;
-using Common;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+﻿using Common;
 using System;
 using System.Collections.Generic;
 using Tank.Towers;
@@ -11,34 +8,9 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class DoubleShotGun : GunBase
+    public class Minigun : GunBase
     {
-        [OdinSerialize]
-        [ListDrawerSettings(
-            HideAddButton = true,
-            HideRemoveButton = true,
-            AlwaysAddDefaultValue = true,
-            DraggableItems = false
-        )]
-        [FoldoutGroup("$UpgradeName")]
-        public override List<IWeaponModule> Modules { get; protected set; } =
-            new()
-            {
-                new DamageModule(),
-                new FireRateModule(),
-                new CriticalChanceModule(),
-                new CriticalMultiplierModule(),
-                new FireRangeModule(),
-                new PenetrationModule(),
-                new ProjectileModule<SimpleProjectile>(),
-                new ProjectileSizeModule(),
-                new ProjectileSpeedModule(),
-                new ProjectilesPerShootModule(),
-                new TowerModule<DoubleShotTower>(),
-                new ProjectileSpreadAngleModule()
-            };
-
-        private DoubleShotTower tower;
+        private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
 
@@ -46,6 +18,11 @@ namespace Tank.Weapons
 
         public override void ProceedAttack()
         {
+            if (tower == null)
+            {
+                return;
+            }
+
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
             {
@@ -56,16 +33,17 @@ namespace Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPrecentageValue(
+                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
                     tank.FireRateModifier
                 );
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
                 int projectilesCount =
                     GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+
                 for (int i = 0; i < projectilesCount; i++)
                 {
-                    Vector3 spreadDirection = this.GetSpreadDirection(
+                    Vector3 spreadDirection = GetSpreadDirection(
                         shotDirection,
                         GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                     );
@@ -78,7 +56,7 @@ namespace Tank.Weapons
                         Quaternion.identity
                     );
 
-                    float damage = this.GetModifiedDamage(
+                    float damage = GetModifiedDamage(
                         GetModule<DamageModule>().Damage,
                         GetModule<CriticalChanceModule>().CriticalChance,
                         GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -88,10 +66,10 @@ namespace Tank.Weapons
                     projectile.Initialize(
                         damage,
                         GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPrecentageValue(
+                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPercentagesValue(
                             tank.ProjectileSize
                         ),
-                        GetModule<FireRangeModule>().FireRange.GetPrecentageValue(
+                        GetModule<FireRangeModule>().FireRange.GetPercentagesValue(
                             tank.RangeModifier
                         ),
                         GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
@@ -106,10 +84,33 @@ namespace Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
+        }
+
+        public override void CreateGun()
+        {
             tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<DoubleShotTower>>().TowerPrefab,
+                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        protected override List<IWeaponModule> GetBaseModules()
+        {
+            return new()
+            {
+                new DamageModule(),
+                new FireRangeModule(),
+                new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
+                new FireRateModule(),
+                new PenetrationModule(),
+                new ProjectileModule<SimpleProjectile>(),
+                new ProjectileSizeModule(),
+                new ProjectileSpeedModule(),
+                new ProjectilesPerShootModule(),
+                new TowerModule<SingleShotTower>(),
+                new ProjectileSpreadAngleModule()
+            };
         }
     }
 }

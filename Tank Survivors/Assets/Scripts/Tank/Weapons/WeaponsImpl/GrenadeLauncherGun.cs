@@ -1,7 +1,4 @@
-﻿using Assets.Scripts.Tank.Weapons;
 using Common;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using Tank.Towers;
@@ -11,32 +8,8 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class Minigun : GunBase
+    public class GrenadeLauncherGun : GunBase
     {
-        [OdinSerialize]
-        [ListDrawerSettings(
-            HideAddButton = true,
-            HideRemoveButton = true,
-            AlwaysAddDefaultValue = true,
-            DraggableItems = false
-        )]
-        public override List<IWeaponModule> Modules { get; protected set; } =
-            new()
-            {
-                new DamageModule(),
-                new FireRangeModule(),
-                new CriticalChanceModule(),
-                new CriticalMultiplierModule(),
-                new FireRateModule(),
-                new PenetrationModule(),
-                new ProjectileModule<SimpleProjectile>(),
-                new ProjectileSizeModule(),
-                new ProjectileSpeedModule(),
-                new ProjectilesPerShootModule(),
-                new TowerModule<SingleShotTower>(),
-                new ProjectileSpreadAngleModule()
-            };
-
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
@@ -45,6 +18,11 @@ namespace Tank.Weapons
 
         public override void ProceedAttack()
         {
+            if (tower == null)
+            {
+                return;
+            }
+
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (nearestEnemy == null)
             {
@@ -55,30 +33,30 @@ namespace Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPrecentageValue(
+                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
                     tank.FireRateModifier
                 );
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
-                int projectilesCount =
+                int projectileCount =
                     GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
 
-                for (int i = 0; i < projectilesCount; i++)
+                for (int i = 0; i < projectileCount; i++)
                 {
-                    Vector3 spreadDirection = this.GetSpreadDirection(
+                    Vector3 spreadDirection = GetSpreadDirection(
                         shotDirection,
                         GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                     );
 
                     tower.RotateTo(spreadDirection);
 
-                    SimpleProjectile projectile = UnityEngine.Object.Instantiate(
-                        GetModule<ProjectileModule<SimpleProjectile>>().ProjectilePrefab,
+                    FlyingProjectile projectile = UnityEngine.Object.Instantiate(
+                        GetModule<ProjectileModule<FlyingProjectile>>().ProjectilePrefab,
                         tower.GetShotPoint(),
                         Quaternion.identity
                     );
 
-                    float damage = this.GetModifiedDamage(
+                    float damage = GetModifiedDamage(
                         GetModule<DamageModule>().Damage,
                         GetModule<CriticalChanceModule>().CriticalChance,
                         GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -88,15 +66,13 @@ namespace Tank.Weapons
                     projectile.Initialize(
                         damage,
                         GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPrecentageValue(
+                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPercentagesValue(
                             tank.ProjectileSize
                         ),
-                        GetModule<FireRangeModule>().FireRange.GetPrecentageValue(
-                            tank.RangeModifier
-                        ),
-                        GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
+                        GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
                         spreadDirection
                     );
+                    projectile.StartFly();
                 }
             }
         }
@@ -106,10 +82,32 @@ namespace Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
+        }
+
+        public override void CreateGun()
+        {
             tower = UnityEngine.Object.Instantiate(
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        protected override List<IWeaponModule> GetBaseModules()
+        {
+            return new()
+            {
+                new DamageModule(),
+                new FireRateModule(),
+                new CriticalChanceModule(),
+                new CriticalMultiplierModule(),
+                new ProjectileModule<FlyingProjectile>(),
+                new ProjectileSizeModule(),
+                new ProjectileSpeedModule(),
+                new ProjectilesPerShootModule(),
+                new TowerModule<SingleShotTower>(),
+                new ProjectileDamageRadiusModule(),
+                new ProjectileSpreadAngleModule()
+            };
         }
     }
 }

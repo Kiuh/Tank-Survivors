@@ -98,6 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3087f1b1e59214ba71dd56868bcbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiSGVhbHRoIg==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   healAmount: 30
 --- !u!61 &7647850923129408509
 BoxCollider2D:

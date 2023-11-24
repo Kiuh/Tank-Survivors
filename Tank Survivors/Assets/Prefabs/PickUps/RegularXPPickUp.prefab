@@ -134,4 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6211abb5ffc564aa11f646b5d9f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiUmVndWxhciBYUCI=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   experienceAmount: 10

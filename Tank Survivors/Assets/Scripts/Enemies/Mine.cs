@@ -1,11 +1,12 @@
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using Tank;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Mine : MonoBehaviour, IEnemy
+    public class Mine : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
         private Configs.Mine mineConfig;
@@ -31,6 +32,9 @@ namespace Enemies
 
         [SerializeField]
         private SpriteRenderer explosiveAreaVisualization;
+
+        [OdinSerialize]
+        public string EnemyName { get; private set; }
 
         public event Action OnDeath;
 
