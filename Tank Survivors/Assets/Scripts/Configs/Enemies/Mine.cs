@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    public class Mine
+    [CreateAssetMenu(fileName = "MineConfig", menuName = "Configs/Enemies/MineConfig", order = 4)]
+    public class Mine : ScriptableObject
     {
         [SerializeField]
         private float health;

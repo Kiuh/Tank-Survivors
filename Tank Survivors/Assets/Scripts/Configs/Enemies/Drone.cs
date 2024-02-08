@@ -1,14 +1,17 @@
-using System;
 using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    public class Drone
+    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/DroneConfig", order = 4)]
+    public class Drone : ScriptableObject
     {
         [SerializeField]
         private float health;
-        public float Health => health;
+        public float Health
+        {
+            get => health;
+            set => health = value;
+        }
 
         [SerializeField]
         private float damage;

@@ -136,20 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IkVuZW15TmFtZSI6ICJSb2JvdCI=
+    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQUAAABSAG8AYgBvAHQA
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  soldierConfig:
-    health: 300
-    movementSpeed: 2
-    damage: 50
-    timeForNextHit: 3
-    experienceDropAmount: 50
+  soldierConfig: {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
   health: 0
   damage: 0
   movementSpeed: 0

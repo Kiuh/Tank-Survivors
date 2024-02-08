@@ -1,10 +1,13 @@
-using System;
 using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    public class Soldier
+    [CreateAssetMenu(
+        fileName = "SoldierConfig",
+        menuName = "Configs/Enemies/SoldierConfig",
+        order = 4
+    )]
+    public class Soldier : ScriptableObject
     {
         [SerializeField]
         private float health;

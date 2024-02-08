@@ -1,7 +1,7 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using System;
 using System.Collections;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -15,19 +15,7 @@ namespace Enemies
 
         [SerializeField]
         [ReadOnly]
-        private float health;
-
-        [SerializeField]
-        [ReadOnly]
-        private float damage;
-
-        [SerializeField]
-        [ReadOnly]
-        private float movementSpeed;
-
-        [SerializeField]
-        [ReadOnly]
-        private float explosionRadius;
+        private Configs.Drone clonedConfig;
 
         [SerializeField]
         [ReadOnly]
@@ -64,12 +52,12 @@ namespace Enemies
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
-            health = droneConfig.Health;
-            damage = droneConfig.Damage;
-            explosionRadius = droneConfig.ExplosionRadius;
-            explosiveArea.radius = explosionRadius;
-            explosiveAreaVisualization.transform.localScale = 2.0f * explosionRadius * Vector3.one;
-            movementSpeed = droneConfig.MovementSpeed;
+
+            clonedConfig = Instantiate(droneConfig);
+            explosiveArea.radius = clonedConfig.ExplosionRadius;
+
+            explosiveAreaVisualization.transform.localScale =
+                2.0f * clonedConfig.ExplosionRadius * Vector3.one;
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();
@@ -103,7 +91,7 @@ namespace Enemies
         private void CalculateDirectionToTank()
         {
             Vector2 direction = tank.transform.position - transform.position;
-            movementDirection = direction.normalized * movementSpeed;
+            movementDirection = direction.normalized * clonedConfig.MovementSpeed;
         }
 
         private void RotateToTank()
@@ -115,10 +103,10 @@ namespace Enemies
 
         public void TakeDamage(float damageAmount)
         {
-            health -= damageAmount;
-            if (health <= 0)
+            clonedConfig.Health -= damageAmount;
+            if (clonedConfig.Health <= 0)
             {
-                health = 0;
+                clonedConfig.Health = 0;
                 OnDeath?.Invoke();
             }
         }
@@ -128,11 +116,18 @@ namespace Enemies
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
                 StopMovement();
-                particle.transform.localScale = new Vector3(explosionRadius, explosionRadius, 1.0f);
+
+                particle.transform.localScale = new Vector3(
+                    clonedConfig.ExplosionRadius,
+                    clonedConfig.ExplosionRadius,
+                    1.0f
+                );
+
+                tank.TakeDamage(clonedConfig.Damage);
                 particle.Play();
                 sprite.enabled = false;
                 explosiveArea.enabled = false;
-                tank.TakeDamage(damage);
+
                 Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
             }
         }
