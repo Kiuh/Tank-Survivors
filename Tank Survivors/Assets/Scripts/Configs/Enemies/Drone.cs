@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Configs
@@ -6,27 +7,17 @@ namespace Configs
     public class Drone : ScriptableObject
     {
         [SerializeField]
-        private float health;
-        public float Health
-        {
-            get => health;
-            set => health = value;
-        }
+        private DroneConfig config;
+        public DroneConfig Config => config;
+    }
 
-        [SerializeField]
-        private float damage;
-        public float Damage => damage;
-
-        [SerializeField]
-        private float explosionRadius;
-        public float ExplosionRadius => explosionRadius;
-
-        [SerializeField]
-        private float movementSpeed;
-        public float MovementSpeed => movementSpeed;
-
-        [SerializeField]
-        private float experienceDropAmount;
-        public float ExperienceDropAmount => experienceDropAmount;
+    [Serializable]
+    public struct DroneConfig
+    {
+        public float Health;
+        public float Damage;
+        public float ExplosionRadius;
+        public float MovementSpeed;
+        public float ExperienceDropAmount;
     }
 }

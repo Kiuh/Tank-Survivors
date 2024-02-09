@@ -11,11 +11,11 @@ namespace Enemies
     public class Drone : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        private Configs.Drone droneConfig;
+        private Configs.Drone ñonfig;
 
         [SerializeField]
         [ReadOnly]
-        private Configs.Drone clonedConfig;
+        private Configs.DroneConfig clonedConfig;
 
         [SerializeField]
         [ReadOnly]
@@ -53,11 +53,12 @@ namespace Enemies
         {
             this.tank = tank;
 
-            clonedConfig = Instantiate(droneConfig);
-            explosiveArea.radius = clonedConfig.ExplosionRadius;
+            clonedConfig = ñonfig.Config;
 
+            explosiveArea.radius = clonedConfig.ExplosionRadius;
             explosiveAreaVisualization.transform.localScale =
                 2.0f * clonedConfig.ExplosionRadius * Vector3.one;
+
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();

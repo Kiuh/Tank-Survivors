@@ -135,11 +135,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  soldierConfig: {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
-  health: 100
-  damage: 10
-  movementSpeed: 1
-  timeForNextHit: 1
+  "\u0441onfig": {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
+  clonedConfig:
+    Health: 0
+    MovementSpeed: 0
+    Damage: 0
+    TimeForNextHit: 0
+    ExperienceDropAmount: 0
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 9177086646328938006}
   movementDirection: {x: 0, y: 0}

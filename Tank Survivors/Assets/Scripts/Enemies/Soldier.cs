@@ -1,7 +1,7 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using System;
 using System.Collections;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -11,23 +11,11 @@ namespace Enemies
     public class Soldier : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        private Configs.Soldier soldierConfig;
+        private Configs.Soldier ñonfig;
 
         [SerializeField]
         [ReadOnly]
-        private float health;
-
-        [SerializeField]
-        [ReadOnly]
-        private float damage;
-
-        [SerializeField]
-        [ReadOnly]
-        private float movementSpeed;
-
-        [SerializeField]
-        [ReadOnly]
-        private float timeForNextHit;
+        private Configs.SoliderConfig clonedConfig;
 
         [SerializeField]
         [ReadOnly]
@@ -56,10 +44,9 @@ namespace Enemies
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
-            health = soldierConfig.Health;
-            damage = soldierConfig.Damage;
-            movementSpeed = soldierConfig.MovementSpeed;
-            timeForNextHit = soldierConfig.TimeForNextHit;
+
+            clonedConfig = ñonfig.Config;
+
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
             StartMovement();
@@ -93,7 +80,7 @@ namespace Enemies
         private void CalculateDirectionToTank()
         {
             Vector2 direction = tank.transform.position - transform.position;
-            movementDirection = direction.normalized * movementSpeed;
+            movementDirection = direction.normalized * clonedConfig.MovementSpeed;
         }
 
         private void RotateToTank()
@@ -107,17 +94,17 @@ namespace Enemies
         {
             while (isTouchingTank)
             {
-                tank.TakeDamage(damage);
-                yield return new WaitForSeconds(timeForNextHit);
+                tank.TakeDamage(clonedConfig.Damage);
+                yield return new WaitForSeconds(clonedConfig.TimeForNextHit);
             }
         }
 
         public void TakeDamage(float damageAmount)
         {
-            health -= damageAmount;
-            if (health <= 0)
+            clonedConfig.Health -= damageAmount;
+            if (clonedConfig.Health <= 0)
             {
-                health = 0;
+                clonedConfig.Health = 0;
                 OnDeath?.Invoke();
             }
         }

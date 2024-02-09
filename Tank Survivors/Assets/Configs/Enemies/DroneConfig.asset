@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ded2096e4c864e82c98da56a7161b, type: 3}
   m_Name: DroneConfig
   m_EditorClassIdentifier: 
-  health: 2
-  damage: 15
-  explosionRadius: 0.5
-  movementSpeed: 2
-  experienceDropAmount: 10
+  config:
+    Health: 1
+    Damage: 15
+    ExplosionRadius: 0.5
+    MovementSpeed: 2
+    ExperienceDropAmount: 1

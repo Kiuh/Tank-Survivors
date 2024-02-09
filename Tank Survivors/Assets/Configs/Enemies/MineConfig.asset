@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0424b51f4262a5b4d88e4b85d00e3f2f, type: 3}
   m_Name: MineConfig
   m_EditorClassIdentifier: 
-  health: 2
-  damage: 15
-  explosionRadius: 0.5
+  <Config>k__BackingField:
+    Health: 10
+    Damage: 15
+    ExplosionRadius: 0.5

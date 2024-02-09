@@ -267,11 +267,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  droneConfig: {fileID: 11400000, guid: 169a1a4e5f65162469ef5a8b0ee1cee0, type: 2}
-  health: 0
-  damage: 15
-  movementSpeed: 2
-  explosionRadius: 0.5
+  "\u0441onfig": {fileID: 11400000, guid: 169a1a4e5f65162469ef5a8b0ee1cee0, type: 2}
+  clonedConfig:
+    Health: 0
+    Damage: 0
+    ExplosionRadius: 0
+    MovementSpeed: 0
+    ExperienceDropAmount: 0
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
   explosiveArea: {fileID: 3433241106660565001}

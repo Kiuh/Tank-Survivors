@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5001824896ecc6544ba2a3fe1651949d, type: 3}
   m_Name: SoldierConfig
   m_EditorClassIdentifier: 
-  health: 20
-  movementSpeed: 1
-  damage: 5
-  timeForNextHit: 1
-  experienceDropAmount: 10
+  config:
+    Health: 20
+    MovementSpeed: 2
+    Damage: 10
+    TimeForNextHit: 1
+    ExperienceDropAmount: 5
