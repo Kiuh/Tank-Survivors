@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -11,10 +12,8 @@ namespace Enemies
     public class Soldier : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        private Configs.Soldier ñonfig;
-
-        [SerializeField]
         [ReadOnly]
+        [InlineProperty]
         private Configs.SoliderConfig clonedConfig;
 
         [SerializeField]
@@ -41,11 +40,11 @@ namespace Enemies
 
         public event Action OnDeath;
 
-        public void Initialize(TankImpl tank)
+        public void Initialize(TankImpl tank, IEnemyConfig config)
         {
             this.tank = tank;
 
-            clonedConfig = ñonfig.Config;
+            clonedConfig = ((Configs.Soldier)config).Config;
 
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);

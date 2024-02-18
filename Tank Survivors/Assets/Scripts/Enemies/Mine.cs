@@ -9,10 +9,8 @@ namespace Enemies
     public class Mine : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        private Configs.Mine ñonfig;
-
-        [SerializeField]
         [ReadOnly]
+        [InlineProperty]
         private Configs.MineConfig clonedConfig;
 
         [SerializeField]
@@ -36,11 +34,11 @@ namespace Enemies
 
         public event Action OnDeath;
 
-        public void Initialize(TankImpl tank)
+        public void Initialize(TankImpl tank, Configs.IEnemyConfig config)
         {
             this.tank = tank;
 
-            clonedConfig = ñonfig.Config;
+            clonedConfig = ((Configs.Mine)config).Config;
 
             explosiveArea.radius = clonedConfig.ExplosionRadius;
             explosiveAreaVisualization.transform.localScale =

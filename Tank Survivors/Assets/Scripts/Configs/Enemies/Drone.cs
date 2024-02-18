@@ -1,12 +1,15 @@
 using System;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/DroneConfig", order = 4)]
-    public class Drone : ScriptableObject
+    [Serializable]
+    public class Drone : SerializedScriptableObject, IEnemyConfig
     {
-        [SerializeField]
+        [OdinSerialize]
         private DroneConfig config;
         public DroneConfig Config => config;
     }

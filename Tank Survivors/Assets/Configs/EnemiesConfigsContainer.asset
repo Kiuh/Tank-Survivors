@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184525c7af768644e9b6304a43544306, type: 3}
+  m_Name: EnemiesConfigsContainer
+  m_EditorClassIdentifier: 
+  <MineConfig>k__BackingField: {fileID: 11400000, guid: 6c9bb070b0b01c54cb99a746d2b6d391, type: 2}
+  <DroneConfig>k__BackingField: {fileID: 11400000, guid: 169a1a4e5f65162469ef5a8b0ee1cee0, type: 2}
+  <Soldier>k__BackingField: {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
+  <BigSoldier>k__BackingField: {fileID: 11400000, guid: e5fd3b501ca2eab4580b3b9acc92e184, type: 2}
+  <Robot>k__BackingField: {fileID: 11400000, guid: 96a682a1b7aba4147abff5684451f522, type: 2}

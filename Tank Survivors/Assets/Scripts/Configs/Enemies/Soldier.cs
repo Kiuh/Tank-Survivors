@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Configs
@@ -8,7 +9,7 @@ namespace Configs
         menuName = "Configs/Enemies/SoldierConfig",
         order = 4
     )]
-    public class Soldier : ScriptableObject
+    public class Soldier : SerializedScriptableObject, IEnemyConfig
     {
         [SerializeField]
         private SoliderConfig config;
