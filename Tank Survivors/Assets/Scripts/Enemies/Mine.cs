@@ -14,6 +14,9 @@ namespace Enemies
         private Configs.MineConfig clonedConfig;
 
         [SerializeField]
+        Configs.Mine config;
+
+        [SerializeField]
         [ReadOnly]
         private TankImpl tank;
 
@@ -34,11 +37,11 @@ namespace Enemies
 
         public event Action OnDeath;
 
-        public void Initialize(TankImpl tank, Configs.IEnemyConfig config)
+        public void Initialize(TankImpl tank)
         {
             this.tank = tank;
 
-            clonedConfig = ((Configs.Mine)config).Config;
+            clonedConfig = config.Config;
 
             explosiveArea.radius = clonedConfig.ExplosionRadius;
             explosiveAreaVisualization.transform.localScale =

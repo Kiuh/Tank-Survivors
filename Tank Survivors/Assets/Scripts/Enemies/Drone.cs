@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -11,6 +10,9 @@ namespace Enemies
     [AddComponentMenu("Enemies.Drone")]
     public class Drone : SerializedMonoBehaviour, IEnemy
     {
+        [SerializeField]
+        Configs.Drone config;
+
         [SerializeField]
         [ReadOnly]
         [InlineProperty]
@@ -48,11 +50,11 @@ namespace Enemies
 
         public event Action OnDeath;
 
-        public void Initialize(TankImpl tank, IEnemyConfig config)
+        public void Initialize(TankImpl tank)
         {
             this.tank = tank;
 
-            clonedConfig = ((Configs.Drone)config).Config;
+            clonedConfig = config.Config;
 
             explosiveArea.radius = clonedConfig.ExplosionRadius;
             explosiveAreaVisualization.transform.localScale =

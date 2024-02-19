@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/DroneConfig", order = 4)]
+    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/DroneConfig")]
     [Serializable]
-    public class Drone : SerializedScriptableObject, IEnemyConfig
+    public class Drone : SerializedScriptableObject
     {
         [OdinSerialize]
         private DroneConfig config;

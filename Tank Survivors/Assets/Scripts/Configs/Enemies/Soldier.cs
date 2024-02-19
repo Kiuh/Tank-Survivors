@@ -4,12 +4,8 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(
-        fileName = "SoldierConfig",
-        menuName = "Configs/Enemies/SoldierConfig",
-        order = 4
-    )]
-    public class Soldier : SerializedScriptableObject, IEnemyConfig
+    [CreateAssetMenu(fileName = "SoldierConfig", menuName = "Configs/Enemies/SoldierConfig")]
+    public class Soldier : SerializedScriptableObject
     {
         [SerializeField]
         private SoliderConfig config;

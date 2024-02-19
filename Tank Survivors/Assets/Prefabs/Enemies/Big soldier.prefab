@@ -135,7 +135,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  "\u0441onfig": {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
+  config: {fileID: 11400000, guid: e5fd3b501ca2eab4580b3b9acc92e184, type: 2}
   clonedConfig:
     Health: 0
     MovementSpeed: 0

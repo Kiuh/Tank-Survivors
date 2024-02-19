@@ -1,5 +1,4 @@
 ﻿using System;
-using Configs;
 using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
@@ -14,9 +13,6 @@ namespace Enemies.Producers
         [AssetList(CustomFilterMethod = "EnemiesFilter")]
         [FoldoutGroup("DefaultEnemyProducer")]
         private GameObject enemyPrefab;
-
-        [SerializeField]
-        private IEnemyConfig enemyConfig;
 
         private bool EnemiesFilter(GameObject obj)
         {
@@ -63,7 +59,7 @@ namespace Enemies.Producers
                         enemyRoot
                     )
                     .GetComponent<IEnemy>()
-                    .Initialize(tank, enemyConfig);
+                    .Initialize(tank);
                 timer = spawnInterval;
             }
         }

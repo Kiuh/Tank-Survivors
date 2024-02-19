@@ -5098,11 +5098,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  "\u0441onfig": {fileID: 11400000, guid: 6c9bb070b0b01c54cb99a746d2b6d391, type: 2}
   clonedConfig:
     Health: 0
     Damage: 0
     ExplosionRadius: 0
+  config: {fileID: 11400000, guid: 6c9bb070b0b01c54cb99a746d2b6d391, type: 2}
   tank: {fileID: 0}
   explosiveArea: {fileID: 3020313193630355973}
   explosiveAreaVisualization: {fileID: 1945502655356227774}

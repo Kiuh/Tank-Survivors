@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "MineConfig", menuName = "Configs/Enemies/MineConfig", order = 4)]
-    public class Mine : SerializedScriptableObject, IEnemyConfig
+    [CreateAssetMenu(fileName = "MineConfig", menuName = "Configs/Enemies/MineConfig")]
+    public class Mine : SerializedScriptableObject
     {
-        [field: SerializeField]
-        public MineConfig Config { get; private set; }
+        [SerializeField]
+        private MineConfig config;
+        public MineConfig Config => config;
     }
 
     [Serializable]
