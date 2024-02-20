@@ -1,5 +1,5 @@
-using Sirenix.OdinInspector;
 using System;
+using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
@@ -42,8 +42,8 @@ namespace Enemies.Producers
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                UnityEngine.Object
-                    .Instantiate(
+                UnityEngine
+                    .Object.Instantiate(
                         enemyPrefab,
                         tank.transform.position + GetRandomPoint(),
                         Quaternion.identity,

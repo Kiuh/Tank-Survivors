@@ -1,21 +1,22 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    public class Mine
+    [CreateAssetMenu(fileName = "MineConfig", menuName = "Configs/Enemies/MineConfig")]
+    public class Mine : SerializedScriptableObject
     {
         [SerializeField]
-        private float health;
-        public float Health => health;
+        private MineConfig config;
+        public MineConfig Config => config;
+    }
 
-        [SerializeField]
-        private float damage;
-        public float Damage => damage;
-
-        [SerializeField]
-        private float explosionRadius;
-        public float ExplosionRadius => explosionRadius;
+    [Serializable]
+    public struct MineConfig
+    {
+        public float Health;
+        public float Damage;
+        public float ExplosionRadius;
     }
 }

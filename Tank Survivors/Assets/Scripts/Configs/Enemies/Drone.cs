@@ -1,29 +1,26 @@
 using System;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Configs
 {
+    [CreateAssetMenu(fileName = "DroneConfig", menuName = "Configs/Enemies/DroneConfig")]
     [Serializable]
-    public class Drone
+    public class Drone : SerializedScriptableObject
     {
-        [SerializeField]
-        private float health;
-        public float Health => health;
+        [OdinSerialize]
+        private DroneConfig config;
+        public DroneConfig Config => config;
+    }
 
-        [SerializeField]
-        private float damage;
-        public float Damage => damage;
-
-        [SerializeField]
-        private float explosionRadius;
-        public float ExplosionRadius => explosionRadius;
-
-        [SerializeField]
-        private float movementSpeed;
-        public float MovementSpeed => movementSpeed;
-
-        [SerializeField]
-        private float experienceDropAmount;
-        public float ExperienceDropAmount => experienceDropAmount;
+    [Serializable]
+    public struct DroneConfig
+    {
+        public float Health;
+        public float Damage;
+        public float ExplosionRadius;
+        public float MovementSpeed;
+        public float ExperienceDropAmount;
     }
 }

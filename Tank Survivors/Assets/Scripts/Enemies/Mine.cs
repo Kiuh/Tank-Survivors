@@ -1,28 +1,20 @@
+using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 using Tank;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 namespace Enemies
 {
     public class Mine : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        private Configs.Mine mineConfig;
+        [ReadOnly]
+        [InlineProperty]
+        private Configs.MineConfig clonedConfig;
 
         [SerializeField]
-        [ReadOnly]
-        private float health;
-
-        [SerializeField]
-        [ReadOnly]
-        private float damage;
-
-        [SerializeField]
-        [ReadOnly]
-        private float explosiveRadius;
+        Configs.Mine config;
 
         [SerializeField]
         [ReadOnly]
@@ -48,21 +40,23 @@ namespace Enemies
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
-            health = mineConfig.Health;
-            damage = mineConfig.Damage;
-            explosiveRadius = mineConfig.ExplosionRadius;
-            explosiveArea.radius = explosiveRadius;
-            explosiveAreaVisualization.transform.localScale = 2.0f * explosiveRadius * Vector3.one;
+
+            clonedConfig = config.Config;
+
+            explosiveArea.radius = clonedConfig.ExplosionRadius;
+            explosiveAreaVisualization.transform.localScale =
+                2.0f * clonedConfig.ExplosionRadius * Vector3.one;
+
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
         }
 
         public void TakeDamage(float damageAmount)
         {
-            health -= damageAmount;
-            if (health <= 0)
+            clonedConfig.Health -= damageAmount;
+            if (clonedConfig.Health <= 0)
             {
-                health = 0;
+                clonedConfig.Health = 0;
                 OnDeath?.Invoke();
             }
         }
@@ -71,11 +65,15 @@ namespace Enemies
         {
             if (collision.gameObject.TryGetComponent(out TankImpl _))
             {
-                particle.transform.localScale = new Vector3(explosiveRadius, explosiveRadius, 1.0f);
+                particle.transform.localScale = new Vector3(
+                    clonedConfig.ExplosionRadius,
+                    clonedConfig.ExplosionRadius,
+                    1.0f
+                );
                 particle.Play();
                 explosiveArea.enabled = false;
                 sprite.enabled = false;
-                tank.TakeDamage(damage);
+                tank.TakeDamage(clonedConfig.Damage);
                 Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
             }
         }

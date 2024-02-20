@@ -5090,21 +5090,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
-    SerializedBytes: 22456e656d794e616d65223a20224d696e6522
+    SerializedFormat: 0
+    SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: 
+    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQQAAABNAGkAbgBlAA==
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  mineConfig:
-    health: 1
-    damage: 50
-    explosionRadius: 0.5
-  health: 0
-  damage: 0
-  explosiveRadius: 0
+  clonedConfig:
+    Health: 0
+    Damage: 0
+    ExplosionRadius: 0
+  config: {fileID: 11400000, guid: 6c9bb070b0b01c54cb99a746d2b6d391, type: 2}
   tank: {fileID: 0}
   explosiveArea: {fileID: 3020313193630355973}
   explosiveAreaVisualization: {fileID: 1945502655356227774}

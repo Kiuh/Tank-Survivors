@@ -259,24 +259,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IkVuZW15TmFtZSI6ICJEcm9uZSI=
+    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQUAAABEAHIAbwBuAGUA
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  droneConfig:
-    health: 10
-    damage: 10
-    explosionRadius: 0.5
-    movementSpeed: 3
-    experienceDropAmount: 10
-  health: 0
-  damage: 15
-  movementSpeed: 2
-  explosionRadius: 0.5
+  config: {fileID: 11400000, guid: 169a1a4e5f65162469ef5a8b0ee1cee0, type: 2}
+  clonedConfig:
+    Health: 0
+    Damage: 0
+    ExplosionRadius: 0
+    MovementSpeed: 0
+    ExperienceDropAmount: 0
   tank: {fileID: 0}
   enemyRigidBody: {fileID: 2677439162934494719}
   explosiveArea: {fileID: 3433241106660565001}

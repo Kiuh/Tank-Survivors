@@ -1,29 +1,28 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    public class Soldier
+    [CreateAssetMenu(fileName = "SoldierConfig", menuName = "Configs/Enemies/SoldierConfig")]
+    public class Soldier : SerializedScriptableObject
     {
         [SerializeField]
-        private float health;
-        public float Health => health;
+        private SoliderConfig config;
+        public SoliderConfig Config => config;
+    }
 
-        [SerializeField]
-        private float movementSpeed;
-        public float MovementSpeed => movementSpeed;
+    [Serializable]
+    public struct SoliderConfig
+    {
+        public float Health;
 
-        [SerializeField]
-        private float damage;
-        public float Damage => damage;
+        public float MovementSpeed;
 
-        [SerializeField]
-        private float timeForNextHit;
-        public float TimeForNextHit => timeForNextHit;
+        public float Damage;
 
-        [SerializeField]
-        private float experienceDropAmount;
-        public float ExperienceDropAmount => experienceDropAmount;
+        public float TimeForNextHit;
+
+        public float ExperienceDropAmount;
     }
 }
