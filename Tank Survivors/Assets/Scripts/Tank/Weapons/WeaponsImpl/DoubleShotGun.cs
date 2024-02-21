@@ -1,6 +1,6 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Common;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
@@ -33,13 +33,12 @@ namespace Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
-                    tank.FireRateModifier
-                );
+                remainingTime += GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
-                int projectilesCount =
-                    GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+                int projectilesCount = GetModule<ProjectilesPerShootModule>()
+                    .ProjectilesPerShoot.GetModifiedValue();
                 for (int i = 0; i < projectilesCount; i++)
                 {
                     Vector3 spreadDirection = GetSpreadDirection(
@@ -65,12 +64,10 @@ namespace Tank.Weapons
                     projectile.Initialize(
                         damage,
                         GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPercentagesValue(
-                            tank.ProjectileSize
-                        ),
-                        GetModule<FireRangeModule>().FireRange.GetPercentagesValue(
-                            tank.RangeModifier
-                        ),
+                        GetModule<ProjectileSizeModule>()
+                            .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
+                        GetModule<FireRangeModule>()
+                            .FireRange.GetPercentagesValue(tank.RangeModifier),
                         GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
                         spreadDirection
                     );
@@ -91,6 +88,13 @@ namespace Tank.Weapons
                 GetModule<TowerModule<DoubleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        public override void SwapWeapon(IWeapon newWeapon)
+        {
+            GameObject.Destroy(tower.gameObject);
+            tank.SwapWeapon(newWeapon);
+            newWeapon.CreateGun();
         }
 
         protected override List<IWeaponModule> GetBaseModules()

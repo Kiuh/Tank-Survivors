@@ -1,5 +1,5 @@
-﻿using Sirenix.OdinInspector;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Tank.UpgradablePiece;
 
 namespace Tank.Weapons
@@ -10,6 +10,8 @@ namespace Tank.Weapons
         public void ProceedAttack();
         public void Initialize(TankImpl tank, EnemyFinder enemyFinder);
         public abstract List<IWeaponModule> Modules { get; }
+        public IEnumerable<ILevelUpUpgrade> LevelUpUpgrades { get; }
         public abstract void CreateGun();
+        public abstract void SwapWeapon(IWeapon newWeapon);
     }
 }

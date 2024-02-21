@@ -1,11 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Common;
 using DataStructs;
 using General;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
@@ -118,6 +118,20 @@ namespace Tank
             {
                 weapon.ProceedAttack();
             }
+        }
+
+        public void SwapWeapon(IWeapon weapon)
+        {
+            weapons.Clear();
+            weapon.Initialize(this, enemyFinder);
+            weapons.Add(weapon);
+        }
+
+        public IEnumerable<IUpgradablePiece> GetLevelUpUpgrades()
+        {
+            return weapons.Where(x =>
+                x.LevelUpUpgrades.Any(u => u.LevelForUpgrade.Equals(PlayerLevel.CurrentLevel))
+            );
         }
 
         public IEnumerable<IUpgradablePiece> GetAvailableUpgrades()

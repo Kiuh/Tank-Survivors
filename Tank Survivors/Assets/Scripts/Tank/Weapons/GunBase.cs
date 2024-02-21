@@ -1,9 +1,9 @@
-﻿using Common;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System.Collections.Generic;
-using System.Linq;
 using Tank.UpgradablePiece;
 using UnityEngine;
 
@@ -31,6 +31,12 @@ namespace Tank.Weapons
         [ShowInInspector]
         private List<LeveledWeaponUpgrade> leveledUpgrades = new();
 
+        [FoldoutGroup("$UpgradeName")]
+        [PropertyOrder(1)]
+        [OdinSerialize]
+        [ShowInInspector]
+        private List<LevelUpWeaponUpgrade> levelUpUpgrades = new();
+
         public T GetModule<T>()
             where T : class, IWeaponModule
         {
@@ -39,12 +45,15 @@ namespace Tank.Weapons
         }
 
         public IEnumerable<ILeveledUpgrade> Upgrades => leveledUpgrades;
+        public IEnumerable<ILevelUpUpgrade> LevelUpUpgrades => levelUpUpgrades;
 
         public abstract void Initialize(TankImpl tank, EnemyFinder enemyFinder);
 
         public abstract void ProceedAttack();
 
         public abstract void CreateGun();
+
+        public abstract void SwapWeapon(IWeapon newWeapon);
 
         protected abstract List<IWeaponModule> GetBaseModules();
 

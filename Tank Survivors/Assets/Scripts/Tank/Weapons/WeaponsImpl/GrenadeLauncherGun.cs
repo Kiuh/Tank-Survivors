@@ -1,6 +1,6 @@
-using Common;
 using System;
 using System.Collections.Generic;
+using Common;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
@@ -33,13 +33,12 @@ namespace Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
-                    tank.FireRateModifier
-                );
+                remainingTime += GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
-                int projectileCount =
-                    GetModule<ProjectilesPerShootModule>().ProjectilesPerShoot.GetModifiedValue();
+                int projectileCount = GetModule<ProjectilesPerShootModule>()
+                    .ProjectilesPerShoot.GetModifiedValue();
 
                 for (int i = 0; i < projectileCount; i++)
                 {
@@ -66,9 +65,8 @@ namespace Tank.Weapons
                     projectile.Initialize(
                         damage,
                         GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>().ProjectileSize.GetPercentagesValue(
-                            tank.ProjectileSize
-                        ),
+                        GetModule<ProjectileSizeModule>()
+                            .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
                         GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
                         spreadDirection
                     );
@@ -90,6 +88,13 @@ namespace Tank.Weapons
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        public override void SwapWeapon(IWeapon newWeapon)
+        {
+            GameObject.Destroy(tower.gameObject);
+            tank.SwapWeapon(newWeapon);
+            newWeapon.CreateGun();
         }
 
         protected override List<IWeaponModule> GetBaseModules()
