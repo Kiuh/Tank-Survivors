@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Enemies.Bosses.Abilities;
 using Sirenix.OdinInspector;
@@ -18,6 +19,8 @@ namespace Enemies.Bosses
         [OdinSerialize]
         private TankImpl tank;
 
+        public event Action OnDeath;
+
         public string EnemyName => throw new System.NotImplementedException();
 
         public void Awake()
@@ -30,20 +33,12 @@ namespace Enemies.Bosses
 
         public void Initialize(TankImpl tank)
         {
-            throw new System.NotImplementedException();
+            this.tank = tank;
         }
 
         public void TakeDamage(float damageAmount)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update()
-        {
-            foreach (var ability in abilities)
-            {
-                ability.ExecuteAbility();
-            }
+            OnDeath?.Invoke();
         }
     }
 }

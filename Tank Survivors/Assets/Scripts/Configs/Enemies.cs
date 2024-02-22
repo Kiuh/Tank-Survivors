@@ -1,7 +1,8 @@
-﻿using Enemies.Producers;
+﻿using System.Collections.Generic;
+using Enemies.EnemyProducers;
+using Enemies.Producers;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Configs
@@ -11,5 +12,8 @@ namespace Configs
     {
         [OdinSerialize]
         public List<IEnemyProducer> EnemyProducers { get; private set; }
+
+        [OdinSerialize]
+        public List<BossProducer> BossProducers { get; private set; }
     }
 }

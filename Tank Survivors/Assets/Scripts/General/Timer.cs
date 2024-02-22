@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace General
 {
@@ -6,16 +7,36 @@ namespace General
     public class Timer : MonoBehaviour
     {
         private float timer = 0;
+        private bool isPaused;
+        private Coroutine coroutine;
         public float CurrentTime => timer;
+        public bool IsPaused => isPaused;
 
         private void Awake()
         {
             timer = 0;
+            StartTimer();
         }
 
-        private void Update()
+        public void StartTimer()
         {
-            timer += Time.deltaTime;
+            isPaused = false;
+            coroutine = StartCoroutine(CountTime());
+        }
+
+        public void StopTimer()
+        {
+            isPaused = true;
+            StopCoroutine(coroutine);
+        }
+
+        private IEnumerator CountTime()
+        {
+            while (true)
+            {
+                yield return new WaitForEndOfFrame();
+                timer += Time.deltaTime;
+            }
         }
     }
 }
