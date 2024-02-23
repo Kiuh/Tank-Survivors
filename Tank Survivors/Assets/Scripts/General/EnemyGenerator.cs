@@ -37,7 +37,7 @@ namespace General
             if (!timer.IsPaused)
             {
                 GenerateEnemies();
-                TryGenerateBoss();
+                GenerateBoss();
             }
         }
 
@@ -67,14 +67,13 @@ namespace General
             }
         }
 
-        private void TryGenerateBoss()
+        private void GenerateBoss()
         {
             BossProducer producerToRemove = null;
             foreach (var producer in bossProducers)
             {
                 if (timer.CurrentTime >= producer.StartTime)
                 {
-                    RemoveEnemiesFromScene();
                     producer.Produce(tank, enemyRoot);
                     timer.StopTimer();
                     producer.OnBossDead(timer.StartTimer);
@@ -85,16 +84,6 @@ namespace General
             if (producerToRemove != null)
             {
                 _ = bossProducers.Remove(producerToRemove);
-            }
-        }
-
-        private void RemoveEnemiesFromScene()
-        {
-            var enemies = enemyRoot.GetComponentsInChildren<Transform>().ToList();
-            _ = enemies.Remove(enemyRoot);
-            foreach (var enemy in enemies)
-            {
-                Destroy(enemy.gameObject);
             }
         }
     }

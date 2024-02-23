@@ -10,7 +10,7 @@ namespace Enemies.EnemyProducers
     {
         [AssetsOnly]
         [SerializeField]
-        [AssetList(CustomFilterMethod = "EnemiesFilter")]
+        [AssetList(CustomFilterMethod = nameof(EnemiesFilter))]
         [FoldoutGroup("BossProducer")]
         private GameObject bossPrefab;
 

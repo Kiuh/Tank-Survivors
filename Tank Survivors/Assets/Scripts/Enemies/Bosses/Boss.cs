@@ -16,16 +16,14 @@ namespace Enemies.Bosses
         [LabelText("Abilities")]
         private List<IAbility> abilities = new();
 
-        [OdinSerialize]
         private TankImpl tank;
-
         public event Action OnDeath;
 
-        public string EnemyName => throw new System.NotImplementedException();
+        public string EnemyName { get; private set; }
 
         public void Awake()
         {
-            foreach (var ability in abilities)
+            foreach (IAbility ability in abilities)
             {
                 ability.Initialize(this, tank);
             }
