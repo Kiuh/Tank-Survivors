@@ -9,6 +9,8 @@ namespace Configs
     public class WeaponConfig : SerializedScriptableObject
     {
         [OdinSerialize]
+        [HideLabel]
+        [InlineProperty]
         public IWeapon Weapon { get; private set; }
     }
 }

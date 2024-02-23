@@ -6,7 +6,6 @@ using Tank;
 using Tank.UpgradablePiece;
 using Tank.Weapons;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Panels.LevelUp
 {
@@ -26,16 +25,12 @@ namespace Panels.LevelUp
         private GameObject levelUpPanel;
 
         [SerializeField]
-        private Button skipButton;
-
-        [SerializeField]
         [ReadOnly]
         private uint levelUpStack = 0;
 
         private void OnEnable()
         {
             tank.PlayerLevel.OnLevelUp += LevelUpRelease;
-            skipButton.onClick.AddListener(ButtonSkipPress);
         }
 
         public void LevelUpRelease()
@@ -52,32 +47,16 @@ namespace Panels.LevelUp
             }
         }
 
-        public void ButtonSkipPress()
-        {
-            if (levelUpStack > 0)
-            {
-                levelUpStack--;
-                UpdateUpgradesList();
-            }
-            else
-            {
-                Time.timeScale = 1.0f;
-                levelUpPanel.SetActive(false);
-            }
-        }
-
         private void UpdateUpgradesList()
         {
             foreach (RectTransform child in upgradeBlocksViewRoot)
             {
                 Destroy(child.gameObject);
             }
-            skipButton.gameObject.SetActive(false);
 
-            List<IUpgradablePiece> upgrades = tank.GetLevelUpUpgrades().ToList();
-            if (upgrades == null || upgrades.Count <= 0)
+            IEnumerable<IUpgradablePiece> upgrades = tank.GetLevelUpUpgrades();
+            if (upgrades == null || upgrades.Count() <= 0)
             {
-                skipButton.gameObject.SetActive(true);
                 upgrades = tank.GetAvailableUpgrades()
                     .ToList()
                     .TakeRandom(tank.LevelUpChoicesCount.GetModifiedValue());

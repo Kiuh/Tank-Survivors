@@ -12,7 +12,7 @@ namespace Tank.Weapons
     public abstract class GunBase : IWeapon
     {
         [Title("@GetType()")]
-        [FoldoutGroup("$UpgradeName")]
+        [FoldoutGroup("$UpgradeName", expanded: true)]
         [OdinSerialize]
         [LabelText("Weapon Name")]
         public string UpgradeName { get; private set; }
@@ -52,6 +52,7 @@ namespace Tank.Weapons
         public abstract void ProceedAttack();
 
         public abstract void CreateGun();
+        public abstract void DestroyGun();
 
         public abstract void SwapWeapon(IWeapon newWeapon);
 

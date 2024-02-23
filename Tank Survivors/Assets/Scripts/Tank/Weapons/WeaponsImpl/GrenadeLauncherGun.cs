@@ -90,11 +90,16 @@ namespace Tank.Weapons
             );
         }
 
-        public override void SwapWeapon(IWeapon newWeapon)
+        public override void DestroyGun()
         {
             GameObject.Destroy(tower.gameObject);
-            tank.SwapWeapon(newWeapon);
+        }
+
+        public override void SwapWeapon(IWeapon newWeapon)
+        {
+            DestroyGun();
             newWeapon.CreateGun();
+            tank.SwapWeapon(newWeapon);
         }
 
         protected override List<IWeaponModule> GetBaseModules()

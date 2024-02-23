@@ -12,6 +12,7 @@ namespace Tank.Weapons
         public abstract List<IWeaponModule> Modules { get; }
         public IEnumerable<ILevelUpUpgrade> LevelUpUpgrades { get; }
         public abstract void CreateGun();
+        public abstract void DestroyGun();
         public abstract void SwapWeapon(IWeapon newWeapon);
     }
 }

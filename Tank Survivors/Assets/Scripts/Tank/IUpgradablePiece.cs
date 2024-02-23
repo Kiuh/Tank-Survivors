@@ -12,10 +12,6 @@ namespace Tank.UpgradablePiece
         public IEnumerable<ILeveledUpgrade> Upgrades { get; }
         public void ApplyUpgrade(TankImpl tank, ILevelUpgrade leveledUpgrade)
         {
-            /*if (!Upgrades.Contains(leveledUpgrade))
-            {
-                Debug.LogError("Given ILeveledUpgrade not contains in IUpgradablePiece");
-            }*/
             leveledUpgrade.ApplyUpgrade(tank);
             CurrentLevel++;
         }
