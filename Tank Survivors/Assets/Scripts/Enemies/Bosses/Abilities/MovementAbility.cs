@@ -2,7 +2,6 @@
 using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Enemies.Bosses.Abilities
 {
@@ -14,14 +13,14 @@ namespace Enemies.Bosses.Abilities
 
         private TankImpl tank;
         private Boss boss;
-        private bool isActive;
-        public bool IsActive => isActive;
+
+        public bool IsActive { get; set; }
 
         public void Initialize(Boss boss, TankImpl tank)
         {
             this.boss = boss;
             this.tank = tank;
-            isActive = true;
+            IsActive = true;
         }
 
         public void ExecuteAbility()
@@ -43,16 +42,6 @@ namespace Enemies.Bosses.Abilities
         {
             float rotationAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             boss.transform.eulerAngles = Vector3.forward * -rotationAngle;
-        }
-
-        public void EnableAbility()
-        {
-            isActive = true;
-        }
-
-        public void DisableAbility()
-        {
-            isActive = false;
         }
     }
 }

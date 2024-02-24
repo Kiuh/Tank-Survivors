@@ -9,8 +9,14 @@ namespace Enemies.Bosses.Abilities
     {
         public void Initialize(Boss boss, TankImpl tank);
         public void ExecuteAbility();
-        public void EnableAbility();
-        public void DisableAbility();
-        public bool IsActive { get; }
+        public void EnableAbility()
+        {
+            IsActive = true;
+        }
+        public void DisableAbility()
+        {
+            IsActive = false;
+        }
+        public bool IsActive { get; set; }
     }
 }
