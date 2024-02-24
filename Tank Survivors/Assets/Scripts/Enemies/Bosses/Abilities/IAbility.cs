@@ -8,12 +8,12 @@ namespace Enemies.Bosses.Abilities
     public interface IAbility
     {
         public void Initialize(Boss boss, TankImpl tank);
-        public void ExecuteAbility();
-        public void EnableAbility()
+        public void Execute();
+        public void Enable()
         {
             IsActive = true;
         }
-        public void DisableAbility()
+        public void Disable()
         {
             IsActive = false;
         }

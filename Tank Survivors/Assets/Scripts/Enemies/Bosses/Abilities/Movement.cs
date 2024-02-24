@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Enemies.Bosses.Abilities
 {
     [Serializable]
-    public class MovementAbility : IAbility
+    public class Movement : IAbility
     {
         [OdinSerialize]
         private float speed;
@@ -23,7 +23,7 @@ namespace Enemies.Bosses.Abilities
             IsActive = true;
         }
 
-        public void ExecuteAbility()
+        public void Execute()
         {
             if (IsActive)
             {
@@ -33,12 +33,12 @@ namespace Enemies.Bosses.Abilities
             }
         }
 
-        public Vector3 CalculateDirection()
+        private Vector3 CalculateDirection()
         {
             return (tank.transform.position - boss.transform.position).normalized;
         }
 
-        public void RotatateToTank(Vector3 direction)
+        private void RotatateToTank(Vector3 direction)
         {
             float rotationAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             boss.transform.eulerAngles = Vector3.forward * -rotationAngle;

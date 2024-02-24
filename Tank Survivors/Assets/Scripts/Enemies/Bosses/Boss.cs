@@ -10,7 +10,7 @@ namespace Enemies.Bosses
     public class Boss : SerializedMonoBehaviour, IEnemy
     {
         [OdinSerialize]
-        private BossStats stats;
+        private Stats stats;
 
         [ReadOnly]
         [OdinSerialize]
