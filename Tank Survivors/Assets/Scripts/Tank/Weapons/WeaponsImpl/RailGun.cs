@@ -31,15 +31,18 @@ namespace Assets.Scripts.Tank.Weapons
                 return;
             }
 
+            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
+            tower.RotateTo(
+                shotDirection,
+                GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+            );
+
             remainingTime -= Time.deltaTime;
 
             if (remainingTime < 0f)
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-                Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
-
-                tower.RotateTo(shotDirection);
 
                 float fireRange = GetModule<FireRangeModule>()
                     .FireRange.GetPercentagesValue(tank.RangeModifier);
@@ -55,11 +58,12 @@ namespace Assets.Scripts.Tank.Weapons
                     tank
                 );
 
+                var towerDirection = tower.transform.up;
                 ray.Initialize(
                     damage,
                     GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
                     tower.GetShotPoint(),
-                    tank.transform.position + (shotDirection.normalized * fireRange)
+                    tank.transform.position + (towerDirection.normalized * fireRange)
                 );
                 ray.Show();
             }
@@ -104,6 +108,7 @@ namespace Assets.Scripts.Tank.Weapons
                 new ProjectileModule<RayRenderer>(),
                 new RayDurationModule(),
                 new TowerModule<SingleShotTower>(),
+                new TowerRotationModule(),
             };
         }
     }

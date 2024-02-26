@@ -19,10 +19,17 @@ namespace Tank.Weapons
         public override void ProceedAttack()
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
+
             if (nearestEnemy == null)
             {
                 return;
             }
+            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
+
+            tower.RotateTo(
+                shotDirection,
+                GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+            );
 
             remainingTime -= Time.deltaTime;
 
@@ -30,19 +37,17 @@ namespace Tank.Weapons
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-                Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
                 int projectilesCount = GetModule<ProjectilesPerShootModule>()
                     .ProjectilesPerShoot.GetModifiedValue();
 
                 for (int i = 0; i < projectilesCount; i++)
                 {
+                    var towerDirection = tower.transform.up;
                     Vector3 spreadDirection = GetSpreadDirection(
-                        shotDirection,
+                        towerDirection,
                         GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                     );
-
-                    tower.RotateTo(spreadDirection);
 
                     SimpleProjectile projectile = UnityEngine.Object.Instantiate(
                         GetModule<ProjectileModule<SimpleProjectile>>().ProjectilePrefab,
@@ -111,7 +116,8 @@ namespace Tank.Weapons
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
                 new TowerModule<SingleShotTower>(),
-                new ProjectileSpreadAngleModule()
+                new ProjectileSpreadAngleModule(),
+                new TowerRotationModule(),
             };
         }
     }

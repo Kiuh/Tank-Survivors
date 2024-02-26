@@ -9,6 +9,6 @@ namespace Tank.Towers
 
     public interface ICanRotate
     {
-        public void RotateTo(Vector2 direction);
+        public void RotateTo(Vector2 direction, float rotateSpeed);
     }
 }

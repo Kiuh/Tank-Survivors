@@ -208,4 +208,17 @@ namespace Tank.Weapons
                 );
         }
     }
+
+    [Serializable]
+    public class TowerRotation : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<TowerRotationModule, IWeaponModule>()
+                .RotationSpeed.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
 }

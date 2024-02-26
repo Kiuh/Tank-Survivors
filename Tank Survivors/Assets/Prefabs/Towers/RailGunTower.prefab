@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPoint: {fileID: 4543352314124611832}
+  <RotationSpeed>k__BackingField: 25
 --- !u!1 &3548179898109261679
 GameObject:
   m_ObjectHideFlags: 0

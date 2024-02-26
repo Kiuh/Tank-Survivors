@@ -28,6 +28,11 @@ namespace Tank.Weapons
             {
                 return;
             }
+            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
+            tower.RotateTo(
+                shotDirection,
+                GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+            );
 
             remainingTime -= Time.deltaTime;
 
@@ -35,19 +40,17 @@ namespace Tank.Weapons
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-                Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
                 int projectileCount = GetModule<ProjectilesPerShootModule>()
                     .ProjectilesPerShoot.GetModifiedValue();
 
                 for (int i = 0; i < projectileCount; i++)
                 {
+                    var towerDirection = tower.transform.up;
                     Vector3 spreadDirection = GetSpreadDirection(
-                        shotDirection,
+                        towerDirection,
                         GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                     );
-
-                    tower.RotateTo(spreadDirection);
 
                     FlyingProjectile projectile = UnityEngine.Object.Instantiate(
                         GetModule<ProjectileModule<FlyingProjectile>>().ProjectilePrefab,
@@ -116,7 +119,8 @@ namespace Tank.Weapons
                 new ProjectilesPerShootModule(),
                 new TowerModule<SingleShotTower>(),
                 new ProjectileDamageRadiusModule(),
-                new ProjectileSpreadAngleModule()
+                new ProjectileSpreadAngleModule(),
+                new TowerRotationModule(),
             };
         }
     }
