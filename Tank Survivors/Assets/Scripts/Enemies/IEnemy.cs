@@ -1,4 +1,5 @@
-﻿using Tank;
+﻿using System;
+using Tank;
 
 namespace Enemies
 {
@@ -7,5 +8,6 @@ namespace Enemies
         public string EnemyName { get; }
         public void Initialize(TankImpl tank);
         public void TakeDamage(float damageAmount);
+        public event Action OnDeath;
     }
 }
