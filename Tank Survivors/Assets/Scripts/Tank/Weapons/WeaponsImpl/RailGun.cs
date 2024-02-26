@@ -88,8 +88,8 @@ namespace Assets.Scripts.Tank.Weapons
         public override void SwapWeapon(IWeapon newWeapon)
         {
             DestroyGun();
-            newWeapon.CreateGun();
             tank.SwapWeapon(newWeapon);
+            newWeapon.CreateGun();
         }
 
         protected override List<IWeaponModule> GetBaseModules()
