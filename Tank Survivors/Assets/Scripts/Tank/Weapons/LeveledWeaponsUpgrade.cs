@@ -1,8 +1,8 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Tank.UpgradablePiece;
 
 namespace Tank.Weapons
@@ -34,6 +34,37 @@ namespace Tank.Weapons
             foreach (IModuleUpgrade upgrade in moduleUpgrades)
             {
                 upgrade.ApplyUpgrade(tank.Weapons.First(x => x.Upgrades.Contains(this)));
+            }
+        }
+    }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    public class LevelUpWeaponUpgrade : ILevelUpUpgrade
+    {
+        [FoldoutGroup("$LevelForUpgrade")]
+        [OdinSerialize]
+        public uint LevelForUpgrade { get; private set; }
+
+        [FoldoutGroup("$LevelForUpgrade")]
+        [MultiLineProperty]
+        [OdinSerialize]
+        public string Description { get; private set; }
+
+        [FoldoutGroup("$LevelForUpgrade")]
+        [NonSerialized, OdinSerialize]
+        [PropertyOrder(1)]
+        private List<IModuleUpgrade> moduleUpgrades = new();
+
+        public void ApplyUpgrade(TankImpl tank)
+        {
+            if (moduleUpgrades == null)
+            {
+                return;
+            }
+            foreach (IModuleUpgrade upgrade in moduleUpgrades)
+            {
+                upgrade.ApplyUpgrade(tank.Weapons.First(x => x.LevelUpUpgrades.Contains(this)));
             }
         }
     }

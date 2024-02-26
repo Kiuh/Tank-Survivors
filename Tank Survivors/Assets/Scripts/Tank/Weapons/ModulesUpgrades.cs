@@ -1,8 +1,9 @@
-﻿using Common;
+﻿using System;
+using Common;
+using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -55,12 +56,23 @@ namespace Tank.Weapons
     }
 
     [Serializable]
+    public class SwapWeapon : IModuleUpgrade
+    {
+        public WeaponConfig NewWeapon;
+
+        public void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon.SwapWeapon(NewWeapon.Weapon);
+        }
+    }
+
+    [Serializable]
     public class Damage : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<DamageModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<DamageModule, IWeaponModule>()
                 .Damage.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -72,8 +84,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<FireRangeModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<FireRangeModule, IWeaponModule>()
                 .FireRange.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -85,8 +97,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<ProjectileSizeModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<ProjectileSizeModule, IWeaponModule>()
                 .ProjectileSize.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -98,8 +110,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<PenetrationModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<PenetrationModule, IWeaponModule>()
                 .Penetration.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -111,8 +123,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<ProjectilesPerShootModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<ProjectilesPerShootModule, IWeaponModule>()
                 .ProjectilesPerShoot.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -124,8 +136,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<FireRateModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<FireRateModule, IWeaponModule>()
                 .FireRate.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -137,8 +149,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<CriticalChanceModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<CriticalChanceModule, IWeaponModule>()
                 .CriticalChance.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -150,8 +162,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<CriticalMultiplierModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<CriticalMultiplierModule, IWeaponModule>()
                 .CriticalMultiplier.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -163,8 +175,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<ProjectileDamageRadiusModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<ProjectileDamageRadiusModule, IWeaponModule>()
                 .DamageRadius.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -176,8 +188,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<RayDurationModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<RayDurationModule, IWeaponModule>()
                 .RayDuration.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -189,8 +201,8 @@ namespace Tank.Weapons
     {
         public override void ApplyUpgrade(IWeapon weapon)
         {
-            weapon.Modules
-                .GetConcrete<ProjectileSpreadAngleModule, IWeaponModule>()
+            weapon
+                .Modules.GetConcrete<ProjectileSpreadAngleModule, IWeaponModule>()
                 .SpreadAngle.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );

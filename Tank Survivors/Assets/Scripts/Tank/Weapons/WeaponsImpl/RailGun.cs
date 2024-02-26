@@ -1,6 +1,6 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Common;
 using Tank;
 using Tank.Towers;
 using Tank.Weapons;
@@ -35,16 +35,14 @@ namespace Assets.Scripts.Tank.Weapons
 
             if (remainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>().FireRate.GetPercentagesValue(
-                    tank.FireRateModifier
-                );
+                remainingTime += GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
                 Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
                 tower.RotateTo(shotDirection);
 
-                float fireRange = GetModule<FireRangeModule>().FireRange.GetPercentagesValue(
-                    tank.RangeModifier
-                );
+                float fireRange = GetModule<FireRangeModule>()
+                    .FireRange.GetPercentagesValue(tank.RangeModifier);
 
                 RayRenderer ray = UnityEngine.Object.Instantiate(
                     GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
@@ -80,6 +78,18 @@ namespace Assets.Scripts.Tank.Weapons
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+        }
+
+        public override void DestroyGun()
+        {
+            GameObject.Destroy(tower.gameObject);
+        }
+
+        public override void SwapWeapon(IWeapon newWeapon)
+        {
+            DestroyGun();
+            tank.SwapWeapon(newWeapon);
+            newWeapon.CreateGun();
         }
 
         protected override List<IWeaponModule> GetBaseModules()

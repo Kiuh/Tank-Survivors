@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 8457508881701370372, guid: 7ba86d49611363543bcdefa4864d66b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -879,11 +883,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069904562677839028, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -531.33325
+      value: -420.22217
       objectReference: {fileID: 0}
     - target: {fileID: 5069904562677839028, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0009765625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5882498035271831653, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_SizeDelta.x
@@ -955,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517772859225345236, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1200
+      value: -1000
       objectReference: {fileID: 0}
     - target: {fileID: 8517772859225345236, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -963,14 +967,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517772859225345236, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9208286662801774954, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
       propertyPath: tank
       value: 
       objectReference: {fileID: 1891124458}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1673414009188766123, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87bb5e0b268853a4ba356ffe92ce3d94, type: 3}
@@ -1309,14 +1314,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
-    SerializedBytes: 227069636b557073223a207b0d0a2020202022246964223a20302c0d0a20202020222474797065223a2022307c53797374656d2e436f6c6c656374696f6e732e47656e657269632e4c69737460315b5b556e697479456e67696e652e47616d654f626a6563742c20556e697479456e67696e652e436f72654d6f64756c655d5d2c206d73636f726c6962222c0d0a202020202224726c656e677468223a20342c0d0a20202020222472636f6e74656e74223a205b0d0a202020202020202024657265663a302c0d0a202020202020202024657265663a312c0d0a202020202020202024657265663a322c0d0a202020202020202024657265663a330d0a202020205d0d0a7d
+    SerializedFormat: 0
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 3816240034858184738, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
     - {fileID: 2648407716351878230, guid: 9a1527a8eb796bd47b72dfac0d02d390, type: 3}
     - {fileID: 7257315302054335807, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
     - {fileID: 6827374683090020991, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
-    SerializedBytesString: 
+    SerializedBytesString: AQEHAAAAcABpAGMAawBVAHAAcwAvAAAAAAFdAAAAUwB5AHMAdABlAG0ALgBDAG8AbABsAGUAYwB0AGkAbwBuAHMALgBHAGUAbgBlAHIAaQBjAC4ATABpAHMAdABgADEAWwBbAFUAbgBpAHQAeQBFAG4AZwBpAG4AZQAuAEcAYQBtAGUATwBiAGoAZQBjAHQALAAgAFUAbgBpAHQAeQBFAG4AZwBpAG4AZQAuAEMAbwByAGUATQBvAGQAdQBsAGUAXQBdACwAIABtAHMAYwBvAHIAbABpAGIAAAAAAAYEAAAAAAAAAAwAAAAADAEAAAAMAgAAAAwDAAAABwU=
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []

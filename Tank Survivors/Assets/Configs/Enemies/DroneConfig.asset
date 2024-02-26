@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ded2096e4c864e82c98da56a7161b, type: 3}
   m_Name: DroneConfig
   m_EditorClassIdentifier: 
-  config:
-    Health: 1
-    Damage: 15
-    ExplosionRadius: 0.5
-    MovementSpeed: 2
-    ExperienceDropAmount: 1
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: AwEGAAAAYwBvAG4AZgBpAGcALwAAAAABJAAAAEMAbwBuAGYAaQBnAHMALgBEAHIAbwBuAGUAQwBvAG4AZgBpAGcALAAgAEEAcwBzAGUAbQBiAGwAeQAtAEMAUwBoAGEAcgBwAB8BBgAAAEgAZQBhAGwAdABoAAAAIEEfAQYAAABEAGEAbQBhAGcAZQAAAHBBHwEPAAAARQB4AHAAbABvAHMAaQBvAG4AUgBhAGQAaQB1AHMAAAAAPx8BDQAAAE0AbwB2AGUAbQBlAG4AdABTAHAAZQBlAGQAAAAAQB8BFAAAAEUAeABwAGUAcgBpAGUAbgBjAGUARAByAG8AcABBAG0AbwB1AG4AdAAAAMhCBQ==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
