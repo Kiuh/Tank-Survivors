@@ -20,10 +20,10 @@ namespace Tank.Towers
             return shotPoint.position;
         }
 
-        public void RotateTo(Vector2 direction, float rotationSpeed)
+        public void RotateTo(RotationParameters parameters)
         {
-            targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            this.rotationSpeed = rotationSpeed;
+            targetRotation = Quaternion.LookRotation(Vector3.forward, parameters.Direction);
+            rotationSpeed = parameters.Speed;
         }
 
         private void RotateInternal()
