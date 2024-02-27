@@ -13,6 +13,7 @@ namespace Tank.Weapons
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
+        private AimController aimController;
 
         private float remainingTime = 0f;
 
@@ -24,7 +25,7 @@ namespace Tank.Weapons
                 return;
             }
 
-            RotateTower(nearestEnemy);
+            aimController.Aim(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
             if (remainingTime < 0f)
@@ -41,13 +42,17 @@ namespace Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
+            aimController = new(tank, this, tower);
+            CreateGun();
+        }
+
+        public override void CreateGun()
+        {
             tower = UnityEngine.Object.Instantiate(
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
         }
-
-        public override void CreateGun() { }
 
         public override void DestroyGun()
         {
@@ -79,18 +84,6 @@ namespace Tank.Weapons
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
             };
-        }
-
-        private void RotateTower(Transform nearestEnemy)
-        {
-            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
-            tower.RotateTo(
-                new RotationParameters()
-                {
-                    Direction = shotDirection,
-                    Speed = GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
-                }
-            );
         }
 
         private void FireAllProjectiles()

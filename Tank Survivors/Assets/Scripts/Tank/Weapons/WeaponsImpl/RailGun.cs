@@ -15,6 +15,7 @@ namespace Assets.Scripts.Tank.Weapons
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
+        private AimController aimController;
 
         private float remainingTime = 0f;
 
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Tank.Weapons
                 return;
             }
 
-            RotateTower(nearestEnemy);
+            aimController.Aim(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
 
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
+            aimController = new(tank, this, tower);
         }
 
         public override void CreateGun()
@@ -80,18 +82,6 @@ namespace Assets.Scripts.Tank.Weapons
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
             };
-        }
-
-        private void RotateTower(Transform nearestEnemy)
-        {
-            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
-            tower.RotateTo(
-                new RotationParameters()
-                {
-                    Direction = shotDirection,
-                    Speed = GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
-                }
-            );
         }
 
         private void Fire()
