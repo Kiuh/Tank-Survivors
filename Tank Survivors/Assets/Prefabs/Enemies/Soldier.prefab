@@ -130,23 +130,11 @@ MonoBehaviour:
     SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQcAAABTAG8AbABpAGQAZQByAA==
+    SerializedBytesString: AQEHAAAATQBvAGQAdQBsAGUAcwAvAAAAAAFPAAAAUwB5AHMAdABlAG0ALgBDAG8AbABsAGUAYwB0AGkAbwBuAHMALgBHAGUAbgBlAHIAaQBjAC4ATABpAHMAdABgADEAWwBbAEUAbgBlAG0AaQBlAHMALgBJAE0AbwBkAHUAbABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcABdAF0ALAAgAG0AcwBjAG8AcgBsAGkAYgAAAAAABgAAAAAAAAAABwU=
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  config: {fileID: 11400000, guid: e3eab3df001cc744cb40719b8676bc00, type: 2}
-  clonedConfig:
-    Health: 0
-    MovementSpeed: 0
-    Damage: 0
-    TimeForNextHit: 0
-    ExperienceDropAmount: 0
-  tank: {fileID: 0}
-  enemyRigidBody: {fileID: 9177086646328938006}
-  movementDirection: {x: 0, y: 0}
-  isTouchingTank: 0
-  isMoving: 0
 --- !u!58 &1858799368769683324
 CircleCollider2D:
   m_ObjectHideFlags: 0

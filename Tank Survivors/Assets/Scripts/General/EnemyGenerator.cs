@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DataStructs;
 using Enemies.EnemyProducers;
 using Enemies.Producers;
 using Tank;
@@ -22,13 +23,16 @@ namespace General
         [SerializeField]
         private TankImpl tank;
 
-        private List<IEnemyProducer> enemyProducers;
+        private List<IEnemyProducer> enemyProducers = new();
         private List<IEnemyProducer> toRemove = new();
         private List<BossProducer> bossProducers;
 
         private void Awake()
         {
-            enemyProducers = gameContext.GameConfig.EnemiesConfig.EnemyProducers.ToList();
+            foreach (EnemyProducer producer in gameContext.GameConfig.EnemiesConfig.EnemyProducers)
+            {
+                enemyProducers.Add(producer.Producer);
+            }
             bossProducers = gameContext.GameConfig.EnemiesConfig.BossProducers.ToList();
         }
 
