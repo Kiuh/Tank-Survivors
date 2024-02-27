@@ -20,24 +20,13 @@ namespace Assets.Scripts.Tank.Weapons
 
         public override void ProceedAttack()
         {
-            if (tower == null)
-            {
-                return;
-            }
-
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (nearestEnemy == null)
+            if (tower == null || nearestEnemy == null)
             {
                 return;
             }
 
-            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
-            tower.RotateTo(
-                new RotationParameters(
-                    GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue(),
-                    shotDirection
-                )
-            );
+            RotateTower(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
 
@@ -46,28 +35,7 @@ namespace Assets.Scripts.Tank.Weapons
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                float fireRange = GetModule<FireRangeModule>()
-                    .FireRange.GetPercentagesValue(tank.RangeModifier);
-
-                RayRenderer ray = UnityEngine.Object.Instantiate(
-                    GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
-                );
-
-                float damage = GetModifiedDamage(
-                    GetModule<DamageModule>().Damage,
-                    GetModule<CriticalChanceModule>().CriticalChance,
-                    GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                    tank
-                );
-
-                var towerDirection = tower.transform.up;
-                ray.Initialize(
-                    damage,
-                    GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                    tower.GetShotPoint(),
-                    tank.transform.position + (towerDirection.normalized * fireRange)
-                );
-                ray.Show();
+                Fire();
             }
         }
 
@@ -112,6 +80,44 @@ namespace Assets.Scripts.Tank.Weapons
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
             };
+        }
+
+        private void RotateTower(Transform nearestEnemy)
+        {
+            Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
+            tower.RotateTo(
+                new RotationParameters()
+                {
+                    Direction = shotDirection,
+                    Speed = GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+                }
+            );
+        }
+
+        private void Fire()
+        {
+            float fireRange = GetModule<FireRangeModule>()
+                .FireRange.GetPercentagesValue(tank.RangeModifier);
+
+            RayRenderer ray = UnityEngine.Object.Instantiate(
+                GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
+            );
+
+            float damage = GetModifiedDamage(
+                GetModule<DamageModule>().Damage,
+                GetModule<CriticalChanceModule>().CriticalChance,
+                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            var towerDirection = tower.transform.up;
+            ray.Initialize(
+                damage,
+                GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
+                tower.GetShotPoint(),
+                tank.transform.position + (towerDirection.normalized * fireRange)
+            );
+            ray.Show();
         }
     }
 }

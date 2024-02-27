@@ -31,10 +31,11 @@ namespace Tank.Weapons
 
             Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
             tower.RotateTo(
-                new RotationParameters(
-                    GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue(),
-                    shotDirection
-                )
+                new RotationParameters()
+                {
+                    Direction = shotDirection,
+                    Speed = GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+                }
             );
 
             remainingTime -= Time.deltaTime;
