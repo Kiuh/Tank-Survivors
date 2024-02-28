@@ -1,34 +1,35 @@
-using Tank;
 using Tank.Towers;
-using Tank.Weapons;
 using UnityEngine;
 
-public class AimController
+namespace Tank.Weapons
 {
-    private TankImpl tank;
-    private GunBase weapon;
-    private ICanRotate tower;
-
-    public AimController(TankImpl tank, GunBase weapon, ICanRotate tower)
+    public class AimController
     {
-        this.tank = tank;
-        this.weapon = weapon;
-        this.tower = tower;
-    }
+        private TankImpl tank;
+        private GunBase weapon;
+        private ICanRotate tower;
 
-    public Vector3 GetAimDirection(Transform enemy)
-    {
-        return enemy.position - tank.transform.position;
-    }
+        public AimController(TankImpl tank, GunBase weapon, ICanRotate tower)
+        {
+            this.tank = tank;
+            this.weapon = weapon;
+            this.tower = tower;
+        }
 
-    public void Aim(Transform enemy)
-    {
-        tower.RotateTo(
-            new RotationParameters()
-            {
-                Direction = GetAimDirection(enemy),
-                Speed = weapon.GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
-            }
-        );
+        public Vector3 GetAimDirection(Transform enemy)
+        {
+            return enemy.position - tank.transform.position;
+        }
+
+        public void Aim(Transform enemy)
+        {
+            tower.RotateTo(
+                new RotationParameters()
+                {
+                    Direction = GetAimDirection(enemy),
+                    Speed = weapon.GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+                }
+            );
+        }
     }
 }

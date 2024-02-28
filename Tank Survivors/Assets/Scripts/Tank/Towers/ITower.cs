@@ -5,6 +5,7 @@ namespace Tank.Towers
     public interface ITower
     {
         public Vector3 GetShotPoint();
+        public Vector3 GetDirection();
     }
 
     public interface ICanRotate

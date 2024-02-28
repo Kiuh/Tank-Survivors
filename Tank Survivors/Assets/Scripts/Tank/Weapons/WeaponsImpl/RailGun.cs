@@ -16,6 +16,7 @@ namespace Assets.Scripts.Tank.Weapons
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
+        private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
 
@@ -36,7 +37,7 @@ namespace Assets.Scripts.Tank.Weapons
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                Fire();
+                FireProjectile();
             }
         }
 
@@ -45,7 +46,6 @@ namespace Assets.Scripts.Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
-            aimController = new(tank, this, tower);
         }
 
         public override void CreateGun()
@@ -54,6 +54,8 @@ namespace Assets.Scripts.Tank.Weapons
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+            aimController = new(tank, this, tower);
+            projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
@@ -84,14 +86,11 @@ namespace Assets.Scripts.Tank.Weapons
             };
         }
 
-        private void Fire()
+        private void FireProjectile()
         {
             float fireRange = GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
-
-            RayRenderer ray = UnityEngine.Object.Instantiate(
-                GetModule<ProjectileModule<RayRenderer>>().ProjectilePrefab
-            );
+            RayRenderer ray = projectileSpawner.Spawn<RayRenderer>();
 
             float damage = GetModifiedDamage(
                 GetModule<DamageModule>().Damage,
@@ -100,7 +99,7 @@ namespace Assets.Scripts.Tank.Weapons
                 tank
             );
 
-            var towerDirection = tower.transform.up;
+            var towerDirection = tower.GetDirection();
             ray.Initialize(
                 damage,
                 GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),

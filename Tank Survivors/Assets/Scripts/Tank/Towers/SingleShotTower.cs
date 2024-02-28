@@ -20,6 +20,11 @@ namespace Tank.Towers
             return shotPoint.position;
         }
 
+        public Vector3 GetDirection()
+        {
+            return transform.up;
+        }
+
         public void RotateTo(RotationParameters parameters)
         {
             targetRotation = Quaternion.LookRotation(Vector3.forward, parameters.Direction);
