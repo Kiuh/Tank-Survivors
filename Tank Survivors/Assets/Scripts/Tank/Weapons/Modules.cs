@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -122,5 +123,14 @@ namespace Tank.Weapons
         [HideLabel]
         [FoldoutGroup("Spread Angle")]
         public ModifiableValue<float> SpreadAngle { get; private set; } = new();
+    }
+
+    public class TowerRotationModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Tower Rotation")]
+        public ModifiableValue<float> RotationSpeed { get; private set; } = new();
+        public Transform Target { get; set; }
     }
 }

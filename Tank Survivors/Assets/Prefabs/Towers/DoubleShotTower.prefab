@@ -196,3 +196,4 @@ MonoBehaviour:
   shotPoints:
   - {fileID: 5504440420053595259}
   - {fileID: 9151754759878461568}
+  <RotationSpeed>k__BackingField: 25

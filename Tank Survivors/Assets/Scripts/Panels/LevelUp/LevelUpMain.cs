@@ -60,6 +60,13 @@ namespace Panels.LevelUp
                 upgrades = tank.GetAvailableUpgrades()
                     .ToList()
                     .TakeRandom(tank.LevelUpChoicesCount.GetModifiedValue());
+
+                if (upgrades == null || upgrades.Count() <= 0)
+                {
+                    HandleLevelUp();
+                    return;
+                }
+
                 foreach (IUpgradablePiece upgrade in upgrades)
                 {
                     UpgradeBlock upgradeBlock = CreateUpgradeBlock(upgrade);
@@ -96,17 +103,22 @@ namespace Panels.LevelUp
             upgradeVariant.Button.onClick.AddListener(() =>
             {
                 upgrade.ApplyUpgrade(tank, variant);
-                if (levelUpStack > 0)
-                {
-                    levelUpStack--;
-                    UpdateUpgradesList();
-                }
-                else
-                {
-                    levelUpPanel.SetActive(false);
-                    Time.timeScale = 1.0f;
-                }
+                HandleLevelUp();
             });
+        }
+
+        private void HandleLevelUp()
+        {
+            if (levelUpStack > 0)
+            {
+                levelUpStack--;
+                UpdateUpgradesList();
+            }
+            else
+            {
+                levelUpPanel.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
         }
 
         private UpgradeBlock CreateUpgradeBlock(IUpgradablePiece upgrade)

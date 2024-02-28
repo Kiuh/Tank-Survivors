@@ -7,17 +7,36 @@ namespace Tank.Towers
         [SerializeField]
         private Transform shotPoint;
 
+        private float rotationSpeed;
+        private Quaternion targetRotation;
+
+        private void LateUpdate()
+        {
+            RotateInternal();
+        }
+
         public Vector3 GetShotPoint()
         {
             return shotPoint.position;
         }
 
-        public void RotateTo(Vector2 direction)
+        public Vector3 GetDirection()
         {
-            transform.rotation = Quaternion.Euler(
-                0f,
-                0f,
-                (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f
+            return transform.up;
+        }
+
+        public void RotateTo(RotationParameters parameters)
+        {
+            targetRotation = Quaternion.LookRotation(Vector3.forward, parameters.Direction);
+            rotationSpeed = parameters.Speed;
+        }
+
+        private void RotateInternal()
+        {
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                Time.deltaTime * rotationSpeed
             );
         }
     }

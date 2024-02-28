@@ -13,65 +13,28 @@ namespace Tank.Weapons
         private SingleShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
+        private AimController aimController;
+        private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
 
         public override void ProceedAttack()
         {
-            if (tower == null)
+            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
+            if (tower == null || nearestEnemy == null)
             {
                 return;
             }
 
-            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (nearestEnemy == null)
-            {
-                return;
-            }
+            aimController.Aim(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
-
             if (remainingTime < 0f)
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-                Vector3 shotDirection = nearestEnemy.position - tank.transform.position;
 
-                int projectileCount = GetModule<ProjectilesPerShootModule>()
-                    .ProjectilesPerShoot.GetModifiedValue();
-
-                for (int i = 0; i < projectileCount; i++)
-                {
-                    Vector3 spreadDirection = GetSpreadDirection(
-                        shotDirection,
-                        GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-                    );
-
-                    tower.RotateTo(spreadDirection);
-
-                    FlyingProjectile projectile = UnityEngine.Object.Instantiate(
-                        GetModule<ProjectileModule<FlyingProjectile>>().ProjectilePrefab,
-                        tower.GetShotPoint(),
-                        Quaternion.identity
-                    );
-
-                    float damage = GetModifiedDamage(
-                        GetModule<DamageModule>().Damage,
-                        GetModule<CriticalChanceModule>().CriticalChance,
-                        GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                        tank
-                    );
-
-                    projectile.Initialize(
-                        damage,
-                        GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                        GetModule<ProjectileSizeModule>()
-                            .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
-                        GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                        spreadDirection
-                    );
-                    projectile.StartFly();
-                }
+                FireAllProjectiles();
             }
         }
 
@@ -88,6 +51,8 @@ namespace Tank.Weapons
                 GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
                 tank.transform
             );
+            aimController = new(tank, this, tower);
+            projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
@@ -116,8 +81,48 @@ namespace Tank.Weapons
                 new ProjectilesPerShootModule(),
                 new TowerModule<SingleShotTower>(),
                 new ProjectileDamageRadiusModule(),
-                new ProjectileSpreadAngleModule()
+                new ProjectileSpreadAngleModule(),
+                new TowerRotationModule(),
             };
+        }
+
+        private void FireAllProjectiles()
+        {
+            int projectileCount = GetModule<ProjectilesPerShootModule>()
+                .ProjectilesPerShoot.GetModifiedValue();
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                FireProjectile();
+            }
+        }
+
+        private void FireProjectile()
+        {
+            float damage = GetModifiedDamage(
+                GetModule<DamageModule>().Damage,
+                GetModule<CriticalChanceModule>().CriticalChance,
+                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            var towerDirection = tower.GetDirection();
+            Vector3 spreadDirection = GetSpreadDirection(
+                towerDirection,
+                GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+            );
+
+            FlyingProjectile projectile = projectileSpawner.Spawn<FlyingProjectile>();
+            projectile.Initialize(
+                damage,
+                GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
+                GetModule<ProjectileSizeModule>()
+                    .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
+                GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
+                spreadDirection
+            );
+
+            projectile.StartFly();
         }
     }
 }

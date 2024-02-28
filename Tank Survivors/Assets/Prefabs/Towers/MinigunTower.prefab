@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPoint: {fileID: 747830958485369677}
+  <RotationSpeed>k__BackingField: 25

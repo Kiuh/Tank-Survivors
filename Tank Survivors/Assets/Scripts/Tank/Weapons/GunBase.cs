@@ -53,7 +53,6 @@ namespace Tank.Weapons
 
         public abstract void CreateGun();
         public abstract void DestroyGun();
-
         public abstract void SwapWeapon(IWeapon newWeapon);
 
         protected abstract List<IWeaponModule> GetBaseModules();
