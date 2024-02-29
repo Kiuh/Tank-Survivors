@@ -13,16 +13,31 @@ namespace Enemies
         public string EnemyName { get; private set; }
 
         [OdinSerialize]
-        public List<IModule> Modules { get; private set; }
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("Modules")]
+        public List<IModule> Modules { get; set; }
+
         public event Action OnDeath;
+
         private TankImpl tank;
 
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
-            Modules = new() { new MovementModule() };
         }
 
         public void TakeDamage(float damageAmount) { }
+
+        [Button]
+        [FoldoutGroup("Modules")]
+        private void RefreshModules()
+        {
+            Modules = new() { new MovementModule() };
+        }
     }
 }
