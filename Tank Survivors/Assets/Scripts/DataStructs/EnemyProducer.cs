@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.Configs.Enemies;
+using Configs;
 using Enemies.Producers;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -10,11 +10,15 @@ namespace DataStructs
     public struct EnemyProducer
     {
         [OdinSerialize]
-        [FoldoutGroup("Producer")]
+        [FoldoutGroup("$producerName")]
+        [HideLabel]
         public IEnemyProducer Producer { get; private set; }
 
         [OdinSerialize]
-        [FoldoutGroup("Producer")]
+        [FoldoutGroup("$producerName")]
         public ProgressorProperties ProgressorProperties { get; private set; }
+
+        [OdinSerialize]
+        private string producerName;
     }
 }

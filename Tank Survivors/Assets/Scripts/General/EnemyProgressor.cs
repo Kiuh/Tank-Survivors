@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using DataStructs;
+using Enemies;
 using UnityEngine;
 
 namespace General
@@ -10,16 +13,38 @@ namespace General
         [SerializeField]
         private Timer timer;
 
+        private List<EnemyProducer> producers = new();
+
         public void Awake()
         {
-            //todo init
+            producers = enemies.EnemyProducers;
         }
 
         public void Update()
         {
             if (!timer.IsPaused)
             {
-                //todo update stats
+                ImproveEnemies();
+            }
+        }
+
+        public void ImproveEnemies()
+        {
+            foreach (EnemyProducer producer in producers)
+            {
+                if (
+                    timer.CurrentTime - producer.ProgressorProperties.LastUpdateTime
+                    >= producer.ProgressorProperties.Interval
+                )
+                {
+                    foreach (
+                        IModuleUpgrade upgrade in producer.ProgressorProperties.UpgradebleModules
+                    )
+                    {
+                        upgrade.ApplyUpgrade(producer);
+                    }
+                    producer.ProgressorProperties.LastUpdateTime = timer.CurrentTime;
+                }
             }
         }
     }

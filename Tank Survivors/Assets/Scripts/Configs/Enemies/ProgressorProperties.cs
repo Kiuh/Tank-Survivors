@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-namespace Assets.Scripts.Configs.Enemies
+namespace Configs
 {
     public enum ProgressorMode
     {
@@ -18,7 +20,8 @@ namespace Assets.Scripts.Configs.Enemies
         [OdinSerialize]
         [FoldoutGroup("Progressor")]
         [Unit(Units.Percent)]
-        public float Value { get; private set; }
+        private float value;
+        public float Value => value / 100.0f;
 
         [OdinSerialize]
         [FoldoutGroup("Progressor")]
@@ -33,6 +36,12 @@ namespace Assets.Scripts.Configs.Enemies
         [OdinSerialize]
         [EnumToggleButtons]
         [FoldoutGroup("Progressor")]
-        private ProgressorMode mode = ProgressorMode.fromSource;
+        public ProgressorMode Mode { get; private set; } = ProgressorMode.fromSource;
+
+        [OdinSerialize]
+        [FoldoutGroup("Progressor")]
+        public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
+
+        public float LastUpdateTime { get; set; } = 0;
     }
 }

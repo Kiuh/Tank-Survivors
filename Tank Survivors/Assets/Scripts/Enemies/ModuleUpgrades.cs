@@ -1,7 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Common;
 using Configs;
+using DataStructs;
 using Sirenix.OdinInspector;
 
 namespace Enemies
@@ -9,24 +9,27 @@ namespace Enemies
     [HideReferenceObjectPicker]
     public interface IModuleUpgrade
     {
-        public void ApplyUpgrade(List<IModule> modules, float percentage, ProgressorMode mode);
+        public void ApplyUpgrade(EnemyProducer producer);
     }
 
     [Serializable]
     [LabelText("Movement")]
     public class MovementUpgrade : IModuleUpgrade
     {
-        public void ApplyUpgrade(List<IModule> modules, float percentage, ProgressorMode mode)
+        public void ApplyUpgrade(EnemyProducer producer)
         {
-            MovementModule module = modules.GetConcrete<MovementModule, IModule>();
-            float value;
-            if (mode == ProgressorMode.fromCurrent)
+            MovementModule module = producer.Producer.Modules.GetConcrete<
+                MovementModule,
+                IModule
+            >();
+            float value = producer.ProgressorProperties.Value;
+            if (producer.ProgressorProperties.Mode == ProgressorMode.fromCurrent)
             {
-                value = module.Speed.GetModifiedValue() * percentage;
+                value *= module.Speed.GetModifiedValue();
             }
             else
             {
-                value = module.Speed.SourceValue * percentage;
+                value *= module.Speed.SourceValue;
             }
             module.Speed.Modifications.Add(
                 new(MathOperation.Plus.ToFunction(value), ModificationPriority.Medium)

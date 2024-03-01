@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -37,20 +39,33 @@ namespace Enemies.Producers
 
         public float EndTime => float.PositiveInfinity;
 
+        public IEnemy Enemy => enemyPrefab.GetComponent<IEnemy>();
+
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("ConstantEnemyProducer/Modules")]
+        public List<IModule> Modules { get; set; } = new();
+
         public void Produce(TankImpl tank, Transform enemyRoot)
         {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                UnityEngine
+                var enemy = UnityEngine
                     .Object.Instantiate(
                         enemyPrefab,
                         tank.transform.position + GetRandomPoint(),
                         Quaternion.identity,
                         enemyRoot
                     )
-                    .GetComponent<IEnemy>()
-                    .Initialize(tank);
+                    .GetComponent<IEnemy>();
+                enemy.Initialize(tank);
+                enemy.Modules = Modules;
                 timer = spawnInterval;
             }
         }
@@ -60,6 +75,13 @@ namespace Enemies.Producers
             Vector2 point = UnityEngine.Random.insideUnitCircle;
             return (point * (endCircleRadius - startCircleRadius))
                 + (point.normalized * startCircleRadius);
+        }
+
+        [Button("GetModules")]
+        [FoldoutGroup("ConstantEnemyProducer/Modules")]
+        private void GetModules()
+        {
+            Modules = Enemy.Modules;
         }
     }
 }

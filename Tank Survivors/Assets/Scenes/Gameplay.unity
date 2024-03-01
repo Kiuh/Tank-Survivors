@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 1853201207}
   - component: {fileID: 1853201206}
   - component: {fileID: 1853201208}
+  - component: {fileID: 1853201209}
   m_Layer: 0
   m_Name: EnemyGenerator
   m_TagString: Untagged
@@ -1327,6 +1328,20 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   enemiesPickups: {fileID: 11400000, guid: 56da2acbad44b674588c42b714afee40, type: 2}
+--- !u!114 &1853201209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853201205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e127ba4671a4b44a2b4cf276e3a9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 11400000, guid: fc911a0dcc46de341b52c049302cb930, type: 2}
+  timer: {fileID: 1307289159}
 --- !u!1 &1863661493
 GameObject:
   m_ObjectHideFlags: 0

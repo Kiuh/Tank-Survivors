@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
@@ -45,6 +46,10 @@ namespace Enemies.Producers
         public float StartTime => startTime;
 
         public float EndTime => endTime;
+
+        public IEnemy Enemy => enemyPrefab.GetComponent<IEnemy>();
+
+        public List<IModule> Modules { get; set; }
 
         public void Produce(TankImpl tank, Transform enemyRoot)
         {
