@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Collections;
+using System.Linq;
 using Common;
 using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
 using UnityEngine;
 
 namespace Tank.Weapons
 {
     public interface IModuleUpgrade
     {
-        public void ApplyUpgrade(IWeapon tank);
+        public void ApplyUpgrade(IWeapon weapon);
     }
 
     [HideLabel]
@@ -63,6 +66,30 @@ namespace Tank.Weapons
         public void ApplyUpgrade(IWeapon weapon)
         {
             weapon.SwapWeapon(NewWeapon.Weapon);
+        }
+    }
+
+    [Serializable]
+    public class AddCannonUpgrade : IModuleUpgrade
+    {
+        public CannonPositioner CannonPositioner;
+
+        [ValueDropdown("GetAllPositions")]
+        public string CannonPosition;
+
+        public void ApplyUpgrade(IWeapon weapon)
+        {
+            var cannonPrefab = weapon
+                .Modules.GetConcrete<CannonModule, IWeaponModule>()
+                .CannonPrefab;
+            weapon
+                .Modules.GetConcrete<TowerModule<MultiShotTower>, IWeaponModule>()
+                .Tower.AddCannon(cannonPrefab, CannonPosition);
+        }
+
+        private IEnumerable GetAllPositions()
+        {
+            return CannonPositioner?.CannonProperties.Select(x => x.Name);
         }
     }
 

@@ -8,12 +8,11 @@ using UnityEngine;
 namespace Tank.Weapons
 {
     [Serializable]
-    public class BasicGun : GunBase
+    public class MultiShotGun : GunBase
     {
-        private SingleShotTower tower;
+        private MultiShotTower tower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
-        private AimController aimController;
         private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
@@ -26,14 +25,11 @@ namespace Tank.Weapons
                 return;
             }
 
-            aimController.Aim(nearestEnemy);
-
             remainingTime -= Time.deltaTime;
             if (remainingTime < 0f)
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-
                 FireAllProjectiles();
             }
         }
@@ -43,25 +39,25 @@ namespace Tank.Weapons
             CurrentLevel = 0;
             this.tank = tank;
             this.enemyFinder = enemyFinder;
-            CreateGun();
         }
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
+            var towerModule = GetModule<TowerModule<MultiShotTower>>();
+            tower = UnityEngine.Object.Instantiate(towerModule.TowerPrefab, tank.transform);
+            towerModule.Tower = tower;
 
-            GetModule<TowerModule<SingleShotTower>>().Tower = tower;
+            foreach (var startCannon in towerModule.Tower.CannonPositions)
+            {
+                tower.AddCannon(GetModule<CannonModule>().CannonPrefab, startCannon);
+            }
 
-            aimController = new(tank, this, tower);
             projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
         {
-            GetModule<TowerModule<SingleShotTower>>().Tower = null;
+            GetModule<TowerModule<MultiShotTower>>().Tower = null;
             GameObject.Destroy(tower.gameObject);
         }
 
@@ -85,17 +81,15 @@ namespace Tank.Weapons
                 new ProjectileModule<SimpleProjectile>(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
-                new ProjectilesPerShootModule(),
-                new TowerModule<SingleShotTower>(),
+                new TowerModule<MultiShotTower>(),
                 new ProjectileSpreadAngleModule(),
-                new TowerRotationModule(),
+                new CannonModule(),
             };
         }
 
         private void FireAllProjectiles()
         {
-            int projectileCount = GetModule<ProjectilesPerShootModule>()
-                .ProjectilesPerShoot.GetModifiedValue();
+            int projectileCount = tower.CannonsCount;
 
             for (int i = 0; i < projectileCount; i++)
             {

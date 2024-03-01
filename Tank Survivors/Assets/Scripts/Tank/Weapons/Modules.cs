@@ -4,7 +4,6 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
-using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -107,6 +106,13 @@ namespace Tank.Weapons
         [FoldoutGroup("Tower")]
         [AssetList]
         public T TowerPrefab { get; private set; }
+
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Tower")]
+        [AssetList]
+        [ReadOnly]
+        public T Tower { get; set; }
     }
 
     public class RayDurationModule : IWeaponModule
@@ -131,6 +137,14 @@ namespace Tank.Weapons
         [HideLabel]
         [FoldoutGroup("Tower Rotation")]
         public ModifiableValue<float> RotationSpeed { get; private set; } = new();
-        public Transform Target { get; set; }
+    }
+
+    public class CannonModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [AssetList]
+        [FoldoutGroup("Cannon")]
+        public Cannon CannonPrefab { get; private set; }
     }
 }
