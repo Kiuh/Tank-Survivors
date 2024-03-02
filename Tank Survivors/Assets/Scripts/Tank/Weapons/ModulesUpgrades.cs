@@ -89,6 +89,14 @@ namespace Tank.Weapons
 
         private IEnumerable GetAllPositions()
         {
+            if (
+                CannonPositioner == null
+                || CannonPositioner?.CannonProperties == null
+                || CannonPositioner.CannonProperties.Count() <= 0
+            )
+            {
+                return null;
+            }
             return CannonPositioner?.CannonProperties.Select(x => x.Name);
         }
     }
