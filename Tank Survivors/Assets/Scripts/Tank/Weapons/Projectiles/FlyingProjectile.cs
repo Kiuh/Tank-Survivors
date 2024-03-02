@@ -1,5 +1,5 @@
-using Enemies;
 using System.Collections;
+using Enemies;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -47,6 +47,11 @@ namespace Tank.Weapons.Projectiles
             hitMark.localScale = new Vector3(damageRadius, damageRadius, 1f);
         }
 
+        public void StartExplosion(float timeBeforeExplode)
+        {
+            _ = StartCoroutine(Explosion(timeBeforeExplode));
+        }
+
         public void StartFly()
         {
             _ = StartCoroutine(Fly(Time.time));
@@ -67,6 +72,17 @@ namespace Tank.Weapons.Projectiles
                 yield return null;
             }
 
+            Explode();
+        }
+
+        private IEnumerator Explosion(float timeBeforeExplode)
+        {
+            yield return new WaitForSeconds(timeBeforeExplode);
+            Explode();
+        }
+
+        private void Explode()
+        {
             Destroy(hitMark.gameObject);
 
             particles.transform.localScale = new Vector3(damageRadius, damageRadius, 1f);

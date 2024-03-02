@@ -16,10 +16,20 @@ namespace Tank.Weapons
         private AimController aimController;
         private ProjectileSpawner projectileSpawner;
 
-        private float remainingTime = 0f;
+        private float projectileShotRemainingTime = 0f;
+        private float selfExplosionRemainingTime = 0f;
 
         public override void ProceedAttack()
         {
+            selfExplosionRemainingTime -= Time.deltaTime;
+            if (selfExplosionRemainingTime < 0f)
+            {
+                selfExplosionRemainingTime += GetModule<SelfExplosionFireRate>()
+                    .FireRate.GetModifiedValue();
+
+                SelfExplosion();
+            }
+
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (tower == null || nearestEnemy == null)
             {
@@ -28,10 +38,10 @@ namespace Tank.Weapons
 
             aimController.Aim(nearestEnemy);
 
-            remainingTime -= Time.deltaTime;
-            if (remainingTime < 0f)
+            projectileShotRemainingTime -= Time.deltaTime;
+            if (projectileShotRemainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>()
+                projectileShotRemainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
                 FireAllProjectiles();
@@ -83,7 +93,41 @@ namespace Tank.Weapons
                 new ProjectileDamageRadiusModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
+                new SelfExplosionDamageModule(),
+                new SelfExplosionFireRate(),
+                new SelfExplosionCountModule(),
+                new SelfExplosionRadiusModule(),
+                new SelfExplosionHitMarkTimerModule(),
             };
+        }
+
+        private void SelfExplosion()
+        {
+            int explosionCount = GetModule<SelfExplosionCountModule>().Count.GetModifiedValue();
+
+            for (int i = 0; i < explosionCount; i++)
+            {
+                float damage = GetModule<SelfExplosionDamageModule>()
+                    .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
+                    .GetModifiedValue();
+                float speed = 0f;
+
+                FlyingProjectile projectile = projectileSpawner.SpawnConnected<FlyingProjectile>(
+                    tank.transform
+                );
+                projectile.Initialize(
+                    damage,
+                    speed,
+                    GetModule<ProjectileSizeModule>()
+                        .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
+                    GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
+                    Vector3.zero
+                );
+
+                projectile.StartExplosion(
+                    GetModule<SelfExplosionHitMarkTimerModule>().Time.GetModifiedValue()
+                );
+            }
         }
 
         private void FireAllProjectiles()

@@ -147,4 +147,44 @@ namespace Tank.Weapons
         [FoldoutGroup("Cannon")]
         public Cannon CannonPrefab { get; private set; }
     }
+
+    public class SelfExplosionCountModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Count")]
+        public ModifiableValue<int> Count { get; private set; }
+    }
+
+    public class SelfExplosionFireRate : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion FireRate")]
+        public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class SelfExplosionRadiusModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Radius")]
+        public ModifiableValue<float> Radius { get; private set; }
+    }
+
+    public class SelfExplosionDamageModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Damage")]
+        public ModifiableValue<float> Damage { get; private set; }
+    }
+
+    public class SelfExplosionHitMarkTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Hit Mark Timer")]
+        public ModifiableValue<float> Time { get; private set; }
+    }
 }

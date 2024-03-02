@@ -18,10 +18,21 @@ namespace Tank.Weapons
         public T Spawn<T>()
             where T : MonoBehaviour, IProjectile
         {
-            return UnityEngine.Object.Instantiate(
+            return Object.Instantiate(
                 weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab,
                 tower.GetShotPoint(),
                 Quaternion.identity
+            );
+        }
+
+        public T SpawnConnected<T>(Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            return Object.Instantiate(
+                weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab,
+                tower.GetShotPoint(),
+                Quaternion.identity,
+                parent
             );
         }
     }
