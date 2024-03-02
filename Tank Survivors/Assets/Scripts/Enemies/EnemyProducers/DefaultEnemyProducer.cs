@@ -44,8 +44,8 @@ namespace Enemies.Producers
                         enemyRoot
                     )
                     .GetComponent<IEnemy>();
-                enemy.Initialize(tank);
                 CloneModules(Modules, enemy.Modules);
+                enemy.Initialize(tank);
                 timer = spawnInterval;
             }
         }
