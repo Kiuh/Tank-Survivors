@@ -49,7 +49,7 @@ namespace Tank.Weapons
 
             foreach (var startCannon in towerModule.Tower.CannonPositions)
             {
-                tower.AddCannon(GetModule<CannonModule>().CannonPrefab, startCannon);
+                tower.AddCannon(GetModule<CannonModule>().Prefab, startCannon);
             }
 
             projectileSpawner = new(this, tower);

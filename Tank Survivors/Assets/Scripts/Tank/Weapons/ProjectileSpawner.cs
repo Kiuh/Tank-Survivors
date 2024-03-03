@@ -28,12 +28,13 @@ namespace Tank.Weapons
         public T SpawnConnected<T>(Transform parent)
             where T : MonoBehaviour, IProjectile
         {
-            return Object.Instantiate(
-                weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab,
-                tower.GetShotPoint(),
-                Quaternion.identity,
-                parent
-            );
+            return SpawnConnected(weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab, parent);
+        }
+
+        public T SpawnConnected<T>(T prefab, Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            return Object.Instantiate(prefab, tower.GetShotPoint(), Quaternion.identity, parent);
         }
     }
 }

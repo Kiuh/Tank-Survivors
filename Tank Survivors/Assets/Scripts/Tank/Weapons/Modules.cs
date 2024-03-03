@@ -145,7 +145,15 @@ namespace Tank.Weapons
         [HideLabel]
         [AssetList]
         [FoldoutGroup("Cannon")]
-        public Cannon CannonPrefab { get; private set; }
+        public Cannon Prefab { get; private set; }
+    }
+
+    public class SelfExplosionPrefabModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Prefab")]
+        public SelfExplosionProjectile Prefab { get; private set; }
     }
 
     public class SelfExplosionCountModule : IWeaponModule
@@ -156,7 +164,7 @@ namespace Tank.Weapons
         public ModifiableValue<int> Count { get; private set; }
     }
 
-    public class SelfExplosionFireRate : IWeaponModule
+    public class SelfExplosionFireRateModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
@@ -185,6 +193,30 @@ namespace Tank.Weapons
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Explosion Hit Mark Timer")]
+        public ModifiableValue<float> Time { get; private set; }
+    }
+
+    public class SelfExplosionFireDamageModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Fire Damage")]
+        public ModifiableValue<float> Damage { get; private set; }
+    }
+
+    public class SelfExplosionFireFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Fire Fire Rate")]
+        public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class SelfExplosionFireTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Fire Time")]
         public ModifiableValue<float> Time { get; private set; }
     }
 }

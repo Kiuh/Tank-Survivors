@@ -24,7 +24,7 @@ namespace Tank.Weapons
             selfExplosionRemainingTime -= Time.deltaTime;
             if (selfExplosionRemainingTime < 0f)
             {
-                selfExplosionRemainingTime += GetModule<SelfExplosionFireRate>()
+                selfExplosionRemainingTime += GetModule<SelfExplosionFireRateModule>()
                     .FireRate.GetModifiedValue();
 
                 SelfExplosion();
@@ -86,6 +86,7 @@ namespace Tank.Weapons
                 new CriticalChanceModule(),
                 new CriticalMultiplierModule(),
                 new ProjectileModule<FlyingProjectile>(),
+                new FireRangeModule(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
@@ -93,11 +94,15 @@ namespace Tank.Weapons
                 new ProjectileDamageRadiusModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
+                new SelfExplosionPrefabModule(),
                 new SelfExplosionDamageModule(),
-                new SelfExplosionFireRate(),
+                new SelfExplosionFireRateModule(),
                 new SelfExplosionCountModule(),
                 new SelfExplosionRadiusModule(),
                 new SelfExplosionHitMarkTimerModule(),
+                new SelfExplosionFireDamageModule(),
+                new SelfExplosionFireFireRateModule(),
+                new SelfExplosionFireTimerModule(),
             };
         }
 
@@ -110,18 +115,18 @@ namespace Tank.Weapons
                 float damage = GetModule<SelfExplosionDamageModule>()
                     .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
                     .GetModifiedValue();
-                float speed = 0f;
 
-                FlyingProjectile projectile = projectileSpawner.SpawnConnected<FlyingProjectile>(
+                SelfExplosionProjectile projectile = projectileSpawner.SpawnConnected(
+                    GetModule<SelfExplosionPrefabModule>().Prefab,
                     tank.transform
                 );
                 projectile.Initialize(
                     damage,
-                    speed,
-                    GetModule<ProjectileSizeModule>()
-                        .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
                     GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
-                    Vector3.zero
+                    GetModule<SelfExplosionFireDamageModule>().Damage.GetModifiedValue(),
+                    GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
+                    GetModule<SelfExplosionFireFireRateModule>()
+                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
                 );
 
                 projectile.StartExplosion(
@@ -151,10 +156,11 @@ namespace Tank.Weapons
             );
 
             var towerDirection = tower.GetDirection();
-            Vector3 spreadDirection = GetSpreadDirection(
-                towerDirection,
-                GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-            );
+            Vector3 spreadDirection =
+                GetSpreadDirection(
+                    towerDirection,
+                    GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                ) * GetModule<FireRangeModule>().FireRange.GetPercentagesValue(tank.RangeModifier);
 
             FlyingProjectile projectile = projectileSpawner.Spawn<FlyingProjectile>();
             projectile.Initialize(
