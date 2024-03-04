@@ -6,25 +6,25 @@ using Sirenix.Serialization;
 
 namespace Configs
 {
-    public enum ProgressorMode
-    {
-        fromSource,
-        fromCurrent
-    }
-
     [Serializable]
     [HideLabel]
     [HideReferenceObjectPicker]
-    public class ProgressorProperties
+    public class Properties
     {
+        public enum ProgressorMode
+        {
+            Source,
+            Current
+        }
+
         [OdinSerialize]
-        [FoldoutGroup("Progressor")]
+        [FoldoutGroup("$" + nameof(progressor))]
         [Unit(Units.Percent)]
         private float value;
         public float Value => value / 100.0f;
 
         [OdinSerialize]
-        [FoldoutGroup("Progressor")]
+        [FoldoutGroup("$" + nameof(progressor))]
         [Unit(Units.Minute)]
         private float interval;
         public float Interval
@@ -35,13 +35,15 @@ namespace Configs
 
         [OdinSerialize]
         [EnumToggleButtons]
-        [FoldoutGroup("Progressor")]
-        public ProgressorMode Mode { get; private set; } = ProgressorMode.fromSource;
+        [FoldoutGroup("$" + nameof(progressor), AnimateVisibility = true)]
+        public ProgressorMode Mode { get; private set; } = ProgressorMode.Source;
 
         [OdinSerialize]
-        [FoldoutGroup("Progressor")]
+        [FoldoutGroup("$" + nameof(progressor), AnimateVisibility = true)]
         public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
 
         public float LastUpdateTime { get; set; } = 0;
+
+        private string progressor = "Progressor";
     }
 }

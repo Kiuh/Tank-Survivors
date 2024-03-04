@@ -7,16 +7,17 @@ using Sirenix.Serialization;
 namespace DataStructs
 {
     [Serializable]
-    public struct EnemyProducer
+    [HideReferenceObjectPicker]
+    public class EnemyProducer
     {
         [OdinSerialize]
-        [FoldoutGroup("$producerName")]
+        [FoldoutGroup("$" + nameof(producerName))]
         [HideLabel]
         public IEnemyProducer Producer { get; private set; }
 
         [OdinSerialize]
-        [FoldoutGroup("$producerName")]
-        public ProgressorProperties ProgressorProperties { get; private set; }
+        [FoldoutGroup("$" + nameof(producerName))]
+        public Properties ProgressorProperties { get; private set; }
 
         [OdinSerialize]
         private string producerName;

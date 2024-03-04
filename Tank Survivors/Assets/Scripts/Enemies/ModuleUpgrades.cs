@@ -3,6 +3,7 @@ using Common;
 using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
+using static Configs.Properties;
 
 namespace Enemies
 {
@@ -23,7 +24,7 @@ namespace Enemies
                 IModule
             >();
             float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.fromCurrent)
+            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
             {
                 value *= module.Speed.GetModifiedValue();
             }
@@ -45,7 +46,7 @@ namespace Enemies
         {
             HealthModule module = producer.Producer.Modules.GetConcrete<HealthModule, IModule>();
             float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.fromCurrent)
+            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
             {
                 value *= module.Health.GetModifiedValue();
             }
@@ -70,7 +71,7 @@ namespace Enemies
                 IModule
             >();
             float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.fromCurrent)
+            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
             {
                 value *= module.Cooldown.GetModifiedValue();
             }
@@ -95,7 +96,7 @@ namespace Enemies
                 IModule
             >();
             float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.fromCurrent)
+            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
             {
                 value *= module.DropAmount.GetModifiedValue();
             }

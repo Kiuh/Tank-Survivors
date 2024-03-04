@@ -36,7 +36,7 @@ namespace Enemies.Producers
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                var enemy = UnityEngine
+                IEnemy enemy = UnityEngine
                     .Object.Instantiate(
                         EnemyPrefab,
                         tank.transform.position + GetRandomPoint(),
