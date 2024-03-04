@@ -5,7 +5,10 @@ using Sirenix.Serialization;
 
 namespace Enemies
 {
-    public interface IModule : ICloneable { }
+    public interface IModule
+    {
+        public IModule Clone();
+    }
 
     [Serializable]
     [HideReferenceObjectPicker]
@@ -16,7 +19,7 @@ namespace Enemies
         [FoldoutGroup("Movement speed")]
         public ModifiableValue<float> Speed { get; set; } = new();
 
-        public object Clone()
+        public IModule Clone()
         {
             MovementModule module = new MovementModule();
             module.Speed.SourceValue = Speed.SourceValue;
@@ -34,7 +37,7 @@ namespace Enemies
         [FoldoutGroup("Health")]
         public ModifiableValue<float> Health { get; set; } = new();
 
-        public object Clone()
+        public IModule Clone()
         {
             HealthModule module = new HealthModule();
             module.Health.SourceValue = Health.SourceValue;
@@ -52,7 +55,7 @@ namespace Enemies
         [FoldoutGroup("Damage")]
         public ModifiableValue<float> Damage { get; set; } = new();
 
-        public object Clone()
+        public IModule Clone()
         {
             DamageModule module = new DamageModule();
             module.Damage.SourceValue = Damage.SourceValue;
@@ -70,7 +73,7 @@ namespace Enemies
         [FoldoutGroup("Cooldown")]
         public ModifiableValue<float> Cooldown { get; set; } = new();
 
-        public object Clone()
+        public IModule Clone()
         {
             AttackCooldownModule module = new AttackCooldownModule();
             module.Cooldown.SourceValue = Cooldown.SourceValue;
@@ -88,7 +91,7 @@ namespace Enemies
         [FoldoutGroup("XP drop amount")]
         public ModifiableValue<float> DropAmount { get; set; } = new();
 
-        public object Clone()
+        public IModule Clone()
         {
             ExperienceModule module = new ExperienceModule();
             module.DropAmount.SourceValue = DropAmount.SourceValue;

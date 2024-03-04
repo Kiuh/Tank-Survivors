@@ -41,7 +41,7 @@ namespace Enemies.Producers
         protected void CloneModules(List<IModule> source, List<IModule> target)
         {
             target.Clear();
-            source.ForEach(module => target.Add((IModule)module.Clone()));
+            source.ForEach(module => target.Add(module.Clone()));
         }
 
         public abstract float StartTime { get; }
