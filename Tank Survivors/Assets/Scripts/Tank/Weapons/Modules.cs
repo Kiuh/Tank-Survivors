@@ -148,6 +148,14 @@ namespace Tank.Weapons
         public Cannon Prefab { get; private set; }
     }
 
+    public class MultiShotTowerFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("MultiShotTower Fire Rate Percent")]
+        public ModifiableValue<Percentage> Percent { get; private set; }
+    }
+
     public class SelfExplosionPrefabModule : IWeaponModule
     {
         [OdinSerialize]

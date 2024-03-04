@@ -1,6 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 
 namespace DataStructs
 {
@@ -17,6 +17,11 @@ namespace DataStructs
         public Percentage(float value)
         {
             Value = value;
+        }
+
+        public float GetNormalized()
+        {
+            return Value / 100;
         }
 
         public bool TryChance()
