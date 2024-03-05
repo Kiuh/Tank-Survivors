@@ -10,15 +10,21 @@ namespace Tank.Weapons.Projectiles
         private Transform hitMarkPrefab;
 
         [SerializeField]
-        private ParticleSystem particles;
+        private ParticleSystem explosionParticles;
+
+        [SerializeField]
+        private ParticleSystem fireParticle;
 
         [SerializeField]
         private SpriteRenderer sprite;
 
         [SerializeField]
+        private Collider2D collider2d;
+
+        [SerializeField]
         private float scaleModifier = 0.5f;
 
-        private float damage;
+        private float explosionDamage;
         private float speed;
         private float size;
         private float damageRadius;
@@ -26,30 +32,39 @@ namespace Tank.Weapons.Projectiles
         private Vector3 endPoint;
 
         private Transform hitMark;
+        private FireParameters fireParameters;
+
+        private Coroutine flyCoroutine;
 
         public void Initialize(
             float damage,
             float speed,
             float size,
             float damageRadius,
-            Vector3 direction
+            Vector3 direction,
+            FireParameters fireParameters
         )
         {
-            this.damage = damage;
+            this.explosionDamage = damage;
             this.speed = speed;
             this.size = size;
             this.damageRadius = damageRadius;
+            this.fireParameters = fireParameters;
             transform.localScale = new Vector3(size, size, 1f);
             startPoint = transform.position;
             endPoint = startPoint + direction;
 
+            var explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
+
             hitMark = Instantiate(hitMarkPrefab, startPoint + direction, Quaternion.identity);
-            hitMark.localScale = new Vector3(damageRadius, damageRadius, 1f);
+            hitMark.localScale = explosionSize;
+            explosionParticles.transform.localScale = explosionSize;
+            fireParticle.transform.localScale = explosionSize;
         }
 
         public void StartFly()
         {
-            _ = StartCoroutine(Fly(Time.time));
+            flyCoroutine = StartCoroutine(Fly(Time.time));
         }
 
         private IEnumerator Fly(float startTime)
@@ -67,26 +82,80 @@ namespace Tank.Weapons.Projectiles
                 yield return null;
             }
 
-            Explode();
+            StartExplosion();
         }
 
-        private void Explode()
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            Destroy(hitMark.gameObject);
+            if (collision.transform.TryGetComponent(out IEnemy enemy))
+            {
+                StopCoroutine(flyCoroutine);
+                StartExplosion();
+            }
+        }
 
-            particles.transform.localScale = new Vector3(damageRadius, damageRadius, 1f);
-            particles.Play();
+        public void StartExplosion()
+        {
+            _ = StartCoroutine(Explode());
+        }
+
+        private IEnumerator Explode()
+        {
+            hitMark.gameObject.SetActive(false);
             sprite.enabled = false;
+            collider2d.enabled = false;
 
+            DamageByExplode();
+
+            yield return Burn();
+
+            Destroy(
+                gameObject,
+                explosionParticles.main.duration * explosionParticles.main.startLifetimeMultiplier
+            );
+        }
+
+        private void DamageByExplode()
+        {
+            explosionParticles.Play();
+            DealDamage(explosionDamage);
+        }
+
+        private IEnumerator Burn()
+        {
+            if (fireParameters.Time <= 0)
+            {
+                yield break;
+            }
+
+            fireParticle.Play();
+
+            var fireTimer = fireParameters.Time;
+            while (fireTimer >= 0)
+            {
+                yield return new WaitForSeconds(fireParameters.FireRate);
+                DamageByFire();
+
+                fireTimer -= fireParameters.FireRate;
+                Debug.Log(fireTimer);
+            }
+        }
+
+        private void DamageByFire()
+        {
+            DealDamage(fireParameters.Damage);
+        }
+
+        private void DealDamage(float damage)
+        {
             Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, damageRadius);
             foreach (Collider2D collision in collisions)
             {
-                if (collision.transform.TryGetComponent<IEnemy>(out IEnemy enemy))
+                if (collision.transform.TryGetComponent(out IEnemy enemy))
                 {
                     enemy.TakeDamage(damage);
                 }
             }
-            Destroy(gameObject, particles.main.duration * particles.main.startLifetimeMultiplier);
         }
 
         private float GetScale(float t)

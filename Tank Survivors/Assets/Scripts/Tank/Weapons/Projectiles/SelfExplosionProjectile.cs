@@ -2,6 +2,13 @@ using System.Collections;
 using Enemies;
 using UnityEngine;
 
+public struct FireParameters
+{
+    public float Damage;
+    public float Time;
+    public float FireRate;
+}
+
 namespace Tank.Weapons.Projectiles
 {
     public class SelfExplosionProjectile : MonoBehaviour, IProjectile
@@ -18,24 +25,17 @@ namespace Tank.Weapons.Projectiles
         private float explosionDamage;
         private float damageRadius;
 
-        private float fireDamage;
-        private float fireTime;
-        private float fireFireRate;
+        private FireParameters fireParameters;
 
         public void Initialize(
             float explosionDamage,
             float damageRadius,
-            float fireDamage,
-            float fireTime,
-            float fireFireRate
+            FireParameters fireParameters
         )
         {
             this.explosionDamage = explosionDamage;
             this.damageRadius = damageRadius;
-
-            this.fireDamage = fireDamage;
-            this.fireTime = fireTime;
-            this.fireFireRate = fireFireRate;
+            this.fireParameters = fireParameters;
 
             var explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
 
@@ -72,27 +72,27 @@ namespace Tank.Weapons.Projectiles
 
         private IEnumerator Burn()
         {
-            if (fireTime <= 0)
+            if (fireParameters.Time <= 0)
             {
                 yield break;
             }
 
             fireParticle.Play();
 
-            var fireTimer = fireTime;
+            var fireTimer = fireParameters.Time;
             while (fireTimer >= 0)
             {
-                yield return new WaitForSeconds(fireFireRate);
+                yield return new WaitForSeconds(fireParameters.FireRate);
                 DamageByFire();
 
-                fireTimer -= fireFireRate;
+                fireTimer -= fireParameters.FireRate;
                 Debug.Log(fireTimer);
             }
         }
 
         private void DamageByFire()
         {
-            DealDamage(fireDamage);
+            DealDamage(fireParameters.Damage);
         }
 
         private void DealDamage(float damage)

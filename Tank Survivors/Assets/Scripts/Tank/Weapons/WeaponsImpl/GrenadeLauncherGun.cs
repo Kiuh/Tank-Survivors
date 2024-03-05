@@ -95,9 +95,10 @@ namespace Tank.Weapons
                 new SelfExplosionCountModule(),
                 new SelfExplosionRadiusModule(),
                 new SelfExplosionHitMarkTimerModule(),
-                new SelfExplosionFireDamageModule(),
-                new SelfExplosionFireFireRateModule(),
                 new SelfExplosionFireTimerModule(),
+                new FireDamageModule(),
+                new FireFireRateModule(),
+                new ProjectileFireTimerModule(),
             };
         }
 
@@ -119,10 +120,13 @@ namespace Tank.Weapons
                 projectile.Initialize(
                     damage,
                     GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
-                    GetModule<SelfExplosionFireDamageModule>().Damage.GetModifiedValue(),
-                    GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
-                    GetModule<SelfExplosionFireFireRateModule>()
-                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                    new FireParameters()
+                    {
+                        Damage = GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                        Time = GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
+                        FireRate = GetModule<FireFireRateModule>()
+                            .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                    }
                 );
 
                 projectile.StartExplosion(
@@ -165,7 +169,14 @@ namespace Tank.Weapons
                 GetModule<ProjectileSizeModule>()
                     .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
                 GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                spreadDirection
+                spreadDirection,
+                new FireParameters()
+                {
+                    Damage = GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                    Time = GetModule<ProjectileFireTimerModule>().Time.GetModifiedValue(),
+                    FireRate = GetModule<FireFireRateModule>()
+                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                }
             );
 
             projectile.StartFly();

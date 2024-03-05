@@ -320,7 +320,7 @@ namespace Tank.Weapons
         public override void ApplyUpgrade(IWeapon weapon)
         {
             weapon
-                .Modules.GetConcrete<SelfExplosionFireDamageModule, IWeaponModule>()
+                .Modules.GetConcrete<FireDamageModule, IWeaponModule>()
                 .Damage.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
@@ -332,7 +332,7 @@ namespace Tank.Weapons
         public override void ApplyUpgrade(IWeapon weapon)
         {
             weapon
-                .Modules.GetConcrete<SelfExplosionFireFireRateModule, IWeaponModule>()
+                .Modules.GetConcrete<FireFireRateModule, IWeaponModule>()
                 .FireRate.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );

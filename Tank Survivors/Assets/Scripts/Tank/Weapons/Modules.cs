@@ -204,20 +204,28 @@ namespace Tank.Weapons
         public ModifiableValue<float> Time { get; private set; }
     }
 
-    public class SelfExplosionFireDamageModule : IWeaponModule
+    public class FireDamageModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
-        [FoldoutGroup("Explosion Fire Damage")]
+        [FoldoutGroup("Fire Damage")]
         public ModifiableValue<float> Damage { get; private set; }
     }
 
-    public class SelfExplosionFireFireRateModule : IWeaponModule
+    public class FireFireRateModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
-        [FoldoutGroup("Explosion Fire Fire Rate")]
+        [FoldoutGroup("Fire Fire Rate")]
         public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class ProjectileFireTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Projectile Fire Time")]
+        public ModifiableValue<float> Time { get; private set; }
     }
 
     public class SelfExplosionFireTimerModule : IWeaponModule
