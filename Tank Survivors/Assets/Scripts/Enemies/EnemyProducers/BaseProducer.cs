@@ -21,13 +21,13 @@ namespace Enemies.Producers
             AlwaysAddDefaultValue = true,
             DraggableItems = false
         )]
-        [FoldoutGroup("Enemy/Modules")]
+        [FoldoutGroup("Enemy/Enemy stats")]
         public List<IModule> Modules { get; set; } = new();
 
         public IEnemy Enemy => EnemyPrefab.GetComponent<IEnemy>();
 
-        [Button("GetModules")]
-        [FoldoutGroup("Enemy/Modules")]
+        [Button("Clone stats from prefab")]
+        [FoldoutGroup("Enemy/Enemy stats")]
         private void GetModules()
         {
             CloneModules(Enemy.Modules, Modules);

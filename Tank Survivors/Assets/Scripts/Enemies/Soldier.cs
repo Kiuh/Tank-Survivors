@@ -13,6 +13,7 @@ namespace Enemies
     [AddComponentMenu("Enemies.Soldier")]
     public class Soldier : SerializedMonoBehaviour, IEnemy
     {
+        [OdinSerialize]
         public string EnemyName { get; private set; }
 
         private SoliderConfig stats;

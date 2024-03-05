@@ -18,32 +18,36 @@ namespace Configs
         }
 
         [OdinSerialize]
-        [FoldoutGroup("$" + nameof(progressor))]
         [Unit(Units.Percent)]
         private float value;
         public float Value => value / 100.0f;
 
         [OdinSerialize]
-        [FoldoutGroup("$" + nameof(progressor))]
-        [Unit(Units.Minute)]
+        [Unit(Units.Second)]
         private float interval;
+
         public float Interval
         {
-            get => interval * 60.0f;
+            get => interval;
             private set => interval = value;
         }
 
         [OdinSerialize]
+        [Unit(Units.Minute)]
+        [ReadOnly]
+        public float IntervalInMinuts
+        {
+            get => interval / 60.0f;
+            private set => interval = value * 60.0f;
+        }
+
+        [OdinSerialize]
         [EnumToggleButtons]
-        [FoldoutGroup("$" + nameof(progressor), AnimateVisibility = true)]
         public ProgressorMode Mode { get; private set; } = ProgressorMode.Source;
 
         [OdinSerialize]
-        [FoldoutGroup("$" + nameof(progressor), AnimateVisibility = true)]
         public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
 
         public float LastUpdateTime { get; set; } = 0;
-
-        private string progressor = "Progressor";
     }
 }

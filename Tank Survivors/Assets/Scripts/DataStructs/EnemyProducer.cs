@@ -16,10 +16,11 @@ namespace DataStructs
         public IEnemyProducer Producer { get; private set; }
 
         [OdinSerialize]
-        [FoldoutGroup("$" + nameof(producerName))]
+        [FoldoutGroup("Progressor")]
         public Properties ProgressorProperties { get; private set; }
 
         [OdinSerialize]
-        private string producerName;
+        [FoldoutGroup("$" + nameof(producerName))]
+        private string producerName = "Producer";
     }
 }
