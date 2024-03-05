@@ -10,44 +10,42 @@ namespace Tank.Weapons
     [Serializable]
     public class DoubleShotGun : GunBase
     {
-        private DoubleShotTower tower;
+        private DoubleShotTower doubleShotTower;
         private MultiShotTower multiShotTower;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
-        private ProjectileSpawner towerProjectileSpawner;
-        private ProjectileSpawner multiTowerProjectileSpawner;
 
-        private float mainTowerRemainingTime = 0f;
-        private float multiTowerRemainingTime = 0f;
+        private float doubleShotTowerRemainingTime = 0f;
+        private float multiShotTowerRemainingTime = 0f;
 
         public override void ProceedAttack()
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (tower == null || nearestEnemy == null)
+            if (doubleShotTower == null || nearestEnemy == null)
             {
                 return;
             }
 
             aimController.Aim(nearestEnemy);
 
-            mainTowerRemainingTime -= Time.deltaTime;
-            if (mainTowerRemainingTime < 0f)
+            doubleShotTowerRemainingTime -= Time.deltaTime;
+            if (doubleShotTowerRemainingTime < 0f)
             {
-                mainTowerRemainingTime += GetModule<FireRateModule>()
+                doubleShotTowerRemainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
-                FireAllProjectiles();
+                FireDoubleShotTowerProjectiles();
             }
 
-            multiTowerRemainingTime -= Time.deltaTime;
-            if (multiTowerRemainingTime < 0f)
+            multiShotTowerRemainingTime -= Time.deltaTime;
+            if (multiShotTowerRemainingTime < 0f)
             {
-                multiTowerRemainingTime +=
+                multiShotTowerRemainingTime +=
                     GetModule<FireRateModule>().FireRate.GetPercentagesValue(tank.FireRateModifier)
                     / GetModule<MultiShotTowerFireRateModule>()
                         .Percent.GetModifiedValue()
                         .GetNormalized();
-                FireAllAdditionalProjectiles();
+                FireMultiShotTowerProjectiles();
             }
         }
 
@@ -60,29 +58,22 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            var towerModule = GetModule<TowerModule<DoubleShotTower>>();
-            tower = UnityEngine.Object.Instantiate(towerModule.TowerPrefab, tank.transform);
-            towerModule.Tower = tower;
-
-            var multiShotTowerModule = GetModule<TowerModule<MultiShotTower>>();
-            multiShotTower = UnityEngine.Object.Instantiate(
-                multiShotTowerModule.TowerPrefab,
-                tower.transform
+            doubleShotTower = CreateTower<DoubleShotTower>(
+                tank.transform,
+                SpawnVariation.Disconnected
             );
-            multiShotTowerModule.Tower = multiShotTower;
+            multiShotTower = CreateTower<MultiShotTower>(
+                doubleShotTower.transform,
+                SpawnVariation.Disconnected
+            );
 
-            aimController = new(tank, this, tower);
-            towerProjectileSpawner = new(this, tower);
-            multiTowerProjectileSpawner = new(this, multiShotTower);
+            aimController = new(tank, this, doubleShotTower);
         }
 
         public override void DestroyGun()
         {
-            GameObject.Destroy(tower.gameObject);
-            GetModule<TowerModule<DoubleShotTower>>().Tower = null;
-
-            GameObject.Destroy(multiShotTower.gameObject);
-            GetModule<TowerModule<MultiShotTower>>().Tower = null;
+            DestroyTower(doubleShotTower);
+            DestroyTower(multiShotTower);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)
@@ -115,14 +106,15 @@ namespace Tank.Weapons
             };
         }
 
-        private void FireAllAdditionalProjectiles()
+        private void FireMultiShotTowerProjectiles()
         {
             int projectileCount = multiShotTower.CannonsCount;
 
             for (int i = 0; i < projectileCount; i++)
             {
-                SimpleProjectile projectile = multiTowerProjectileSpawner.Spawn<SimpleProjectile>();
+                SimpleProjectile projectile = multiShotTower.GetProjectile<SimpleProjectile>();
                 var towerDirection = multiShotTower.GetDirection();
+
                 Vector3 spreadDirection = GetSpreadDirection(
                     towerDirection,
                     GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
@@ -131,15 +123,16 @@ namespace Tank.Weapons
             }
         }
 
-        private void FireAllProjectiles()
+        private void FireDoubleShotTowerProjectiles()
         {
             int projectileCount = GetModule<ProjectilesPerShootModule>()
                 .ProjectilesPerShoot.GetModifiedValue();
 
             for (int i = 0; i < projectileCount; i++)
             {
-                SimpleProjectile projectile = towerProjectileSpawner.Spawn<SimpleProjectile>();
-                var towerDirection = tower.GetDirection();
+                SimpleProjectile projectile = doubleShotTower.GetProjectile<SimpleProjectile>();
+
+                var towerDirection = doubleShotTower.GetDirection();
                 Vector3 spreadDirection = GetSpreadDirection(
                     towerDirection,
                     GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()

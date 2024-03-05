@@ -1,3 +1,4 @@
+using Tank.Weapons;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -6,6 +7,8 @@ namespace Tank.Towers
     {
         public Vector3 GetShotPoint();
         public Vector3 GetDirection();
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation);
+        public void Initialize(GunBase weapon, SpawnVariation spawnVariation);
     }
 
     public interface ICanRotate

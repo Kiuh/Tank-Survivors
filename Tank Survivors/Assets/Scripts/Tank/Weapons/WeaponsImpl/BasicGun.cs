@@ -48,10 +48,7 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
+            tower = CreateTower<SingleShotTower>(tank.transform, SpawnVariation.Disconnected);
 
             GetModule<TowerModule<SingleShotTower>>().Tower = tower;
 

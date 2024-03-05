@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
+    public enum SpawnVariation
+    {
+        Connected,
+        Disconnected
+    }
+
     public class ProjectileSpawner
     {
         private GunBase weapon;
@@ -13,6 +19,20 @@ namespace Tank.Weapons
         {
             this.weapon = weapon;
             this.tower = tower;
+        }
+
+        public T Spawn<T>(SpawnVariation spawnVariation, Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            switch (spawnVariation)
+            {
+                case SpawnVariation.Connected:
+                    return SpawnConnected<T>(parent);
+                case SpawnVariation.Disconnected:
+                    return Spawn<T>();
+                default:
+                    return null;
+            }
         }
 
         public T Spawn<T>()

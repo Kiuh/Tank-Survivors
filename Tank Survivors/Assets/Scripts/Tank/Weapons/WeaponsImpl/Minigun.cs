@@ -14,7 +14,6 @@ namespace Tank.Weapons
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
 
@@ -47,12 +46,8 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
+            tower = CreateTower<SingleShotTower>(tank.transform, SpawnVariation.Disconnected);
             aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
@@ -105,7 +100,7 @@ namespace Tank.Weapons
                 towerDirection,
                 GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
             );
-            SimpleProjectile projectile = projectileSpawner.Spawn<SimpleProjectile>();
+            SimpleProjectile projectile = tower.GetProjectile<SimpleProjectile>();
 
             float damage = GetModifiedDamage(
                 GetModule<DamageModule>().Damage,

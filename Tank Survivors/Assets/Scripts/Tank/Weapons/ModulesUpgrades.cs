@@ -350,4 +350,29 @@ namespace Tank.Weapons
                 );
         }
     }
+
+    /*public class ProjectileSpawnVariation : IModuleUpgrade
+    {
+        [ValueDropdown("GetAllTowerTypes")]
+        public Type TowerType;
+        public SpawnVariation NewSpawnVariation;
+
+        public void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<TowerModule<TowerType>, IWeaponModule>()
+                .Tower.ChangeSpawnVariation(NewSpawnVariation);
+        }
+
+        private List<Type> GetAllTowerTypes()
+        {
+            var type = typeof(ITower);
+            var types = AppDomain
+                .CurrentDomain.GetAssemblies()
+                .SelectMany(s => s.GetTypes())
+                .Where(p => type.IsAssignableFrom(p))
+                .ToList();
+            return types;
+        }
+    }*/
 }

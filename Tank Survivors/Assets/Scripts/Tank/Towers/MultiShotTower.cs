@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Weapons;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -15,12 +17,15 @@ namespace Tank.Towers
         [OdinSerialize]
         [SerializeField]
         [ValueDropdown("GetAllPositions")]
-        private List<string> cannonPositions;
-        public IEnumerable<string> CannonPositions => cannonPositions;
+        private List<string> startCannonPositions;
 
         private List<Cannon> cannons = new();
         private int currentShotPoint = 0;
+        private SpawnVariation spawnVariation;
+        private GunBase weapon;
 
+        public ProjectileSpawner ProjectileSpawner { get; private set; }
+        public IEnumerable<string> StartCannonPositions => startCannonPositions;
         public int CannonsCount => cannons.Count;
 
         public Vector3 GetDirection()
@@ -45,6 +50,24 @@ namespace Tank.Towers
                 transform
             );
             cannons.Add(cannon);
+        }
+
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
+        {
+            spawnVariation = newSpawnVariation;
+        }
+
+        public void Initialize(GunBase weapon, SpawnVariation spawnVariation)
+        {
+            this.weapon = weapon;
+            this.spawnVariation = spawnVariation;
+            ProjectileSpawner = new(weapon, this);
+        }
+
+        public T GetProjectile<T>()
+            where T : MonoBehaviour, IProjectile
+        {
+            return ProjectileSpawner.Spawn<T>(spawnVariation, transform);
         }
 
         private IEnumerable GetAllPositions()

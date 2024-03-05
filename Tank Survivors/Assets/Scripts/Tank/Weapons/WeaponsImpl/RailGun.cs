@@ -12,18 +12,19 @@ namespace Assets.Scripts.Tank.Weapons
     [Serializable]
     public class RailGun : GunBase
     {
-        private SingleShotTower tower;
+        private SingleShotTower mainTower;
+        private MultiShotTower multiShotTower;
+
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
 
         public override void ProceedAttack()
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (tower == null || nearestEnemy == null)
+            if (mainTower == null || nearestEnemy == null)
             {
                 return;
             }
@@ -31,13 +32,16 @@ namespace Assets.Scripts.Tank.Weapons
             aimController.Aim(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
-
             if (remainingTime < 0f)
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                FireProjectile();
+                RayRenderer ray = mainTower.GetProjectile<RayRenderer>();
+                var towerDirection = mainTower.GetDirection();
+
+                RailGunFireProjectile(ray, towerDirection);
+                FireMultiShotTowerProjectiles();
             }
         }
 
@@ -50,17 +54,19 @@ namespace Assets.Scripts.Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
+            mainTower = CreateTower<SingleShotTower>(tank.transform);
+
+            multiShotTower = CreateTower<MultiShotTower>(
+                mainTower.transform,
+                SpawnVariation.Disconnected
             );
-            aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
+
+            aimController = new(tank, this, mainTower);
         }
 
         public override void DestroyGun()
         {
-            GameObject.Destroy(tower.gameObject);
+            GameObject.Destroy(mainTower.gameObject);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)
@@ -83,14 +89,29 @@ namespace Assets.Scripts.Tank.Weapons
                 new RayDurationModule(),
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
+                new TowerModule<MultiShotTower>(),
+                new CannonModule(),
+                new ProjectileSpawnVariationModule(),
             };
         }
 
-        private void FireProjectile()
+        private void FireMultiShotTowerProjectiles()
+        {
+            int projectileCount = multiShotTower.CannonsCount;
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                RayRenderer projectile = multiShotTower.GetProjectile<RayRenderer>();
+                var towerDirection = multiShotTower.GetDirection();
+
+                RailGunFireProjectile(projectile, towerDirection);
+            }
+        }
+
+        private void RailGunFireProjectile(RayRenderer ray, Vector3 direction)
         {
             float fireRange = GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
-            RayRenderer ray = projectileSpawner.Spawn<RayRenderer>();
 
             float damage = GetModifiedDamage(
                 GetModule<DamageModule>().Damage,
@@ -99,12 +120,11 @@ namespace Assets.Scripts.Tank.Weapons
                 tank
             );
 
-            var towerDirection = tower.GetDirection();
             ray.Initialize(
                 damage,
                 GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                tower.GetShotPoint(),
-                tank.transform.position + (towerDirection.normalized * fireRange)
+                mainTower.GetShotPoint(),
+                tank.transform.position + (direction.normalized * fireRange)
             );
             ray.Show();
         }

@@ -14,7 +14,6 @@ namespace Tank.Weapons
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
         private float projectileShotRemainingTime = 0f;
         private float selfExplosionRemainingTime = 0f;
@@ -57,12 +56,8 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
+            tower = CreateTower<SingleShotTower>(tank.transform, SpawnVariation.Disconnected);
             aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
@@ -116,10 +111,11 @@ namespace Tank.Weapons
                     .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
                     .GetModifiedValue();
 
-                SelfExplosionProjectile projectile = projectileSpawner.SpawnConnected(
+                SelfExplosionProjectile projectile = tower.ProjectileSpawner.SpawnConnected(
                     GetModule<SelfExplosionPrefabModule>().Prefab,
                     tank.transform
                 );
+
                 projectile.Initialize(
                     damage,
                     GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
@@ -162,7 +158,7 @@ namespace Tank.Weapons
                     GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                 ) * GetModule<FireRangeModule>().FireRange.GetPercentagesValue(tank.RangeModifier);
 
-            FlyingProjectile projectile = projectileSpawner.Spawn<FlyingProjectile>();
+            FlyingProjectile projectile = tower.GetProjectile<FlyingProjectile>();
             projectile.Initialize(
                 damage,
                 GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),

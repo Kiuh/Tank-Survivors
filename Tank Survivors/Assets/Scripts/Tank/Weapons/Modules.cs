@@ -227,4 +227,12 @@ namespace Tank.Weapons
         [FoldoutGroup("Explosion Fire Time")]
         public ModifiableValue<float> Time { get; private set; }
     }
+
+    public class ProjectileSpawnVariationModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Spawn Variation")]
+        public SpawnVariation SpawnVariation { get; private set; }
+    }
 }
