@@ -1,8 +1,10 @@
 using System;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
+using static Configs.CircleRadius;
 
 namespace Enemies.Producers
 {
@@ -15,10 +17,11 @@ namespace Enemies.Producers
         private float spawnInterval;
 
         [OdinSerialize]
-        private float startCircleRadius;
+        [EnumToggleButtons]
+        private Preset radiusPreset;
 
         [OdinSerialize]
-        private float endCircleRadius;
+        private CircleRadius radius;
 
         private float timer = 0;
 
@@ -47,9 +50,10 @@ namespace Enemies.Producers
 
         private Vector3 GetRandomPoint()
         {
+            CircleZone boundsRadius = radius.GetCircleZone(radiusPreset);
             Vector2 point = UnityEngine.Random.insideUnitCircle;
-            return (point * (endCircleRadius - startCircleRadius))
-                + (point.normalized * startCircleRadius);
+            return (point * (boundsRadius.Max - boundsRadius.Min))
+                + (point.normalized * boundsRadius.Min);
         }
     }
 }
