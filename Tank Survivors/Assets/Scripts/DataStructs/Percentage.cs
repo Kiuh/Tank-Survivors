@@ -20,6 +20,11 @@ namespace DataStructs
             Value = value;
         }
 
+        public float GetNormalized()
+        {
+            return Value / 100;
+        }
+
         public bool TryChance()
         {
             return UnityEngine.Random.Range(0f, 1f) < Value / 100;
