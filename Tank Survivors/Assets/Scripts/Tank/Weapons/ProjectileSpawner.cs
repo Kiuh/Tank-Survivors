@@ -4,6 +4,12 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
+    public enum SpawnVariation
+    {
+        Connected,
+        Disconnected
+    }
+
     public class ProjectileSpawner
     {
         private GunBase weapon;
@@ -15,14 +21,40 @@ namespace Tank.Weapons
             this.tower = tower;
         }
 
+        public T Spawn<T>(SpawnVariation spawnVariation, Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            switch (spawnVariation)
+            {
+                case SpawnVariation.Connected:
+                    return SpawnConnected<T>(parent);
+                case SpawnVariation.Disconnected:
+                    return Spawn<T>();
+                default:
+                    return null;
+            }
+        }
+
         public T Spawn<T>()
             where T : MonoBehaviour, IProjectile
         {
-            return UnityEngine.Object.Instantiate(
+            return Object.Instantiate(
                 weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab,
                 tower.GetShotPoint(),
                 Quaternion.identity
             );
+        }
+
+        public T SpawnConnected<T>(Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            return SpawnConnected(weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab, parent);
+        }
+
+        public T SpawnConnected<T>(T prefab, Transform parent)
+            where T : MonoBehaviour, IProjectile
+        {
+            return Object.Instantiate(prefab, tower.GetShotPoint(), Quaternion.identity, parent);
         }
     }
 }

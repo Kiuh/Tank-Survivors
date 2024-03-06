@@ -4,7 +4,6 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
-using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -107,6 +106,13 @@ namespace Tank.Weapons
         [FoldoutGroup("Tower")]
         [AssetList]
         public T TowerPrefab { get; private set; }
+
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Tower")]
+        [AssetList]
+        [ReadOnly]
+        public T Tower { get; set; }
     }
 
     public class RayDurationModule : IWeaponModule
@@ -131,6 +137,93 @@ namespace Tank.Weapons
         [HideLabel]
         [FoldoutGroup("Tower Rotation")]
         public ModifiableValue<float> RotationSpeed { get; private set; } = new();
-        public Transform Target { get; set; }
+    }
+
+    public class MultiShotTowerFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("MultiShotTower Fire Rate Percent")]
+        public ModifiableValue<Percentage> Percent { get; private set; }
+    }
+
+    public class SelfExplosionPrefabModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Prefab")]
+        public SelfExplosionProjectile Prefab { get; private set; }
+    }
+
+    public class SelfExplosionCountModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Count")]
+        public ModifiableValue<int> Count { get; private set; }
+    }
+
+    public class SelfExplosionFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion FireRate")]
+        public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class SelfExplosionRadiusModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Radius")]
+        public ModifiableValue<float> Radius { get; private set; }
+    }
+
+    public class SelfExplosionDamageModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Damage")]
+        public ModifiableValue<float> Damage { get; private set; }
+    }
+
+    public class SelfExplosionHitMarkTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Hit Mark Timer")]
+        public ModifiableValue<float> Time { get; private set; }
+    }
+
+    public class FireDamageModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Fire Damage")]
+        public ModifiableValue<float> Damage { get; private set; }
+    }
+
+    public class FireFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Fire Fire Rate")]
+        public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class ProjectileFireTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Projectile Fire Time")]
+        public ModifiableValue<float> Time { get; private set; }
+    }
+
+    public class SelfExplosionFireTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Explosion Fire Time")]
+        public ModifiableValue<float> Time { get; private set; }
     }
 }

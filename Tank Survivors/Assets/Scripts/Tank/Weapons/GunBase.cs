@@ -4,6 +4,7 @@ using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
 using Tank.UpgradablePiece;
 using UnityEngine;
 
@@ -114,6 +115,31 @@ namespace Tank.Weapons
             return isCritical
                 ? damageModifiableValue.GetPercentagesValue(criticalMultiplier)
                 : damageModifiableValue.GetModifiedValue();
+        }
+
+        protected T CreateTower<T>(Transform transform)
+            where T : MonoBehaviour, ITower
+        {
+            return CreateTower<T>(transform, SpawnVariation.Disconnected);
+        }
+
+        protected T CreateTower<T>(Transform transform, SpawnVariation spawnVariation)
+            where T : MonoBehaviour, ITower
+        {
+            var towerModule = GetModule<TowerModule<T>>();
+            T tower = Object.Instantiate(towerModule.TowerPrefab, transform);
+            towerModule.Tower = tower;
+
+            tower.Initialize(this, spawnVariation);
+
+            return tower;
+        }
+
+        protected void DestroyTower<T>(T tower)
+            where T : MonoBehaviour, ITower
+        {
+            GameObject.Destroy(tower.gameObject);
+            GetModule<TowerModule<T>>().Tower = null;
         }
     }
 }

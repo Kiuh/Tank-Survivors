@@ -1,6 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 
 namespace DataStructs
 {
@@ -13,6 +13,7 @@ namespace DataStructs
         [LabelText("Percentages")]
         [Unit(Units.Percent)]
         public float Value { get; private set; }
+        public float NormalizedValue => Value / 100;
 
         public Percentage(float value)
         {

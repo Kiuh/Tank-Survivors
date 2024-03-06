@@ -1,3 +1,5 @@
+using Tank.Weapons;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -11,6 +13,10 @@ namespace Tank.Towers
         private Quaternion targetRotation;
 
         private int currentShotPoint = 0;
+        private SpawnVariation spawnVariation;
+        private GunBase weapon;
+
+        public ProjectileSpawner ProjectileSpawner { get; private set; }
 
         private void LateUpdate()
         {
@@ -42,6 +48,24 @@ namespace Tank.Towers
                 targetRotation,
                 Time.deltaTime * rotationSpeed
             );
+        }
+
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
+        {
+            spawnVariation = newSpawnVariation;
+        }
+
+        public void Initialize(GunBase weapon, SpawnVariation spawnVariation)
+        {
+            this.weapon = weapon;
+            this.spawnVariation = spawnVariation;
+            ProjectileSpawner = new(weapon, this);
+        }
+
+        public T GetProjectile<T>()
+            where T : MonoBehaviour, IProjectile
+        {
+            return ProjectileSpawner.Spawn<T>(spawnVariation, transform);
         }
     }
 }

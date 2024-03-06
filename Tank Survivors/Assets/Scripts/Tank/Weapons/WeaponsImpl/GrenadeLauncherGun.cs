@@ -14,12 +14,21 @@ namespace Tank.Weapons
         private TankImpl tank;
         private EnemyFinder enemyFinder;
         private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
-        private float remainingTime = 0f;
+        private float projectileShotRemainingTime = 0f;
+        private float selfExplosionRemainingTime = 0f;
 
         public override void ProceedAttack()
         {
+            selfExplosionRemainingTime -= Time.deltaTime;
+            if (selfExplosionRemainingTime < 0f)
+            {
+                selfExplosionRemainingTime += GetModule<SelfExplosionFireRateModule>()
+                    .FireRate.GetModifiedValue();
+
+                SelfExplosion();
+            }
+
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
             if (tower == null || nearestEnemy == null)
             {
@@ -28,10 +37,10 @@ namespace Tank.Weapons
 
             aimController.Aim(nearestEnemy);
 
-            remainingTime -= Time.deltaTime;
-            if (remainingTime < 0f)
+            projectileShotRemainingTime -= Time.deltaTime;
+            if (projectileShotRemainingTime < 0f)
             {
-                remainingTime += GetModule<FireRateModule>()
+                projectileShotRemainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
                 FireAllProjectiles();
@@ -47,12 +56,8 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
+            tower = CreateTower<SingleShotTower>(tank.transform, SpawnVariation.Disconnected);
             aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
         }
 
         public override void DestroyGun()
@@ -76,6 +81,7 @@ namespace Tank.Weapons
                 new CriticalChanceModule(),
                 new CriticalMultiplierModule(),
                 new ProjectileModule<FlyingProjectile>(),
+                new FireRangeModule(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
@@ -83,7 +89,50 @@ namespace Tank.Weapons
                 new ProjectileDamageRadiusModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
+                new SelfExplosionPrefabModule(),
+                new SelfExplosionDamageModule(),
+                new SelfExplosionFireRateModule(),
+                new SelfExplosionCountModule(),
+                new SelfExplosionRadiusModule(),
+                new SelfExplosionHitMarkTimerModule(),
+                new SelfExplosionFireTimerModule(),
+                new FireDamageModule(),
+                new FireFireRateModule(),
+                new ProjectileFireTimerModule(),
             };
+        }
+
+        private void SelfExplosion()
+        {
+            int explosionCount = GetModule<SelfExplosionCountModule>().Count.GetModifiedValue();
+
+            for (int i = 0; i < explosionCount; i++)
+            {
+                float damage = GetModule<SelfExplosionDamageModule>()
+                    .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
+                    .GetModifiedValue();
+
+                SelfExplosionProjectile projectile = tower.ProjectileSpawner.SpawnConnected(
+                    GetModule<SelfExplosionPrefabModule>().Prefab,
+                    tank.transform
+                );
+
+                projectile.Initialize(
+                    damage,
+                    GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
+                    new FireParameters()
+                    {
+                        Damage = GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                        Time = GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
+                        FireRate = GetModule<FireFireRateModule>()
+                            .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                    }
+                );
+
+                projectile.StartExplosion(
+                    GetModule<SelfExplosionHitMarkTimerModule>().Time.GetModifiedValue()
+                );
+            }
         }
 
         private void FireAllProjectiles()
@@ -107,19 +156,27 @@ namespace Tank.Weapons
             );
 
             var towerDirection = tower.GetDirection();
-            Vector3 spreadDirection = GetSpreadDirection(
-                towerDirection,
-                GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-            );
+            Vector3 spreadDirection =
+                GetSpreadDirection(
+                    towerDirection,
+                    GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                ) * GetModule<FireRangeModule>().FireRange.GetPercentagesValue(tank.RangeModifier);
 
-            FlyingProjectile projectile = projectileSpawner.Spawn<FlyingProjectile>();
+            FlyingProjectile projectile = tower.GetProjectile<FlyingProjectile>();
             projectile.Initialize(
                 damage,
                 GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
                 GetModule<ProjectileSizeModule>()
                     .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
                 GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                spreadDirection
+                spreadDirection,
+                new FireParameters()
+                {
+                    Damage = GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                    Time = GetModule<ProjectileFireTimerModule>().Time.GetModifiedValue(),
+                    FireRate = GetModule<FireFireRateModule>()
+                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                }
             );
 
             projectile.StartFly();

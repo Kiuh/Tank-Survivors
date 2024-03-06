@@ -10,7 +10,7 @@ namespace Tank.Weapons
 {
     public interface IModuleUpgrade
     {
-        public void ApplyUpgrade(IWeapon tank);
+        public void ApplyUpgrade(IWeapon weapon);
     }
 
     [HideLabel]
@@ -217,6 +217,114 @@ namespace Tank.Weapons
             weapon
                 .Modules.GetConcrete<TowerRotationModule, IWeaponModule>()
                 .RotationSpeed.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionCount : BaseModuleMathUpgrade<int>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionCountModule, IWeaponModule>()
+                .Count.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionFireRate : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionFireRateModule, IWeaponModule>()
+                .FireRate.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionRadius : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionRadiusModule, IWeaponModule>()
+                .Radius.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionDamage : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionDamageModule, IWeaponModule>()
+                .Damage.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionHitMarkTimer : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionHitMarkTimerModule, IWeaponModule>()
+                .Time.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class FireDamage : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<FireDamageModule, IWeaponModule>()
+                .Damage.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class FireFireRate : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<FireFireRateModule, IWeaponModule>()
+                .FireRate.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class SelfExplosionFireTimer : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<SelfExplosionFireTimerModule, IWeaponModule>()
+                .Time.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class ProjectileFireTimer : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<ProjectileFireTimerModule, IWeaponModule>()
+                .Time.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
         }
