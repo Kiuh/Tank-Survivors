@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using DataStructs;
 using Enemies;
@@ -18,13 +19,26 @@ namespace General
         public void Awake()
         {
             producers = enemies.EnemyProducers;
+            foreach (EnemyProducer producer in producers)
+            {
+                producer.Progressor.LastUpdateTime = 0.0f;
+            }
         }
 
-        public void Update()
+        public void Start()
         {
-            if (!timer.IsPaused)
+            _ = StartCoroutine(UpgradeEnemy());
+        }
+
+        private IEnumerator UpgradeEnemy()
+        {
+            while (true)
             {
-                ImproveEnemies();
+                if (!timer.IsPaused)
+                {
+                    ImproveEnemies();
+                }
+                yield return new WaitForEndOfFrame();
             }
         }
 
@@ -33,17 +47,15 @@ namespace General
             foreach (EnemyProducer producer in producers)
             {
                 if (
-                    timer.CurrentTime - producer.ProgressorProperties.LastUpdateTime
-                    >= producer.ProgressorProperties.Interval
+                    timer.CurrentTime - producer.Progressor.LastUpdateTime
+                    >= producer.Progressor.Interval
                 )
                 {
-                    foreach (
-                        IModuleUpgrade upgrade in producer.ProgressorProperties.UpgradebleModules
-                    )
+                    foreach (IModuleUpgrade upgrade in producer.Progressor.UpgradebleModules)
                     {
                         upgrade.ApplyUpgrade(producer);
                     }
-                    producer.ProgressorProperties.LastUpdateTime = timer.CurrentTime;
+                    producer.Progressor.LastUpdateTime = timer.CurrentTime;
                 }
             }
         }

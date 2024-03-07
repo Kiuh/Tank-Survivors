@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f297e0db238794a42b56068da1aa1845, type: 3}
+  m_Name: ProgressorConfig
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: HwEQAAAASQBuAHQAZQByAHYAYQBsAEkAbgBNAGkAbgB1AHQAcwAAAAAAHQEEAAAATQBvAGQAZQAAAAAAAAAAAAEBEQAAAFUAcABnAHIAYQBkAGUAYgBsAGUATQBvAGQAdQBsAGUAcwAvAAAAAAFWAAAAUwB5AHMAdABlAG0ALgBDAG8AbABsAGUAYwB0AGkAbwBuAHMALgBHAGUAbgBlAHIAaQBjAC4ATABpAHMAdABgADEAWwBbAEUAbgBlAG0AaQBlAHMALgBJAE0AbwBkAHUAbABlAFUAcABnAHIAYQBkAGUALAAgAEEAcwBzAGUAbQBiAGwAeQAtAEMAUwBoAGEAcgBwAF0AXQAsACAAbQBzAGMAbwByAGwAaQBiAAAAAAAGAQAAAAAAAAACLwEAAAABJgAAAEUAbgBlAG0AaQBlAHMALgBIAGUAYQBsAHQAaABVAHAAZwByAGEAZABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcAABAAAAHQEJAAAATwBwAGUAcgBhAHQAaQBvAG4AAAAAAAAAAAAfAQcAAABwAGUAcgBzAGUAbgB0AAAAoEEFBwUfAQgAAABpAG4AdABlAHIAdgBhAGwAAAAAAA==
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []

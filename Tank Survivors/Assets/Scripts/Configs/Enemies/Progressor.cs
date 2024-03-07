@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine;
 
 namespace Configs
 {
-    [Serializable]
-    [HideLabel]
-    [HideReferenceObjectPicker]
-    public class Properties
+    [CreateAssetMenu(fileName = "ProgressorConfig", menuName = "Config/ProgressorConfig")]
+    public class Progressor : SerializedScriptableObject
     {
         public enum ProgressorMode
         {
             Source,
             Current
         }
-
-        [OdinSerialize]
-        [Unit(Units.Percent)]
-        private float value;
-        public float Value => value / 100.0f;
 
         [OdinSerialize]
         [Unit(Units.Second)]
@@ -48,6 +41,6 @@ namespace Configs
         [OdinSerialize]
         public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
 
-        public float LastUpdateTime { get; set; } = 0;
+        public float LastUpdateTime { get; set; }
     }
 }

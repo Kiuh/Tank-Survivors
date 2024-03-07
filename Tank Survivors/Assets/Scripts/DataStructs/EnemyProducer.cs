@@ -17,7 +17,7 @@ namespace DataStructs
 
         [OdinSerialize]
         [FoldoutGroup("Progressor")]
-        public Properties ProgressorProperties { get; private set; }
+        public Progressor Progressor { get; private set; }
 
         [OdinSerialize]
         [FoldoutGroup("$" + nameof(producerName))]
