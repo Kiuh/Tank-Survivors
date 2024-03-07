@@ -1,9 +1,9 @@
 using System;
 using Common;
-using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
-using static Configs.Properties;
+using Sirenix.Serialization;
+using static Configs.Progressor;
 
 namespace Enemies
 {
@@ -14,99 +14,126 @@ namespace Enemies
     }
 
     [Serializable]
-    [LabelText("Movement")]
-    public class MovementUpgrade : IModuleUpgrade
+    public abstract class BaseModuleUpgrade : IModuleUpgrade
     {
-        public void ApplyUpgrade(EnemyProducer producer)
+        [OdinSerialize]
+        [Unit(Units.Percent)]
+        [MinValue(0.0f)]
+        private float persent = 0;
+        public float Persent => persent / 100.0f;
+
+        [OdinSerialize]
+        [EnumToggleButtons]
+        public MathOperation Operation { get; private set; } = MathOperation.Plus;
+        public abstract void ApplyUpgrade(EnemyProducer producer);
+    }
+
+    [Serializable]
+    [LabelText("Movement")]
+    public class MovementUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(EnemyProducer producer)
         {
             MovementModule module = producer.Producer.Modules.GetConcrete<
                 MovementModule,
                 IModule
             >();
-            float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
+            if (module != null)
             {
-                value *= module.Speed.GetModifiedValue();
+                float value = Persent;
+                if (producer.Progressor.Mode == ProgressorMode.Current)
+                {
+                    value *= module.Speed.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Speed.SourceValue;
+                }
+                module.Speed.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
             }
-            else
-            {
-                value *= module.Speed.SourceValue;
-            }
-            module.Speed.Modifications.Add(
-                new(MathOperation.Plus.ToFunction(value), ModificationPriority.Medium)
-            );
         }
     }
 
     [Serializable]
     [LabelText("Health")]
-    public class HealthUpgrade : IModuleUpgrade
+    public class HealthUpgrade : BaseModuleUpgrade
     {
-        public void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(EnemyProducer producer)
         {
             HealthModule module = producer.Producer.Modules.GetConcrete<HealthModule, IModule>();
-            float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
+            if (module != null)
             {
-                value *= module.Health.GetModifiedValue();
+                float value = Persent;
+                if (producer.Progressor.Mode == ProgressorMode.Current)
+                {
+                    value *= module.Health.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Health.SourceValue;
+                }
+                module.Health.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
             }
-            else
-            {
-                value *= module.Health.SourceValue;
-            }
-            module.Health.Modifications.Add(
-                new(MathOperation.Plus.ToFunction(value), ModificationPriority.Medium)
-            );
         }
     }
 
     [Serializable]
     [LabelText("Cooldown")]
-    public class CooldownUpgrade : IModuleUpgrade
+    public class CooldownUpgrade : BaseModuleUpgrade
     {
-        public void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(EnemyProducer producer)
         {
             AttackCooldownModule module = producer.Producer.Modules.GetConcrete<
                 AttackCooldownModule,
                 IModule
             >();
-            float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
+            if (module != null)
             {
-                value *= module.Cooldown.GetModifiedValue();
+                float value = Persent;
+                if (producer.Progressor.Mode == ProgressorMode.Current)
+                {
+                    value *= module.Cooldown.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Cooldown.SourceValue;
+                }
+                module.Cooldown.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
             }
-            else
-            {
-                value *= module.Cooldown.SourceValue;
-            }
-            module.Cooldown.Modifications.Add(
-                new(MathOperation.Minus.ToFunction(value), ModificationPriority.Medium)
-            );
         }
     }
 
     [Serializable]
     [LabelText("XP")]
-    public class ExpeirienceUpgrade : IModuleUpgrade
+    public class ExpeirienceUpgrade : BaseModuleUpgrade
     {
-        public void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(EnemyProducer producer)
         {
             ExperienceModule module = producer.Producer.Modules.GetConcrete<
                 ExperienceModule,
                 IModule
             >();
-            float value = producer.ProgressorProperties.Value;
-            if (producer.ProgressorProperties.Mode == ProgressorMode.Current)
+            if (module != null)
             {
-                value *= module.DropAmount.GetModifiedValue();
+                float value = Persent;
+                if (producer.Progressor.Mode == ProgressorMode.Current)
+                {
+                    value *= module.DropAmount.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.DropAmount.SourceValue;
+                }
+                module.DropAmount.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
             }
-            else
-            {
-                value *= module.DropAmount.SourceValue;
-            }
-            module.DropAmount.Modifications.Add(
-                new(MathOperation.Plus.ToFunction(value), ModificationPriority.Medium)
-            );
         }
     }
 }
