@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMarkPrefab: {fileID: 5278775856035595109, guid: 244fa7effe68166498621a53e6e0bf1b, type: 3}
-  explosionParticles: {fileID: 885120992199311826}
+  explosionParticle: {fileID: 885120992199311826}
   fireParticle: {fileID: 366725348047933869}
   sprite: {fileID: 1793111453359843092}
   collider2d: {fileID: 2574154348312008879}

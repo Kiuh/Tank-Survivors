@@ -10,7 +10,7 @@ namespace Tank.Weapons.Projectiles
         private Transform hitMarkPrefab;
 
         [SerializeField]
-        private ParticleSystem explosionParticles;
+        private ParticleSystem explosionParticle;
 
         [SerializeField]
         private ParticleSystem fireParticle;
@@ -24,20 +24,16 @@ namespace Tank.Weapons.Projectiles
         [SerializeField]
         private float scaleModifier = 0.5f;
 
-        private float explosionDamage;
         private float speed;
         private float size;
-        private float damageRadius;
         private Vector3 startPoint;
         private Vector3 endPoint;
 
-        private Transform hitMark;
-        private FireParameters fireParameters;
-
         private Coroutine flyCoroutine;
+        private Explosive explosive;
 
         public void Initialize(
-            float damage,
+            float explosionDamage,
             float speed,
             float size,
             float damageRadius,
@@ -45,21 +41,28 @@ namespace Tank.Weapons.Projectiles
             FireParameters fireParameters
         )
         {
-            this.explosionDamage = damage;
             this.speed = speed;
             this.size = size;
-            this.damageRadius = damageRadius;
-            this.fireParameters = fireParameters;
             transform.localScale = new Vector3(size, size, 1f);
             startPoint = transform.position;
             endPoint = startPoint + direction;
 
             var explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
 
-            hitMark = Instantiate(hitMarkPrefab, startPoint + direction, Quaternion.identity);
+            var hitMark = Instantiate(hitMarkPrefab, startPoint + direction, Quaternion.identity);
             hitMark.localScale = explosionSize;
-            explosionParticles.transform.localScale = explosionSize;
+            explosionParticle.transform.localScale = explosionSize;
             fireParticle.transform.localScale = explosionSize;
+
+            explosive = new Explosive(
+                hitMark,
+                explosionParticle,
+                fireParticle,
+                gameObject,
+                explosionDamage,
+                damageRadius,
+                fireParameters
+            );
         }
 
         public void StartFly()
@@ -96,66 +99,9 @@ namespace Tank.Weapons.Projectiles
 
         public void StartExplosion()
         {
-            _ = StartCoroutine(Explode());
-        }
-
-        private IEnumerator Explode()
-        {
-            hitMark.gameObject.SetActive(false);
             sprite.enabled = false;
             collider2d.enabled = false;
-
-            DamageByExplode();
-
-            yield return Burn();
-
-            Destroy(
-                gameObject,
-                explosionParticles.main.duration * explosionParticles.main.startLifetimeMultiplier
-            );
-        }
-
-        private void DamageByExplode()
-        {
-            explosionParticles.Play();
-            DealDamage(explosionDamage);
-        }
-
-        private IEnumerator Burn()
-        {
-            if (fireParameters.Time <= 0)
-            {
-                yield break;
-            }
-
-            fireParticle.Play();
-
-            var fireTimer = fireParameters.Time;
-            while (fireTimer >= 0)
-            {
-                yield return new WaitForSeconds(fireParameters.FireRate);
-                DamageByFire();
-
-                fireTimer -= fireParameters.FireRate;
-                Debug.Log(fireTimer);
-            }
-        }
-
-        private void DamageByFire()
-        {
-            DealDamage(fireParameters.Damage);
-        }
-
-        private void DealDamage(float damage)
-        {
-            Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, damageRadius);
-            foreach (Collider2D collision in collisions)
-            {
-                if (collision.transform.TryGetComponent(out IEnemy enemy))
-                {
-                    enemy.TakeDamage(damage);
-                }
-            }
+            _ = StartCoroutine(explosive.Explode());
         }
 
         private float GetScale(float t)
