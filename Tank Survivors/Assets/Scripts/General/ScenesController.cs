@@ -1,6 +1,6 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

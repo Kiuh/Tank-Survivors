@@ -11,7 +11,7 @@ namespace Enemies
     public class Soldier : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        Configs.Soldier config;
+        private Configs.Soldier config;
 
         [SerializeField]
         [ReadOnly]

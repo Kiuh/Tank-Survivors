@@ -1,6 +1,6 @@
+using System.Collections;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System.Collections;
 using UnityEngine;
 
 namespace Tank.PickUps
