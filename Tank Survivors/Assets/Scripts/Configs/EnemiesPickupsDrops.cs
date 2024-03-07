@@ -10,7 +10,6 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-
 namespace Configs
 {
     [Serializable]
