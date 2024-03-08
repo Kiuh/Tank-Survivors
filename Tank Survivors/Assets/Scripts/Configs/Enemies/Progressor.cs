@@ -9,7 +9,7 @@ namespace Configs
     [CreateAssetMenu(fileName = "ProgressorConfig", menuName = "Config/ProgressorConfig")]
     public class Progressor : SerializedScriptableObject
     {
-        public enum ProgressorMode
+        public enum Mode
         {
             Source,
             Current
@@ -28,7 +28,7 @@ namespace Configs
         [OdinSerialize]
         [Unit(Units.Minute)]
         [ReadOnly]
-        public float IntervalInMinuts
+        public float IntervalInMinutes
         {
             get => interval / 60.0f;
             private set => interval = value * 60.0f;
@@ -36,7 +36,7 @@ namespace Configs
 
         [OdinSerialize]
         [EnumToggleButtons]
-        public ProgressorMode Mode { get; private set; } = ProgressorMode.Source;
+        public Mode CurrentMode { get; private set; } = Mode.Source;
 
         [OdinSerialize]
         public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();

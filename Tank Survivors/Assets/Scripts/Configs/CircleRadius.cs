@@ -37,12 +37,13 @@ namespace Configs
     {
         [OdinSerialize]
         [MinValue(0.0f)]
+        [MaxValue(nameof(Max))]
         [FoldoutGroup("CircleZone")]
         public float Min { get; private set; } = 0.0f;
 
         [OdinSerialize]
-        [MinValue(0.0f)]
         [FoldoutGroup("CircleZone")]
+        [MinValue(nameof(Min))]
         public float Max { get; private set; } = 0.0f;
     }
 }
