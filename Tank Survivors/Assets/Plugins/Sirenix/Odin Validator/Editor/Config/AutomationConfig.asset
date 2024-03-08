@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1671962818, guid: afbf832bc46149f5a291e87cab63e46d, type: 3}
   m_Name: AutomationConfig
   m_EditorClassIdentifier: 
-  OnPlayMode: 0
+  OnPlayMode: 1
   OnPlayModeIfWarnings: 0
   OnPlayModeIfErrors: 3
   OnPlayModeAlwaysCompleteValidationFully: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   OnPlayModeSetup:
     Profile: 0
     ProfileAsset: {fileID: 0}
-  OnBuild: 0
+  OnBuild: 1
   OnBuildIfWarnings: 0
   OnBuildIfErrors: 3
   OnBuildAlwaysCompleteValidationFully: 0

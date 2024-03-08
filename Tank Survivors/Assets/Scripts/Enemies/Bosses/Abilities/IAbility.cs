@@ -1,6 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using Tank;
-using UnityEngine;
 
 namespace Enemies.Bosses.Abilities
 {

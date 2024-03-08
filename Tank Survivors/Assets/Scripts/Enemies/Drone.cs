@@ -11,7 +11,7 @@ namespace Enemies
     public class Drone : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        Configs.Drone config;
+        private Configs.Drone config;
 
         [SerializeField]
         [ReadOnly]

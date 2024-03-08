@@ -99,7 +99,7 @@ namespace Assets.Scripts.Tank.Weapons
                 tank
             );
 
-            var towerDirection = tower.GetDirection();
+            Vector3 towerDirection = tower.GetDirection();
             ray.Initialize(
                 damage,
                 GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),

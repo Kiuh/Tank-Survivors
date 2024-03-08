@@ -1,6 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 
 namespace DataStructs
 {

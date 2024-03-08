@@ -1,14 +1,14 @@
-﻿using DataStructs;
+﻿using System;
+using System.Collections.Generic;
+using DataStructs;
 using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
-using System.Collections.Generic;
 using Tank.PickUps;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
 
 namespace Configs
 {
