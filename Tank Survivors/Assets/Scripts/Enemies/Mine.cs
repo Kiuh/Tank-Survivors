@@ -15,7 +15,7 @@ namespace Enemies
         private Configs.MineConfig clonedConfig;
 
         [SerializeField]
-        Configs.Mine config;
+        private Configs.Mine config;
 
         [SerializeField]
         [ReadOnly]

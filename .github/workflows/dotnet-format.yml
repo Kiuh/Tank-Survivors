@@ -1,0 +1,46 @@
+name: dotnet format
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  check-code-formatting:
+    if: github.event.pull_request.draft == false
+    runs-on: self-hosted
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:8.0
+    
+    steps:
+      - name: Remove git lfs hooks
+        run: rm -rf ./.git/hooks
+
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Creating project
+        run: cd 'Tank Survivors/Assets/Scripts' && dotnet new classlib --name TankSurvivors --output . && rm Class1.cs
+
+      - name: Move .editorconfig and .csharpierrc
+        run: cd 'Tank Survivors' && mv .editorconfig Assets/Scripts && mv .csharpierrc.json Assets/Scripts
+
+      - name: Check content
+        run: ls -a -l 'Tank Survivors/Assets/Scripts'
+
+      - name: Restore tools
+        run:  cd 'Tank Survivors/Assets/Scripts' && dotnet tool restore --tool-manifest ../../.config/dotnet-tools.json
+      
+      - name: Check dotnet format version
+        run: dotnet format --version
+
+      - name: Run dotnet format
+        run: dotnet format 'Tank Survivors/Assets/Scripts/TankSurvivors.csproj' --verify-no-changes --no-restore -v d
+      
+      - name: Run csharpier formatTank Survivors
+        run: cd 'Tank Survivors/Assets/Scripts' && dotnet tool run dotnet-csharpier --config-path ".csharpierrc.json" . --check
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref == 'refs/heads/main' && github.run_id || github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
