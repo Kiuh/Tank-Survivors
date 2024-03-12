@@ -29,10 +29,7 @@ namespace General
 
         private void Awake()
         {
-            foreach (EnemyProducer producer in gameContext.GameConfig.EnemiesConfig.EnemyProducers)
-            {
-                enemyProducers.Add(producer.Producer);
-            }
+            enemyProducers = gameContext.GameConfig.EnemiesConfig.EnemyProducers.ToList();
             bossProducers = gameContext.GameConfig.EnemiesConfig.BossProducers.ToList();
         }
 

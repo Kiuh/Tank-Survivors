@@ -40,7 +40,5 @@ namespace Configs
 
         [OdinSerialize]
         public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
-
-        public float LastUpdateTime { get; set; }
     }
 }

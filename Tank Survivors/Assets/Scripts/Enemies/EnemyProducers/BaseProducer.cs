@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -33,6 +34,11 @@ namespace Enemies.Producers
             CloneModules(Enemy.Modules, Modules);
         }
 
+        [OdinSerialize]
+        [FoldoutGroup("Progressor")]
+        public Progressor Progressor { get; set; }
+        public float ProgressorTimer { get; set; } = 0.0f;
+
         private bool EnemiesFilter(GameObject obj)
         {
             return obj.TryGetComponent<IEnemy>(out _);
@@ -42,6 +48,19 @@ namespace Enemies.Producers
         {
             target.Clear();
             source.ForEach(module => target.Add(module.Clone()));
+        }
+
+        protected void UpgragdeStats()
+        {
+            int applyCount = (int)(ProgressorTimer / Progressor.Interval);
+            foreach (IModuleUpgrade upgrade in Progressor.UpgradebleModules)
+            {
+                for (int i = 0; i < applyCount; i++)
+                {
+                    upgrade.ApplyUpgrade(this);
+                }
+            }
+            ProgressorTimer -= applyCount * Progressor.Interval;
         }
 
         public abstract float StartTime { get; }

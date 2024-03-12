@@ -1,6 +1,7 @@
 using System;
 using Common;
 using DataStructs;
+using Enemies.Producers;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using static Configs.Progressor;
@@ -10,7 +11,7 @@ namespace Enemies
     [HideReferenceObjectPicker]
     public interface IModuleUpgrade
     {
-        public void ApplyUpgrade(EnemyProducer producer);
+        public void ApplyUpgrade(IEnemyProducer producer);
     }
 
     [Serializable]
@@ -25,23 +26,27 @@ namespace Enemies
         [OdinSerialize]
         [EnumToggleButtons]
         public MathOperation Operation { get; private set; } = MathOperation.Plus;
-        public abstract void ApplyUpgrade(EnemyProducer producer);
+        public abstract void ApplyUpgrade(IEnemyProducer producer);
+
+        protected T GetModule<T>(IEnemyProducer producer)
+            where T : class, IModule
+        {
+            T module = producer.Modules.GetConcrete<T, IModule>();
+            return module;
+        }
     }
 
     [Serializable]
     [LabelText("Movement")]
     public class MovementUpgrade : BaseModuleUpgrade
     {
-        public override void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(IEnemyProducer producer)
         {
-            MovementModule module = producer.Producer.Modules.GetConcrete<
-                MovementModule,
-                IModule
-            >();
+            MovementModule module = GetModule<MovementModule>(producer);
             if (module != null)
             {
                 float value = Persent;
-                if (producer.Progressor.Mode == ProgressorMode.Current)
+                if (producer.Progressor.CurrentMode == Mode.Current)
                 {
                     value *= module.Speed.GetModifiedValue();
                 }
@@ -60,13 +65,13 @@ namespace Enemies
     [LabelText("Health")]
     public class HealthUpgrade : BaseModuleUpgrade
     {
-        public override void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(IEnemyProducer producer)
         {
-            HealthModule module = producer.Producer.Modules.GetConcrete<HealthModule, IModule>();
+            HealthModule module = GetModule<HealthModule>(producer);
             if (module != null)
             {
                 float value = Persent;
-                if (producer.Progressor.Mode == ProgressorMode.Current)
+                if (producer.Progressor.CurrentMode == Mode.Current)
                 {
                     value *= module.Health.GetModifiedValue();
                 }
@@ -85,16 +90,13 @@ namespace Enemies
     [LabelText("Cooldown")]
     public class CooldownUpgrade : BaseModuleUpgrade
     {
-        public override void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(IEnemyProducer producer)
         {
-            AttackCooldownModule module = producer.Producer.Modules.GetConcrete<
-                AttackCooldownModule,
-                IModule
-            >();
+            AttackCooldownModule module = GetModule<AttackCooldownModule>(producer);
             if (module != null)
             {
                 float value = Persent;
-                if (producer.Progressor.Mode == ProgressorMode.Current)
+                if (producer.Progressor.CurrentMode == Mode.Current)
                 {
                     value *= module.Cooldown.GetModifiedValue();
                 }
@@ -113,16 +115,13 @@ namespace Enemies
     [LabelText("XP")]
     public class ExpeirienceUpgrade : BaseModuleUpgrade
     {
-        public override void ApplyUpgrade(EnemyProducer producer)
+        public override void ApplyUpgrade(IEnemyProducer producer)
         {
-            ExperienceModule module = producer.Producer.Modules.GetConcrete<
-                ExperienceModule,
-                IModule
-            >();
+            ExperienceModule module = GetModule<ExperienceModule>(producer);
             if (module != null)
             {
                 float value = Persent;
-                if (producer.Progressor.Mode == ProgressorMode.Current)
+                if (producer.Progressor.CurrentMode == Mode.Current)
                 {
                     value *= module.DropAmount.GetModifiedValue();
                 }

@@ -32,8 +32,10 @@ namespace Enemies.Producers
         public override void Produce(TankImpl tank, Transform enemyRoot)
         {
             timer -= Time.deltaTime;
+            ProgressorTimer += Time.deltaTime;
             if (timer < 0)
             {
+                UpgragdeStats();
                 IEnemy enemy = UnityEngine
                     .Object.Instantiate(
                         EnemyPrefab,
