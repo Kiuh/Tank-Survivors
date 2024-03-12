@@ -71,7 +71,7 @@ namespace General
         private void GenerateBoss()
         {
             BossProducer producerToRemove = null;
-            foreach (var producer in bossProducers)
+            foreach (BossProducer producer in bossProducers)
             {
                 if (timer.CurrentTime >= producer.StartTime)
                 {

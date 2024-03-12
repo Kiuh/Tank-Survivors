@@ -101,7 +101,7 @@ namespace Tank.Weapons
 
         private void FireProjectile()
         {
-            var towerDirection = tower.GetDirection();
+            Vector3 towerDirection = tower.GetDirection();
             Vector3 spreadDirection = GetSpreadDirection(
                 towerDirection,
                 GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()

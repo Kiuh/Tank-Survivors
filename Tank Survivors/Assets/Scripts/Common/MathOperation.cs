@@ -1,5 +1,5 @@
-using DataStructs;
 using System;
+using DataStructs;
 
 namespace Common
 {
