@@ -1,74 +1,60 @@
 ﻿using System;
+using Configs;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
+using static Configs.CircleRadius;
 
 namespace Enemies.Producers
 {
     [Serializable]
-    public class DefaultEnemyProducer : IEnemyProducer
+    [LabelText("DefaultEnemyProducer")]
+    public class DefaultEnemyProducer : BaseProducer
     {
-        [AssetsOnly]
-        [SerializeField]
-        [AssetList(CustomFilterMethod = "EnemiesFilter")]
-        [FoldoutGroup("DefaultEnemyProducer")]
-        private GameObject enemyPrefab;
-
-        private bool EnemiesFilter(GameObject obj)
-        {
-            return obj.TryGetComponent<IEnemy>(out _);
-        }
-
         [SerializeField]
         [Unit(Units.Second)]
-        [FoldoutGroup("DefaultEnemyProducer")]
         private float spawnInterval;
 
-        [SerializeField]
-        [FoldoutGroup("DefaultEnemyProducer")]
-        private float startCircleRadius;
+        [OdinSerialize]
+        [EnumToggleButtons]
+        private Preset radiusPreset;
+
+        [OdinSerialize]
+        private CircleRadius radius;
 
         [SerializeField]
-        [FoldoutGroup("DefaultEnemyProducer")]
-        private float endCircleRadius;
-
-        [SerializeField]
-        [FoldoutGroup("DefaultEnemyProducer")]
         private float startTime;
 
         [SerializeField]
-        [FoldoutGroup("DefaultEnemyProducer")]
         private float endTime;
 
         private float timer = 0;
 
-        public float StartTime => startTime;
+        public override float StartTime => startTime;
 
-        public float EndTime => endTime;
+        public override float EndTime => endTime;
 
-        public void Produce(TankImpl tank, Transform enemyRoot)
+        public override void Produce(TankImpl tank, Transform enemyRoot)
         {
             timer -= Time.deltaTime;
+            ProgressorTimer += Time.deltaTime;
             if (timer < 0)
             {
-                UnityEngine
+                UpgragdeStats();
+                IEnemy enemy = UnityEngine
                     .Object.Instantiate(
-                        enemyPrefab,
-                        tank.transform.position + GetRandomPoint(),
+                        EnemyPrefab,
+                        tank.transform.position
+                            + radius.GetCircleZone(radiusPreset).GetRandomPoint(),
                         Quaternion.identity,
                         enemyRoot
                     )
-                    .GetComponent<IEnemy>()
-                    .Initialize(tank);
+                    .GetComponent<IEnemy>();
+                CloneModules(Modules, enemy.Modules);
+                enemy.Initialize(tank);
                 timer = spawnInterval;
             }
-        }
-
-        private Vector3 GetRandomPoint()
-        {
-            Vector2 point = UnityEngine.Random.insideUnitCircle;
-            return (point * (endCircleRadius - startCircleRadius))
-                + (point.normalized * startCircleRadius);
         }
     }
 }

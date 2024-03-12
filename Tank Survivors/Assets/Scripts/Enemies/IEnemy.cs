@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Tank;
 
 namespace Enemies
@@ -9,5 +10,6 @@ namespace Enemies
         public void Initialize(TankImpl tank);
         public void TakeDamage(float damageAmount);
         public event Action OnDeath;
+        public List<IModule> Modules { get; set; }
     }
 }
