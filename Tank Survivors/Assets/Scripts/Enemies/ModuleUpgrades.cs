@@ -31,8 +31,7 @@ namespace Enemies
         protected T GetModule<T>(IEnemyProducer producer)
             where T : class, IModule
         {
-            T module = producer.Modules.GetConcrete<T, IModule>();
-            return module;
+            return producer.Modules.GetConcrete<T, IModule>();
         }
     }
 

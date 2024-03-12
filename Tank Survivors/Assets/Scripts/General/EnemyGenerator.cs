@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataStructs;
 using Enemies.EnemyProducers;
 using Enemies.Producers;
 using Tank;
@@ -25,7 +24,7 @@ namespace General
 
         private List<IEnemyProducer> enemyProducers = new();
         private List<IEnemyProducer> toRemove = new();
-        private List<BossProducer> bossProducers;
+        private List<BossProducer> bossProducers = new();
 
         private void Awake()
         {
@@ -71,7 +70,7 @@ namespace General
         private void GenerateBoss()
         {
             BossProducer producerToRemove = null;
-            foreach (var producer in bossProducers)
+            foreach (BossProducer producer in bossProducers)
             {
                 if (timer.CurrentTime >= producer.StartTime)
                 {

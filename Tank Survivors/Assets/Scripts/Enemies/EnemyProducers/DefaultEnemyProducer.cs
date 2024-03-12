@@ -45,7 +45,8 @@ namespace Enemies.Producers
                 IEnemy enemy = UnityEngine
                     .Object.Instantiate(
                         EnemyPrefab,
-                        tank.transform.position + GetRandomPoint(),
+                        tank.transform.position
+                            + radius.GetCircleZone(radiusPreset).GetRandomPoint(),
                         Quaternion.identity,
                         enemyRoot
                     )
@@ -54,14 +55,6 @@ namespace Enemies.Producers
                 enemy.Initialize(tank);
                 timer = spawnInterval;
             }
-        }
-
-        private Vector3 GetRandomPoint()
-        {
-            CircleZone boundsRadius = radius.GetCircleZone(radiusPreset);
-            Vector2 point = UnityEngine.Random.insideUnitCircle;
-            return (point * (boundsRadius.Max - boundsRadius.Min))
-                + (point.normalized * boundsRadius.Min);
         }
     }
 }

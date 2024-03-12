@@ -45,5 +45,11 @@ namespace Configs
         [FoldoutGroup("CircleZone")]
         [MinValue(nameof(Min))]
         public float Max { get; private set; } = 0.0f;
+
+        public Vector3 GetRandomPoint()
+        {
+            Vector2 point = UnityEngine.Random.insideUnitCircle;
+            return (point * (Max - Min)) + (point.normalized * Min);
+        }
     }
 }
