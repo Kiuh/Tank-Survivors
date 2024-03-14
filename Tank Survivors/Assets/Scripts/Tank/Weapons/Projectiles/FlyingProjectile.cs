@@ -1,5 +1,7 @@
 using System.Collections;
+using Common;
 using Enemies;
+using Tank.Towers;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -32,7 +34,40 @@ namespace Tank.Weapons.Projectiles
         private Coroutine flyCoroutine;
         private Explosive explosive;
 
-        public void Initialize(
+        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        {
+            float damage = weapon.GetModifiedDamage(
+                weapon.GetModule<DamageModule>().Damage,
+                weapon.GetModule<CriticalChanceModule>().CriticalChance,
+                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            var towerDirection = tower.GetDirection();
+            Vector3 spreadDirection =
+                weapon.GetSpreadDirection(
+                    towerDirection,
+                    weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                )
+                * weapon
+                    .GetModule<FireRangeModule>()
+                    .FireRange.GetPercentagesValue(tank.RangeModifier);
+
+            FireParameters fireParameters = GetFireParameters(weapon, tank);
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
+                weapon
+                    .GetModule<ProjectileSizeModule>()
+                    .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
+                weapon.GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
+                spreadDirection,
+                fireParameters
+            );
+        }
+
+        private void InitializeInternal(
             float explosionDamage,
             float speed,
             float size,
@@ -65,7 +100,7 @@ namespace Tank.Weapons.Projectiles
             );
         }
 
-        public void StartFly()
+        public void Shoot()
         {
             flyCoroutine = StartCoroutine(Fly(Time.time));
         }
@@ -107,6 +142,18 @@ namespace Tank.Weapons.Projectiles
         private float GetScale(float t)
         {
             return size + 2f * scaleModifier * (t < 0.5f ? t : (1 - t));
+        }
+
+        private FireParameters GetFireParameters(GunBase weapon, TankImpl tank)
+        {
+            return new FireParameters()
+            {
+                Damage = weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                Time = weapon.GetModule<ProjectileFireTimerModule>().Time.GetModifiedValue(),
+                FireRate = weapon
+                    .GetModule<FireFireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier)
+            };
         }
     }
 }

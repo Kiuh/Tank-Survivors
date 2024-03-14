@@ -38,6 +38,9 @@ namespace Tank.Weapons
         [ShowInInspector]
         private List<LevelUpWeaponUpgrade> levelUpUpgrades = new();
 
+        protected TankImpl Tank;
+        protected EnemyFinder EnemyFinder;
+
         public T GetModule<T>()
             where T : class, IWeaponModule
         {
@@ -88,16 +91,16 @@ namespace Tank.Weapons
             }
         }
 
-        protected Vector3 GetSpreadDirection(Vector3 direction, float angle)
+        public Vector3 GetSpreadDirection(Vector3 direction, float angle)
         {
             Quaternion rotation = Quaternion.AngleAxis(
-                UnityEngine.Random.Range(-angle, angle),
+                Random.Range(-angle, angle),
                 Vector3.forward
             );
             return rotation * direction;
         }
 
-        protected float GetModifiedDamage(
+        public float GetModifiedDamage(
             ModifiableValue<float> damage,
             ModifiableValue<Percentage> criticalChance,
             ModifiableValue<Percentage> criticalMultiplier,
@@ -130,7 +133,7 @@ namespace Tank.Weapons
             T tower = Object.Instantiate(towerModule.TowerPrefab, transform);
             towerModule.Tower = tower;
 
-            tower.Initialize(this, spawnVariation);
+            tower.Initialize(Tank, EnemyFinder, this, spawnVariation);
 
             return tower;
         }

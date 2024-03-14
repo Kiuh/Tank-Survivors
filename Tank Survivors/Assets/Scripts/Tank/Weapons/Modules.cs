@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -72,14 +73,13 @@ namespace Tank.Weapons
         public ModifiableValue<Percentage> CriticalMultiplier { get; private set; } = new();
     }
 
-    public class ProjectileModule<T> : IWeaponModule
-        where T : IProjectile
+    public class ProjectileModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
         [AssetList]
         [FoldoutGroup("Projectile")]
-        public T ProjectilePrefab { get; private set; }
+        public Transform ProjectilePrefab { get; private set; }
     }
 
     public class ProjectileSpeedModule : IWeaponModule

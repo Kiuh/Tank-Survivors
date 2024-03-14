@@ -1,3 +1,5 @@
+using Common;
+using Tank.Towers;
 using UnityEngine;
 
 public struct FireParameters
@@ -20,6 +22,7 @@ namespace Tank.Weapons.Projectiles
         [SerializeField]
         private ParticleSystem fireParticle;
 
+        private GunBase weapon;
         private Explosive explosive;
 
         public void StartExplosion(float timeBeforeExplode)
@@ -27,7 +30,7 @@ namespace Tank.Weapons.Projectiles
             _ = StartCoroutine(explosive.Explode(timeBeforeExplode));
         }
 
-        public void Initialize(
+        public void InitializeInternal(
             float explosionDamage,
             float damageRadius,
             FireParameters fireParameters
@@ -48,6 +51,36 @@ namespace Tank.Weapons.Projectiles
             hitMark.localScale = explosionSize;
             explosionParticle.transform.localScale = explosionSize;
             fireParticle.transform.localScale = explosionSize;
+        }
+
+        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        {
+            this.weapon = weapon;
+
+            float damage = weapon
+                .GetModule<SelfExplosionDamageModule>()
+                .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
+                .GetModifiedValue();
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
+                new FireParameters()
+                {
+                    Damage = weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                    Time = weapon.GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
+                    FireRate = weapon
+                        .GetModule<FireFireRateModule>()
+                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                }
+            );
+        }
+
+        public void Shoot()
+        {
+            StartExplosion(
+                weapon.GetModule<SelfExplosionHitMarkTimerModule>().Time.GetModifiedValue()
+            );
         }
     }
 }

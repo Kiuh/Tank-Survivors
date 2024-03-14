@@ -1,4 +1,6 @@
+using Common;
 using Enemies;
+using Tank.Towers;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -12,23 +14,6 @@ namespace Tank.Weapons.Projectiles
         private Vector3 direction;
 
         private Vector3 startPosition;
-
-        public void Initialize(
-            float damage,
-            float speed,
-            float size,
-            float fireRange,
-            int penetration,
-            Vector3 direction
-        )
-        {
-            this.damage = damage;
-            this.speed = speed;
-            transform.localScale = new Vector3(size, size, 1);
-            this.fireRange = fireRange;
-            this.penetration = penetration;
-            this.direction = direction.normalized;
-        }
 
         private void Start()
         {
@@ -56,5 +41,53 @@ namespace Tank.Weapons.Projectiles
                 }
             }
         }
+
+        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        {
+            var towerDirection = tower.GetDirection();
+            Vector3 spreadDirection = weapon.GetSpreadDirection(
+                towerDirection,
+                weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+            );
+
+            float damage = weapon.GetModifiedDamage(
+                weapon.GetModule<DamageModule>().Damage,
+                weapon.GetModule<CriticalChanceModule>().CriticalChance,
+                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
+                weapon
+                    .GetModule<ProjectileSizeModule>()
+                    .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
+                weapon
+                    .GetModule<FireRangeModule>()
+                    .FireRange.GetPercentagesValue(tank.RangeModifier),
+                weapon.GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
+                spreadDirection
+            );
+        }
+
+        private void InitializeInternal(
+            float damage,
+            float speed,
+            float size,
+            float fireRange,
+            int penetration,
+            Vector3 direction
+        )
+        {
+            this.damage = damage;
+            this.speed = speed;
+            transform.localScale = new Vector3(size, size, 1);
+            this.fireRange = fireRange;
+            this.penetration = penetration;
+            this.direction = direction.normalized;
+        }
+
+        public void Shoot() { }
     }
 }

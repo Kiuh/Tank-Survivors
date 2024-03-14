@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Common;
 using Tank.Towers;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -79,7 +78,7 @@ namespace Tank.Weapons
                 new CriticalMultiplierModule(),
                 new FireRangeModule(),
                 new PenetrationModule(),
-                new ProjectileModule<SimpleProjectile>(),
+                new ProjectileModule(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
@@ -102,30 +101,10 @@ namespace Tank.Weapons
 
         private void FireProjectile()
         {
-            var towerDirection = tower.GetDirection();
-            Vector3 spreadDirection = GetSpreadDirection(
-                towerDirection,
-                GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-            );
+            var projectile = tower.GetProjectile();
 
-            SimpleProjectile projectile = projectileSpawner.Spawn<SimpleProjectile>();
-
-            float damage = GetModifiedDamage(
-                GetModule<DamageModule>().Damage,
-                GetModule<CriticalChanceModule>().CriticalChance,
-                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                tank
-            );
-
-            projectile.Initialize(
-                damage,
-                GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                GetModule<ProjectileSizeModule>()
-                    .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
-                GetModule<FireRangeModule>().FireRange.GetPercentagesValue(tank.RangeModifier),
-                GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
-                spreadDirection
-            );
+            projectile.Initialize(this, tank, tower);
+            projectile.Shoot();
         }
     }
 }

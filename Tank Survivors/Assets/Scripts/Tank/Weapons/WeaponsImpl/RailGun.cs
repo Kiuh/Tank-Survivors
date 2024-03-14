@@ -4,7 +4,6 @@ using Common;
 using Tank;
 using Tank.Towers;
 using Tank.Weapons;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Assets.Scripts.Tank.Weapons
@@ -36,10 +35,10 @@ namespace Assets.Scripts.Tank.Weapons
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                RayRenderer ray = mainTower.GetProjectile<RayRenderer>();
-                var towerDirection = mainTower.GetDirection();
+                var ray = mainTower.GetProjectile();
 
-                RailGunFireProjectile(ray, towerDirection);
+                ray.Initialize(this, tank, mainTower);
+                ray.Shoot();
             }
         }
 
@@ -78,32 +77,11 @@ namespace Assets.Scripts.Tank.Weapons
                 new CriticalChanceModule(),
                 new CriticalMultiplierModule(),
                 new FireRangeModule(),
-                new ProjectileModule<RayRenderer>(),
+                new ProjectileModule(),
                 new RayDurationModule(),
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
             };
-        }
-
-        private void RailGunFireProjectile(RayRenderer ray, Vector3 direction)
-        {
-            float fireRange = GetModule<FireRangeModule>()
-                .FireRange.GetPercentagesValue(tank.RangeModifier);
-
-            float damage = GetModifiedDamage(
-                GetModule<DamageModule>().Damage,
-                GetModule<CriticalChanceModule>().CriticalChance,
-                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                tank
-            );
-
-            ray.Initialize(
-                damage,
-                GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                mainTower.GetShotPoint(),
-                tank.transform.position + (direction.normalized * fireRange)
-            );
-            ray.Show();
         }
     }
 }

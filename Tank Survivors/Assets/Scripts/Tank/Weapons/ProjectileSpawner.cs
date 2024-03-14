@@ -21,40 +21,37 @@ namespace Tank.Weapons
             this.tower = tower;
         }
 
-        public T Spawn<T>(SpawnVariation spawnVariation, Transform parent)
-            where T : MonoBehaviour, IProjectile
+        public IProjectile Spawn(SpawnVariation spawnVariation, Transform parent)
         {
             switch (spawnVariation)
             {
                 case SpawnVariation.Connected:
-                    return SpawnConnected<T>(parent);
+                    return SpawnConnected(parent);
                 case SpawnVariation.Disconnected:
-                    return Spawn<T>();
+                    return Spawn();
                 default:
                     return null;
             }
         }
 
-        public T Spawn<T>()
-            where T : MonoBehaviour, IProjectile
+        public IProjectile Spawn()
         {
             return Object.Instantiate(
-                weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab,
-                tower.GetShotPoint(),
-                Quaternion.identity
-            );
+                    weapon.GetModule<ProjectileModule>().ProjectilePrefab,
+                    tower.GetShotPoint(),
+                    Quaternion.identity
+                ) as IProjectile;
         }
 
-        public T SpawnConnected<T>(Transform parent)
-            where T : MonoBehaviour, IProjectile
+        public IProjectile SpawnConnected(Transform parent)
         {
-            return SpawnConnected(weapon.GetModule<ProjectileModule<T>>().ProjectilePrefab, parent);
+            return SpawnConnected(weapon.GetModule<ProjectileModule>().ProjectilePrefab, parent);
         }
 
-        public T SpawnConnected<T>(T prefab, Transform parent)
-            where T : MonoBehaviour, IProjectile
+        public IProjectile SpawnConnected(Transform prefab, Transform parent)
         {
-            return Object.Instantiate(prefab, tower.GetShotPoint(), Quaternion.identity, parent);
+            return Object.Instantiate(prefab, tower.GetShotPoint(), Quaternion.identity, parent)
+                as IProjectile;
         }
     }
 }

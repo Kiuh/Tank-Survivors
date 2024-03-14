@@ -15,6 +15,8 @@ namespace Tank.Towers
         private int currentShotPoint = 0;
         private SpawnVariation spawnVariation;
         private GunBase weapon;
+        private TankImpl tank;
+        private EnemyFinder enemyFinder;
 
         public ProjectileSpawner ProjectileSpawner { get; private set; }
 
@@ -55,17 +57,28 @@ namespace Tank.Towers
             spawnVariation = newSpawnVariation;
         }
 
-        public void Initialize(GunBase weapon, SpawnVariation spawnVariation)
+        public void Initialize(
+            TankImpl tank,
+            EnemyFinder enemyFinder,
+            GunBase weapon,
+            SpawnVariation spawnVariation
+        )
         {
+            this.tank = tank;
+            this.enemyFinder = enemyFinder;
             this.weapon = weapon;
             this.spawnVariation = spawnVariation;
             ProjectileSpawner = new(weapon, this);
         }
 
-        public T GetProjectile<T>()
-            where T : MonoBehaviour, IProjectile
+        public IProjectile GetProjectile()
         {
-            return ProjectileSpawner.Spawn<T>(spawnVariation, transform);
+            return ProjectileSpawner.Spawn(spawnVariation, transform);
+        }
+
+        public void ProceedAttack()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

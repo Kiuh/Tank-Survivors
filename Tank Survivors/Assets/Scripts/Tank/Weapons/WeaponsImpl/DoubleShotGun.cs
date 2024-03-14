@@ -75,7 +75,7 @@ namespace Tank.Weapons
                 new CriticalMultiplierModule(),
                 new FireRangeModule(),
                 new PenetrationModule(),
-                new ProjectileModule<SimpleProjectile>(),
+                new ProjectileModule(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
@@ -93,14 +93,14 @@ namespace Tank.Weapons
 
             for (int i = 0; i < projectileCount; i++)
             {
-                SimpleProjectile projectile = doubleShotTower.GetProjectile<SimpleProjectile>();
+                var projectile = doubleShotTower.GetProjectile();
 
                 var towerDirection = doubleShotTower.GetDirection();
                 Vector3 spreadDirection = GetSpreadDirection(
                     towerDirection,
                     GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                 );
-                FireProjectile(projectile, spreadDirection);
+                //FireProjectile(projectile, spreadDirection);
             }
         }
 
@@ -113,7 +113,7 @@ namespace Tank.Weapons
                 tank
             );
 
-            projectile.Initialize(
+            /*projectile.Initialize(
                 damage,
                 GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
                 GetModule<ProjectileSizeModule>()
@@ -121,7 +121,7 @@ namespace Tank.Weapons
                 GetModule<FireRangeModule>().FireRange.GetPercentagesValue(tank.RangeModifier),
                 GetModule<PenetrationModule>().Penetration.GetModifiedValue(),
                 spreadDirection
-            );
+            );*/
         }
     }
 }
