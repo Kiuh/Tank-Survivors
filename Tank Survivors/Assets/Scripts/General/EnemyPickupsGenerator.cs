@@ -1,10 +1,10 @@
-﻿using Configs;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Configs;
 using DataStructs;
 using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System.Collections.Generic;
-using System.Linq;
 using Tank.PickUps;
 using UnityEngine;
 
@@ -27,8 +27,8 @@ namespace General
         public void GeneratePickup(IEnemy enemy, Transform position)
         {
             if (
-                enemiesPickups.EnemiesPickupsChances.Keys
-                    .Where(x => x.Name == enemy.EnemyName)
+                enemiesPickups
+                    .EnemiesPickupsChances.Keys.Where(x => x.Name == enemy.EnemyName)
                     .Count() > 0
             )
             {
@@ -39,8 +39,8 @@ namespace General
                     if (item.Value.TryChance())
                     {
                         _ = Instantiate(
-                            pickUps.First(
-                                x => x.GetComponent<IPickUp>().PickupName == item.Key.Name
+                            pickUps.First(x =>
+                                x.GetComponent<IPickUp>().PickupName == item.Key.Name
                             ),
                             position.position,
                             Quaternion.identity

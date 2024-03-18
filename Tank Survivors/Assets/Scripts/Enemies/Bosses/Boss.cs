@@ -24,6 +24,7 @@ namespace Enemies.Bosses
         public event Action OnDeath;
 
         public string EnemyName { get; private set; }
+        public List<IModule> Modules { get; set; }
 
         public void Initialize(TankImpl tank)
         {

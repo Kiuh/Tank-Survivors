@@ -147,7 +147,7 @@ namespace Tank.Weapons.Projectiles
 
         private float GetScale(float t)
         {
-            return size + 2f * scaleModifier * (t < 0.5f ? t : (1 - t));
+            return size + (2f * scaleModifier * (t < 0.5f ? t : (1 - t)));
         }
 
         private FireParameters GetFireParameters(GunBase weapon, TankImpl tank)

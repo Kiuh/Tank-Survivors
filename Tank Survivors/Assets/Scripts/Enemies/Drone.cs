@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -11,7 +12,7 @@ namespace Enemies
     public class Drone : SerializedMonoBehaviour, IEnemy
     {
         [SerializeField]
-        Configs.Drone config;
+        private Configs.Drone config;
 
         [SerializeField]
         [ReadOnly]
@@ -47,6 +48,7 @@ namespace Enemies
 
         [OdinSerialize]
         public string EnemyName { get; private set; }
+        public List<IModule> Modules { get; set; }
 
         public event Action OnDeath;
 

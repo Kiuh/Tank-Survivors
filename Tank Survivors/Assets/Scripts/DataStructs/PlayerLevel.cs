@@ -1,8 +1,8 @@
-﻿using Common;
+﻿using System;
+using Common;
 using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 using UnityEngine;
 
 namespace DataStructs

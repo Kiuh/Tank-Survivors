@@ -1,8 +1,8 @@
-﻿using Common;
+﻿using System;
+using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using System;
 
 namespace Tank.Upgrades
 {

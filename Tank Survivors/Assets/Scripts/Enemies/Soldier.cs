@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Common;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -10,120 +13,108 @@ namespace Enemies
     [AddComponentMenu("Enemies.Soldier")]
     public class Soldier : SerializedMonoBehaviour, IEnemy
     {
-        [SerializeField]
-        Configs.Soldier config;
-
-        [SerializeField]
-        [ReadOnly]
-        [InlineProperty]
-        private Configs.SoliderConfig clonedConfig;
-
-        [SerializeField]
-        [ReadOnly]
-        private TankImpl tank;
-
-        [SerializeField]
-        private Rigidbody2D enemyRigidBody;
-
-        [SerializeField]
-        [ReadOnly]
-        private Vector2 movementDirection;
-
-        [SerializeField]
-        [ReadOnly]
-        private bool isTouchingTank;
-
-        [SerializeField]
-        [ReadOnly]
-        private bool isMoving;
-
         [OdinSerialize]
         public string EnemyName { get; private set; }
 
+        private SoliderConfig stats;
+
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("Modules")]
+        public List<IModule> Modules { get; set; }
+
         public event Action OnDeath;
+
+        private TankImpl tank;
+        private bool touchingEnemy = false;
 
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
-
-            clonedConfig = config.Config;
-
+            stats.Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
+            stats.Damage = Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            stats.ExperienceDropAmount = Modules
+                .GetConcrete<ExperienceModule, IModule>()
+                .DropAmount.GetModifiedValue();
+            stats.TimeForNextHit = Modules
+                .GetConcrete<AttackCooldownModule, IModule>()
+                .Cooldown.GetModifiedValue();
+            stats.MovementSpeed = Modules
+                .GetConcrete<MovementModule, IModule>()
+                .Speed.GetModifiedValue();
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
-            StartMovement();
         }
 
-        public void StartMovement()
+        private void FixedUpdate()
         {
-            isMoving = true;
-            _ = StartCoroutine(Move());
+            Vector3 direction = GetDirectionToTank();
+            RotateToTank(direction);
+            transform.position += direction * stats.MovementSpeed * Time.fixedDeltaTime;
         }
 
-        public void StopMovement()
+        private Vector2 GetDirectionToTank()
         {
-            isMoving = false;
-            StopCoroutine(Move());
+            return (tank.transform.position - transform.position).normalized;
         }
 
-        public IEnumerator Move()
+        private void RotateToTank(Vector2 direction)
         {
-            while (isMoving)
-            {
-                CalculateDirectionToTank();
-                RotateToTank();
-                enemyRigidBody.MovePosition(
-                    enemyRigidBody.position + (movementDirection * Time.fixedDeltaTime)
-                );
-                yield return new WaitForFixedUpdate();
-            }
-        }
-
-        private void CalculateDirectionToTank()
-        {
-            Vector2 direction = tank.transform.position - transform.position;
-            movementDirection = direction.normalized * clonedConfig.MovementSpeed;
-        }
-
-        private void RotateToTank()
-        {
-            float rotationAngle =
-                Mathf.Atan2(movementDirection.x, movementDirection.y) * Mathf.Rad2Deg;
+            float rotationAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             transform.eulerAngles = Vector3.forward * -rotationAngle;
-        }
-
-        private IEnumerator DealDamage()
-        {
-            while (isTouchingTank)
-            {
-                tank.TakeDamage(clonedConfig.Damage);
-                yield return new WaitForSeconds(clonedConfig.TimeForNextHit);
-            }
         }
 
         public void TakeDamage(float damageAmount)
         {
-            clonedConfig.Health -= damageAmount;
-            if (clonedConfig.Health <= 0)
+            stats.Health -= damageAmount;
+            if (stats.Health <= 0)
             {
-                clonedConfig.Health = 0;
                 OnDeath?.Invoke();
+            }
+        }
+
+        [Button]
+        [FoldoutGroup("Modules")]
+        private void RefreshModules()
+        {
+            Modules = new()
+            {
+                new MovementModule(),
+                new DamageModule(),
+                new AttackCooldownModule(),
+                new ExperienceModule(),
+                new HealthModule()
+            };
+        }
+
+        private IEnumerator DealDamage()
+        {
+            while (touchingEnemy)
+            {
+                tank.TakeDamage(stats.Damage);
+                yield return new WaitForSeconds(stats.TimeForNextHit);
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent(out TankImpl _))
+            if (collision.gameObject.TryGetComponent<TankImpl>(out _))
             {
-                isTouchingTank = true;
+                touchingEnemy = true;
                 _ = StartCoroutine(DealDamage());
             }
         }
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.TryGetComponent(out TankImpl _))
+            if (collision.gameObject.TryGetComponent<TankImpl>(out _))
             {
-                isTouchingTank = false;
+                touchingEnemy = false;
             }
         }
     }

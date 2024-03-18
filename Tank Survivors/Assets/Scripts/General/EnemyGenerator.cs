@@ -22,9 +22,9 @@ namespace General
         [SerializeField]
         private TankImpl tank;
 
-        private List<IEnemyProducer> enemyProducers;
+        private List<IEnemyProducer> enemyProducers = new();
         private List<IEnemyProducer> toRemove = new();
-        private List<BossProducer> bossProducers;
+        private List<BossProducer> bossProducers = new();
 
         private void Awake()
         {
@@ -70,7 +70,7 @@ namespace General
         private void GenerateBoss()
         {
             BossProducer producerToRemove = null;
-            foreach (var producer in bossProducers)
+            foreach (BossProducer producer in bossProducers)
             {
                 if (timer.CurrentTime >= producer.StartTime)
                 {
