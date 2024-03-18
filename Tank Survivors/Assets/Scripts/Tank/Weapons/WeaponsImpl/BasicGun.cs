@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Tank.Towers;
-using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -9,7 +8,6 @@ namespace Tank.Weapons
     public class BasicGun : GunBase
     {
         private SingleShotTower tower;
-        private float remainingTime = 0f;
 
         public override void ProceedAttack()
         {
@@ -19,7 +17,7 @@ namespace Tank.Weapons
         public override void Initialize(TankImpl tank, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
-            base.Tank = tank;
+            Tank = tank;
             EnemyFinder = enemyFinder;
             CreateGun();
         }
@@ -32,8 +30,7 @@ namespace Tank.Weapons
 
         public override void DestroyGun()
         {
-            GetModule<TowerModule<SingleShotTower>>().Tower = null;
-            GameObject.Destroy(tower.gameObject);
+            DestroyTower(tower);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)

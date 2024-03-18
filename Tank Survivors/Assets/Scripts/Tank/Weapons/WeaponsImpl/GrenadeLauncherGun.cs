@@ -40,7 +40,7 @@ namespace Tank.Weapons
 
         public override void DestroyGun()
         {
-            GameObject.Destroy(tower.gameObject);
+            DestroyTower(tower);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)
