@@ -4,7 +4,9 @@ using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
 using Tank.UpgradablePiece;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -36,6 +38,9 @@ namespace Tank.Weapons
         [OdinSerialize]
         [ShowInInspector]
         private List<LevelUpWeaponUpgrade> levelUpUpgrades = new();
+
+        protected TankImpl Tank;
+        protected EnemyFinder EnemyFinder;
 
         public T GetModule<T>()
             where T : class, IWeaponModule
@@ -87,16 +92,16 @@ namespace Tank.Weapons
             }
         }
 
-        protected Vector3 GetSpreadDirection(Vector3 direction, float angle)
+        public Vector3 GetSpreadDirection(Vector3 direction, float angle)
         {
             Quaternion rotation = Quaternion.AngleAxis(
-                UnityEngine.Random.Range(-angle, angle),
+                Random.Range(-angle, angle),
                 Vector3.forward
             );
             return rotation * direction;
         }
 
-        protected float GetModifiedDamage(
+        public float GetModifiedDamage(
             ModifiableValue<float> damage,
             ModifiableValue<Percentage> criticalChance,
             ModifiableValue<Percentage> criticalMultiplier,
@@ -114,6 +119,31 @@ namespace Tank.Weapons
             return isCritical
                 ? damageModifiableValue.GetPercentagesValue(criticalMultiplier)
                 : damageModifiableValue.GetModifiedValue();
+        }
+
+        protected T CreateTower<T>(Transform transform)
+            where T : MonoBehaviour, ITower
+        {
+            return CreateTower<T>(transform, SpawnVariation.Disconnected);
+        }
+
+        protected T CreateTower<T>(Transform transform, SpawnVariation spawnVariation)
+            where T : MonoBehaviour, ITower
+        {
+            TowerModule<T> towerModule = GetModule<TowerModule<T>>();
+            T tower = Object.Instantiate(towerModule.TowerPrefab, transform);
+            towerModule.Tower = tower;
+
+            tower.Initialize(Tank, EnemyFinder, this, spawnVariation);
+
+            return tower;
+        }
+
+        protected void DestroyTower<T>(T tower)
+            where T : MonoBehaviour, ITower
+        {
+            GameObject.Destroy(tower.gameObject);
+            GetModule<TowerModule<T>>().Tower = null;
         }
     }
 }

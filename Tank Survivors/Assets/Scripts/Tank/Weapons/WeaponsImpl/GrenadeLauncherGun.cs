@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Common;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
 
@@ -11,59 +11,44 @@ namespace Tank.Weapons
     public class GrenadeLauncherGun : GunBase
     {
         private SingleShotTower tower;
-        private TankImpl tank;
-        private EnemyFinder enemyFinder;
-        private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
-        private float remainingTime = 0f;
+        private float selfExplosionRemainingTime = 0f;
 
         public override void ProceedAttack()
         {
-            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (tower == null || nearestEnemy == null)
+            tower.ProceedAttack();
+
+            selfExplosionRemainingTime -= Time.deltaTime;
+            if (selfExplosionRemainingTime < 0f)
             {
-                return;
-            }
+                selfExplosionRemainingTime += GetModule<Modules.SelfExplosion.FireRateModule>()
+                    .FireRate.GetModifiedValue();
 
-            aimController.Aim(nearestEnemy);
-
-            remainingTime -= Time.deltaTime;
-            if (remainingTime < 0f)
-            {
-                remainingTime += GetModule<FireRateModule>()
-                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
-
-                FireAllProjectiles();
+                SelfExplosion();
             }
         }
 
         public override void Initialize(TankImpl tank, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
-            this.tank = tank;
-            this.enemyFinder = enemyFinder;
+            Tank = tank;
+            EnemyFinder = enemyFinder;
         }
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
-            aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
+            tower = CreateTower<SingleShotTower>(Tank.transform, SpawnVariation.Disconnected);
         }
 
         public override void DestroyGun()
         {
-            GameObject.Destroy(tower.gameObject);
+            DestroyTower(tower);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)
         {
             DestroyGun();
-            tank.SwapWeapon(newWeapon);
+            Tank.SwapWeapon(newWeapon);
             newWeapon.CreateGun();
         }
 
@@ -75,7 +60,8 @@ namespace Tank.Weapons
                 new FireRateModule(),
                 new CriticalChanceModule(),
                 new CriticalMultiplierModule(),
-                new ProjectileModule<FlyingProjectile>(),
+                new ProjectileModule(),
+                new FireRangeModule(),
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
@@ -83,46 +69,32 @@ namespace Tank.Weapons
                 new ProjectileDamageRadiusModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
+                new Modules.SelfExplosion.ProjectileModule(),
+                new Modules.SelfExplosion.DamageModule(),
+                new Modules.SelfExplosion.FireRateModule(),
+                new Modules.SelfExplosion.SelfExplosionCountModule(),
+                new Modules.SelfExplosion.RadiusModule(),
+                new Modules.SelfExplosion.HitMarkTimerModule(),
+                new Modules.SelfExplosion.FireTimerModule(),
+                new FireDamageModule(),
+                new FireFireRateModule(),
+                new ProjectileFireTimerModule(),
             };
         }
 
-        private void FireAllProjectiles()
+        private void SelfExplosion()
         {
-            int projectileCount = GetModule<ProjectilesPerShootModule>()
-                .ProjectilesPerShoot.GetModifiedValue();
+            int explosionCount = GetModule<Modules.SelfExplosion.SelfExplosionCountModule>()
+                .Count.GetModifiedValue();
 
-            for (int i = 0; i < projectileCount; i++)
+            for (int i = 0; i < explosionCount; i++)
             {
-                FireProjectile();
+                IProjectile projectile = GetModule<Modules.SelfExplosion.ProjectileModule>()
+                    .ProjectilePrefab.SpawnConnected(Tank.transform);
+
+                projectile.Initialize(this, Tank, tower);
+                projectile.Shoot();
             }
-        }
-
-        private void FireProjectile()
-        {
-            float damage = GetModifiedDamage(
-                GetModule<DamageModule>().Damage,
-                GetModule<CriticalChanceModule>().CriticalChance,
-                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                tank
-            );
-
-            Vector3 towerDirection = tower.GetDirection();
-            Vector3 spreadDirection = GetSpreadDirection(
-                towerDirection,
-                GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-            );
-
-            FlyingProjectile projectile = projectileSpawner.Spawn<FlyingProjectile>();
-            projectile.Initialize(
-                damage,
-                GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
-                GetModule<ProjectileSizeModule>()
-                    .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
-                GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                spreadDirection
-            );
-
-            projectile.StartFly();
         }
     }
 }

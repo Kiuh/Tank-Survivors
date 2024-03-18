@@ -4,6 +4,7 @@ using Common;
 using Tank;
 using Tank.Towers;
 using Tank.Weapons;
+using Tank.Weapons.Modules;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
 
@@ -12,32 +13,31 @@ namespace Assets.Scripts.Tank.Weapons
     [Serializable]
     public class RailGun : GunBase
     {
-        private SingleShotTower tower;
+        private SingleShotTower mainTower;
+
         private TankImpl tank;
         private EnemyFinder enemyFinder;
-        private AimController aimController;
-        private ProjectileSpawner projectileSpawner;
 
         private float remainingTime = 0f;
 
         public override void ProceedAttack()
         {
             Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
-            if (tower == null || nearestEnemy == null)
+            if (mainTower == null || nearestEnemy == null)
             {
                 return;
             }
 
-            aimController.Aim(nearestEnemy);
-
             remainingTime -= Time.deltaTime;
-
             if (remainingTime < 0f)
             {
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                FireProjectile();
+                IProjectile ray = GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+
+                ray.Initialize(this, tank, mainTower);
+                ray.Shoot();
             }
         }
 
@@ -50,17 +50,12 @@ namespace Assets.Scripts.Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = UnityEngine.Object.Instantiate(
-                GetModule<TowerModule<SingleShotTower>>().TowerPrefab,
-                tank.transform
-            );
-            aimController = new(tank, this, tower);
-            projectileSpawner = new(this, tower);
+            mainTower = CreateTower<SingleShotTower>(tank.transform);
         }
 
         public override void DestroyGun()
         {
-            GameObject.Destroy(tower.gameObject);
+            GameObject.Destroy(mainTower.gameObject);
         }
 
         public override void SwapWeapon(IWeapon newWeapon)
@@ -79,34 +74,11 @@ namespace Assets.Scripts.Tank.Weapons
                 new CriticalChanceModule(),
                 new CriticalMultiplierModule(),
                 new FireRangeModule(),
-                new ProjectileModule<RayRenderer>(),
+                new ProjectileModule(),
                 new RayDurationModule(),
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
             };
-        }
-
-        private void FireProjectile()
-        {
-            float fireRange = GetModule<FireRangeModule>()
-                .FireRange.GetPercentagesValue(tank.RangeModifier);
-            RayRenderer ray = projectileSpawner.Spawn<RayRenderer>();
-
-            float damage = GetModifiedDamage(
-                GetModule<DamageModule>().Damage,
-                GetModule<CriticalChanceModule>().CriticalChance,
-                GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                tank
-            );
-
-            Vector3 towerDirection = tower.GetDirection();
-            ray.Initialize(
-                damage,
-                GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                tower.GetShotPoint(),
-                tank.transform.position + (towerDirection.normalized * fireRange)
-            );
-            ray.Show();
         }
     }
 }

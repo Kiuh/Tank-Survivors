@@ -1,3 +1,7 @@
+using Common;
+using Tank.Weapons;
+using Tank.Weapons.Modules;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -11,6 +15,12 @@ namespace Tank.Towers
         private Quaternion targetRotation;
 
         private int currentShotPoint = 0;
+        private SpawnVariation spawnVariation;
+        private GunBase weapon;
+        private TankImpl tank;
+        private EnemyFinder enemyFinder;
+
+        private float remainingTime = 0f;
 
         private void LateUpdate()
         {
@@ -42,6 +52,65 @@ namespace Tank.Towers
                 targetRotation,
                 Time.deltaTime * rotationSpeed
             );
+        }
+
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
+        {
+            spawnVariation = newSpawnVariation;
+        }
+
+        public void Initialize(
+            TankImpl tank,
+            EnemyFinder enemyFinder,
+            GunBase weapon,
+            SpawnVariation spawnVariation
+        )
+        {
+            this.tank = tank;
+            this.enemyFinder = enemyFinder;
+            this.weapon = weapon;
+            this.spawnVariation = spawnVariation;
+        }
+
+        public void ProceedAttack()
+        {
+            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
+            if (nearestEnemy == null)
+            {
+                return;
+            }
+
+            RotateTo(
+                new RotationParameters()
+                {
+                    Direction = nearestEnemy.position - tank.transform.position,
+                    Speed = weapon.GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+                }
+            );
+
+            remainingTime -= Time.deltaTime;
+            if (remainingTime < 0f)
+            {
+                remainingTime += weapon
+                    .GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
+                FireAllProjectiles();
+            }
+        }
+
+        private void FireAllProjectiles()
+        {
+            int projectileCount = weapon
+                .GetModule<ProjectilesPerShootModule>()
+                .ProjectilesPerShoot.GetModifiedValue();
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                IProjectile projectile = weapon
+                    .GetModule<ProjectileModule>()
+                    .ProjectilePrefab.Spawn();
+                projectile.Initialize(weapon, tank, this);
+            }
         }
     }
 }
