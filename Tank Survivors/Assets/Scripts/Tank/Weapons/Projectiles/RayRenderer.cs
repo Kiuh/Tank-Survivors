@@ -22,6 +22,8 @@ namespace Tank.Weapons.Projectiles
         private Vector3 startPoint;
         private Vector3 endPoint;
 
+        private ITower tower;
+
         private void Awake()
         {
             lineRenderer = GetComponent<LineRenderer>();
@@ -47,6 +49,9 @@ namespace Tank.Weapons.Projectiles
 
             startColor = lineRenderer.startColor;
             endColor = lineRenderer.endColor;
+
+            transform.position = tower.GetShotPoint();
+            transform.rotation = Quaternion.identity;
         }
 
         private IEnumerator Disappear()
@@ -91,6 +96,8 @@ namespace Tank.Weapons.Projectiles
 
         public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
         {
+            this.tower = tower;
+
             float fireRange = weapon
                 .GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
@@ -113,6 +120,16 @@ namespace Tank.Weapons.Projectiles
         public void Shoot()
         {
             _ = StartCoroutine(Disappear());
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
         }
     }
 }

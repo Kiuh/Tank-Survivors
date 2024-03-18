@@ -14,6 +14,7 @@ namespace Tank.Weapons.Projectiles
         private Vector3 direction;
 
         private Vector3 startPosition;
+        private ITower tower;
 
         private void Start()
         {
@@ -44,6 +45,8 @@ namespace Tank.Weapons.Projectiles
 
         public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
         {
+            this.tower = tower;
+
             var towerDirection = tower.GetDirection();
             Vector3 spreadDirection = weapon.GetSpreadDirection(
                 towerDirection,
@@ -86,8 +89,21 @@ namespace Tank.Weapons.Projectiles
             this.fireRange = fireRange;
             this.penetration = penetration;
             this.direction = direction.normalized;
+
+            transform.position = tower.GetShotPoint();
+            transform.rotation = Quaternion.identity;
         }
 
         public void Shoot() { }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
+        }
     }
 }

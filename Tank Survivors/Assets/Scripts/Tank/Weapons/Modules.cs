@@ -4,7 +4,6 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
-using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -79,7 +78,7 @@ namespace Tank.Weapons
         [HideLabel]
         [AssetList]
         [FoldoutGroup("Projectile")]
-        public Transform ProjectilePrefab { get; private set; }
+        public IProjectile ProjectilePrefab { get; private set; }
     }
 
     public class ProjectileSpeedModule : IWeaponModule

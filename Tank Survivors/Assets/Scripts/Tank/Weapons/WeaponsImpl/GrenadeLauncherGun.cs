@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Tank.Towers;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -15,6 +14,8 @@ namespace Tank.Weapons
 
         public override void ProceedAttack()
         {
+            tower.ProceedAttack();
+
             selfExplosionRemainingTime -= Time.deltaTime;
             if (selfExplosionRemainingTime < 0f)
             {
@@ -28,8 +29,8 @@ namespace Tank.Weapons
         public override void Initialize(TankImpl tank, EnemyFinder enemyFinder)
         {
             CurrentLevel = 0;
-            this.Tank = tank;
-            this.EnemyFinder = enemyFinder;
+            Tank = tank;
+            EnemyFinder = enemyFinder;
         }
 
         public override void CreateGun()
@@ -85,12 +86,10 @@ namespace Tank.Weapons
 
             for (int i = 0; i < explosionCount; i++)
             {
-                SelfExplosionProjectile projectile =
-                    tower.ProjectileSpawner.SpawnConnected(
-                        GetModule<SelfExplosionPrefabModule>().Prefab.transform,
-                        Tank.transform
-                    ) as SelfExplosionProjectile;
+                var projectile = GetModule<SelfExplosionPrefabModule>()
+                    .Prefab.SpawnConnected(Tank.transform);
 
+                projectile.Initialize(this, Tank, tower);
                 projectile.Shoot();
             }
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Common;
 using Tank.Towers;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -95,7 +94,7 @@ namespace Tank.Weapons
 
         private void FireProjectile()
         {
-            SimpleProjectile projectile = tower.GetProjectile() as SimpleProjectile;
+            var projectile = GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
 
             projectile.Initialize(this, tank, tower);
             projectile.Shoot();

@@ -1,5 +1,5 @@
+using Common;
 using Tank.Weapons;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -17,6 +17,8 @@ namespace Tank.Towers
         private GunBase weapon;
         private TankImpl tank;
         private EnemyFinder enemyFinder;
+
+        private float remainingTime = 0f;
 
         public ProjectileSpawner ProjectileSpawner { get; private set; }
 
@@ -71,14 +73,49 @@ namespace Tank.Towers
             ProjectileSpawner = new(weapon, this);
         }
 
-        public IProjectile GetProjectile()
-        {
-            return ProjectileSpawner.Spawn(spawnVariation, transform);
-        }
-
         public void ProceedAttack()
         {
-            throw new System.NotImplementedException();
+            Transform nearestEnemy = enemyFinder.GetNearestTransformOrNull();
+            if (nearestEnemy == null)
+            {
+                return;
+            }
+
+            RotateTo(
+                new RotationParameters()
+                {
+                    Direction = nearestEnemy.position - tank.transform.position,
+                    Speed = weapon.GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
+                }
+            );
+
+            remainingTime -= Time.deltaTime;
+            if (remainingTime < 0f)
+            {
+                remainingTime += weapon
+                    .GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
+                FireAllProjectiles();
+            }
+        }
+
+        private void FireAllProjectiles()
+        {
+            int projectileCount = weapon
+                .GetModule<ProjectilesPerShootModule>()
+                .ProjectilesPerShoot.GetModifiedValue();
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                var projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+
+                var towerDirection = GetDirection();
+                Vector3 spreadDirection = weapon.GetSpreadDirection(
+                    towerDirection,
+                    weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+                );
+                projectile.Initialize(weapon, tank, this);
+            }
         }
     }
 }

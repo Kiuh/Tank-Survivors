@@ -1,6 +1,5 @@
 using Common;
 using Tank.Weapons;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -18,13 +17,6 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
         private TankImpl tank;
 
-        public ProjectileSpawner ProjectileSpawner { get; private set; }
-
-        private void Update()
-        {
-            ProceedAttack();
-        }
-
         private void LateUpdate()
         {
             RotateInternal();
@@ -41,7 +33,6 @@ namespace Tank.Towers
             this.enemyFinder = enemyFinder;
             this.weapon = weapon;
             this.spawnVariation = spawnVariation;
-            ProjectileSpawner = new(weapon, this);
         }
 
         public void ProceedAttack()
@@ -55,7 +46,7 @@ namespace Tank.Towers
             RotateTo(
                 new RotationParameters()
                 {
-                    Direction = tank.transform.position - nearestEnemy.position,
+                    Direction = nearestEnemy.position - tank.transform.position,
                     Speed = weapon.GetModule<TowerRotationModule>().RotationSpeed.GetModifiedValue()
                 }
             );
@@ -79,7 +70,9 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                // var projectile = GetProjectile< weapon.GetModule<ProjectileModule<FlyingProjectile>>().ProjectilePrefab.GetType() >;
+                var projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+                projectile.Initialize(weapon, tank, this);
+                projectile.Shoot();
             }
         }
 
@@ -111,11 +104,6 @@ namespace Tank.Towers
         public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
         {
             spawnVariation = newSpawnVariation;
-        }
-
-        public IProjectile GetProjectile()
-        {
-            return ProjectileSpawner.Spawn(spawnVariation, transform);
         }
     }
 }

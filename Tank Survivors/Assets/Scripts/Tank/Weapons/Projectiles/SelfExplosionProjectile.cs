@@ -23,6 +23,7 @@ namespace Tank.Weapons.Projectiles
         private ParticleSystem fireParticle;
 
         private GunBase weapon;
+        private ITower tower;
         private Explosive explosive;
 
         public void StartExplosion(float timeBeforeExplode)
@@ -36,6 +37,9 @@ namespace Tank.Weapons.Projectiles
             FireParameters fireParameters
         )
         {
+            transform.position = tower.GetShotPoint();
+            transform.rotation = Quaternion.identity;
+
             explosive = new Explosive(
                 hitMark,
                 explosionParticle,
@@ -56,6 +60,7 @@ namespace Tank.Weapons.Projectiles
         public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
         {
             this.weapon = weapon;
+            this.tower = tower;
 
             float damage = weapon
                 .GetModule<SelfExplosionDamageModule>()
@@ -81,6 +86,16 @@ namespace Tank.Weapons.Projectiles
             StartExplosion(
                 weapon.GetModule<SelfExplosionHitMarkTimerModule>().Time.GetModifiedValue()
             );
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
         }
     }
 }

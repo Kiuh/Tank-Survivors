@@ -1,5 +1,4 @@
 ﻿using Tank.Towers;
-using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -21,9 +20,9 @@ namespace Tank.Weapons
             this.tower = tower;
         }
 
-        public IProjectile Spawn(SpawnVariation spawnVariation, Transform parent)
+        public void Spawn(SpawnVariation spawnVariation, Transform parent)
         {
-            switch (spawnVariation)
+            /*switch (spawnVariation)
             {
                 case SpawnVariation.Connected:
                     return SpawnConnected(parent);
@@ -31,27 +30,7 @@ namespace Tank.Weapons
                     return Spawn();
                 default:
                     return null;
-            }
-        }
-
-        public IProjectile Spawn()
-        {
-            return Object.Instantiate(
-                    weapon.GetModule<ProjectileModule>().ProjectilePrefab,
-                    tower.GetShotPoint(),
-                    Quaternion.identity
-                ) as IProjectile;
-        }
-
-        public IProjectile SpawnConnected(Transform parent)
-        {
-            return SpawnConnected(weapon.GetModule<ProjectileModule>().ProjectilePrefab, parent);
-        }
-
-        public IProjectile SpawnConnected(Transform prefab, Transform parent)
-        {
-            return Object.Instantiate(prefab, tower.GetShotPoint(), Quaternion.identity, parent)
-                as IProjectile;
+            }*/
         }
     }
 }

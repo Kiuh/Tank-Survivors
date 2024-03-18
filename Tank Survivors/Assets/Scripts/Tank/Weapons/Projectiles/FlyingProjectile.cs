@@ -33,9 +33,12 @@ namespace Tank.Weapons.Projectiles
 
         private Coroutine flyCoroutine;
         private Explosive explosive;
+        private ITower tower;
 
         public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
         {
+            this.tower = tower;
+
             float damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
@@ -76,6 +79,9 @@ namespace Tank.Weapons.Projectiles
             FireParameters fireParameters
         )
         {
+            transform.position = tower.GetShotPoint();
+            transform.rotation = Quaternion.identity;
+
             this.speed = speed;
             this.size = size;
             transform.localScale = new Vector3(size, size, 1f);
@@ -154,6 +160,16 @@ namespace Tank.Weapons.Projectiles
                     .GetModule<FireFireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier)
             };
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
         }
     }
 }

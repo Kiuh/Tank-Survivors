@@ -35,7 +35,7 @@ namespace Assets.Scripts.Tank.Weapons
                 remainingTime += GetModule<FireRateModule>()
                     .FireRate.GetPercentagesValue(tank.FireRateModifier);
 
-                var ray = mainTower.GetProjectile();
+                var ray = GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
 
                 ray.Initialize(this, tank, mainTower);
                 ray.Shoot();
