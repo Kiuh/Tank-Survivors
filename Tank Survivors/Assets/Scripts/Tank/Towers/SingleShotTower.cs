@@ -1,6 +1,7 @@
 using Common;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -71,7 +72,9 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                var projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+                IProjectile projectile = weapon
+                    .GetModule<ProjectileModule>()
+                    .ProjectilePrefab.Spawn();
                 projectile.Initialize(weapon, tank, this);
                 projectile.Shoot();
             }

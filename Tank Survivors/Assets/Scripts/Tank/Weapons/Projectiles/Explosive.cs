@@ -70,7 +70,7 @@ namespace Tank.Weapons.Projectiles
 
             fireParticle.Play();
 
-            var fireTimer = fireParameters.Time;
+            float fireTimer = fireParameters.Time;
             while (fireTimer >= 0)
             {
                 yield return new WaitForSeconds(fireParameters.FireRate);

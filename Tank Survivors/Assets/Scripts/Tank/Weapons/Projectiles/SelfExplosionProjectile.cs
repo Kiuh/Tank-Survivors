@@ -51,7 +51,7 @@ namespace Tank.Weapons.Projectiles
                 fireParameters
             );
 
-            var explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
+            Vector3 explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
 
             hitMark.localScale = explosionSize;
             explosionParticle.transform.localScale = explosionSize;

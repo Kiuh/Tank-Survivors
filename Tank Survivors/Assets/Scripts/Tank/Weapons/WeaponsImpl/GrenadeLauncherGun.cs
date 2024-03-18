@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Tank.Towers;
 using Tank.Weapons.Modules;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -88,7 +89,7 @@ namespace Tank.Weapons
 
             for (int i = 0; i < explosionCount; i++)
             {
-                var projectile = GetModule<Modules.SelfExplosion.ProjectileModule>()
+                IProjectile projectile = GetModule<Modules.SelfExplosion.ProjectileModule>()
                     .ProjectilePrefab.SpawnConnected(Tank.transform);
 
                 projectile.Initialize(this, Tank, tower);

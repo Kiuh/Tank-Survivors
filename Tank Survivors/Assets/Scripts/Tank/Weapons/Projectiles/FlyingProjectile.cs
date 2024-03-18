@@ -46,7 +46,7 @@ namespace Tank.Weapons.Projectiles
                 tank
             );
 
-            var towerDirection = tower.GetDirection();
+            Vector3 towerDirection = tower.GetDirection();
             Vector3 spreadDirection =
                 weapon.GetSpreadDirection(
                     towerDirection,
@@ -88,9 +88,13 @@ namespace Tank.Weapons.Projectiles
             startPoint = transform.position;
             endPoint = startPoint + direction;
 
-            var explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
+            Vector3 explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
 
-            var hitMark = Instantiate(hitMarkPrefab, startPoint + direction, Quaternion.identity);
+            Transform hitMark = Instantiate(
+                hitMarkPrefab,
+                startPoint + direction,
+                Quaternion.identity
+            );
             hitMark.localScale = explosionSize;
             explosionParticle.transform.localScale = explosionSize;
             fireParticle.transform.localScale = explosionSize;

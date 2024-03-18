@@ -47,7 +47,7 @@ namespace Tank.Weapons.Projectiles
         {
             this.tower = tower;
 
-            var towerDirection = tower.GetDirection();
+            Vector3 towerDirection = tower.GetDirection();
             Vector3 spreadDirection = weapon.GetSpreadDirection(
                 towerDirection,
                 weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()

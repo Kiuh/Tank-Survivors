@@ -130,7 +130,7 @@ namespace Tank.Weapons
         protected T CreateTower<T>(Transform transform, SpawnVariation spawnVariation)
             where T : MonoBehaviour, ITower
         {
-            var towerModule = GetModule<TowerModule<T>>();
+            TowerModule<T> towerModule = GetModule<TowerModule<T>>();
             T tower = Object.Instantiate(towerModule.TowerPrefab, transform);
             towerModule.Tower = tower;
 

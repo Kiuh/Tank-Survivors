@@ -1,6 +1,7 @@
 using Common;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
+using Tank.Weapons.Projectiles;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -105,13 +106,9 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                var projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
-
-                var towerDirection = GetDirection();
-                Vector3 spreadDirection = weapon.GetSpreadDirection(
-                    towerDirection,
-                    weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-                );
+                IProjectile projectile = weapon
+                    .GetModule<ProjectileModule>()
+                    .ProjectilePrefab.Spawn();
                 projectile.Initialize(weapon, tank, this);
             }
         }
