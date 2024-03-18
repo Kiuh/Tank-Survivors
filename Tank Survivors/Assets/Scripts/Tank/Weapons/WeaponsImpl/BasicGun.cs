@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 
 namespace Tank.Weapons
 {

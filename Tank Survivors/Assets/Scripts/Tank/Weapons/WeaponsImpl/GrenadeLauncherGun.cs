@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -19,7 +20,7 @@ namespace Tank.Weapons
             selfExplosionRemainingTime -= Time.deltaTime;
             if (selfExplosionRemainingTime < 0f)
             {
-                selfExplosionRemainingTime += GetModule<SelfExplosionFireRateModule>()
+                selfExplosionRemainingTime += GetModule<Modules.SelfExplosion.FireRateModule>()
                     .FireRate.GetModifiedValue();
 
                 SelfExplosion();
@@ -67,13 +68,13 @@ namespace Tank.Weapons
                 new ProjectileDamageRadiusModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
-                new SelfExplosionPrefabModule(),
-                new SelfExplosionDamageModule(),
-                new SelfExplosionFireRateModule(),
-                new SelfExplosionCountModule(),
-                new SelfExplosionRadiusModule(),
-                new SelfExplosionHitMarkTimerModule(),
-                new SelfExplosionFireTimerModule(),
+                new Modules.SelfExplosion.ProjectileModule(),
+                new Modules.SelfExplosion.DamageModule(),
+                new Modules.SelfExplosion.FireRateModule(),
+                new Modules.SelfExplosion.SelfExplosionCountModule(),
+                new Modules.SelfExplosion.RadiusModule(),
+                new Modules.SelfExplosion.HitMarkTimerModule(),
+                new Modules.SelfExplosion.FireTimerModule(),
                 new FireDamageModule(),
                 new FireFireRateModule(),
                 new ProjectileFireTimerModule(),
@@ -82,12 +83,13 @@ namespace Tank.Weapons
 
         private void SelfExplosion()
         {
-            int explosionCount = GetModule<SelfExplosionCountModule>().Count.GetModifiedValue();
+            int explosionCount = GetModule<Modules.SelfExplosion.SelfExplosionCountModule>()
+                .Count.GetModifiedValue();
 
             for (int i = 0; i < explosionCount; i++)
             {
-                var projectile = GetModule<SelfExplosionPrefabModule>()
-                    .Prefab.SpawnConnected(Tank.transform);
+                var projectile = GetModule<Modules.SelfExplosion.ProjectileModule>()
+                    .ProjectilePrefab.SpawnConnected(Tank.transform);
 
                 projectile.Initialize(this, Tank, tower);
                 projectile.Shoot();

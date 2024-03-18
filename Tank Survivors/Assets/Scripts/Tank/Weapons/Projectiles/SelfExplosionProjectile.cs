@@ -1,5 +1,6 @@
 using Common;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 public struct FireParameters
@@ -63,17 +64,19 @@ namespace Tank.Weapons.Projectiles
             this.tower = tower;
 
             float damage = weapon
-                .GetModule<SelfExplosionDamageModule>()
+                .GetModule<Modules.SelfExplosion.DamageModule>()
                 .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
                 .GetModifiedValue();
 
             InitializeInternal(
                 damage,
-                weapon.GetModule<SelfExplosionRadiusModule>().Radius.GetModifiedValue(),
+                weapon.GetModule<Modules.SelfExplosion.RadiusModule>().Radius.GetModifiedValue(),
                 new FireParameters()
                 {
                     Damage = weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue(),
-                    Time = weapon.GetModule<SelfExplosionFireTimerModule>().Time.GetModifiedValue(),
+                    Time = weapon
+                        .GetModule<Modules.SelfExplosion.FireTimerModule>()
+                        .Time.GetModifiedValue(),
                     FireRate = weapon
                         .GetModule<FireFireRateModule>()
                         .FireRate.GetPercentagesValue(tank.FireRateModifier)
@@ -84,7 +87,7 @@ namespace Tank.Weapons.Projectiles
         public void Shoot()
         {
             StartExplosion(
-                weapon.GetModule<SelfExplosionHitMarkTimerModule>().Time.GetModifiedValue()
+                weapon.GetModule<Modules.SelfExplosion.HitMarkTimerModule>().Time.GetModifiedValue()
             );
         }
 

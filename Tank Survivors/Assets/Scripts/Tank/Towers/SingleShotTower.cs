@@ -1,5 +1,6 @@
 using Common;
 using Tank.Weapons;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Towers

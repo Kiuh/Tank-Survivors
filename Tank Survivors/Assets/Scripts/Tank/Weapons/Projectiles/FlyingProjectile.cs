@@ -1,7 +1,7 @@
 using System.Collections;
 using Common;
-using Enemies;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -131,7 +131,7 @@ namespace Tank.Weapons.Projectiles
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.transform.TryGetComponent(out IEnemy enemy))
+            if (collision.transform.TryGetComponent(out Enemies.IEnemy enemy))
             {
                 StopCoroutine(flyCoroutine);
                 StartExplosion();

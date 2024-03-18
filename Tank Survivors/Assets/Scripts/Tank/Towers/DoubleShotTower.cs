@@ -1,5 +1,6 @@
 using Common;
 using Tank.Weapons;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Towers
@@ -19,8 +20,6 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
 
         private float remainingTime = 0f;
-
-        public ProjectileSpawner ProjectileSpawner { get; private set; }
 
         private void LateUpdate()
         {
@@ -70,7 +69,6 @@ namespace Tank.Towers
             this.enemyFinder = enemyFinder;
             this.weapon = weapon;
             this.spawnVariation = spawnVariation;
-            ProjectileSpawner = new(weapon, this);
         }
 
         public void ProceedAttack()

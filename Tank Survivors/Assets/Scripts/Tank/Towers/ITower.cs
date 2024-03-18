@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace Tank.Towers
 {
+    public enum SpawnVariation
+    {
+        Connected,
+        Disconnected
+    }
+
     public interface ITower
     {
         public void ProceedAttack();

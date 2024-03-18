@@ -4,6 +4,7 @@ using Common;
 using Tank;
 using Tank.Towers;
 using Tank.Weapons;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Assets.Scripts.Tank.Weapons
@@ -15,7 +16,6 @@ namespace Assets.Scripts.Tank.Weapons
 
         private TankImpl tank;
         private EnemyFinder enemyFinder;
-        private AimController aimController;
 
         private float remainingTime = 0f;
 
@@ -26,8 +26,6 @@ namespace Assets.Scripts.Tank.Weapons
             {
                 return;
             }
-
-            aimController.Aim(nearestEnemy);
 
             remainingTime -= Time.deltaTime;
             if (remainingTime < 0f)
@@ -52,8 +50,6 @@ namespace Assets.Scripts.Tank.Weapons
         public override void CreateGun()
         {
             mainTower = CreateTower<SingleShotTower>(tank.transform);
-
-            aimController = new(tank, this, mainTower);
         }
 
         public override void DestroyGun()

@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.UpgradablePiece;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons

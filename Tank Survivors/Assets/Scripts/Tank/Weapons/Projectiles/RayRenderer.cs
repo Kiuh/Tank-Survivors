@@ -1,8 +1,8 @@
 using System.Collections;
 using Common;
 using Enemies;
-using Enemies;
 using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -104,7 +104,7 @@ namespace Tank.Weapons.Projectiles
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
 
             float damage = weapon.GetModifiedDamage(
-                weapon.GetModule<DamageModule>().Damage,
+                weapon.GetModule<Modules.DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
                 weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
                 tank
