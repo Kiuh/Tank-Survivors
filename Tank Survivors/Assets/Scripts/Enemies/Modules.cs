@@ -71,7 +71,7 @@ namespace Enemies
     {
         [OdinSerialize]
         [FoldoutGroup("Cooldown")]
-        public ModifiableValue<float> Cooldown { get; set; } = new();
+        public ModifiableValue<float> Cooldown { get; set; } = new(0.001f);
 
         public IModule Clone()
         {
@@ -96,6 +96,24 @@ namespace Enemies
             ExperienceModule module = new ExperienceModule();
             module.DropAmount.SourceValue = DropAmount.SourceValue;
             module.DropAmount.Modifications.AddRange(DropAmount.Modifications);
+            return module;
+        }
+    }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class ExplosionModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("Explosive radius")]
+        public ModifiableValue<float> Radius { get; set; } = new(1.0f);
+
+        public IModule Clone()
+        {
+            ExplosionModule module = new ExplosionModule();
+            module.Radius.SourceValue = Radius.SourceValue;
+            module.Radius.Modifications.AddRange(Radius.Modifications);
             return module;
         }
     }
