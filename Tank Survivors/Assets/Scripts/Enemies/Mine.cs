@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Common;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank;
@@ -9,75 +11,93 @@ namespace Enemies
 {
     public class Mine : SerializedMonoBehaviour, IEnemy
     {
-        [SerializeField]
-        [ReadOnly]
-        [InlineProperty]
-        private Configs.MineConfig clonedConfig;
-
-        [SerializeField]
-        private Configs.Mine config;
-
-        [SerializeField]
-        [ReadOnly]
-        private TankImpl tank;
-
-        [SerializeField]
-        private CircleCollider2D explosiveArea;
-
-        [SerializeField]
-        private SpriteRenderer explosiveAreaVisualization;
+        [OdinSerialize]
+        private SpriteRenderer dangerZone;
 
         [SerializeField]
         private ParticleSystem particle;
 
-        [SerializeField]
-        private SpriteRenderer sprite;
-
         [OdinSerialize]
         public string EnemyName { get; private set; }
-        public List<IModule> Modules { get; set; }
+
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("Modules")]
+        public List<IModule> Modules { get; set; } = new();
 
         public event Action OnDeath;
+        private MineConfig stats;
+        private TankImpl tank;
+        private bool isExploded;
 
         public void Initialize(TankImpl tank)
         {
+            stats.Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
+            stats.Damage = Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            stats.ExplosionRadius = Modules
+                .GetConcrete<ExplosionModule, IModule>()
+                .Radius.GetModifiedValue();
+            dangerZone.transform.localScale = 2 * stats.ExplosionRadius * Vector3.one;
+            dangerZone.enabled = true;
             this.tank = tank;
-
-            clonedConfig = config.Config;
-
-            explosiveArea.radius = clonedConfig.ExplosionRadius;
-            explosiveAreaVisualization.transform.localScale =
-                2.0f * clonedConfig.ExplosionRadius * Vector3.one;
-
-            OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
+            isExploded = false;
             OnDeath += () => Destroy(gameObject);
         }
 
         public void TakeDamage(float damageAmount)
         {
-            clonedConfig.Health -= damageAmount;
-            if (clonedConfig.Health <= 0)
+            stats.Health -= damageAmount;
+            if (stats.Health <= 0)
             {
-                clonedConfig.Health = 0;
+                stats.Health = 0;
                 OnDeath?.Invoke();
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Update()
         {
-            if (collision.gameObject.TryGetComponent(out TankImpl _))
+            if (!isExploded)
             {
-                particle.transform.localScale = new Vector3(
-                    clonedConfig.ExplosionRadius,
-                    clonedConfig.ExplosionRadius,
-                    1.0f
-                );
-                particle.Play();
-                explosiveArea.enabled = false;
-                sprite.enabled = false;
-                tank.TakeDamage(clonedConfig.Damage);
-                Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
+                CheckZone();
             }
+        }
+
+        private void CheckZone()
+        {
+            RaycastHit2D hit = Physics2D.CircleCast(
+                transform.position,
+                stats.ExplosionRadius,
+                Vector3.zero
+            );
+            if (hit && hit.transform.gameObject.GetComponent<TankImpl>())
+            {
+                DealDamage();
+            }
+        }
+
+        private void DealDamage()
+        {
+            particle.transform.localScale = new Vector3(
+                stats.ExplosionRadius,
+                stats.ExplosionRadius,
+                1.0f
+            );
+            isExploded = true;
+            particle.Play();
+            tank.TakeDamage(stats.Damage);
+            Destroy(gameObject, particle.main.duration * particle.main.startLifetimeMultiplier);
+        }
+
+        [Button]
+        [FoldoutGroup("Modules")]
+        private void RefreshModules()
+        {
+            Modules = new() { new ExplosionModule(), new DamageModule(), new HealthModule() };
         }
     }
 }
