@@ -42,7 +42,7 @@ namespace Enemies
             stats.ExplosionRadius = Modules
                 .GetConcrete<ExplosionModule, IModule>()
                 .Radius.GetModifiedValue();
-            dangerZone.transform.localScale = 2 * stats.ExplosionRadius * Vector3.one;
+            dangerZone.transform.localScale *= stats.ExplosionRadius;
             dangerZone.enabled = true;
             this.tank = tank;
             isExploded = false;
@@ -63,18 +63,14 @@ namespace Enemies
         {
             if (!isExploded)
             {
-                CheckZone();
+                CheckDistanceToTank();
             }
         }
 
-        private void CheckZone()
+        private void CheckDistanceToTank()
         {
-            RaycastHit2D hit = Physics2D.CircleCast(
-                transform.position,
-                stats.ExplosionRadius,
-                Vector3.zero
-            );
-            if (hit && hit.transform.gameObject.GetComponent<TankImpl>())
+            Vector2 distance = tank.transform.position - transform.position;
+            if (distance.magnitude <= stats.ExplosionRadius)
             {
                 DealDamage();
             }

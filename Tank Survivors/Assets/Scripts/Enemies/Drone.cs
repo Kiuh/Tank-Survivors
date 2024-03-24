@@ -53,7 +53,7 @@ namespace Enemies
             stats.MovementSpeed = Modules
                 .GetConcrete<MovementModule, IModule>()
                 .Speed.GetModifiedValue();
-            dangerZone.transform.localScale = 2 * stats.ExplosionRadius * Vector3.one;
+            dangerZone.transform.localScale *= stats.ExplosionRadius;
             dangerZone.enabled = true;
             this.tank = tank;
             isMoving = true;
@@ -70,7 +70,7 @@ namespace Enemies
                 rigidBody.MovePosition(
                     rigidBody.position + direction * stats.MovementSpeed * Time.fixedDeltaTime
                 );
-                CheckZone();
+                CheckDistanceToTank();
             }
         }
 
@@ -108,14 +108,10 @@ namespace Enemies
             };
         }
 
-        private void CheckZone()
+        private void CheckDistanceToTank()
         {
-            RaycastHit2D hit = Physics2D.CircleCast(
-                transform.position,
-                stats.ExplosionRadius,
-                Vector3.zero
-            );
-            if (hit && hit.transform.gameObject.GetComponent<TankImpl>())
+            Vector2 distance = transform.position - tank.transform.position;
+            if (distance.magnitude <= stats.ExplosionRadius)
             {
                 DealDamage();
             }
@@ -128,6 +124,7 @@ namespace Enemies
                 stats.ExplosionRadius,
                 1.0f
             );
+            rigidBody.gameObject.SetActive(false);
             isMoving = false;
             particle.Play();
             tank.TakeDamage(stats.Damage);
