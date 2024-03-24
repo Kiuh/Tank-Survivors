@@ -1,5 +1,8 @@
 using System.Collections;
+using Common;
 using Enemies;
+using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -20,12 +23,19 @@ namespace Tank.Weapons.Projectiles
         private Vector3 startPoint;
         private Vector3 endPoint;
 
+        private ITower tower;
+
         private void Awake()
         {
             lineRenderer = GetComponent<LineRenderer>();
         }
 
-        public void Initialize(float damage, float duration, Vector3 startPoint, Vector3 endPoint)
+        private void InitializeInternal(
+            float damage,
+            float duration,
+            Vector3 startPoint,
+            Vector3 endPoint
+        )
         {
             this.damage = damage;
 
@@ -40,11 +50,9 @@ namespace Tank.Weapons.Projectiles
 
             startColor = lineRenderer.startColor;
             endColor = lineRenderer.endColor;
-        }
 
-        public void Show()
-        {
-            _ = StartCoroutine(Disappear());
+            transform.position = tower.GetShotPoint();
+            transform.rotation = Quaternion.identity;
         }
 
         private IEnumerator Disappear()
@@ -85,6 +93,44 @@ namespace Tank.Weapons.Projectiles
             lineRenderer.startColor = startColor;
             endColor.a = a;
             lineRenderer.endColor = endColor;
+        }
+
+        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        {
+            this.tower = tower;
+
+            float fireRange = weapon
+                .GetModule<FireRangeModule>()
+                .FireRange.GetPercentagesValue(tank.RangeModifier);
+
+            float damage = weapon.GetModifiedDamage(
+                weapon.GetModule<Modules.DamageModule>().Damage,
+                weapon.GetModule<CriticalChanceModule>().CriticalChance,
+                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
+                tower.GetShotPoint(),
+                tank.transform.position + (tower.GetDirection().normalized * fireRange)
+            );
+        }
+
+        public void Shoot()
+        {
+            _ = StartCoroutine(Disappear());
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
         }
     }
 }

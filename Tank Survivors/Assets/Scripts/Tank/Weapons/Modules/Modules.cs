@@ -4,9 +4,8 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
-using UnityEngine;
 
-namespace Tank.Weapons
+namespace Tank.Weapons.Modules
 {
     [HideReferenceObjectPicker]
     public interface IWeaponModule { }
@@ -73,14 +72,13 @@ namespace Tank.Weapons
         public ModifiableValue<Percentage> CriticalMultiplier { get; private set; } = new();
     }
 
-    public class ProjectileModule<T> : IWeaponModule
-        where T : IProjectile
+    public class ProjectileModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
         [AssetList]
         [FoldoutGroup("Projectile")]
-        public T ProjectilePrefab { get; private set; }
+        public IProjectile ProjectilePrefab { get; private set; }
     }
 
     public class ProjectileSpeedModule : IWeaponModule
@@ -107,6 +105,13 @@ namespace Tank.Weapons
         [FoldoutGroup("Tower")]
         [AssetList]
         public T TowerPrefab { get; private set; }
+
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Tower")]
+        [AssetList]
+        [ReadOnly]
+        public T Tower { get; set; }
     }
 
     public class RayDurationModule : IWeaponModule
@@ -131,6 +136,37 @@ namespace Tank.Weapons
         [HideLabel]
         [FoldoutGroup("Tower Rotation")]
         public ModifiableValue<float> RotationSpeed { get; private set; } = new();
-        public Transform Target { get; set; }
+    }
+
+    public class MultiShotTowerFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("MultiShotTower Fire Rate Percent")]
+        public ModifiableValue<Percentage> Percent { get; private set; }
+    }
+
+    public class FireDamageModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Fire Damage")]
+        public ModifiableValue<float> Damage { get; private set; }
+    }
+
+    public class FireFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Fire Fire Rate")]
+        public ModifiableValue<float> FireRate { get; private set; }
+    }
+
+    public class ProjectileFireTimerModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Projectile Fire Time")]
+        public ModifiableValue<float> Time { get; private set; }
     }
 }
