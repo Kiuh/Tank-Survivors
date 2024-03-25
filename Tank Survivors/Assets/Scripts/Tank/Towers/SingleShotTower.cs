@@ -26,6 +26,11 @@ namespace Tank.Towers
             RotateInternal();
         }
 
+        private void OnDestroy()
+        {
+            weapon.GetModule<TowerModule<SingleShotTower>>().Tower = null;
+        }
+
         public void Initialize(
             TankImpl tank,
             EnemyFinder enemyFinder,

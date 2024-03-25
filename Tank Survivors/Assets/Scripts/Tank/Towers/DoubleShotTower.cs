@@ -29,6 +29,11 @@ namespace Tank.Towers
             RotateInternal();
         }
 
+        private void OnDestroy()
+        {
+            weapon.GetModule<TowerModule<DoubleShotTower>>().Tower = null;
+        }
+
         public Vector3 GetShotPoint()
         {
             currentShotPoint = (currentShotPoint + 1) % shotPoints.Length;
