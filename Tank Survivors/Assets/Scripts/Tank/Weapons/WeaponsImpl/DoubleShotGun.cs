@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Tank.Towers;
 using Tank.Weapons.Modules;
-using Tank.Weapons.ModulesUpgrades.Cannon;
+using Tank.Weapons.Modules.Cannon;
 
 namespace Tank.Weapons
 {
@@ -26,6 +26,7 @@ namespace Tank.Weapons
         public override void CreateGun()
         {
             tower = CreateTower<DoubleShotTower>(Tank.transform, SpawnVariation.Disconnected);
+            tower.GetComponent<Towers.Cannon.DoubleGunController>().Initialize(this, Tank);
         }
 
         public override void DestroyGun()
@@ -57,7 +58,8 @@ namespace Tank.Weapons
                 new TowerModule<DoubleShotTower>(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
-                new MultyCannonFireRateModule(),
+                new MultiCannonFireRateModule(),
+                new CannonModule()
             };
         }
     }

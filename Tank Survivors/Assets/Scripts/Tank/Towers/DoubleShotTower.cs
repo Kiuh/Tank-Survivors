@@ -22,6 +22,8 @@ namespace Tank.Towers
 
         private float remainingTime = 0f;
 
+        public System.Action OnProceedAttack;
+
         private void LateUpdate()
         {
             RotateInternal();
@@ -80,6 +82,8 @@ namespace Tank.Towers
                 return;
             }
 
+            OnProceedAttack?.Invoke();
+
             RotateTo(
                 new RotationParameters()
                 {
@@ -106,11 +110,17 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                IProjectile projectile = weapon
-                    .GetModule<ProjectileModule>()
-                    .ProjectilePrefab.Spawn();
-                projectile.Initialize(weapon, tank, this);
+                FireProjectile();
             }
+        }
+
+        private void FireProjectile()
+        {
+            IProjectile projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+
+            Vector3 towerDirection = GetDirection();
+
+            projectile.Initialize(weapon, tank, this, GetShotPoint(), towerDirection);
         }
     }
 }
