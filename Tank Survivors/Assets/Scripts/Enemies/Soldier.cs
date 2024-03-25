@@ -16,6 +16,9 @@ namespace Enemies
         [OdinSerialize]
         public string EnemyName { get; private set; }
 
+        [OdinSerialize]
+        private Rigidbody2D rigidBody;
+
         private SoliderConfig stats;
 
         [OdinSerialize]
@@ -53,9 +56,11 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            Vector3 direction = GetDirectionToTank();
+            Vector2 direction = GetDirectionToTank();
             RotateToTank(direction);
-            transform.position += direction * stats.MovementSpeed * Time.fixedDeltaTime;
+            rigidBody.MovePosition(
+                rigidBody.position + direction * stats.MovementSpeed * Time.fixedDeltaTime
+            );
         }
 
         private Vector2 GetDirectionToTank()

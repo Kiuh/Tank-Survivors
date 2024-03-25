@@ -134,4 +134,29 @@ namespace Enemies
             }
         }
     }
+
+    [Serializable]
+    [LabelText("Explosion")]
+    public class ExplosionUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ExplosionModule module = GetModule<ExplosionModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.Radius.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Radius.SourceValue;
+                }
+                module.Radius.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
 }

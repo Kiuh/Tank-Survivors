@@ -30,6 +30,7 @@ namespace General
         {
             enemyProducers = gameContext.GameConfig.EnemiesConfig.EnemyProducers.ToList();
             bossProducers = gameContext.GameConfig.EnemiesConfig.BossProducers.ToList();
+            enemyProducers.ForEach(producer => producer.Initialize());
         }
 
         private void Update()
