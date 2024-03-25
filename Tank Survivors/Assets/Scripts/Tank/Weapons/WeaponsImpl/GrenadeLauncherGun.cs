@@ -92,7 +92,7 @@ namespace Tank.Weapons
                 IProjectile projectile = GetModule<Modules.SelfExplosion.ProjectileModule>()
                     .ProjectilePrefab.SpawnConnected(Tank.transform);
 
-                projectile.Initialize(this, Tank, tower);
+                projectile.Initialize(this, Tank, tower, Vector3.zero, Vector3.zero);
                 projectile.Shoot();
             }
         }

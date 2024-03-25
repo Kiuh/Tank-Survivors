@@ -19,6 +19,8 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
         private TankImpl tank;
 
+        public System.Action OnProceedAttack;
+
         private void LateUpdate()
         {
             RotateInternal();
@@ -53,6 +55,7 @@ namespace Tank.Towers
                 }
             );
 
+            OnProceedAttack?.Invoke();
             shotCooldown -= Time.deltaTime;
             if (shotCooldown < 0f)
             {
@@ -75,7 +78,8 @@ namespace Tank.Towers
                 IProjectile projectile = weapon
                     .GetModule<ProjectileModule>()
                     .ProjectilePrefab.Spawn();
-                projectile.Initialize(weapon, tank, this);
+
+                projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
                 projectile.Shoot();
             }
         }

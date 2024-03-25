@@ -138,14 +138,6 @@ namespace Tank.Weapons.Modules
         public ModifiableValue<float> RotationSpeed { get; private set; } = new();
     }
 
-    public class MultiShotTowerFireRateModule : IWeaponModule
-    {
-        [OdinSerialize]
-        [HideLabel]
-        [FoldoutGroup("MultiShotTower Fire Rate Percent")]
-        public ModifiableValue<Percentage> Percent { get; private set; }
-    }
-
     public class FireDamageModule : IWeaponModule
     {
         [OdinSerialize]

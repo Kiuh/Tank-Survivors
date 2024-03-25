@@ -30,6 +30,53 @@ namespace Tank.Weapons.Projectiles
             lineRenderer = GetComponent<LineRenderer>();
         }
 
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
+        )
+        {
+            this.tower = tower;
+
+            float fireRange = weapon
+                .GetModule<FireRangeModule>()
+                .FireRange.GetPercentagesValue(tank.RangeModifier);
+
+            float damage = weapon.GetModifiedDamage(
+                weapon.GetModule<Modules.DamageModule>().Damage,
+                weapon.GetModule<CriticalChanceModule>().CriticalChance,
+                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            transform.position = shotPoint;
+            transform.rotation = Quaternion.identity;
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
+                shotPoint,
+                tank.transform.position + (direction.normalized * fireRange)
+            );
+        }
+
+        public void Shoot()
+        {
+            _ = StartCoroutine(Disappear());
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
+        }
+
         private void InitializeInternal(
             float damage,
             float duration,
@@ -50,9 +97,6 @@ namespace Tank.Weapons.Projectiles
 
             startColor = lineRenderer.startColor;
             endColor = lineRenderer.endColor;
-
-            transform.position = tower.GetShotPoint();
-            transform.rotation = Quaternion.identity;
         }
 
         private IEnumerator Disappear()
@@ -93,44 +137,6 @@ namespace Tank.Weapons.Projectiles
             lineRenderer.startColor = startColor;
             endColor.a = a;
             lineRenderer.endColor = endColor;
-        }
-
-        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
-        {
-            this.tower = tower;
-
-            float fireRange = weapon
-                .GetModule<FireRangeModule>()
-                .FireRange.GetPercentagesValue(tank.RangeModifier);
-
-            float damage = weapon.GetModifiedDamage(
-                weapon.GetModule<Modules.DamageModule>().Damage,
-                weapon.GetModule<CriticalChanceModule>().CriticalChance,
-                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
-                tank
-            );
-
-            InitializeInternal(
-                damage,
-                weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                tower.GetShotPoint(),
-                tank.transform.position + (tower.GetDirection().normalized * fireRange)
-            );
-        }
-
-        public void Shoot()
-        {
-            _ = StartCoroutine(Disappear());
-        }
-
-        public IProjectile Spawn()
-        {
-            return Instantiate(this);
-        }
-
-        public IProjectile SpawnConnected(Transform parent)
-        {
-            return Instantiate(this, parent);
         }
     }
 }

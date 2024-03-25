@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Tank.Towers;
 using Tank.Weapons.Modules;
+using Tank.Weapons.ModulesUpgrades.Cannon;
 
 namespace Tank.Weapons
 {
@@ -56,7 +57,7 @@ namespace Tank.Weapons
                 new TowerModule<DoubleShotTower>(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
-                new MultiShotTowerFireRateModule(),
+                new MultyCannonFireRateModule(),
             };
         }
     }

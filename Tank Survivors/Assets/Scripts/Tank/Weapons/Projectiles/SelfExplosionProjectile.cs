@@ -27,38 +27,13 @@ namespace Tank.Weapons.Projectiles
         private ITower tower;
         private Explosive explosive;
 
-        public void StartExplosion(float timeBeforeExplode)
-        {
-            _ = StartCoroutine(explosive.Explode(timeBeforeExplode));
-        }
-
-        public void InitializeInternal(
-            float explosionDamage,
-            float damageRadius,
-            FireParameters fireParameters
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
         )
-        {
-            transform.position = tower.GetShotPoint();
-            transform.rotation = Quaternion.identity;
-
-            explosive = new Explosive(
-                hitMark,
-                explosionParticle,
-                fireParticle,
-                gameObject,
-                explosionDamage,
-                damageRadius,
-                fireParameters
-            );
-
-            Vector3 explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
-
-            hitMark.localScale = explosionSize;
-            explosionParticle.transform.localScale = explosionSize;
-            fireParticle.transform.localScale = explosionSize;
-        }
-
-        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
         {
             this.weapon = weapon;
             this.tower = tower;
@@ -67,6 +42,9 @@ namespace Tank.Weapons.Projectiles
                 .GetModule<Modules.SelfExplosion.DamageModule>()
                 .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
                 .GetModifiedValue();
+
+            transform.position = shotPoint;
+            transform.rotation = Quaternion.identity;
 
             InitializeInternal(
                 damage,
@@ -99,6 +77,34 @@ namespace Tank.Weapons.Projectiles
         public IProjectile SpawnConnected(Transform parent)
         {
             return Instantiate(this, parent);
+        }
+
+        private void StartExplosion(float timeBeforeExplode)
+        {
+            _ = StartCoroutine(explosive.Explode(timeBeforeExplode));
+        }
+
+        private void InitializeInternal(
+            float explosionDamage,
+            float damageRadius,
+            FireParameters fireParameters
+        )
+        {
+            explosive = new Explosive(
+                hitMark,
+                explosionParticle,
+                fireParticle,
+                gameObject,
+                explosionDamage,
+                damageRadius,
+                fireParameters
+            );
+
+            Vector3 explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
+
+            hitMark.localScale = explosionSize;
+            explosionParticle.transform.localScale = explosionSize;
+            fireParticle.transform.localScale = explosionSize;
         }
     }
 }

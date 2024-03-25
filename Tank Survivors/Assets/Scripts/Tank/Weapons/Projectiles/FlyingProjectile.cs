@@ -35,7 +35,13 @@ namespace Tank.Weapons.Projectiles
         private Explosive explosive;
         private ITower tower;
 
-        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
+        )
         {
             this.tower = tower;
 
@@ -46,10 +52,9 @@ namespace Tank.Weapons.Projectiles
                 tank
             );
 
-            Vector3 towerDirection = tower.GetDirection();
-            Vector3 spreadDirection =
+            Vector3 modifiedDirection =
                 weapon.GetSpreadDirection(
-                    towerDirection,
+                    direction,
                     weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
                 )
                 * weapon
@@ -58,6 +63,9 @@ namespace Tank.Weapons.Projectiles
 
             FireParameters fireParameters = GetFireParameters(weapon, tank);
 
+            transform.position = shotPoint;
+            transform.rotation = Quaternion.identity;
+
             InitializeInternal(
                 damage,
                 weapon.GetModule<ProjectileSpeedModule>().ProjectileSpeed.GetModifiedValue(),
@@ -65,7 +73,7 @@ namespace Tank.Weapons.Projectiles
                     .GetModule<ProjectileSizeModule>()
                     .ProjectileSize.GetPercentagesValue(tank.ProjectileSize),
                 weapon.GetModule<ProjectileDamageRadiusModule>().DamageRadius.GetModifiedValue(),
-                spreadDirection,
+                modifiedDirection,
                 fireParameters
             );
         }
@@ -79,9 +87,6 @@ namespace Tank.Weapons.Projectiles
             FireParameters fireParameters
         )
         {
-            transform.position = tower.GetShotPoint();
-            transform.rotation = Quaternion.identity;
-
             this.speed = speed;
             this.size = size;
             transform.localScale = new Vector3(size, size, 1f);
