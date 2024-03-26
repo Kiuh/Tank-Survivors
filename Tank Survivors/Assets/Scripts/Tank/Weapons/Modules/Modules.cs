@@ -122,6 +122,14 @@ namespace Tank.Weapons.Modules
         public ModifiableValue<float> RayDuration { get; private set; } = new();
     }
 
+    public class RayFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Ray Fire Rate")]
+        public ModifiableValue<float> FireRate { get; private set; } = new();
+    }
+
     public class ProjectileSpreadAngleModule : IWeaponModule
     {
         [OdinSerialize]

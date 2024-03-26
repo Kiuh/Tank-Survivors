@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3925133237291205519}
   - component: {fileID: 4983938973484194356}
   m_Layer: 0
-  m_Name: BottomRight
+  m_Name: BottomLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625132d3bc56b9a4daba9c99cef8e740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionName: BottomRight
+  positionName: BottomLeft
 --- !u!1 &438494525790608542
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,8 +74,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4008681032750584764}
   - {fileID: 3925133237291205519}
+  - {fileID: 4008681032750584764}
   m_Father: {fileID: 7108108326417769948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2588998031394041276
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4008681032750584764}
   - component: {fileID: 8208022948070074690}
   m_Layer: 0
-  m_Name: BottomLeft
+  m_Name: BottomRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625132d3bc56b9a4daba9c99cef8e740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionName: BottomLeft
+  positionName: BottomRight
 --- !u!1 &6432410720089574690
 GameObject:
   m_ObjectHideFlags: 0

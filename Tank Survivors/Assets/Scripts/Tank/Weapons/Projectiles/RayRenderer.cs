@@ -15,15 +15,14 @@ namespace Tank.Weapons.Projectiles
         private float damage;
 
         private float duration = 1f;
-        private float timeRamaining;
+        private float timeRemaining;
+        private float shotCooldown;
 
         private Color startColor;
         private Color endColor;
 
         private Vector3 startPoint;
         private Vector3 endPoint;
-
-        private ITower tower;
 
         private void Awake()
         {
@@ -38,8 +37,6 @@ namespace Tank.Weapons.Projectiles
             Vector3 direction
         )
         {
-            this.tower = tower;
-
             float fireRange = weapon
                 .GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
@@ -51,14 +48,15 @@ namespace Tank.Weapons.Projectiles
                 tank
             );
 
-            transform.position = shotPoint;
-            transform.rotation = Quaternion.identity;
+            Vector3 localShotPoint = transform.InverseTransformPoint(shotPoint);
+            Vector3 localDirection = Quaternion.Inverse(transform.rotation) * direction;
 
             InitializeInternal(
                 damage,
                 weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                shotPoint,
-                tank.transform.position + (direction.normalized * fireRange)
+                weapon.GetModule<RayFireRateModule>().FireRate.GetModifiedValue(),
+                localShotPoint,
+                localShotPoint + (localDirection.normalized * fireRange)
             );
         }
 
@@ -80,6 +78,7 @@ namespace Tank.Weapons.Projectiles
         private void InitializeInternal(
             float damage,
             float duration,
+            float shotCooldown,
             Vector3 startPoint,
             Vector3 endPoint
         )
@@ -87,7 +86,8 @@ namespace Tank.Weapons.Projectiles
             this.damage = damage;
 
             this.duration = duration;
-            timeRamaining = duration;
+            timeRemaining = duration;
+            this.shotCooldown = shotCooldown;
 
             this.startPoint = startPoint;
             this.endPoint = endPoint;
@@ -103,25 +103,39 @@ namespace Tank.Weapons.Projectiles
         {
             lineRenderer.enabled = true;
 
-            Vector3 direction = endPoint - startPoint;
             float distance = (endPoint - startPoint).magnitude;
+            float shotCooldown = 0f;
 
-            while (timeRamaining > 0f)
+            while (timeRemaining > 0f)
             {
-                SetAlpha(timeRamaining / duration);
-
-                RaycastHit2D[] collisions = Physics2D.RaycastAll(startPoint, direction, distance);
-
-                foreach (RaycastHit2D collision in collisions)
+                if (shotCooldown <= 0)
                 {
-                    if (collision.transform.TryGetComponent(out IEnemy enemy))
+                    shotCooldown = this.shotCooldown;
+
+                    Vector3 globalStartPoint = transform.TransformPoint(startPoint);
+                    Vector3 globalEndPoint = transform.TransformPoint(endPoint);
+                    Vector3 direction = globalEndPoint - globalStartPoint;
+
+                    SetAlpha(timeRemaining / duration);
+
+                    RaycastHit2D[] collisions = Physics2D.RaycastAll(
+                        globalStartPoint,
+                        direction,
+                        distance
+                    );
+
+                    foreach (RaycastHit2D collision in collisions)
                     {
-                        enemy.TakeDamage(damage);
+                        if (collision.transform.TryGetComponent(out IEnemy enemy))
+                        {
+                            enemy.TakeDamage(damage);
+                        }
                     }
                 }
 
                 yield return null;
-                timeRamaining -= Time.deltaTime;
+                timeRemaining -= Time.deltaTime;
+                shotCooldown -= Time.deltaTime;
             }
 
             SetAlpha(0f);

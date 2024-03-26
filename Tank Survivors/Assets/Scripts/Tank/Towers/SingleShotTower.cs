@@ -80,9 +80,14 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                IProjectile projectile = weapon
+                IProjectile projectilePrefab = weapon
                     .GetModule<ProjectileModule>()
-                    .ProjectilePrefab.Spawn();
+                    .ProjectilePrefab;
+
+                IProjectile projectile =
+                    spawnVariation == SpawnVariation.Disconnected
+                        ? projectilePrefab.Spawn()
+                        : projectilePrefab.SpawnConnected(transform);
 
                 projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
                 projectile.Shoot();
@@ -96,7 +101,7 @@ namespace Tank.Towers
 
         public Vector3 GetDirection()
         {
-            return transform.up;
+            return shotPoint.up;
         }
 
         public void RotateTo(RotationParameters parameters)

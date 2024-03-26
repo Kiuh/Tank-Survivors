@@ -25,7 +25,7 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = CreateTower<SingleShotTower>(Tank.transform);
+            tower = CreateTower<SingleShotTower>(Tank.transform, SpawnVariation.Connected);
             tower.GetComponent<Towers.Cannon.RailGunController>().Initialize(this, Tank);
         }
 
@@ -53,6 +53,7 @@ namespace Tank.Weapons
                 new ProjectilesPerShootModule(),
                 new ProjectileModule(),
                 new RayDurationModule(),
+                new RayFireRateModule(),
                 new TowerModule<SingleShotTower>(),
                 new TowerRotationModule(),
                 new CannonModule(),
