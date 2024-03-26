@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5569900123904903596}
   - component: {fileID: 4117414406607137283}
-  - component: {fileID: 3652679547307459305}
+  - component: {fileID: 9200005004360299913}
   - component: {fileID: 926219194655494802}
   m_Layer: 0
   m_Name: DoubleShotTower
@@ -368,7 +368,7 @@ MonoBehaviour:
   shotPoints:
   - {fileID: 5504440420053595259}
   - {fileID: 9151754759878461568}
---- !u!114 &3652679547307459305
+--- !u!114 &9200005004360299913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,11 +377,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8594062279156807606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8784e32e0e558418c7c6df5581956a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fda4e1949657af418ee8ff172680827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 4117414406607137283}
+  tower:
+    mode: 0
+    unityReference: {fileID: 4117414406607137283}
+    rawReference:
+      rid: -2
   positioner: {fileID: 926219194655494802}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &926219194655494802
 MonoBehaviour:
   m_ObjectHideFlags: 0

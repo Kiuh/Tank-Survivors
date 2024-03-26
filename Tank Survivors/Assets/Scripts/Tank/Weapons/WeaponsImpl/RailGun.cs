@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Tank.Towers;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Modules.Cannon;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
     [Serializable]
     public class RailGun : GunBase
     {
-        private SingleShotTower tower;
+        private ITower tower;
 
         public override void ProceedAttack()
         {
@@ -25,8 +26,10 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = CreateTower<SingleShotTower>(Tank.transform, SpawnVariation.Connected);
-            tower.GetComponent<Towers.Cannon.RailGunController>().Initialize(this, Tank);
+            tower = CreateTower(Tank.transform);
+            (tower as MonoBehaviour)
+                .GetComponent<Towers.Cannon.Controller>()
+                .Initialize(this, Tank);
         }
 
         public override void DestroyGun()
@@ -54,9 +57,10 @@ namespace Tank.Weapons
                 new ProjectileModule(),
                 new RayDurationModule(),
                 new RayFireRateModule(),
-                new TowerModule<SingleShotTower>(),
+                new TowerModule(),
                 new TowerRotationModule(),
                 new CannonModule(),
+                new MultiCannonFireRateModule(),
             };
         }
     }

@@ -21,6 +21,11 @@ namespace Tank.Towers
             GunBase weapon,
             SpawnVariation spawnVariation
         );
+
+        public ITower Spawn(Transform transform);
+        public void DestroyYourself();
+
+        public event System.Action OnProceedAttack;
     }
 
     public interface ICanRotate

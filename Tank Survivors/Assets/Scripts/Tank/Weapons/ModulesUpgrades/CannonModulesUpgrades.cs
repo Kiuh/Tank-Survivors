@@ -2,8 +2,8 @@
 using System.Linq;
 using Common;
 using Sirenix.OdinInspector;
-using Tank.Towers;
 using Tank.Weapons.Modules;
+using UnityEngine;
 
 namespace Tank.Weapons.ModulesUpgrades.Cannon
 {
@@ -16,30 +16,8 @@ namespace Tank.Weapons.ModulesUpgrades.Cannon
 
         public void ApplyUpgrade(IWeapon weapon)
         {
-            weapon
-                .Modules.GetConcrete<TowerModule<SingleShotTower>, IWeaponModule>()
-                .Tower.GetComponent<Towers.Cannon.RailGunController>()
-                .AddCannon(CannonPosition);
-        }
-
-        private IEnumerable GetAllPositions()
-        {
-            return CannonPositioner?.Properties.Select(x => x.Name);
-        }
-    }
-
-    public class AddCannonForDoubleGun : IModuleUpgrade
-    {
-        public Towers.Cannon.Positioner CannonPositioner;
-
-        [ValueDropdown("GetAllPositions")]
-        public string CannonPosition;
-
-        public void ApplyUpgrade(IWeapon weapon)
-        {
-            weapon
-                .Modules.GetConcrete<TowerModule<DoubleShotTower>, IWeaponModule>()
-                .Tower.GetComponent<Towers.Cannon.DoubleGunController>()
+            (weapon.Modules.GetConcrete<TowerModule, IWeaponModule>().Tower as MonoBehaviour)
+                .GetComponent<Towers.Cannon.Controller>()
                 .AddCannon(CannonPosition);
         }
 

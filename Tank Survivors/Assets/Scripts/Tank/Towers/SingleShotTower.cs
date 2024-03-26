@@ -19,7 +19,7 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
         private TankImpl tank;
 
-        public System.Action OnProceedAttack;
+        public event System.Action OnProceedAttack;
 
         private void LateUpdate()
         {
@@ -28,7 +28,7 @@ namespace Tank.Towers
 
         private void OnDestroy()
         {
-            weapon.GetModule<TowerModule<SingleShotTower>>().Tower = null;
+            weapon.GetModule<TowerModule>().Tower = null;
         }
 
         public void Initialize(
@@ -70,6 +70,21 @@ namespace Tank.Towers
 
                 FireAllProjectiles();
             }
+        }
+
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
+        {
+            spawnVariation = newSpawnVariation;
+        }
+
+        public ITower Spawn(Transform transform)
+        {
+            return Instantiate(this, transform);
+        }
+
+        public void DestroyYourself()
+        {
+            Destroy(gameObject);
         }
 
         private void FireAllProjectiles()
@@ -117,11 +132,6 @@ namespace Tank.Towers
                 targetRotation,
                 Time.deltaTime * rotationSpeed
             );
-        }
-
-        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
-        {
-            spawnVariation = newSpawnVariation;
         }
     }
 }

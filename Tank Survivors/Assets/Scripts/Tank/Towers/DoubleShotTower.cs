@@ -1,3 +1,4 @@
+using System;
 using Common;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
@@ -22,7 +23,7 @@ namespace Tank.Towers
 
         private float remainingTime = 0f;
 
-        public System.Action OnProceedAttack;
+        public event Action OnProceedAttack;
 
         private void LateUpdate()
         {
@@ -31,7 +32,7 @@ namespace Tank.Towers
 
         private void OnDestroy()
         {
-            weapon.GetModule<TowerModule<DoubleShotTower>>().Tower = null;
+            weapon.GetModule<TowerModule>().Tower = null;
         }
 
         public Vector3 GetShotPoint()
@@ -107,6 +108,16 @@ namespace Tank.Towers
             }
         }
 
+        public ITower Spawn(Transform transform)
+        {
+            return Instantiate(this, transform);
+        }
+
+        public void DestroyYourself()
+        {
+            Destroy(gameObject);
+        }
+
         private void FireAllProjectiles()
         {
             int projectileCount = weapon
@@ -121,11 +132,14 @@ namespace Tank.Towers
 
         private void FireProjectile()
         {
-            IProjectile projectile = weapon.GetModule<ProjectileModule>().ProjectilePrefab.Spawn();
+            IProjectile projectilePrefab = weapon.GetModule<ProjectileModule>().ProjectilePrefab;
 
-            Vector3 towerDirection = GetDirection();
+            IProjectile projectile =
+                spawnVariation == SpawnVariation.Disconnected
+                    ? projectilePrefab.Spawn()
+                    : projectilePrefab.SpawnConnected(transform);
 
-            projectile.Initialize(weapon, tank, this, GetShotPoint(), towerDirection);
+            projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
         }
     }
 }

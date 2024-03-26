@@ -139,8 +139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fda4e1949657af418ee8ff172680827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 89765787069609111}
+  tower:
+    mode: 0
+    unityReference: {fileID: 89765787069609111}
+    rawReference:
+      rid: -2
   positioner: {fileID: 3141799806773127342}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &3141799806773127342
 MonoBehaviour:
   m_ObjectHideFlags: 0

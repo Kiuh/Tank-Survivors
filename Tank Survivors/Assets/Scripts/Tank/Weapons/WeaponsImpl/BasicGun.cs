@@ -8,7 +8,7 @@ namespace Tank.Weapons
     [Serializable]
     public class BasicGun : GunBase
     {
-        private SingleShotTower tower;
+        private ITower tower;
 
         public override void ProceedAttack()
         {
@@ -25,8 +25,7 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = CreateTower<SingleShotTower>(Tank.transform, SpawnVariation.Disconnected);
-            GetModule<TowerModule<SingleShotTower>>().Tower = tower;
+            tower = CreateTower(Tank.transform, SpawnVariation.Disconnected);
         }
 
         public override void DestroyGun()
@@ -55,7 +54,7 @@ namespace Tank.Weapons
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
-                new TowerModule<SingleShotTower>(),
+                new TowerModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
             };

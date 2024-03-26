@@ -97,21 +97,20 @@ namespace Tank.Weapons.Modules
         public ModifiableValue<float> DamageRadius { get; private set; } = new();
     }
 
-    public class TowerModule<T> : IWeaponModule
-        where T : ITower
+    public class TowerModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
-        public T TowerPrefab { get; private set; }
+        public ITower TowerPrefab { get; private set; }
 
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
         [ReadOnly]
-        public T Tower { get; set; }
+        public ITower Tower { get; set; }
     }
 
     public class RayDurationModule : IWeaponModule

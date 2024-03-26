@@ -6,14 +6,15 @@ using Tank.Weapons;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Modules.Cannon;
 using Tank.Weapons.Projectiles;
+using TNRD;
 using UnityEngine;
 
 namespace Tank.Towers.Cannon
 {
-    public class RailGunController : MonoBehaviour
+    public class Controller : MonoBehaviour
     {
         [SerializeField]
-        private SingleShotTower tower;
+        private SerializableInterface<ITower> tower;
 
         [SerializeField]
         private Positioner positioner;
@@ -30,12 +31,12 @@ namespace Tank.Towers.Cannon
             this.weapon = weapon;
             this.tank = tank;
 
-            tower.OnProceedAttack += ProceedAttack;
+            tower.Value.OnProceedAttack += ProceedAttack;
         }
 
         private void OnDestroy()
         {
-            tower.OnProceedAttack -= ProceedAttack;
+            tower.Value.OnProceedAttack -= ProceedAttack;
         }
 
         public void ProceedAttack()
@@ -43,9 +44,15 @@ namespace Tank.Towers.Cannon
             shotCooldown -= Time.deltaTime;
             if (shotCooldown < 0f)
             {
-                shotCooldown += weapon
-                    .GetModule<FireRateModule>()
-                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
+                shotCooldown +=
+                    weapon
+                        .GetModule<FireRateModule>()
+                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
+                    / weapon
+                        .GetModule<MultiCannonFireRateModule>()
+                        .Percent.GetModifiedValue()
+                        .NormalizedValue;
+
                 FireAllCannons();
             }
         }
@@ -60,7 +67,7 @@ namespace Tank.Towers.Cannon
                 projectile.Initialize(
                     weapon,
                     tank,
-                    tower,
+                    tower.Value,
                     cannon.GetShotPoint(),
                     cannon.GetDirection()
                 );
