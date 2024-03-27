@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5004161943984352704}
   - component: {fileID: 4755834892836652976}
   - component: {fileID: 7105571496359225119}
-  - component: {fileID: 4942160106164820235}
   - component: {fileID: 1003298091916130801}
+  - component: {fileID: 4942160106164820235}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Untagged
@@ -123,39 +123,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.42578125
---- !u!114 &4942160106164820235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7993388808786971018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3303811f8a6033449a7abfc671003e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQUAAABSAG8AYgBvAHQA
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  config: {fileID: 11400000, guid: 96a682a1b7aba4147abff5684451f522, type: 2}
-  clonedConfig:
-    Health: 0
-    MovementSpeed: 0
-    Damage: 0
-    TimeForNextHit: 0
-    ExperienceDropAmount: 0
-  tank: {fileID: 0}
-  enemyRigidBody: {fileID: 1003298091916130801}
-  movementDirection: {x: 0, y: 0}
-  isTouchingTank: 0
-  isMoving: 0
 --- !u!50 &1003298091916130801
 Rigidbody2D:
   serializedVersion: 4
@@ -183,3 +150,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4942160106164820235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993388808786971018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3303811f8a6033449a7abfc671003e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1003298091916130801}
+    SerializedBytesString: JwEJAAAARQBuAGUAbQB5AE4AYQBtAGUAAQUAAABSAG8AYgBvAHQAAQEHAAAATQBvAGQAdQBsAGUAcwAvAAAAAAFPAAAAUwB5AHMAdABlAG0ALgBDAG8AbABsAGUAYwB0AGkAbwBuAHMALgBHAGUAbgBlAHIAaQBjAC4ATABpAHMAdABgADEAWwBbAEUAbgBlAG0AaQBlAHMALgBJAE0AbwBkAHUAbABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcABdAF0ALAAgAG0AcwBjAG8AcgBsAGkAYgAAAAAABgUAAAAAAAAAAi8BAAAAAScAAABFAG4AZQBtAGkAZQBzAC4ATQBvAHYAZQBtAGUAbgB0AE0AbwBkAHUAbABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcAABAAAAAQEFAAAAUwBwAGUAZQBkAC8CAAAAAUQAAABDAG8AbQBtAG8AbgAuAE0AbwBkAGkAZgBpAGEAYgBsAGUAVgBhAGwAdQBlAGAAMQBbAFsAUwB5AHMAdABlAG0ALgBTAGkAbgBnAGwAZQAsACAAbQBzAGMAbwByAGwAaQBiAF0AXQAsACAAQQBzAHMAZQBtAGIAbAB5AC0AQwBTAGgAYQByAHAAAgAAAB8BCwAAAHMAbwB1AHIAYwBlAFYAYQBsAHUAZQAAAAAABQUCLwMAAAABJQAAAEUAbgBlAG0AaQBlAHMALgBEAGEAbQBhAGcAZQBNAG8AZAB1AGwAZQAsACAAQQBzAHMAZQBtAGIAbAB5AC0AQwBTAGgAYQByAHAAAwAAAAEBBgAAAEQAYQBtAGEAZwBlADACAAAABAAAAB8BCwAAAHMAbwB1AHIAYwBlAFYAYQBsAHUAZQAAAAAABQUCLwQAAAABLQAAAEUAbgBlAG0AaQBlAHMALgBBAHQAdABhAGMAawBDAG8AbwBsAGQAbwB3AG4ATQBvAGQAdQBsAGUALAAgAEEAcwBzAGUAbQBiAGwAeQAtAEMAUwBoAGEAcgBwAAUAAAABAQgAAABDAG8AbwBsAGQAbwB3AG4AMAIAAAAGAAAAHwELAAAAcwBvAHUAcgBjAGUAVgBhAGwAdQBlAAAAAAAFBQIvBQAAAAEpAAAARQBuAGUAbQBpAGUAcwAuAEUAeABwAGUAcgBpAGUAbgBjAGUATQBvAGQAdQBsAGUALAAgAEEAcwBzAGUAbQBiAGwAeQAtAEMAUwBoAGEAcgBwAAcAAAABAQoAAABEAHIAbwBwAEEAbQBvAHUAbgB0ADACAAAACAAAAB8BCwAAAHMAbwB1AHIAYwBlAFYAYQBsAHUAZQAAAAAABQUCLwYAAAABJQAAAEUAbgBlAG0AaQBlAHMALgBIAGUAYQBsAHQAaABNAG8AZAB1AGwAZQAsACAAQQBzAHMAZQBtAGIAbAB5AC0AQwBTAGgAYQByAHAACQAAAAEBBgAAAEgAZQBhAGwAdABoADACAAAACgAAAB8BCwAAAHMAbwB1AHIAYwBlAFYAYQBsAHUAZQAAAAAABQUHBQsBCQAAAHIAaQBnAGkAZABCAG8AZAB5AAAAAAA=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
