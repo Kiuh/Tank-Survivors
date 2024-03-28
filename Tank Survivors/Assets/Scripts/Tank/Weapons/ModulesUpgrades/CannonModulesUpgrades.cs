@@ -24,10 +24,7 @@ namespace Tank.Weapons.ModulesUpgrades.Cannon
 
         private IEnumerable GetAllPositions()
         {
-            if (CannonPosition == null)
-                return null;
-
-            return CannonPositioner.Properties.Select(x => x.Name);
+            return CannonPositioner?.Properties.Select(x => x.Name);
         }
     }
 }
