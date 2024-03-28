@@ -4,6 +4,7 @@ using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
@@ -252,10 +253,22 @@ namespace Tank.Weapons.ModulesUpgrades
         public override void ApplyUpgrade(IWeapon weapon)
         {
             weapon
-                .Modules.GetConcrete<ProjectileFireTimerModule, Modules.IWeaponModule>()
+                .Modules.GetConcrete<ProjectileFireTimerModule, IWeaponModule>()
                 .Time.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
+        }
+    }
+
+    public class ChangeSpawnVariation : IModuleUpgrade
+    {
+        public SpawnVariation SpawnVariation;
+
+        public void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<TowerModule, IWeaponModule>()
+                .Tower.ChangeSpawnVariation(SpawnVariation);
         }
     }
 }

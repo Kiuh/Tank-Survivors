@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using Tank.Towers;
 using Tank.Weapons.Modules;
+using Tank.Weapons.Modules.Cannon;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
     [Serializable]
     public class DoubleShotGun : GunBase
     {
-        private DoubleShotTower tower;
+        private ITower tower;
 
         public override void ProceedAttack()
         {
@@ -24,7 +26,10 @@ namespace Tank.Weapons
 
         public override void CreateGun()
         {
-            tower = CreateTower<DoubleShotTower>(Tank.transform, SpawnVariation.Disconnected);
+            tower = CreateTower(Tank.transform, SpawnVariation.Disconnected);
+            (tower as MonoBehaviour)
+                .GetComponent<Towers.Cannon.Controller>()
+                .Initialize(this, Tank);
         }
 
         public override void DestroyGun()
@@ -53,10 +58,11 @@ namespace Tank.Weapons
                 new ProjectileSizeModule(),
                 new ProjectileSpeedModule(),
                 new ProjectilesPerShootModule(),
-                new TowerModule<DoubleShotTower>(),
+                new TowerModule(),
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
-                new MultiShotTowerFireRateModule(),
+                new MultiCannonFireRateModule(),
+                new CannonModule()
             };
         }
     }

@@ -97,21 +97,20 @@ namespace Tank.Weapons.Modules
         public ModifiableValue<float> DamageRadius { get; private set; } = new();
     }
 
-    public class TowerModule<T> : IWeaponModule
-        where T : ITower
+    public class TowerModule : IWeaponModule
     {
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
-        public T TowerPrefab { get; private set; }
+        public ITower TowerPrefab { get; private set; }
 
         [OdinSerialize]
         [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
         [ReadOnly]
-        public T Tower { get; set; }
+        public ITower Tower { get; set; }
     }
 
     public class RayDurationModule : IWeaponModule
@@ -120,6 +119,14 @@ namespace Tank.Weapons.Modules
         [HideLabel]
         [FoldoutGroup("Ray Duration")]
         public ModifiableValue<float> RayDuration { get; private set; } = new();
+    }
+
+    public class RayFireRateModule : IWeaponModule
+    {
+        [OdinSerialize]
+        [HideLabel]
+        [FoldoutGroup("Ray Fire Rate")]
+        public ModifiableValue<float> FireRate { get; private set; } = new();
     }
 
     public class ProjectileSpreadAngleModule : IWeaponModule
@@ -136,14 +143,6 @@ namespace Tank.Weapons.Modules
         [HideLabel]
         [FoldoutGroup("Tower Rotation")]
         public ModifiableValue<float> RotationSpeed { get; private set; } = new();
-    }
-
-    public class MultiShotTowerFireRateModule : IWeaponModule
-    {
-        [OdinSerialize]
-        [HideLabel]
-        [FoldoutGroup("MultiShotTower Fire Rate Percent")]
-        public ModifiableValue<Percentage> Percent { get; private set; }
     }
 
     public class FireDamageModule : IWeaponModule

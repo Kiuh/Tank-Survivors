@@ -19,9 +19,16 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
         private TankImpl tank;
 
+        public event System.Action OnProceedAttack;
+
         private void LateUpdate()
         {
             RotateInternal();
+        }
+
+        private void OnDestroy()
+        {
+            ClearReference();
         }
 
         public void Initialize(
@@ -53,6 +60,7 @@ namespace Tank.Towers
                 }
             );
 
+            OnProceedAttack?.Invoke();
             shotCooldown -= Time.deltaTime;
             if (shotCooldown < 0f)
             {
@@ -64,20 +72,19 @@ namespace Tank.Towers
             }
         }
 
-        private void FireAllProjectiles()
+        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
         {
-            int projectileCount = weapon
-                .GetModule<ProjectilesPerShootModule>()
-                .ProjectilesPerShoot.GetModifiedValue();
+            spawnVariation = newSpawnVariation;
+        }
 
-            for (int i = 0; i < projectileCount; i++)
-            {
-                IProjectile projectile = weapon
-                    .GetModule<ProjectileModule>()
-                    .ProjectilePrefab.Spawn();
-                projectile.Initialize(weapon, tank, this);
-                projectile.Shoot();
-            }
+        public ITower Spawn(Transform transform)
+        {
+            return Instantiate(this, transform);
+        }
+
+        public void DestroyYourself()
+        {
+            Destroy(gameObject);
         }
 
         public Vector3 GetShotPoint()
@@ -87,13 +94,49 @@ namespace Tank.Towers
 
         public Vector3 GetDirection()
         {
-            return transform.up;
+            return shotPoint.up;
         }
 
         public void RotateTo(RotationParameters parameters)
         {
             targetRotation = Quaternion.LookRotation(Vector3.forward, parameters.Direction);
             rotationSpeed = parameters.Speed;
+        }
+
+        private void ClearReference()
+        {
+            weapon.GetModule<TowerModule>().Tower = null;
+        }
+
+        private void FireAllProjectiles()
+        {
+            int projectileCount = weapon
+                .GetModule<ProjectilesPerShootModule>()
+                .ProjectilesPerShoot.GetModifiedValue();
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                IProjectile projectilePrefab = weapon
+                    .GetModule<ProjectileModule>()
+                    .ProjectilePrefab;
+
+                IProjectile projectile = SpawnProjectile(projectilePrefab);
+
+                projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+                projectile.Shoot();
+            }
+        }
+
+        private IProjectile SpawnProjectile(IProjectile projectilePrefab)
+        {
+            if (spawnVariation == SpawnVariation.Disconnected)
+            {
+                return projectilePrefab.Spawn();
+            }
+            else
+            {
+                return projectilePrefab.SpawnConnected(transform);
+            }
         }
 
         private void RotateInternal()
@@ -103,11 +146,6 @@ namespace Tank.Towers
                 targetRotation,
                 Time.deltaTime * rotationSpeed
             );
-        }
-
-        public void ChangeSpawnVariation(SpawnVariation newSpawnVariation)
-        {
-            spawnVariation = newSpawnVariation;
         }
     }
 }

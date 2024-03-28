@@ -15,7 +15,8 @@ namespace Tank.Weapons.Projectiles
         private float damage;
 
         private float duration = 1f;
-        private float timeRamaining;
+        private float timeRemaining;
+        private float shotCooldown;
 
         private Color startColor;
         private Color endColor;
@@ -23,82 +24,19 @@ namespace Tank.Weapons.Projectiles
         private Vector3 startPoint;
         private Vector3 endPoint;
 
-        private ITower tower;
-
         private void Awake()
         {
             lineRenderer = GetComponent<LineRenderer>();
         }
 
-        private void InitializeInternal(
-            float damage,
-            float duration,
-            Vector3 startPoint,
-            Vector3 endPoint
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
         )
         {
-            this.damage = damage;
-
-            this.duration = duration;
-            timeRamaining = duration;
-
-            this.startPoint = startPoint;
-            this.endPoint = endPoint;
-
-            lineRenderer.SetPosition(0, startPoint);
-            lineRenderer.SetPosition(1, endPoint);
-
-            startColor = lineRenderer.startColor;
-            endColor = lineRenderer.endColor;
-
-            transform.position = tower.GetShotPoint();
-            transform.rotation = Quaternion.identity;
-        }
-
-        private IEnumerator Disappear()
-        {
-            lineRenderer.enabled = true;
-
-            Vector3 direction = endPoint - startPoint;
-            float distance = (endPoint - startPoint).magnitude;
-
-            while (timeRamaining > 0f)
-            {
-                SetAlpha(timeRamaining / duration);
-
-                RaycastHit2D[] collisions = Physics2D.RaycastAll(startPoint, direction, distance);
-
-                foreach (RaycastHit2D collision in collisions)
-                {
-                    if (collision.transform.TryGetComponent(out IEnemy enemy))
-                    {
-                        enemy.TakeDamage(damage);
-                    }
-                }
-
-                yield return null;
-                timeRamaining -= Time.deltaTime;
-            }
-
-            SetAlpha(0f);
-            yield return null;
-
-            lineRenderer.enabled = false;
-            Destroy(gameObject);
-        }
-
-        private void SetAlpha(float a)
-        {
-            startColor.a = a;
-            lineRenderer.startColor = startColor;
-            endColor.a = a;
-            lineRenderer.endColor = endColor;
-        }
-
-        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
-        {
-            this.tower = tower;
-
             float fireRange = weapon
                 .GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
@@ -110,11 +48,15 @@ namespace Tank.Weapons.Projectiles
                 tank
             );
 
+            Vector3 localShotPoint = transform.InverseTransformPoint(shotPoint);
+            Vector3 localDirection = Quaternion.Inverse(transform.rotation) * direction;
+
             InitializeInternal(
                 damage,
                 weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
-                tower.GetShotPoint(),
-                tank.transform.position + (tower.GetDirection().normalized * fireRange)
+                weapon.GetModule<RayFireRateModule>().FireRate.GetModifiedValue(),
+                localShotPoint,
+                localShotPoint + (localDirection.normalized * fireRange)
             );
         }
 
@@ -131,6 +73,84 @@ namespace Tank.Weapons.Projectiles
         public IProjectile SpawnConnected(Transform parent)
         {
             return Instantiate(this, parent);
+        }
+
+        private void InitializeInternal(
+            float damage,
+            float duration,
+            float shotCooldown,
+            Vector3 startPoint,
+            Vector3 endPoint
+        )
+        {
+            this.damage = damage;
+
+            this.duration = duration;
+            timeRemaining = duration;
+            this.shotCooldown = shotCooldown;
+
+            this.startPoint = startPoint;
+            this.endPoint = endPoint;
+
+            lineRenderer.SetPosition(0, startPoint);
+            lineRenderer.SetPosition(1, endPoint);
+
+            startColor = lineRenderer.startColor;
+            endColor = lineRenderer.endColor;
+        }
+
+        private IEnumerator Disappear()
+        {
+            lineRenderer.enabled = true;
+
+            float distance = (endPoint - startPoint).magnitude;
+            float shotCooldown = 0f;
+
+            while (timeRemaining > 0f)
+            {
+                if (shotCooldown <= 0)
+                {
+                    shotCooldown = this.shotCooldown;
+
+                    Vector3 globalStartPoint = transform.TransformPoint(startPoint);
+                    Vector3 globalEndPoint = transform.TransformPoint(endPoint);
+                    Vector3 direction = globalEndPoint - globalStartPoint;
+
+                    SetAlpha(timeRemaining / duration);
+
+                    RaycastHit2D[] collisions = Physics2D.RaycastAll(
+                        globalStartPoint,
+                        direction,
+                        distance
+                    );
+
+                    foreach (RaycastHit2D collision in collisions)
+                    {
+                        if (collision.transform.TryGetComponent(out IEnemy enemy))
+                        {
+                            enemy.TakeDamage(damage);
+                        }
+                    }
+                }
+
+                yield return null;
+                timeRemaining -= Time.deltaTime;
+                shotCooldown -= Time.deltaTime;
+            }
+
+            SetAlpha(0f);
+            yield return null;
+
+            lineRenderer.enabled = false;
+            Destroy(gameObject);
+        }
+
+        private void SetAlpha(float a)
+        {
+            startColor.a = a;
+            lineRenderer.startColor = startColor;
+            endColor.a = a;
+            lineRenderer.endColor = endColor;
         }
     }
 }

@@ -121,17 +121,15 @@ namespace Tank.Weapons
                 : damageModifiableValue.GetModifiedValue();
         }
 
-        protected T CreateTower<T>(Transform transform)
-            where T : MonoBehaviour, ITower
+        protected ITower CreateTower(Transform transform)
         {
-            return CreateTower<T>(transform, SpawnVariation.Disconnected);
+            return CreateTower(transform, SpawnVariation.Disconnected);
         }
 
-        protected T CreateTower<T>(Transform transform, SpawnVariation spawnVariation)
-            where T : MonoBehaviour, ITower
+        protected ITower CreateTower(Transform transform, SpawnVariation spawnVariation)
         {
-            TowerModule<T> towerModule = GetModule<TowerModule<T>>();
-            T tower = Object.Instantiate(towerModule.TowerPrefab, transform);
+            TowerModule towerModule = GetModule<TowerModule>();
+            ITower tower = towerModule.TowerPrefab.Spawn(transform);
             towerModule.Tower = tower;
 
             tower.Initialize(Tank, EnemyFinder, this, spawnVariation);
@@ -139,11 +137,9 @@ namespace Tank.Weapons
             return tower;
         }
 
-        protected void DestroyTower<T>(T tower)
-            where T : MonoBehaviour, ITower
+        protected void DestroyTower(ITower tower)
         {
-            GameObject.Destroy(tower.gameObject);
-            GetModule<TowerModule<T>>().Tower = null;
+            tower.DestroyYourself();
         }
     }
 }

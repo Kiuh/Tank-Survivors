@@ -1,3 +1,4 @@
+using System;
 using Common;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
@@ -22,9 +23,16 @@ namespace Tank.Towers
 
         private float remainingTime = 0f;
 
+        public event Action OnProceedAttack;
+
         private void LateUpdate()
         {
             RotateInternal();
+        }
+
+        private void OnDestroy()
+        {
+            ClearReference();
         }
 
         public Vector3 GetShotPoint()
@@ -80,6 +88,8 @@ namespace Tank.Towers
                 return;
             }
 
+            OnProceedAttack?.Invoke();
+
             RotateTo(
                 new RotationParameters()
                 {
@@ -98,6 +108,21 @@ namespace Tank.Towers
             }
         }
 
+        public ITower Spawn(Transform transform)
+        {
+            return Instantiate(this, transform);
+        }
+
+        public void DestroyYourself()
+        {
+            Destroy(gameObject);
+        }
+
+        private void ClearReference()
+        {
+            weapon.GetModule<TowerModule>().Tower = null;
+        }
+
         private void FireAllProjectiles()
         {
             int projectileCount = weapon
@@ -106,10 +131,27 @@ namespace Tank.Towers
 
             for (int i = 0; i < projectileCount; i++)
             {
-                IProjectile projectile = weapon
-                    .GetModule<ProjectileModule>()
-                    .ProjectilePrefab.Spawn();
-                projectile.Initialize(weapon, tank, this);
+                FireProjectile();
+            }
+        }
+
+        private void FireProjectile()
+        {
+            IProjectile projectilePrefab = weapon.GetModule<ProjectileModule>().ProjectilePrefab;
+            IProjectile projectile = SpawnProjectile(projectilePrefab);
+
+            projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+        }
+
+        private IProjectile SpawnProjectile(IProjectile projectilePrefab)
+        {
+            if (spawnVariation == SpawnVariation.Disconnected)
+            {
+                return projectilePrefab.Spawn();
+            }
+            else
+            {
+                return projectilePrefab.SpawnConnected(transform);
             }
         }
     }

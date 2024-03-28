@@ -43,15 +43,15 @@ namespace Tank.Weapons.Projectiles
             }
         }
 
-        public void Initialize(GunBase weapon, TankImpl tank, ITower tower)
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
+        )
         {
             this.tower = tower;
-
-            Vector3 towerDirection = tower.GetDirection();
-            Vector3 spreadDirection = weapon.GetSpreadDirection(
-                towerDirection,
-                weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
-            );
 
             float damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
@@ -59,6 +59,14 @@ namespace Tank.Weapons.Projectiles
                 weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
                 tank
             );
+
+            Vector3 spreadDirection = weapon.GetSpreadDirection(
+                direction,
+                weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
+            );
+
+            transform.position = shotPoint;
+            transform.rotation = Quaternion.identity;
 
             InitializeInternal(
                 damage,
@@ -89,9 +97,6 @@ namespace Tank.Weapons.Projectiles
             this.fireRange = fireRange;
             this.penetration = penetration;
             this.direction = direction.normalized;
-
-            transform.position = tower.GetShotPoint();
-            transform.rotation = Quaternion.identity;
         }
 
         public void Shoot() { }
