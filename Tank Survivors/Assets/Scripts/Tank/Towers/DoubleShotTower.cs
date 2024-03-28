@@ -32,7 +32,7 @@ namespace Tank.Towers
 
         private void OnDestroy()
         {
-            weapon.GetModule<TowerModule>().Tower = null;
+            ClearReference();
         }
 
         public Vector3 GetShotPoint()
@@ -118,6 +118,11 @@ namespace Tank.Towers
             Destroy(gameObject);
         }
 
+        private void ClearReference()
+        {
+            weapon.GetModule<TowerModule>().Tower = null;
+        }
+
         private void FireAllProjectiles()
         {
             int projectileCount = weapon
@@ -133,13 +138,21 @@ namespace Tank.Towers
         private void FireProjectile()
         {
             IProjectile projectilePrefab = weapon.GetModule<ProjectileModule>().ProjectilePrefab;
-
-            IProjectile projectile =
-                spawnVariation == SpawnVariation.Disconnected
-                    ? projectilePrefab.Spawn()
-                    : projectilePrefab.SpawnConnected(transform);
+            IProjectile projectile = SpawnProjectile(projectilePrefab);
 
             projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+        }
+
+        private IProjectile SpawnProjectile(IProjectile projectilePrefab)
+        {
+            if (spawnVariation == SpawnVariation.Disconnected)
+            {
+                return projectilePrefab.Spawn();
+            }
+            else
+            {
+                return projectilePrefab.SpawnConnected(transform);
+            }
         }
     }
 }

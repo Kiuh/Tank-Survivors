@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
 using Tank.Weapons;
@@ -44,14 +43,16 @@ namespace Tank.Towers.Cannon
             shotCooldown -= Time.deltaTime;
             if (shotCooldown < 0f)
             {
-                shotCooldown +=
-                    weapon
-                        .GetModule<FireRateModule>()
-                        .FireRate.GetPercentagesValue(tank.FireRateModifier)
-                    / weapon
-                        .GetModule<MultiCannonFireRateModule>()
-                        .Percent.GetModifiedValue()
-                        .NormalizedValue;
+                float fireRate = weapon
+                    .GetModule<FireRateModule>()
+                    .FireRate.GetPercentagesValue(tank.FireRateModifier);
+
+                float fireRateModifier = weapon
+                    .GetModule<MultiCannonFireRateModule>()
+                    .Percent.GetModifiedValue()
+                    .NormalizedValue;
+
+                shotCooldown += fireRate / fireRateModifier;
 
                 FireAllCannons();
             }
@@ -83,7 +84,7 @@ namespace Tank.Towers.Cannon
 
             if (cannonProperty == null)
             {
-                throw new Exception(
+                Debug.LogError(
                     $"Can't find property with name {positionName} in Cannon Positioner on gameObject {gameObject.name}"
                 );
             }

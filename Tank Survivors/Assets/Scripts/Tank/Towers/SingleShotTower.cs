@@ -28,7 +28,7 @@ namespace Tank.Towers
 
         private void OnDestroy()
         {
-            weapon.GetModule<TowerModule>().Tower = null;
+            ClearReference();
         }
 
         public void Initialize(
@@ -87,28 +87,6 @@ namespace Tank.Towers
             Destroy(gameObject);
         }
 
-        private void FireAllProjectiles()
-        {
-            int projectileCount = weapon
-                .GetModule<ProjectilesPerShootModule>()
-                .ProjectilesPerShoot.GetModifiedValue();
-
-            for (int i = 0; i < projectileCount; i++)
-            {
-                IProjectile projectilePrefab = weapon
-                    .GetModule<ProjectileModule>()
-                    .ProjectilePrefab;
-
-                IProjectile projectile =
-                    spawnVariation == SpawnVariation.Disconnected
-                        ? projectilePrefab.Spawn()
-                        : projectilePrefab.SpawnConnected(transform);
-
-                projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
-                projectile.Shoot();
-            }
-        }
-
         public Vector3 GetShotPoint()
         {
             return shotPoint.position;
@@ -123,6 +101,42 @@ namespace Tank.Towers
         {
             targetRotation = Quaternion.LookRotation(Vector3.forward, parameters.Direction);
             rotationSpeed = parameters.Speed;
+        }
+
+        private void ClearReference()
+        {
+            weapon.GetModule<TowerModule>().Tower = null;
+        }
+
+        private void FireAllProjectiles()
+        {
+            int projectileCount = weapon
+                .GetModule<ProjectilesPerShootModule>()
+                .ProjectilesPerShoot.GetModifiedValue();
+
+            for (int i = 0; i < projectileCount; i++)
+            {
+                IProjectile projectilePrefab = weapon
+                    .GetModule<ProjectileModule>()
+                    .ProjectilePrefab;
+
+                IProjectile projectile = SpawnProjectile(projectilePrefab);
+
+                projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+                projectile.Shoot();
+            }
+        }
+
+        private IProjectile SpawnProjectile(IProjectile projectilePrefab)
+        {
+            if (spawnVariation == SpawnVariation.Disconnected)
+            {
+                return projectilePrefab.Spawn();
+            }
+            else
+            {
+                return projectilePrefab.SpawnConnected(transform);
+            }
         }
 
         private void RotateInternal()
