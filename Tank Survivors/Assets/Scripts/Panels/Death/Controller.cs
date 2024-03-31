@@ -12,7 +12,7 @@ namespace Panels.Death
         private TankImpl tank;
 
         [SerializeField]
-        private Timer timer;
+        private General.Timer timer;
 
         [SerializeField]
         private View view;
