@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tank
 {
@@ -9,16 +10,10 @@ namespace Tank
         private TankImpl tank;
 
         [SerializeField]
-        private RectTransform healthBackground;
+        private Image healthFrontBar;
 
         [SerializeField]
-        private RectTransform healthFrontBar;
-
-        [SerializeField]
-        private RectTransform experienceBackground;
-
-        [SerializeField]
-        private RectTransform experienceFrontBar;
+        private Image experienceFrontBar;
 
         [Range(0, 1)]
         [SerializeField]
@@ -26,36 +21,19 @@ namespace Tank
 
         private void Update()
         {
-            LerpSize(
-                healthFrontBar,
-                healthBackground,
-                tank.Health.Value,
-                tank.Health.MaxValue,
-                lerpSpeed
-            );
+            LerpSize(healthFrontBar, tank.Health.Value, tank.Health.MaxValue, lerpSpeed);
 
             LerpSize(
                 experienceFrontBar,
-                experienceBackground,
                 tank.PlayerLevel.ExperienceCount,
                 tank.PlayerLevel.MaxExperienceCount,
                 lerpSpeed
             );
         }
 
-        private void LerpSize(
-            RectTransform front,
-            RectTransform back,
-            float current,
-            float max,
-            float speed
-        )
+        private void LerpSize(Image front, float current, float max, float speed)
         {
-            front.sizeDelta = Vector2.Lerp(
-                front.sizeDelta,
-                new Vector2(back.sizeDelta.x * (current / max), front.sizeDelta.y),
-                speed
-            );
+            front.fillAmount = Mathf.Lerp(front.fillAmount, current / max, speed);
         }
     }
 }
