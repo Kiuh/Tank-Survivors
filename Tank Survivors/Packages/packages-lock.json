@@ -78,6 +78,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "net.tnrd.serializableinterface": {
+      "version": "https://github.com/Thundernerd/Unity3D-SerializableInterface.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4e411040b919a541b0c5a839f6b654864b923c0a"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

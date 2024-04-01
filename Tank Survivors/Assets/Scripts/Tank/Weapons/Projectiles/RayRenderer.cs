@@ -1,5 +1,8 @@
 using System.Collections;
+using Common;
 using Enemies;
+using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
@@ -12,7 +15,8 @@ namespace Tank.Weapons.Projectiles
         private float damage;
 
         private float duration = 1f;
-        private float timeRamaining;
+        private float timeRemaining;
+        private float shotCooldown;
 
         private Color startColor;
         private Color endColor;
@@ -25,12 +29,65 @@ namespace Tank.Weapons.Projectiles
             lineRenderer = GetComponent<LineRenderer>();
         }
 
-        public void Initialize(float damage, float duration, Vector3 startPoint, Vector3 endPoint)
+        public void Initialize(
+            GunBase weapon,
+            TankImpl tank,
+            ITower tower,
+            Vector3 shotPoint,
+            Vector3 direction
+        )
+        {
+            float fireRange = weapon
+                .GetModule<FireRangeModule>()
+                .FireRange.GetPercentagesValue(tank.RangeModifier);
+
+            float damage = weapon.GetModifiedDamage(
+                weapon.GetModule<Modules.DamageModule>().Damage,
+                weapon.GetModule<CriticalChanceModule>().CriticalChance,
+                weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
+                tank
+            );
+
+            Vector3 localShotPoint = transform.InverseTransformPoint(shotPoint);
+            Vector3 localDirection = Quaternion.Inverse(transform.rotation) * direction;
+
+            InitializeInternal(
+                damage,
+                weapon.GetModule<RayDurationModule>().RayDuration.GetModifiedValue(),
+                weapon.GetModule<RayFireRateModule>().FireRate.GetModifiedValue(),
+                localShotPoint,
+                localShotPoint + (localDirection.normalized * fireRange)
+            );
+        }
+
+        public void Shoot()
+        {
+            _ = StartCoroutine(Disappear());
+        }
+
+        public IProjectile Spawn()
+        {
+            return Instantiate(this);
+        }
+
+        public IProjectile SpawnConnected(Transform parent)
+        {
+            return Instantiate(this, parent);
+        }
+
+        private void InitializeInternal(
+            float damage,
+            float duration,
+            float shotCooldown,
+            Vector3 startPoint,
+            Vector3 endPoint
+        )
         {
             this.damage = damage;
 
             this.duration = duration;
-            timeRamaining = duration;
+            timeRemaining = duration;
+            this.shotCooldown = shotCooldown;
 
             this.startPoint = startPoint;
             this.endPoint = endPoint;
@@ -42,34 +99,43 @@ namespace Tank.Weapons.Projectiles
             endColor = lineRenderer.endColor;
         }
 
-        public void Show()
-        {
-            _ = StartCoroutine(Disappear());
-        }
-
         private IEnumerator Disappear()
         {
             lineRenderer.enabled = true;
 
-            Vector3 direction = endPoint - startPoint;
             float distance = (endPoint - startPoint).magnitude;
+            float shotCooldown = 0f;
 
-            while (timeRamaining > 0f)
+            while (timeRemaining > 0f)
             {
-                SetAlpha(timeRamaining / duration);
-
-                RaycastHit2D[] collisions = Physics2D.RaycastAll(startPoint, direction, distance);
-
-                foreach (RaycastHit2D collision in collisions)
+                if (shotCooldown <= 0)
                 {
-                    if (collision.transform.TryGetComponent(out IEnemy enemy))
+                    shotCooldown = this.shotCooldown;
+
+                    Vector3 globalStartPoint = transform.TransformPoint(startPoint);
+                    Vector3 globalEndPoint = transform.TransformPoint(endPoint);
+                    Vector3 direction = globalEndPoint - globalStartPoint;
+
+                    SetAlpha(timeRemaining / duration);
+
+                    RaycastHit2D[] collisions = Physics2D.RaycastAll(
+                        globalStartPoint,
+                        direction,
+                        distance
+                    );
+
+                    foreach (RaycastHit2D collision in collisions)
                     {
-                        enemy.TakeDamage(damage);
+                        if (collision.transform.TryGetComponent(out IEnemy enemy))
+                        {
+                            enemy.TakeDamage(damage);
+                        }
                     }
                 }
 
                 yield return null;
-                timeRamaining -= Time.deltaTime;
+                timeRemaining -= Time.deltaTime;
+                shotCooldown -= Time.deltaTime;
             }
 
             SetAlpha(0f);

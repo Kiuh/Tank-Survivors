@@ -4,6 +4,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.UpgradablePiece;
+using Tank.Weapons.ModulesUpgrades;
 
 namespace Tank.Weapons
 {

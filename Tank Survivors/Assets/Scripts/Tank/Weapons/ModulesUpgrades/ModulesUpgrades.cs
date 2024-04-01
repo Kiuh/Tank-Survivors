@@ -4,13 +4,15 @@ using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
-namespace Tank.Weapons
+namespace Tank.Weapons.ModulesUpgrades
 {
     public interface IModuleUpgrade
     {
-        public void ApplyUpgrade(IWeapon tank);
+        public void ApplyUpgrade(IWeapon weapon);
     }
 
     [HideLabel]
@@ -219,6 +221,54 @@ namespace Tank.Weapons
                 .RotationSpeed.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
+        }
+    }
+
+    public class FireDamage : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<FireDamageModule, Modules.IWeaponModule>()
+                .Damage.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class FireFireRate : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<FireFireRateModule, IWeaponModule>()
+                .FireRate.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class ProjectileFireTimer : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<ProjectileFireTimerModule, IWeaponModule>()
+                .Time.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    public class ChangeSpawnVariation : IModuleUpgrade
+    {
+        public SpawnVariation SpawnVariation;
+
+        public void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<TowerModule, IWeaponModule>()
+                .Tower.ChangeSpawnVariation(SpawnVariation);
         }
     }
 }
