@@ -21,9 +21,9 @@ namespace Tank
 
         private void Update()
         {
-            LerpSize(healthFrontBar, tank.Health.Value, tank.Health.MaxValue, lerpSpeed);
+            LerpBar(healthFrontBar, tank.Health.Value, tank.Health.MaxValue, lerpSpeed);
 
-            LerpSize(
+            LerpBar(
                 experienceFrontBar,
                 tank.PlayerLevel.ExperienceCount,
                 tank.PlayerLevel.MaxExperienceCount,
@@ -31,7 +31,7 @@ namespace Tank
             );
         }
 
-        private void LerpSize(Image front, float current, float max, float speed)
+        private void LerpBar(Image front, float current, float max, float speed)
         {
             front.fillAmount = Mathf.Lerp(front.fillAmount, current / max, speed);
         }

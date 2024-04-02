@@ -6,7 +6,7 @@ namespace Panels.Timer
     public class View : MonoBehaviour
     {
         [SerializeField]
-        private TextMeshProUGUI timer;
+        private TMP_Text timer;
 
         public void UpdateTime(float time)
         {

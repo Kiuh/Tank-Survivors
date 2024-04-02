@@ -9,8 +9,8 @@ namespace Panels
     {
         public enum Offset
         {
-            scene,
-            value
+            Scene,
+            Value
         }
 
         [OdinSerialize]
@@ -21,14 +21,14 @@ namespace Panels
 
         [OdinSerialize]
         [EnumToggleButtons]
-        private Offset offsetType = Offset.scene;
+        private Offset offsetType = Offset.Scene;
 
         [OdinSerialize]
         private Vector3 offset;
 
         private void Start()
         {
-            if (offsetType == Offset.scene)
+            if (offsetType == Offset.Scene)
             {
                 offset = canvas.position - tank.transform.position;
             }
