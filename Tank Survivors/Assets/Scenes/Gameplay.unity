@@ -1166,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6f2eb0d1e1fd4daeec8e62deb7343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataTransfer: {fileID: 11400000, guid: 8f82e63ec9a29ea40ada8cf67aafbd81, type: 2}
   gameConfig: {fileID: 11400000, guid: 2cdfa6bda48cc154abbcad19a89b815d, type: 2}
 --- !u!4 &1075597818
 Transform:
