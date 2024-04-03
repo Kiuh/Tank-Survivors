@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      film-camera-icon-2048x2048-kqij2xj9_0: -152996513543912736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

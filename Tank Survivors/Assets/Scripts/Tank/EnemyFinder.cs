@@ -32,7 +32,7 @@ namespace Tank
 
         public Transform GetNearestTransformOrNull()
         {
-            var enemies = GetAllEnemies();
+            IEnumerable<Transform> enemies = GetAllEnemies();
 
             if (enemies.Count() == 0)
             {

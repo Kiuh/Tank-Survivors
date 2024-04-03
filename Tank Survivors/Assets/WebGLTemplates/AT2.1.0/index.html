@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no"/>
+
+    #if CONNECT_PLUGIN == "GP1.1.0"
+    <script src="./Files/GP1.1.0/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.2.1"
+    <script src="./Files/GP1.2.1/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.2.2"
+    <script src="./Files/GP1.2.2/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.2.3"
+    <script src="./Files/GP1.2.3/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.2.4"
+    <script src="./Files/GP1.2.4/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.3.0"
+    <script src="./Files/GP1.3.0/gamepush-unity.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "GP1.3.1"
+    <script src="./Files/GP1.3.1/gamepush-unity.js"></script>
+    #endif
+    #if CHOOSE_LOADING_TYPE
+    #endif
+    #if LOCK_ASPECT_RATIO
+    #endif
+    #if CUSTOMIZE_LOGO
+    #endif
+    #if CUSTOMIZE_BARS_BACKGROUND
+    #endif
+    #if CUSTOMIZE_LOADING_SCREEN_BACKGROUND
+    #endif
+    #if CONFIGURE_SHADOWS_AROUND_CANVAS
+    #endif
+    #if DISABLE_CONSOLE_MESSAGES
+    #endif
+    #if CUSTOM_EVENT_IN_HTML !== "" && CUSTOM_EVENT_IN_HTML !== " " && CUSTOM_EVENT_IN_HTML !== "-"
+    {{{ CUSTOM_EVENT_IN_HTML }}}
+    #endif
+    #if CUSTOM_EVENT_IN_CSS
+    #endif
+    #if CUSTOM_EVENT_IN_JS
+    #endif
+
+    <!-- Спасибо за установку Advanced Templates -->
+    <!-- Стой, не спускайся вниз. Залезь мне в сердце, а не в нижние строки код. (feat. Монеточка) -->
+
+    #if CONNECT_PLUGIN == "YG1.6"
+    <!-- Additional head modules -->
+    #endif
+    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+    <!-- Yandex Games SDK -->
+    <script src="https://yandex.ru/games/sdk/v2"></script>
+
+    #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+    <!-- Additional head modules -->
+    #endif
+
+    #if CONNECT_PLUGIN == "YG1.4"
+    <!-- Yandex.Metrika counter -->
+    #endif
+
+    #if YG_BANNER_DYNAMIC_1 && YG_BANNER_DYNAMIC_1 !== "-" && YG_BANNER_DYNAMIC_1 !== " "
+    <style>
+        #RTB1 {
+            position: fixed;
+            display: none;
+        }
+
+            #RTB1.show {
+                display: block;
+            }
+    </style>
+    #endif
+
+    #if YG_BANNER_DYNAMIC_2 && YG_BANNER_DYNAMIC_2 !== "-" && YG_BANNER_DYNAMIC_2 !== " "
+    <style>
+        #RTB2 {
+            position: fixed;
+            display: none;
+        }
+
+            #RTB2.show {
+                display: block;
+            }
+    </style>
+    #endif
+
+    #if YG_BANNER_STATIC_1 && YG_BANNER_STATIC_1 !== "-" && YG_BANNER_STATIC_1 !== " "
+    <style>
+        #RTBStatic1 {
+            position: fixed;
+            width: 80%;
+            height: 15%;
+            left: 10%;
+            bottom: 0;
+            display: none;
+        }
+
+            #RTBStatic1.show {
+                display: block;
+            }
+
+        @media screen and (max-width: 800px) {
+            #RTBStatic1 {
+                width: 320px;
+                height: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    #endif
+
+    #if YG_BANNER_STATIC_2 && YG_BANNER_STATIC_2 !== "-" && YG_BANNER_STATIC_2 !== " "
+    <style>
+        #RTBStatic2 {
+            position: fixed;
+            width: 80%;
+            height: 15%;
+            left: 10%;
+            top: 0;
+            display: none;
+        }
+
+            #RTBStatic2.show {
+                display: block;
+            }
+
+        @media screen and (max-width: 800px) {
+            #RTBStatic2 {
+                width: 320px;
+                height: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    #endif
+    #endif
+    <style>
+      /* Убираем выделение по нажатию клавиш */
+      canvas:focus {
+        outline: none;
+      }
+      html, body {
+        /* Убираем отступы */
+        padding: 0;
+        margin: 0;
+
+        /* Отключаем скролл и лонгтап на IOS */
+        overflow: hidden;
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+        -khtml-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+
+        /* Ставим высоту на 100% */
+        height: 100%;
+
+        /* Центрируем, если привязана картинка или творим магию, чтобы можно было использовать градиент */
+  	background-position-x: 50%;
+  	background-repeat: no-repeat;
+ 	background-size: cover;
+        background-attachment: fixed;
+
+        /* Скрываем скролл */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scrollbar-height: none;
+      }
+      /* Канвас и загрузочный экран */
+      #canvas {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+      }
+      .loading_bg {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        /* Центрируем, если привязана картинка или творим магию, чтобы можно было использовать градиент */
+  	background-position-x: 50%;
+  	background-repeat: no-repeat;
+ 	background-size: cover;
+        background-attachment: fixed;
+      }
+      .loading {
+        position: absolute;
+        /*background-color:red;*/
+      }
+      .loading_bar {
+        position: absolute;
+        z-index: 6;
+        transform: translate(-50%, -50%);
+      }
+      .loading_bar_fill {
+        position: absolute;
+        z-index: 6;
+        width: 0%;
+      	height: 100%;
+        top: 0%;
+        bottom: 0%;
+        left: 0%;
+      }
+      .loading_logo {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        z-index: 6;
+        pointer-events: none;
+        background-position: center;
+  	background-repeat: no-repeat;
+ 	background-size: contain;
+        background-attachment: scroll;
+      }
+      .console_helper {
+        position: absolute;
+        background-color: white;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        -webkit-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.24);
+        -moz-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.24);
+        box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.24);
+        overflow: hidden;
+        display: none;
+      }
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        word-wrap: break-word;
+      }
+      #if CUSTOM_EVENT_IN_CSS !== "" && CUSTOM_EVENT_IN_CSS !== " " && CUSTOM_EVENT_IN_CSS !== "-"
+      {{{ CUSTOM_EVENT_IN_CSS }}}
+      #endif
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4" || CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+      .spinner {
+        position: absolute;
+    	border: 5px solid #FFF;
+    	border-bottom-color: transparent;
+    	border-radius: 50%;
+        box-shadow: 0px 0px 0px 7px rgba(34, 60, 80, 0.2);
+        margin: auto;
+        top: 70%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 6;
+        animation: spinner-spin 1.1s infinite linear;
+      }
+      @keyframes spinner-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      #endif
+      #if CONNECT_PLUGIN == "IGB1.9.2" || CONNECT_PLUGIN == "IGB1.10.1" || CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+      #banner-container {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 90px;
+      }
+      #endif
+    </style>
+
+    #if CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+    <!-- Additional head modules -->
+    #endif
+
+    #if CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+    <script>
+      const projectId = "{{{ GP_PROJECT_ID.replace(/ /g, '') }}}";
+      const publicToken = "{{{ GP_TOKEN.replace(/ /g, '') }}}";
+      const showPreloaderAd = "{{{ GP_SHOW_PRELOADER_AD.replace(/ /g, '') }}}";
+      #if CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+      const autocallGameReady = "{{{ GP_GAMEREADY_AUTOCALL_DELAY.replace(/ /g, '') }}}";
+      #endif
+    </script>
+
+    <script>
+      var _unityAwaiter = {};
+      _unityAwaiter.ready = new Promise((resolve, reject) => {
+        _unityAwaiter.done = resolve;
+        _unityAwaiter.abort = reject;
+     });
+
+     var _gpAwaiter = {};
+     _gpAwaiter.ready = new Promise((resolve) => {
+       _gpAwaiter.done = resolve;
+     });
+
+     window.unityInstance = null;
+     window.onGPError = () => _gpAwaiter.done();
+
+     window.onGPInit = async (gp) => {
+       if (showPreloaderAd == "true" || showPreloaderAd == "1") {
+         gp.ads.showPreloader();
+       }
+
+       window.GamePush = new GamePushUnity(gp);
+       gp.player.ready.finally(_gpAwaiter.done);
+
+       await _unityAwaiter.ready;
+       #if CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+       if (autocallGameReady != null && parseFloat(autocallGameReady) > 0) {
+         setTimeout(() => gp.gameStart(), parseFloat(autocallGameReady));
+       }
+       #endif
+       #if CONNECT_PLUGIN == "GP1.1.0"
+       gp.gameStart();
+       #endif
+      };
+    </script>
+
+    <script>
+      ((g, a, m, e) => { let o = () => { let p = document.createElement("script"); p.src = `${a[0]}?projectId=${m}&publicToken=${e}`, p.onerror = () => { a.shift(), a.length > 0 ? (o(), p.remove()) : "onGPError" in g && g.onGPError() }, document.head.appendChild(p) }; o() })(window, ["https://gs.eponesh.com/sdk/gamepush.js", "https://s3.eponesh.com/files/gs/sdk/gamepush.js", "gp-bundle/gamepush.js"], projectId, publicToken);
+    </script>
+    #endif
+  </head>
+  <body>
+    #if CONNECT_PLUGIN == "YG1.6"
+    <!-- Additional body modules -->
+    #endif
+    <canvas id="canvas" class="canvas" tabindex="-1"></canvas>
+    #if CONNECT_PLUGIN == "IGB1.9.2" || CONNECT_PLUGIN == "IGB1.10.1" || CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+    <div id="banner-container" style="display: none"></div>
+    #endif
+    <div class="loading_bg">
+      <div class="loading">
+        <div class="console_helper">
+          <p id="console_helper_text" style="position: absolute; overflow-x: hidden; overflow-y: scroll; scroll-behavior: smooth; scrollbar-width: none; margin: auto; top: 0; left: 0; bottom: 0; right: 0; overflow-width: hidden; text-align: left;"></p>
+        </div>
+        #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4" || CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+        <div class="spinner"></div>
+        #endif
+        <div class="loading_logo"></div>
+        <div class="loading_bar">
+          <div class="loading_bar_fill"></div>
+        </div>
+      </div>
+    </div>
+    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+    #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+    <!-- Additional body modules -->
+    #endif
+    #if YG_BANNER_DYNAMIC_1 && YG_BANNER_DYNAMIC_1 !== "-" && YG_BANNER_DYNAMIC_1 !== " "
+    <div id="RTB1">
+        <script>
+            const rbt1 = document.querySelector('#RTB1');
+
+            function ExecuteCodeRTB1() {
+                try {
+                    { { { YG_BANNER_DYNAMIC_1 && YG_BANNER_DYNAMIC_1 !== "-" && YG_BANNER_DYNAMIC_1 !== " " } } }
+                } catch (e) {
+                    console.error('CRASH Render RTB1: ', e.message);
+                }
+            }
+
+            function ActivityRTB1(state) {
+                try {
+                    if (state) {
+                        rbt1.classList.add('show');
+                    } else {
+                        rbt1.classList.remove('show');
+                    }
+                } catch (e) {
+                    console.error('CRASH Activity RTB1: ', e.message);
+                }
+            }
+
+            function RecalculateRTB1(_width, _height, _left, _top) {
+                try {
+                    document.getElementById('RTB1').style.width = _width;
+                    document.getElementById('RTB1').style.height = _height;
+                    document.getElementById('RTB1').style.left = _left;
+                    document.getElementById('RTB1').style.top = _top;
+                } catch (e) {
+                    console.error('CRASH Recalculate RTB1: ', e.message);
+                }
+            }
+        </script>
+    </div>
+    #endif
+
+    #if YG_BANNER_DYNAMIC_2 && YG_BANNER_DYNAMIC_2 !== "-" && YG_BANNER_DYNAMIC_2 !== " "
+    <div id="RTB2">
+        <script>
+            const rbt2 = document.querySelector('#RTB2');
+
+            function ExecuteCodeRTB2() {
+                try {
+                    { { { YG_BANNER_DYNAMIC_2 && YG_BANNER_DYNAMIC_2 !== "-" && YG_BANNER_DYNAMIC_2 !== " " } } }
+                } catch (e) {
+                    console.error('CRASH Render RTB2: ', e.message);
+                }
+            }
+
+            function ActivityRTB2(state) {
+                try {
+                    if (state) {
+                        rbt2.classList.add('show');
+                    } else {
+                        rbt2.classList.remove('show');
+                    }
+                } catch (e) {
+                    console.error('CRASH Activity RTB2: ', e.message);
+                }
+            }
+
+            function RecalculateRTB2(_width, _height, _left, _top) {
+                try {
+                    document.getElementById('RTB2').style.width = _width;
+                    document.getElementById('RTB2').style.height = _height;
+                    document.getElementById('RTB2').style.left = _left;
+                    document.getElementById('RTB2').style.top = _top;
+                } catch (e) {
+                    console.error('CRASH Recalculate RTB2: ', e.message);
+                }
+            }
+        </script>
+    </div>
+    #endif
+
+    #if YG_BANNER_STATIC_1 && YG_BANNER_STATIC_1 !== "-" && YG_BANNER_STATIC_1 !== " "
+    <div id="RTBStatic1">
+        <script>
+            const rbtLoadGame1 = document.querySelector('#RTBStatic1');
+            rbtLoadGame1.classList.add('show');
+
+            function ExecuteCodeStaticRTB1() {
+                try {
+                    if (document.getElementById('RTBStatic1').style.display !== 'none') {
+                        { { { YG_BANNER_STATIC_1 && YG_BANNER_STATIC_1 !== "-" && YG_BANNER_STATIC_1 !== " " } } }
+                    }
+                } catch (e) {
+                    console.error('CRASH Render Static RTB1: ', e.message);
+                }
+            }
+            ExecuteCodeStaticRTB1();
+        </script>
+    </div>
+    #endif
+
+    #if YG_BANNER_STATIC_2 && YG_BANNER_STATIC_2 !== "-" && YG_BANNER_STATIC_2 !== " "
+    <div id="RTBStatic2">
+        <script>
+            const rbtLoadGame2 = document.querySelector('#RTBStatic2');
+            rbtLoadGame2.classList.add('show');
+
+            function ExecuteCodeStaticRTB2() {
+                try {
+                    if (document.getElementById('RTBStatic2').style.display !== 'none') {
+                        { { { YG_BANNER_STATIC_2 && YG_BANNER_STATIC_2 !== "-" && YG_BANNER_STATIC_2 !== " " } } }
+                    }
+                } catch (e) {
+                    console.error('CRASH Render Static RTB2: ', e.message);
+                }
+            }
+            ExecuteCodeStaticRTB2();
+        </script>
+    </div>
+    #endif
+    #endif
+    #if CONNECT_PLUGIN == "IGB1.9.2"
+    <script src="./Files/IGB1.9.2/instant-games-bridge.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "IGB1.10.1"
+    <script src="./Files/IGB1.10.1/instant-games-bridge.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "IGB1.11.0"
+    <script src="./Files/IGB1.11.0/instant-games-bridge.js"></script>
+    #endif
+    #if CONNECT_PLUGIN == "IGB1.12.0"
+    <script src="./Files/IGB1.12.0/instant-games-bridge.js"></script>
+    #endif
+    <script>
+      var canvas = document.querySelector("#canvas");
+      var loading_bg = document.querySelector(".loading_bg");
+      var loading = document.querySelector(".loading");
+      var loading_bar = document.querySelector(".loading_bar");
+      var loading_bar_fill = document.querySelector(".loading_bar_fill");
+      var loading_logo = document.querySelector(".loading_logo");
+      var console_helper = document.querySelector(".console_helper");
+      var console_helper_text = document.getElementById("console_helper_text");
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4" || CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+      const spinner = document.querySelector('.spinner');
+      #endif
+      #if CONNECT_PLUGIN == "IGB1.9.2" || CONNECT_PLUGIN == "IGB1.10.1" || CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+      let bannerContainer = document.getElementById('banner-container');
+      #endif
+
+      // Для того, чтобы текст правильно масштабировался
+      var scaleFactor;
+      var enableConsoleHelper = true;
+
+      // Подключаем ATinstance для связи Unity с браузером
+      var ATinstance = null;
+
+      function ATinstanceEnable(callback) {
+        const checkNull = () => {
+          if(ATinstance !== null) {
+            callback();
+          } else {
+            setTimeout(checkNull, 1000);
+          }
+        };
+        checkNull();
+      }
+
+      // Для консоли помощника
+      function unityShowBanner(msg, type) {
+        if(type == 'error' && enableConsoleHelper) {
+          if(msg.includes("Unable to parse")) {
+            console_helper.style.display = "block";
+            console_helper_text.innerHTML = '<strong>Внимание, ошибка!</strong><br>Пожалуйста, вернитесь в Unity и пройдите по пути File > Build Settings > Player Settings > Publishing Settings.<tagname style="margin-left: 2%; display: block;">• Если Compression Format стоит на Brotli или Gzip, включите галочку Decompression Fallback.<br>• Если Compression Format стоит на None, снимите галочку с Decompression Fallback.</tagname><br>Чтобы скрыть эту панель, введите в поле Custom Event in JS <a style="font-family: monospace; background: #edeef0;">enableConsoleHelper = false;</a>';
+            console.log('Внимание, ошибка! Пожалуйста, вернитесь в Unity и пройдите по пути File > Build Settings > Player Settings > Publishing Settings. 1) Если Compression Format стоит на Brotli или Gzip, включите галочку Decompression Fallback. 2) Если Compression Format стоит на None, снимите галочку с Decompression Fallback. 3) Чтобы скрыть это сообщение, введите в поле Custom Event in JS enableConsoleHelper = false;');
+          }
+        }
+      }
+
+      // Выключаем появление меню при правом клике мыши
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+      // Проверяем устройство
+      var isDeviceTouch;
+      var isDeviceNavigator;
+
+      // Определение с помощью тач
+      if('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        isDeviceTouch = true;
+      } else {
+        isDeviceTouch = false;
+      }
+
+      // Определение с помощью navigator
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        isDeviceNavigator = true; 
+      } else {
+        isDeviceNavigator = false;
+      }
+      
+      // Возвращаем фокус, если кликнули по экрану
+      window.addEventListener('pointerdown', () => {
+        window.focus();
+        canvas.focus();
+      });
+      window.addEventListener('touchstart', () => {
+        window.focus();
+        canvas.focus();
+      });
+
+      #if DISABLE_CONSOLE_MESSAGES !== "" && DISABLE_CONSOLE_MESSAGES !== " " && DISABLE_CONSOLE_MESSAGES !== "-"
+      // Отключаем сообщения в консоли браузера
+      var consoleMessagesText = '{{{ DISABLE_CONSOLE_MESSAGES.replace(/;|:|-|""/gi, '').toLowerCase() }}}';
+
+      var logStrings = ["log", "отлад", "бел", "white", "все", "all", "полн"];
+      var warnStrings = ["warn", "yellow", "предуп", "желт", "жёлт", "все", "all", "полн", "варн"];
+      var errorStrings = ["error", "ошиб", "red", "крас", "все", "all", "полн"];
+
+      if(logStrings.some(i => consoleMessagesText.includes(i))) {
+        console.log = function(){};
+      } else if(warnStrings.some(i => consoleMessagesText.includes(i))) {
+        console.warn = function(){};
+      } else if(errorStrings.some(i => consoleMessagesText.includes(i))) {
+        console.error = function(){};
+      }
+      #endif
+
+      #if CUSTOMIZE_LOGO !== "" && CUSTOMIZE_LOGO !== " " && CUSTOMIZE_LOGO !== "-"
+      // Настраиваем лого во время загрузочного экрана
+      loading_logo.style.{{{ CUSTOMIZE_LOGO.replace(/;/gi, '') }}};
+      #else
+      loading_logo.style.backgroundImage = "url('logo.png')";
+      #endif
+
+      #if CUSTOMIZE_BARS_BACKGROUND !== "" && CUSTOMIZE_BARS_BACKGROUND !== " " && CUSTOMIZE_BARS_BACKGROUND !== "-"
+      // Настраиваем фон полос по бокам
+      document.body.style.{{{ CUSTOMIZE_BARS_BACKGROUND.replace(/;/gi, '') }}};
+      #else
+      document.body.style.backgroundImage = "url('background.jpg')";
+      #endif
+
+      #if CUSTOMIZE_LOADING_SCREEN_BACKGROUND !== "" && CUSTOMIZE_LOADING_SCREEN_BACKGROUND !== " " && CUSTOMIZE_LOADING_SCREEN_BACKGROUND !== "-" 
+      // Настраиваем фон загрузочного экрана
+      loading_bg.style.{{{ CUSTOMIZE_LOADING_SCREEN_BACKGROUND.replace(/;/gi, '') }}};
+      #else
+      loading_bg.style.backgroundImage = "linear-gradient(#2976fa, #6919c6)";
+      #endif
+
+      function setLoading(logoPositionTop, logoPositionLeft, logoWidth, logoHeight, positionTop, positionLeft, width, height, barColor, barFillColor, barBorder, barFillBorder, barBorderRadius, barFillBorderRadius, barBackgroundImage, barBackgroundSize) {
+        // Указываем размер логотипа
+        loading_logo.style.top = logoPositionTop;
+        loading_logo.style.left = logoPositionLeft;
+
+        loading_logo.style.width = logoWidth; 
+        loading_logo.style.height = logoHeight;
+
+        loading_bar.style.top = positionTop;
+        loading_bar.style.left = positionLeft;
+
+        loading_bar.style.width = width;
+        loading_bar.style.height = height;
+
+        loading_bar.style.backgroundColor = barColor;
+        loading_bar_fill.style.backgroundColor = barFillColor;
+
+        loading_bar.style.boxShadow = barBorder;
+        loading_bar_fill.style.boxShadow = barFillBorder;
+
+        loading_bar.style.borderRadius = barBorderRadius;
+        loading_bar_fill.style.borderRadius = barFillBorderRadius;
+
+        loading_bar.style.backgroundImage = loading_bar_fill.style.backgroundImage = barBackgroundImage;
+        loading_bar.style.backgroundSize = loading_bar_fill.style.backgroundSize = barBackgroundSize;
+      }
+
+      // Фиксация разрешения
+      function lock(object, aspectRatio) {
+        if(window.innerWidth / window.innerHeight > aspectRatio) {
+          object.style.width = window.innerHeight * aspectRatio + "px";
+          object.style.height = "100%";
+          scaleFactor = window.innerHeight * aspectRatio / 21;
+        } else {
+          object.style.width = "100%";
+          object.style.height = window.innerWidth / aspectRatio + "px";
+          scaleFactor = window.innerWidth / aspectRatio / 34;
+        }
+
+        // Центрируем
+        object.style.margin = "auto";
+        object.style.top = "0";
+        object.style.left = "0";
+        object.style.bottom = "0";
+        object.style.right = "0";
+      }
+
+      #if CHOOSE_LOADING_TYPE.includes("setLoading")
+      #else
+      // Настраиваем расположение, размер и оформление полосы с лого
+      var loading_bar_style;
+      var loadingStyleText = '{{{ CHOOSE_LOADING_TYPE.replace(/;| |:|-|""/gi, '').toLowerCase() }}}';
+
+      var loadingZeroStrings = ["0"];
+      var loadingOneStrings = ["1"];
+      var loadingTwoStrings = ["2"];
+      var loadingThreeStrings = ["3"];
+      var loadingFourStrings = ["4"];
+
+      if(loadingZeroStrings.some(i => loadingStyleText.includes(i))) {
+        loading_bar_style = 0;
+      } else if(loadingOneStrings.some(i => loadingStyleText.includes(i))) {
+        loading_bar_style = 1;
+      } else if(loadingTwoStrings.some(i => loadingStyleText.includes(i))) {
+        loading_bar_style = 2;
+      } else if(loadingThreeStrings.some(i => loadingStyleText.includes(i))) {
+        loading_bar_style = 3;
+      } else if(loadingFourStrings.some(i => loadingStyleText.includes(i))) {
+        loading_bar_style = 4;
+      } else {
+        loading_bar_style = 0;
+      }
+      #endif
+
+      #if CUSTOM_EVENT_IN_JS !== "" && CUSTOM_EVENT_IN_JS !== " " && CUSTOM_EVENT_IN_JS !== "-"
+      {{{ CUSTOM_EVENT_IN_JS }}}
+      #endif
+
+      // Вызываем апдейт при входе на страницу и изменений размеров окна браузера
+      function Update() {
+        #if LOCK_ASPECT_RATIO !== "" && LOCK_ASPECT_RATIO !== " "
+        #if LOCK_ASPECT_RATIO.includes("lock")
+        {{{ LOCK_ASPECT_RATIO }}}
+        #else
+        // Фиксируем экран с игрой
+        var lockCanvasText = '{{{ LOCK_ASPECT_RATIO.replace(/;| |:|-|""/gi, '').toLowerCase() }}}';
+
+        var desktopStrings = ["pc", "desktop", "computer", "laptop", "windows", "пк", "компьютер", "виндовс", "оба", "все", "all", "полн"];
+        var mobileStrings = ["mobile", "phone", "handheld", "android", "телефон", "мобиль", "андроид", "оба", "все", "all", "полн"];
+        var touchStrings = ["touch", "тач"];
+        var navigatorStrings = ["nav", "навиг", "userAgent"];
+
+        if(touchStrings.some(i => lockCanvasText.includes(i))) {
+          if(isDeviceTouch) {
+            if(mobileStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          } else {
+            if(desktopStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          }
+        } else if(navigatorStrings.some(i => lockCanvasText.includes(i))) {
+          if(isDeviceNavigator) {
+            if(mobileStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          } else {
+            if(desktopStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          }
+        } else {
+          if(isDeviceNavigator) {
+            if(mobileStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          } else {
+            if(desktopStrings.some(i => lockCanvasText.includes(i))) {
+              lock(canvas, {{{ WIDTH }}} / {{{ HEIGHT }}} );
+            }
+          }
+        }
+        #endif
+        #endif
+
+        console_helper_text.style.fontSize = scaleFactor * 0.7 + 'px';
+
+        if(window.innerWidth < window.innerHeight) {
+          // Настройка консоли помощника
+          console_helper.style.top = '15%';
+          console_helper.style.width = '80%';
+          console_helper.style.height = '20%';
+          console_helper.style.borderRadius = '3% 3% 3% 3% / 7%';
+          console_helper_text.style.padding = "3% 3% 3% 3%";
+
+          isPortrait = true;
+          lock(loading, 9/16);
+          #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4" || CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+          spinner.style.width = "16%"; spinner.style.height = "9%";
+          #endif
+          #if CHOOSE_LOADING_TYPE.includes("setLoading")
+          #else
+          if(loading_bar_style == 0) {
+            // По умолчанию
+            setLoading("44%", "50%", "30%", "30%", "55%", "50%", "70%", "2%", "#FFF", "#00dc15", "0px 0px 0px 7px rgba(34, 60, 80, 0.2)", "0", "8px 8px 8px 8px", "8px 8px 8px 8px", "linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent)", "15px 15px");
+          } else if(loading_bar_style == 1) {
+            // Минимализм со свечением
+            setLoading("44%", "50%", "30%", "30%", "55%", "50%", "70%", "2%", "rgba(255, 255, 255, 0.1)", "#FFF", "0", "0 0 10px rgba(255, 255, 255, 0.5)", "0", "0", "0", "0");
+          } else if(loading_bar_style == 2) {
+            // Нет слов
+            setLoading("44%", "50%", "30%", "30%", "55%", "50%", "70%", "2%", "0", "white", "0px 0px 0px 4px rgba(34, 60, 80, 0.2)", "0", "8px 8px 8px 8px", "8px 8px 8px 8px", "0", "0");
+          } else if(loading_bar_style == 3) {
+            // Без округлений
+            setLoading("44%", "50%", "30%", "30%", "55%", "50%", "70%", "1%", "#1c2329", "#ffffff", "0", "0", "0", "0", "0", "0");
+          } else if(loading_bar_style == 4) {
+            // Округленный и не слишком длинный
+            setLoading("44%", "50%", "30%", "30%", "55%", "50%", "50%", "2.7%", "#1c2329", "#ffffff", "0", "0", "12px 12px 12px 12px", "12px 12px 12px 12px", "0", "0");
+          }
+          #endif
+        } else {
+          // Настройка консоли помощника
+          console_helper.style.top = '13%';
+          console_helper.style.width = '45%';
+          console_helper.style.height = '20%';
+          console_helper.style.borderRadius = '3% 3% 3% 3% / 13%';
+          console_helper_text.style.padding = "2% 2% 2% 2%";
+
+          isPortrait = false;
+          lock(loading, 16/9);
+          #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4" || CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+          spinner.style.width = "7.9%"; spinner.style.height = "14%";
+          #endif
+          #if CHOOSE_LOADING_TYPE.includes("setLoading")
+          #else
+          if(loading_bar_style == 0) {
+            // По умолчанию
+            setLoading("40%", "50%", "30%", "30%", "59%", "50%", "70%", "3%", "#FFF", "#00dc15", "0px 0px 0px 7px rgba(34, 60, 80, 0.2)", "0", "12px 12px 12px 12px", "12px 12px 12px 12px", "linear-gradient(45deg, rgba(0, 0, 0, 0.25) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 75%, transparent 75%, transparent)", "15px 15px");
+          } else if(loading_bar_style == 1) {
+            // Минимализм со свечением
+            setLoading("40%", "50%", "30%", "30%", "59%", "50%", "70%", "3%", "rgba(255, 255, 255, 0.1)", "#FFF", "0", "0 0 10px rgba(255, 255, 255, 0.5)", "0", "0", "0", "0");
+          } else if(loading_bar_style == 2) {
+            // Нет слов
+            setLoading("40%", "50%", "30%", "30%", "59%", "50%", "70%", "3%", "0", "white", "0px 0px 0px 4px rgba(34, 60, 80, 0.2)", "0", "12px 12px 12px 12px", "12px 12px 12px 12px", "0", "0");
+          } else if(loading_bar_style == 3) {
+            // Без округлений
+            setLoading("40%", "50%", "30%", "30%", "59%", "50%", "70%", "2%", "#1c2329", "#ffffff", "0", "0", "0", "0", "0", "0");
+          } else if(loading_bar_style == 4) {
+            // Округленный и не слишком длинный
+            setLoading("40%", "50%", "30%", "30%", "59%", "50%", "30%", "4.4%", "#1c2329", "#ffffff", "0", "0", "16px 16px 16px 16px", "16px 16px 16px 16px", "0", "0");
+          }
+          #endif
+        }
+
+        #if CHOOSE_LOADING_TYPE.includes("setLoading")
+        {{{ CHOOSE_LOADING_TYPE }}}
+        #endif
+      }
+
+      Update();
+      window.addEventListener("resize", (event) => {
+        Update();
+      });
+      #if CONNECT_PLUGIN == "GP1.2.1" || CONNECT_PLUGIN == "GP1.1.0" || CONNECT_PLUGIN == "GP1.2.2" || CONNECT_PLUGIN == "GP1.2.3" || CONNECT_PLUGIN == "GP1.2.4" || CONNECT_PLUGIN == "GP1.3.0" || CONNECT_PLUGIN == "GP1.3.1"
+      const buildUrl = "Build";
+      const loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+      const config = {
+        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+        #if MEMORY_FILENAME
+        memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+        #endif
+        #if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+        #endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
+        showBanner: unityShowBanner,
+      };
+
+      const unityLoader = document.createElement("script");
+      unityLoader.src = loaderUrl;
+      unityLoader.onload = async () => {
+        await _gpAwaiter.ready;
+        createUnityInstance(canvas, config, (progress) => {
+          spinner.style.display = "none";
+          loading_bar_fill.style.width = `${111.2 * progress}%`;
+          Update();
+        }).then((unityInstance) => {
+          window.unityInstance = unityInstance;
+          ATinstance = unityInstance;
+          _unityAwaiter.done(unityInstance);
+          loading_bg.style.display = "none";
+          Update();
+
+          #if CONFIGURE_SHADOWS_AROUND_CANVAS !== "" && CONFIGURE_SHADOWS_AROUND_CANVAS !== " " && CONFIGURE_SHADOWS_AROUND_CANVAS !== "-"
+          // Настраиваем тени
+          var boxShadowText = '{{{ CONFIGURE_SHADOWS_AROUND_CANVAS }}}'.replace(/shadow|;|:|-|box|webkit|moz|""/gi, '').toLowerCase();
+      
+          var shadowLowTypes = ["low", "small", "first", "one", "перв"];
+          var shadowMediumTypes = ["medium", "second", "two", "средний", "середина", "втор"];
+          var shadowHighTypes = ["high", "third", "three", "последний", "трет"];
+
+          if(shadowLowTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 10px 4px rgba(34, 60, 80, 0.6)";
+          } else if(shadowMediumTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 20px 6px rgba(34, 60, 80, 0.7)";
+          } else if(shadowHighTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 30px 8px rgba(34, 60, 80, 0.8)";
+          } else {
+            canvas.style.boxShadow = boxShadowText;
+          }
+          #endif
+        }).catch((message) => {
+          _unityAwaiter.abort(message);
+          console.error(message);
+          console.error("Не удалось загрузить файлы игры, пробуем заново");
+          unityLoader.onload();
+        });
+      };
+      document.body.appendChild(unityLoader);
+
+      document.addEventListener("pointerdown", () => {
+        window.focus();
+        canvas.focus();
+      });
+      #endif
+
+      #if CONNECT_PLUGIN == "IGB1.9.2" || CONNECT_PLUGIN == "IGB1.10.1" || CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+      const STORAGE_DATA_SEPARATOR = '{bridge_data_separator}'
+      const STORAGE_KEYS_SEPARATOR = '{bridge_keys_separator}'
+      const STORAGE_VALUES_SEPARATOR = '{bridge_values_separator}'
+
+      // utils
+      window.unityInstance = null
+      let progressBarFillingInterval = null
+
+      function sendMessageToUnity(name, value) {
+        if(window.unityInstance !== null) {
+          window.unityInstance.SendMessage('Bridge', name, value)
+        }
+      }
+
+      function onUnityLoadingProgressChanged(progress) {
+        if(progress === 0.9) {
+          completeProgressBarFilling()
+          return
+        }
+
+        loading_bar_fill.style.width = `${ progress * 111.2 }%`
+        if(progress === 1 && progressBarFillingInterval !== null) {
+          clearInterval(progressBarFillingInterval)
+          progressBarFillingInterval = null
+        }
+      }
+
+      function completeProgressBarFilling() {
+                if (progressBarFillingInterval !== null) {
+                    return
+                }
+
+                let currentPercent = 90
+                loading_bar_fill.style.width = `${ currentPercent }%`
+                progressBarFillingInterval = setInterval(() => {
+                    currentPercent++
+                    if (currentPercent > 100) {
+                        currentPercent = 100
+                    }
+
+                    loading_bar_fill.style.width = `${ currentPercent }%`
+
+                    if (currentPercent >= 100) {
+                        clearInterval(progressBarFillingInterval)
+                        progressBarFillingInterval = null
+                        return
+                    }
+                }, 100)
+      }
+
+      window.addEventListener('pointerdown', () => {
+        window.focus()
+        canvas.focus()
+      })
+
+      let bridgeOptions = {
+        platforms: {
+          #if IGB_GAME_DISTRIBUTION_GAME_ID && IGB_GAME_DISTRIBUTION_GAME_ID !== '-' && IGB_GAME_DISTRIBUTION_GAME_ID !== ' '
+            'game_distribution': {
+              gameId: '{{{ IGB_GAME_DISTRIBUTION_GAME_ID }}}'
+             },
+          #endif
+#if CONNECT_PLUGIN == "IGB1.12.0"
+#if IGB_VK_PLAY_GAME_ID && IGB_VK_PLAY_GAME_ID !== '-' && IGB_VK_PLAY_GAME_ID !== ' '
+                    'vk_play': {
+                        gameId: '{{{ IGB_VK_PLAY_GAME_ID }}}'
+                    },
+#endif
+#endif
+          }
+      }
+
+      // initialization
+      bridge
+        .initialize(bridgeOptions)
+        .then(() => {
+                    bridge.advertisement.on('banner_state_changed', state => sendMessageToUnity('OnBannerStateChanged', state))
+                    bridge.advertisement.on('interstitial_state_changed', state => sendMessageToUnity('OnInterstitialStateChanged', state))
+                    bridge.advertisement.on('rewarded_state_changed', state => sendMessageToUnity('OnRewardedStateChanged', state))
+                    bridge.game.on('visibility_state_changed', state => sendMessageToUnity('OnVisibilityStateChanged', state))
+
+                    if (bridge.platform.id === bridge.PLATFORM_ID.YANDEX || bridge.platform.id === bridge.PLATFORM_ID.GAME_DISTRIBUTION) {
+                        bridge.advertisement.showInterstitial()
+                    }
+
+                    let unityLoader = document.createElement('script')
+                    unityLoader.src = 'Build/{{{ LOADER_FILENAME }}}'
+                    unityLoader.onload = () => {
+                        createUnityInstance(
+                            canvas,
+                            {
+                                dataUrl: 'Build/{{{ DATA_FILENAME }}}',
+                                frameworkUrl: 'Build/{{{ FRAMEWORK_FILENAME }}}',
+                                codeUrl: 'Build/{{{ CODE_FILENAME }}}',
+#if MEMORY_FILENAME
+                                memoryUrl: 'Build/{{{ MEMORY_FILENAME }}}',
+#endif
+#if SYMBOLS_FILENAME
+                                symbolsUrl: 'Build/{{{ SYMBOLS_FILENAME }}}',
+#endif
+                                streamingAssetsUrl: 'StreamingAssets',
+                                companyName: '{{{ COMPANY_NAME }}}',
+                                productName: '{{{ PRODUCT_NAME }}}',
+                                productVersion: '{{{ PRODUCT_VERSION }}}',
+           	                showBanner: unityShowBanner,
+                                // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+                                // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+                            },
+                            onUnityLoadingProgressChanged)
+                            .then((unityInstance) => {
+                                window.unityInstance = unityInstance
+                                ATinstance = unityInstance
+                                loading_bg.remove()
+                                canvas.focus()
+                                Update();
+          #if CONFIGURE_SHADOWS_AROUND_CANVAS !== "" && CONFIGURE_SHADOWS_AROUND_CANVAS !== " " && CONFIGURE_SHADOWS_AROUND_CANVAS !== "-"
+          // Настраиваем тени
+          var boxShadowText = '{{{ CONFIGURE_SHADOWS_AROUND_CANVAS }}}'.replace(/shadow|;|:|-|box|webkit|moz|""/gi, '').toLowerCase();
+      
+          var shadowLowTypes = ["low", "small", "first", "one", "перв"];
+          var shadowMediumTypes = ["medium", "second", "two", "средний", "середина", "втор"];
+          var shadowHighTypes = ["high", "third", "three", "последний", "трет"];
+
+          if(shadowLowTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 10px 4px rgba(34, 60, 80, 0.6)";
+          } else if(shadowMediumTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 20px 6px rgba(34, 60, 80, 0.7)";
+          } else if(shadowHighTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 30px 8px rgba(34, 60, 80, 0.8)";
+          } else {
+            canvas.style.boxShadow = boxShadowText;
+          }
+          #endif
+
+                            })
+                            .catch((error) => {
+                                console.error(error)
+                                console.error("Не удалось загрузить файлы игры, пробуем заново");
+          			unityLoader.onload();
+          })
+        }
+        document.body.appendChild(unityLoader)
+      })
+      .catch(error => console.error(error))
+
+      // platform
+      window.getPlatformId = function() {
+        return bridge.platform.id
+      }
+
+      window.getPlatformLanguage = function() {
+        return bridge.platform.language
+      }
+
+      window.getPlatformPayload = function() {
+                let payload = bridge.platform.payload
+                if (typeof payload === 'string') {
+                    return payload
+                } else {
+                    return ''
+                }
+      }
+
+      window.getPlatformTld = function() {
+                let tld = bridge.platform.tld
+                if (typeof tld === 'string') {
+                    return tld
+                } else {
+                    return ''
+                }
+      }
+
+      window.sendMessageToPlatform = function(message) {
+        bridge.platform.sendMessage(message)
+      }
+
+      // device
+      window.getDeviceType = function() {
+        return bridge.device.type
+      }
+
+
+      // player
+      window.getIsPlayerAuthorizationSupported = function() {
+        return bridge.player.isAuthorizationSupported.toString()
+      }
+
+      window.getIsPlayerAuthorized = function() {
+        return bridge.player.isAuthorized.toString()
+      }
+
+      window.getPlayerId = function() {
+        if(bridge.player.id) {
+          return bridge.player.id.toString()
+        }
+
+        return ''
+      }
+
+      window.getPlayerName = function() {
+        if (bridge.player.name) {
+          return bridge.player.name.toString()
+        }
+
+        return ''
+      }
+
+      window.getPlayerPhotos = function() {
+        if (bridge.player.photos.length > 0) {
+          return JSON.stringify(bridge.player.photos)
+        }
+
+        return ''
+      }
+
+      window.authorizePlayer = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.player.authorize(options)
+                    .then(() => {
+                        sendMessageToUnity('OnAuthorizeCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnAuthorizeCompleted', 'false')
+                    })
+      }
+
+      // game
+        window.getVisibilityState = function() {
+          return bridge.game.visibilityState
+      }
+
+      // storage
+      window.getStorageDefaultType = function() {
+        return bridge.storage.defaultType
+      }
+
+      window.getIsStorageSupported = function(storageType) {
+        return bridge.storage.isSupported(storageType).toString()
+      }
+
+      window.getIsStorageAvailable = function(storageType) {
+        return bridge.storage.isAvailable(storageType).toString()
+      }
+
+      window.getStorageData = function(key, storageType) {
+        let keys = key.split(STORAGE_KEYS_SEPARATOR)
+
+        bridge.storage.get(keys, storageType)
+                    .then(data => {
+                        if (keys.length > 1) {
+                            let values = []
+
+                            for (let i = 0; i < keys.length; i++) {
+                                let value = data[i]
+                                if (value) {
+                                    if (typeof value !== 'string') {
+                                        value = JSON.stringify(value)
+                                    }
+
+                                    values.push(value)
+                                } else {
+                                    values.push('')
+                                }
+                            }
+
+                            sendMessageToUnity('OnGetStorageDataSuccess', `${key}${STORAGE_DATA_SEPARATOR}${values.join(STORAGE_VALUES_SEPARATOR)}`)
+                        } else {
+                            if (data[0]) {
+                                if (typeof data[0] !== 'string') {
+                                    data = JSON.stringify(data[0])
+                                }
+                            } else {
+                                data = ''
+                            }
+
+                            sendMessageToUnity('OnGetStorageDataSuccess', `${key}${STORAGE_DATA_SEPARATOR}${data}`)
+                        }
+                    })
+        .catch(error => {
+          sendMessageToUnity('OnGetStorageDataFailed', key)
+        })
+      }
+
+      window.setStorageData = function(key, value, storageType) {
+                let keys = key.split(STORAGE_KEYS_SEPARATOR)
+                let values = value.split(STORAGE_VALUES_SEPARATOR)
+
+                bridge.storage.set(keys, values, storageType)
+                    .then(() => {
+                        sendMessageToUnity('OnSetStorageDataSuccess', key)
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnSetStorageDataFailed', key)
+                    })
+      }
+
+      window.deleteStorageData = function(key, storageType) {
+                let keys = key.split(STORAGE_KEYS_SEPARATOR)
+
+                bridge.storage.delete(keys, storageType)
+                    .then(() => {
+                        sendMessageToUnity('OnDeleteStorageDataSuccess', key)
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnDeleteStorageDataFailed', key)
+                    })
+      }
+
+      // advertisement
+      window.getInterstitialState = function() {
+                if (bridge.advertisement.interstitialState) {
+                    return bridge.advertisement.interstitialState
+                } else {
+                    return ''
+                }
+      }
+
+      window.getIsBannerSupported = function() {
+                return bridge.advertisement.isBannerSupported.toString()
+      }
+            
+      window.getMinimumDelayBetweenInterstitial = function() {
+        return bridge.advertisement.minimumDelayBetweenInterstitial.toString()
+      }
+
+      window.setMinimumDelayBetweenInterstitial = function(options) {
+          if (options) {
+            options = JSON.parse(options)
+          } else {
+            options = { }
+          }
+                
+          bridge.advertisement.setMinimumDelayBetweenInterstitial(options)
+      }
+
+      window.showBanner = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                } else {
+                    options = { }
+                }
+
+                if (bridge.platform.id === bridge.PLATFORM_ID.CRAZY_GAMES || bridge.platform.id === bridge.PLATFORM_ID.GAME_DISTRIBUTION) {
+                    bannerContainer.style.display = 'block'
+                }
+
+                options['crazy_games'] = {
+                    containerId: 'banner-container'
+                }
+
+                options['game_distribution'] = {
+                    containerId: 'banner-container'
+                }
+
+                bridge.advertisement.showBanner(options)
+      }
+
+      window.hideBanner = function() {
+                if (bridge.platform.id === bridge.PLATFORM_ID.CRAZY_GAMES || bridge.platform.id === bridge.PLATFORM_ID.GAME_DISTRIBUTION) {
+                    bannerContainer.style.display = 'none'
+                }
+
+                bridge.advertisement.hideBanner()
+      }
+
+      window.showInterstitial = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.advertisement.showInterstitial(options)
+            }
+
+            window.showRewarded = function() {
+                bridge.advertisement.showRewarded()
+      }
+
+            // social
+            window.getIsShareSupported = function() {
+                return bridge.social.isShareSupported.toString()
+            }
+
+            window.getIsInviteFriendsSupported = function() {
+                return bridge.social.isInviteFriendsSupported.toString()
+            }
+
+            window.getIsJoinCommunitySupported = function() {
+                return bridge.social.isJoinCommunitySupported.toString()
+            }
+
+            window.getIsCreatePostSupported = function() {
+                return bridge.social.isCreatePostSupported.toString()
+            }
+
+            window.getIsAddToHomeScreenSupported = function() {
+                return bridge.social.isAddToHomeScreenSupported.toString()
+            }
+
+            window.getIsAddToFavoritesSupported = function() {
+                return bridge.social.isAddToFavoritesSupported.toString()
+            }
+
+            window.getIsRateSupported = function() {
+                return bridge.social.isRateSupported.toString()
+            }
+
+            window.getIsExternalLinksAllowed = function() {
+                return bridge.social.isExternalLinksAllowed.toString()
+            }
+
+            window.share = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.social.share(options)
+                    .then(() => {
+                        sendMessageToUnity('OnShareCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnShareCompleted', 'false')
+                    })
+            }
+
+            window.inviteFriends = function() {
+                bridge.social.inviteFriends()
+                    .then(() => {
+                        sendMessageToUnity('OnInviteFriendsCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnInviteFriendsCompleted', 'false')
+                    })
+            }
+
+            window.joinCommunity = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.social.joinCommunity(options)
+                    .then(() => {
+                        sendMessageToUnity('OnJoinCommunityCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnJoinCommunityCompleted', 'false')
+                    })
+            }
+
+            window.createPost = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.social.createPost(options)
+                    .then(() => {
+                        sendMessageToUnity('OnCreatePostCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnCreatePostCompleted', 'false')
+                    })
+            }
+
+            window.addToHomeScreen = function() {
+                bridge.social.addToHomeScreen()
+                    .then(() => {
+                        sendMessageToUnity('OnAddToHomeScreenCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnAddToHomeScreenCompleted', 'false')
+                    })
+            }
+
+            window.addToFavorites = function() {
+                bridge.social.addToFavorites()
+                    .then(() => {
+                        sendMessageToUnity('OnAddToFavoritesCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnAddToFavoritesCompleted', 'false')
+                    })
+            }
+
+            window.rate = function() {
+                bridge.social.rate()
+                    .then(() => {
+                        sendMessageToUnity('OnRateCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnRateCompleted', 'false')
+                    })
+            }
+
+
+            // leaderboard
+            window.getIsLeaderboardSupported = function() {
+                return bridge.leaderboard.isSupported.toString()
+            }
+
+            window.getIsLeaderboardNativePopupSupported = function() {
+                return bridge.leaderboard.isNativePopupSupported.toString()
+            }
+
+            window.getIsLeaderboardMultipleBoardsSupported = function() {
+                return bridge.leaderboard.isMultipleBoardsSupported.toString()
+            }
+
+            window.getIsLeaderboardSetScoreSupported = function() {
+                return bridge.leaderboard.isSetScoreSupported.toString()
+            }
+
+            window.getIsLeaderboardGetScoreSupported = function() {
+                return bridge.leaderboard.isGetScoreSupported.toString()
+            }
+
+            window.getIsLeaderboardGetEntriesSupported = function() {
+                return bridge.leaderboard.isGetEntriesSupported.toString()
+            }
+
+            window.leaderboardSetScore = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.leaderboard.setScore(options)
+                    .then(() => {
+                        sendMessageToUnity('OnLeaderboardSetScoreCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnLeaderboardSetScoreCompleted', 'false')
+                    })
+            }
+
+            window.leaderboardGetScore = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.leaderboard.getScore(options)
+                    .then(data => {
+                        if (data) {
+                            if (typeof data !== 'string') {
+                                data = JSON.stringify(data)
+                            }
+
+                            sendMessageToUnity('OnLeaderboardGetScoreCompleted', data)
+                        } else {
+                            sendMessageToUnity('OnLeaderboardGetScoreCompleted', '')
+                        }
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnLeaderboardGetScoreCompleted', 'false')
+                    })
+            }
+
+            window.leaderboardGetEntries = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.leaderboard.getEntries(options)
+                    .then(data => {
+                        if (data) {
+                            if (typeof data !== 'string') {
+                                data = JSON.stringify(data)
+                            }
+
+                            sendMessageToUnity('OnLeaderboardGetEntriesCompletedSuccess', data)
+                        } else {
+                            sendMessageToUnity('OnLeaderboardGetEntriesCompletedSuccess', '')
+                        }
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnLeaderboardGetEntriesCompletedFailed', 'false')
+                    })
+            }
+
+            window.leaderboardShowNativePopup = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                }
+
+                bridge.leaderboard.showNativePopup(options)
+                    .then(() => {
+                        sendMessageToUnity('OnLeaderboardShowNativePopupCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnLeaderboardShowNativePopupCompleted', 'false')
+                    })
+            }
+
+            #if CONNECT_PLUGIN == "IGB1.10.1" || CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+            window.getIsPaymentsSupported = function() {
+                return bridge.payments.isSupported.toString()
+            }
+
+            window.paymentsPurchase = function(purchaseId) {
+                bridge.payments.purchase(purchaseId)
+                    .then(() => {
+                        sendMessageToUnity('OnPaymentsPurchaseCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnPaymentsPurchaseCompleted', 'false')
+                    })
+            }
+
+            window.paymentsConsumePurchase = function(purchaseToken) {
+                bridge.payments.consumePurchase(purchaseToken)
+                    .then(() => {
+                        sendMessageToUnity('OnPaymentsConsumePurchaseCompleted', 'true')
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnPaymentsConsumePurchaseCompleted', 'false')
+                    })
+            }
+
+            window.paymentsGetCatalog = function() {
+                bridge.payments.getCatalog()
+                    .then(data => {
+                        if (data) {
+                            if (typeof data !== 'string') {
+                                data = JSON.stringify(data)
+                            }
+
+                            data = data.replaceAll('imageURI', 'icon')
+
+                            sendMessageToUnity('OnPaymentsGetCatalogCompletedSuccess', data)
+                        } else {
+                            sendMessageToUnity('OnPaymentsGetCatalogCompletedSuccess', '')
+                        }
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnPaymentsGetCatalogCompletedFailed', 'false')
+                    })
+            }
+
+            window.paymentsGetPurchases = function() {
+                bridge.payments.getPurchases()
+                    .then(data => {
+                        if (data) {
+                            if (typeof data !== 'string') {
+                                data = JSON.stringify(data)
+                            }
+
+                            data = data.replaceAll('productID', 'id')
+                            data = data.replaceAll('purchaseToken', 'token')
+
+                            sendMessageToUnity('OnPaymentsGetPurchasesCompletedSuccess', data)
+                        } else {
+                            sendMessageToUnity('OnPaymentsGetPurchasesCompletedSuccess', '')
+                        }
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnPaymentsGetPurchasesCompletedFailed', 'false')
+                    })
+            }
+
+            #if CONNECT_PLUGIN == "IGB1.11.0" || CONNECT_PLUGIN == "IGB1.12.0"
+            window.getIsRemoteConfigSupported = function() {
+                return bridge.remoteConfig.isSupported.toString()
+            }
+
+            window.remoteConfigGet = function(options) {
+                if (options) {
+                    options = JSON.parse(options)
+                } else {
+                    options = { clientFeatures: [] }
+                }
+
+                bridge.remoteConfig.get(options)
+                    .then(data => {
+                        let keys = Object.keys(data)
+                        let values = []
+
+                        for (let i = 0; i < keys.length; i++) {
+                            let name = keys[i]
+                            let value = data[name]
+                            values.push({ name, value })
+                        }
+
+                        sendMessageToUnity('OnRemoteConfigGetSuccess', JSON.stringify(values))
+                    })
+                    .catch(error => {
+                        sendMessageToUnity('OnRemoteConfigGetFailed', '')
+                    })
+            }
+            #endif
+            #endif
+      #endif
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      const buildUrl = "Build";
+      const loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+      const config = {
+        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+        #if MEMORY_FILENAME
+        memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+        #endif
+        #if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+        #endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
+        showBanner: unityShowBanner,
+      };
+
+      // Возвращаем фокус, если кликнули по экрану
+      function FocusGame() {
+        window.focus();
+        canvas.focus();
+      }
+
+      window.addEventListener('pointerdown', () => {
+        FocusGame();
+      });
+      window.addEventListener('touchstart', () => {
+        FocusGame();
+      });
+
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+      let StartUnityInstance;
+      let myGameInstance = null;
+      let ysdk = null;
+      let player = null;
+      let leaderboard;
+      let payments = null;
+      let initGame = false;
+      let nowFullAdOpen = false;
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      let player;
+      let leaderboard;
+      let myGameInstance = null;
+      let payments = null;
+      let promptCanShow = false;
+      let reviewCanShow = false;
+      let initSDK = false;
+      let initGame = false;
+      let photoSizeForInit;
+      let scopesForInit;
+      #if CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      let firstAd = true;
+      #endif
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+      let nowFullAdOpen = false;
+      #endif
+      #if CONNECT_PLUGIN == "YG1.5.2"
+      let letGameReadyApi = true;
+      #endif
+
+      const script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+            createUnityInstance(canvas, config, (progress) => {
+                spinner.style.display = "none";
+                loading_bar_fill.style.width = `${111.2 * progress}%`;
+                Update();
+            }).then((unityInstance) => {
+                myGameInstance = unityInstance;
+                ATinstance = unityInstance;
+                loading_bg.style.display = "none";
+                Update();
+
+          	#if CONFIGURE_SHADOWS_AROUND_CANVAS !== "" && CONFIGURE_SHADOWS_AROUND_CANVAS !== " " && CONFIGURE_SHADOWS_AROUND_CANVAS !== "-"
+          	// Настраиваем тени
+          	var boxShadowText = '{{{ CONFIGURE_SHADOWS_AROUND_CANVAS }}}'.replace(/shadow|;|:|-|box|webkit|moz|""/gi, '').toLowerCase();
+      
+          	var shadowLowTypes = ["low", "small", "first", "one", "перв"];
+          	var shadowMediumTypes = ["medium", "second", "two", "средний", "середина", "втор"];
+          	var shadowHighTypes = ["high", "third", "three", "последний", "трет"];
+
+          	if(shadowLowTypes.some(i => boxShadowText.includes(i))) {
+          	  canvas.style.boxShadow = "0px 0px 10px 4px rgba(34, 60, 80, 0.6)";
+          	} else if(shadowMediumTypes.some(i => boxShadowText.includes(i))) {
+          	  canvas.style.boxShadow = "0px 0px 20px 6px rgba(34, 60, 80, 0.7)";
+          	} else if(shadowHighTypes.some(i => boxShadowText.includes(i))) {
+          	  canvas.style.boxShadow = "0px 0px 30px 8px rgba(34, 60, 80, 0.8)";
+          	} else {
+          	  canvas.style.boxShadow = boxShadowText;
+          	}
+          	#endif
+            }).catch((message) => {
+                console.error(message);
+          	console.error("Не удалось загрузить файлы игры, пробуем заново");
+          	script.onload();
+            });
+      };
+
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+      InitYandex();
+      function InitYandex() {
+      #endif
+        YaGames.init()
+                .then(ysdk => {
+                    console.log('Init Yandex SDK');
+                    window.ysdk = ysdk;
+                    #if CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+                    initSDK = true;
+                    #endif
+                    InitPayments();
+
+                    try {
+                        ysdk.shortcut.canShowPrompt().then(prompt => {
+                            if (prompt.canShow) {
+                                promptCanShow = true;
+                            }
+                        });
+                    } catch (e) {
+                        console.error('CRASH canShowPrompt: ', e.message);
+                    }
+
+                    try {
+                        ysdk.feedback.canReview().then(({ value, reason }) => {
+                            if (value) {
+                                reviewCanShow = true;
+                            } else {
+                                console.log('reviewCanShow = false', reason)
+                            }
+                        })
+
+                        ysdk.shortcut.canShowPrompt().then(prompt => {
+                            if (prompt.canShow) {
+                                promptCanShow = true;
+                            }
+                        });
+                    } catch (e) {
+                        console.error('CRASH canShowFeedback: ', e.message);
+                    }
+
+                    #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+                    FullAdShow(); // First ad true
+
+                    #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+                    if (initGame) {
+                        #if CONNECT_PLUGIN == "YG1.5.1"
+                        // ysdk.features.LoadingAPI?.ready(); // Задокументировали, чтобы не отклоняли на модераций
+                        #endif
+                        InitPlayer(photoSize, scopes);
+                    }
+                    initSDK = true;
+                    #endif
+                    #endif
+
+                    #if CONNECT_PLUGIN == "YG1.4"
+                    if (initGame == true) {
+                        InitSDK(photoSizeForInit, scopesForInit)
+                        if (firstAd)
+                            FullscreenShow();
+                    }
+                    else {
+                        if (firstAd)
+                            ysdk.adv.showFullscreenAdv();
+                    }
+                    #endif
+        });
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.5.2"
+      function InitGame(photoSize, scopes, gameReadyApi) {
+      #endif
+      #if CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      function InitSDK(photoSize, scopes) {
+      #endif
+            console.log('Init GAME');
+            initGame = true;
+            photoSizeForInit = photoSize;
+            scopesForInit = scopes;
+
+            if (initSDK == true) {
+                #if CONNECT_PLUGIN == "YG1.5.2"
+                if (gameReadyApi == true)
+                    GameReadyAPI();
+                #endif
+                #if CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+                // ysdk.features.LoadingAPI?.ready(); // Задокументировали, чтобы не отклоняли на модераций
+                #endif
+                InitPlayer(photoSize, scopes);
+            }
+            #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+            else {
+                InitYandex();
+                setTimeout(function () {
+                    if (!initSDK) {
+                        console.error('CRASH InitYandex');
+                        NotAuthorized();
+                    }
+                }, 1000);
+            }
+            #endif
+
+            #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+            if (nowFullAdOpen == true) {
+                myGameInstance.SendMessage('YandexGame', 'OpenFullAd');
+            }
+            #endif
+      }
+
+      #if CONNECT_PLUGIN == "YG1.5.2"
+      function GameReadyAPI() {
+            if (letGameReadyApi) {
+                ysdk.features.LoadingAPI?.ready();
+                letGameReadyApi = false;
+                console.log('Game Ready API');
+            }
+      }
+      #endif
+
+      function NotAuthorized() {
+            try {
+                console.log('Authorized failed');
+                let authJson = {
+                    "playerAuth": "rejected",
+                    "playerName": "unauthorized",
+                    "playerId": "unauthorized",
+                    "playerPhoto": "null"
+                };
+                myGameInstance.SendMessage('YandexGame', 'SetInitializationSDK', JSON.stringify(authJson));
+            } catch (e) {
+                console.error('CRASH Not Authorized: ', e.message);
+            }
+      }
+
+      function InitPlayer(photoSize, _scopes) {
+            try {
+                return ysdk.getPlayer({ scopes: _scopes }).then(_player => {
+
+                    player = _player;
+
+                    let playerName = player.getName();
+                    let playerPhoto = player.getPhoto(photoSize);
+
+                    if (!_scopes) {
+                        playerName = "anonymous";
+                        playerPhoto = "null";
+                    }
+
+                    if (player.getMode() === 'lite') {
+
+                        console.log('Not Authorized');
+                        NotAuthorized();
+                    } else {
+                        let authJson = {
+                            "playerAuth": "resolved",
+                            "playerName": playerName,
+                            "playerId": player.getUniqueID(),
+                            "playerPhoto": playerPhoto
+                        };
+                        myGameInstance.SendMessage('YandexGame', 'SetInitializationSDK', JSON.stringify(authJson));
+                        window.focus();
+                    }
+                }).catch(e => {
+                    console.error('Authorized err: ', e.message);
+                    NotAuthorized();
+                });
+            } catch (e) {
+                console.error('CRASH init Player: ', e.message);
+                window.focus();
+            }
+      }
+
+      function OpenAuthDialog(photoSize, scopes) {
+            try {
+                ysdk.auth.openAuthDialog().then(() => {
+                    InitPlayer(photoSize, scopes);
+                }).catch(() => {
+                    InitSDK(photoSize, scopes);
+                });
+            } catch (e) {
+                console.log('CRASH Open Auth Dialog: ', e.message);
+            }
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+      const script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        StartUnityInstance = function () {
+          createUnityInstance(canvas, config, (progress) => {
+            spinner.style.display = "none";
+            loading_bar_fill.style.width = `${111.2 * progress}%`;
+            Update();
+          }).then((unityInstance) => {
+            myGameInstance = unityInstance;
+            ATinstance = unityInstance;
+            loading_bg.style.display = "none";
+            Update();
+
+            #if CONFIGURE_SHADOWS_AROUND_CANVAS !== "" && CONFIGURE_SHADOWS_AROUND_CANVAS !== " " && CONFIGURE_SHADOWS_AROUND_CANVAS !== "-"
+            // Настраиваем тени
+            var boxShadowText = '{{{ CONFIGURE_SHADOWS_AROUND_CANVAS }}}'.replace(/shadow|;|:|-|box|webkit|moz|""/gi, '').toLowerCase();
+      
+            var shadowLowTypes = ["low", "small", "first", "one", "перв"];
+            var shadowMediumTypes = ["medium", "second", "two", "средний", "середина", "втор"];
+            var shadowHighTypes = ["high", "third", "three", "последний", "трет"];
+
+            if(shadowLowTypes.some(i => boxShadowText.includes(i))) {
+              canvas.style.boxShadow = "0px 0px 10px 4px rgba(34, 60, 80, 0.6)";
+            } else if(shadowMediumTypes.some(i => boxShadowText.includes(i))) {
+              canvas.style.boxShadow = "0px 0px 20px 6px rgba(34, 60, 80, 0.7)";
+            } else if(shadowHighTypes.some(i => boxShadowText.includes(i))) {
+              canvas.style.boxShadow = "0px 0px 30px 8px rgba(34, 60, 80, 0.8)";
+            } else {
+              canvas.style.boxShadow = boxShadowText;
+            }
+            #endif
+          }).catch((message) => {
+            console.error(message);
+            console.error("Не удалось загрузить файлы игры, пробуем заново");
+            script.onload();
+            StartUnityInstance();
+          });
+        };
+        if (LocalHost()) // Delete when setting up: Load Game Run
+          StartUnityInstance_IfUnloaded();
+      };
+
+      function StartUnityInstance_IfUnloaded() {
+        if (spinner.style.display !== "none")
+          StartUnityInstance();
+      }
+
+      function LocalHost() {
+        var host = window.location.hostname;
+        if(host == "localhost" || host == "127.0.0.1")
+          return true;
+        else return false;
+      }
+
+      #if CONNECT_PLUGIN != "YG1.6.1" && CONNECT_PLUGIN != "YG1.6.2"
+      setTimeout(StartUnityInstance_IfUnloaded, 5000);
+      #endif
+
+      InitYSDK();
+      async function InitYSDK() {
+        try {
+          if (LocalHost()) return;
+
+            console.log('Init Yandex SDK');
+            ysdk = await YaGames.init();
+
+            #if CONNECT_PLUGIN == "YG1.6"
+            InitPayments();
+            #endif
+            FullAdShow(); // First ad true
+
+            // Additional init modules
+            } catch (e) {
+              console.error('CRASH Initialization SDK: ', e);
+            }
+          StartUnityInstance_IfUnloaded();
+        }
+
+      function InitGame() {
+        console.log('Init Game Success');
+        initGame = true;
+
+        if(nowFullAdOpen == true && myGameInstance != null) {
+          myGameInstance.SendMessage('YandexGame', 'OpenFullAd');
+        }
+
+        #if CONNECT_PLUGIN == "YG1.6.2"
+        // Additional start modules
+        #endif
+      }
+      #endif
+
+      function FullAdShow() {
+            try {
+                #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+                if (nowFullAdOpen !== true && ysdk !== null) {
+                    ysdk.adv.showFullscreenAdv(
+                        {
+                #endif
+                #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+                window.ysdk.adv.showFullscreenAdv(
+                    {
+                #endif
+                            callbacks: {
+                                onOpen: () => {
+                                    console.log('Open Ad Interstitial');
+                                    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"  || CONNECT_PLUGIN == "YG1.5"
+                                    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+                                    nowFullAdOpen = true;
+                                    #endif
+                                    if (initGame === true) {
+                                        #if CONNECT_PLUGIN == "YG1.5"
+                                        nowFullAdOpen = true;
+                                        #endif
+                                        myGameInstance.SendMessage('YandexGame', 'OpenFullAd');
+                                    }
+                                    #endif
+                                    #if CONNECT_PLUGIN == "YG1.4"
+                            	    myGameInstance.SendMessage('YandexGame', 'OpenFullAd');
+                                    #endif
+                                },
+                                onClose: (wasShown) => {
+                                    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+                                    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1"
+                                    nowFullAdOpen = false;
+                                    #endif
+                                    if (initGame === true) {
+                                        #if CONNECT_PLUGIN == "YG1.5"
+                                        nowFullAdOpen = false;
+                                        #endif
+                                        if (wasShown) {
+                                            myGameInstance.SendMessage('YandexGame', 'CloseFullAd', 'true');
+                                        }
+                                        else {
+                                            myGameInstance.SendMessage('YandexGame', 'CloseFullAd', 'false');
+                                        }
+                                    }
+                                    #endif
+                                    #if CONNECT_PLUGIN == "YG1.4"
+                                    if (wasShown) myGameInstance.SendMessage('YandexGame', 'CloseFullAd', 'true');
+                                    else myGameInstance.SendMessage('YandexGame', 'CloseFullAd', 'false');
+                                    window.focus();
+                                    #endif
+                                    FocusGame();
+                                },
+                                onError: (error) => {
+                                    console.error('Error Ad Interstitial', error);
+                                    myGameInstance.SendMessage('YandexGame', 'ErrorFullAd');
+                                    FocusGame();
+                                }
+                            }
+                        });
+                #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+                }
+                #endif
+            } catch (e) {
+                console.error('CRASH FullAd Show: ', e.message);
+            }
+      }
+
+      function RewardedShow(id) {
+            try {
+                #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
+                ysdk.adv.showRewardedVideo(
+                #endif
+                #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+                window.ysdk.adv.showRewardedVideo(
+                #endif
+                    {
+                        callbacks:
+                        {
+                            onOpen: () => {
+                                console.log('Opened Video Ad. Id: ' + id);
+                                myGameInstance.SendMessage('YandexGame', 'OpenVideo');
+                            },
+                            onClose: () => {
+                                console.log('Closed Video Ad. Id: ' + id);
+                                myGameInstance.SendMessage('YandexGame', 'CloseVideo');
+                                FocusGame();
+                            },
+                            onRewarded: () => {
+                                console.log('Reward Video Ad. Id: ' + id);
+                                myGameInstance.SendMessage('YandexGame', 'RewardVideo', id);
+                            },
+                            onError: (e) => {
+                                console.error('Error Video Ad. Id: ' + id, e);
+                                myGameInstance.SendMessage('YandexGame', 'ErrorVideo');
+                            }
+                        }
+                    });
+            } catch (err) {
+                console.error('CRASH Rewarded Video Ad Show: ', err.message);
+            }
+      }
+
+      function StickyAdActivity(show) {
+            try {
+                ysdk.adv.getBannerAdvStatus().then(({ stickyAdvIsShowing, reason }) => {
+                    if (stickyAdvIsShowing) {
+                        if (!show) {
+                            ysdk.adv.hideBannerAdv();
+                        }
+                    }
+                    else if (reason) {
+                        console.log('Sticky ad are not shown. Reason:', reason);
+                    }
+                    else if (show) {
+                        ysdk.adv.showBannerAdv();
+                    }
+                })
+            } catch (e) {
+                console.error('CRASH Sticky Activity: ', e.message);
+            }
+      }
+
+      #if CONNECT_PLUGIN != "YG1.6.1" && CONNECT_PLUGIN != "YG1.6.2"
+      function InitPayments() {
+            try {
+                ysdk.getPayments().then(_payments => {
+                    console.log('Purchases are available');
+                    payments = _payments;
+                    #if CONNECT_PLUGIN == "YG1.6"
+                    return true;
+                    #endif
+                }).catch(e => {
+                    console.log('Purchases are not available', e.message);
+                })
+            } catch (e) {
+                console.error('CRASH Init Payments: ', e.message);
+            }
+      }
+
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+      function BuyPayments(id) {
+            try {
+                if (payments != null) {
+                    payments.purchase(id).then(() => {
+                        console.log('Purchase Success');
+                        ConsumePurchase(id);
+                        FocusGame();
+                    }).catch(e => {
+                        console.error('Purchase Failed', e.message);
+                        myGameInstance.SendMessage('YandexGame', 'OnPurchaseFailed', id);
+                        FocusGame();
+                    })
+                } else {
+                    console.log('Payments == null');
+                }
+            } catch (e) {
+                console.error('CRASH Buy Payments: ', e.message);
+                FocusGame();
+            }
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.4"
+      function BuyPayments(id) {
+        try {
+            if (payments != null) {
+                payments.purchase(id).then(purchase => {
+                    console.log('Purchase Success');
+                    myGameInstance.SendMessage('YandexGame', 'OnPurchaseSuccess', id);
+                    window.focus();
+                }).catch(e => {
+                    console.error('Purchase Failed', e.message);
+                    myGameInstance.SendMessage('YandexGame', 'OnPurchaseFailed', id);
+                    window.focus();
+                })
+            } else {
+                console.log('Payments == null');
+            }
+        } catch (e) {
+            console.error('CRASH Buy Payments: ', e.message);
+            window.focus();
+        }
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+      #if CONNECT_PLUGIN == "YG1.6"
+      let callCount_GetPayments = 0;
+      #endif
+      function GetPayments() {
+            try {
+                if (payments != null) {
+                    payments.getCatalog()
+                        .then(products => {
+                            let productID = [];
+                            let title = [];
+                            let description = [];
+                            let imageURI = [];
+                            let priceValue = [];
+                            let consumed = [];
+
+                            payments.getPurchases().then(purchases => {
+                                for (let i = 0; i < products.length; i++) {
+                                    productID[i] = products[i].id;
+                                    title[i] = products[i].title;
+                                    description[i] = products[i].description;
+                                    imageURI[i] = products[i].imageURI;
+                                    priceValue[i] = products[i].priceValue;
+
+                                    consumed[i] = true;
+                                    for (i2 = 0; i2 < purchases.length; i2++) {
+                                        if (purchases[i2].productID === productID[i]) {
+                                            consumed[i] = false;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                let jsonPayments = {
+                                    "id": productID,
+                                    "title": title,
+                                    "description": description,
+                                    "imageURI": imageURI,
+                                    "priceValue": priceValue,
+                                    "consumed": consumed
+                                };
+
+                                myGameInstance.SendMessage('YandexGame', 'PaymentsEntries', JSON.stringify(jsonPayments));
+                            });
+                        });
+                }
+                #if CONNECT_PLUGIN == "YG1.6"
+                else if (callCount_GetPayments < 2) {
+                    getPayments().
+                        then(_payments => {
+                            payments = _payments;
+                            GetPayments();
+                        });
+                }
+                #endif
+                #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+                else {
+                    console.log('Get Payments: payments == null');
+                }
+                #endif
+            } catch (e) {
+                console.error('CRASH Get Payments: ', e.message);
+            }
+      }
+
+      function ConsumePurchase(id) {
+            try {
+                if (payments != null) {
+                    payments.getPurchases().then(purchases => {
+                        for (i = 0; i < purchases.length; i++) {
+                            if (purchases[i].productID === id) {
+                                payments.consumePurchase(purchases[i].purchaseToken);
+                                myGameInstance.SendMessage('YandexGame', 'OnPurchaseSuccess', id);
+                            }
+                        }
+                    });
+                }
+                else console.log('Consume purchase: payments null');
+            } catch (e) {
+                console.error('CRASH Consume Purchase: ', e.message);
+            }
+      }
+
+      function ConsumePurchases() {
+            try {
+                if (payments != null) {
+                    payments.getPurchases().then(purchases => {
+                        console.log('Unprocessed purchases: ', purchases.length);
+                        for (i = 0; i < purchases.length; i++) {
+                            payments.consumePurchase(purchases[i].purchaseToken);
+                            myGameInstance.SendMessage('YandexGame', 'OnPurchaseSuccess', purchases[i].productID);
+                        }
+                    });
+                }
+                else console.log('Consume purchases: payments null');
+            } catch (e) {
+                console.error('CRASH Consume purchases: ', e.message);
+            }
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.4"
+      function GetPayments() {
+        try {
+            if (payments != null) {
+                payments.getCatalog()
+                    .then(products => {
+                        let productID = [products.length];
+                        let title = [products.length];
+                        let description = [products.length];
+                        let imageURI = [products.length];
+                        let priceValue = [products.length];
+                        let purchased = [products.length];
+    
+                        for (i = 0; i < products.length; i++) {
+                            productID[i] = products[i].id;
+                            title[i] = products[i].title;
+                            description[i] = products[i].description;
+                            imageURI[i] = products[i].imageURI;
+                            priceValue[i] = products[i].priceValue;
+                            purchased[i] = 0;
+                        }
+    
+                        payments.getPurchases().then(purchases => {
+                            for (i1 = 0; i1 < products.length; i1++) {
+                                for (i2 = 0; i2 < purchases.length; i2++) {
+                                    if (products[i1].id === purchases[i2].productID){
+                                        purchased[i1]++;
+                                    }
+                                }
+                            }
+                        })
+                            .then(() => {
+                                var jsonPayments = {
+                                    "id": productID,
+                                    "title": title,
+                                    "description": description,
+                                    "imageURI": imageURI,
+                                    "priceValue": priceValue,
+                                    "purchased": purchased
+                                };
+                                myGameInstance.SendMessage('YandexGame', 'PaymentsEntries', JSON.stringify(jsonPayments));
+                            })
+                    });
+            }
+            else{
+                console.log('Get Payments: payments == null');
+            }
+        } catch (e) {
+            console.error('CRASH Get Payments: ', e.message);
+        }
+      }
+
+      function DeletePurchase(id) {
+        try {
+            if (payments != null) {
+                payments.getPurchases().then(purchases => {
+                    for(i = 0; i < purchases.length; i++){
+                        if (purchases[i].productID === id)
+                            payments.consumePurchase(purchases[i].purchaseToken);
+                    }
+                });
+            }
+            else console.log('Delete Purchase: payments == null');
+        } catch (e) {
+            console.error('CRASH Delete Purchase: ', e.message);
+        }
+      }
+
+      function DeleteAllPurchases() {
+        try {
+            if (payments != null) {
+                payments.getPurchases().then(purchases => {
+                    for(i = 0; i < purchases.length; i++){
+                        payments.consumePurchase(purchases[i].purchaseToken);
+                    }
+                });
+            }
+            else console.log('Delete All Purchases: payments == null');
+        } catch (e) {
+            console.error('CRASH Delete All Purchases: ', e.message);
+        }
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      function SaveCloud(jsonData, flush) {
+            try {
+                player.setData({
+                    saves: [jsonData],
+                }, flush);
+            } catch (e) {
+                console.error('CRASH Save Cloud: ', e.message);
+            }
+      }
+
+      function LoadCloud() {
+            try {
+                player.getData(["saves"]).then(data => {
+                    if (data.saves) {
+                        myGameInstance.SendMessage('YandexGame', 'SetLoadSaves', JSON.stringify(data.saves));
+                    } else {
+                        myGameInstance.SendMessage('YandexGame', 'SetLoadSaves', "noData");
+                    }
+                }).catch(() => {
+                    console.error('getData Error!');
+                    myGameInstance.SendMessage('YandexGame', 'SetLoadSaves', "noData");
+                });
+            } catch (e) {
+                console.error('CRASH Load saves Cloud: ', e.message);
+                myGameInstance.SendMessage('YandexGame', 'SetLoadSaves', "noData");
+            }
+      }
+      #endif
+      #endif
+
+      function InitLeaderboard() {
+            try {
+                ysdk.getLeaderboards().then(_lb => {
+                    leaderboard = _lb
+                    myGameInstance.SendMessage('YandexGame', 'InitializedLB');
+                });
+            } catch (e) {
+                console.error('CRASH Init Leaderboard: ', e.message);
+            }
+      }
+
+      function SetLeaderboardScores(_name, score) {
+            try {
+                ysdk.getLeaderboards()
+                    .then(leaderboard => {
+                        leaderboard.setLeaderboardScore(_name, score);
+                    });
+            } catch (e) {
+                console.error('CRASH Set Leader board Scores: ', e.message);
+            }
+      }
+
+      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
+      function GetLeaderboardScores(nameLB, maxPlayers, quantityTop, quantityAround, photoSize, auth) {
+            try {
+                var jsonEntries = {
+                    technoName: '',
+                    isDefault: false,
+                    isInvertSortOrder: false,
+                    decimalOffset: 0,
+                    type: '' // , title: ''
+                };
+
+                ysdk.getLeaderboards()
+                    .then(leaderboard => leaderboard.getLeaderboardDescription(nameLB))
+                    .then(res => {
+                        jsonEntries.technoName = nameLB;
+                        jsonEntries.isDefault = res.default;
+                        jsonEntries.isInvertSortOrder = res.description.invert_sort_order;
+                        jsonEntries.decimalOffset = res.description.score_format.options.decimal_offset;
+                        jsonEntries.type = res.description.type; // Не определяется на момент 18.07.23
+                        //jsonEntries.title = res.title; // Реализуйте по предпочтениям
+
+                        return leaderboard.getLeaderboardEntries(nameLB, {
+                            quantityTop: quantityTop,
+                            includeUser: auth,
+                            quantityAround: quantityAround
+                        });
+                    })
+                    .then(res => {
+                        let jsonPlayers = EntriesLB(res, maxPlayers, photoSize);
+                        let combinedJson = { ...jsonEntries, ...jsonPlayers };
+
+                        myGameInstance.SendMessage('YandexGame', 'LeaderboardEntries', JSON.stringify(combinedJson));
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+            catch (e) {
+                console.error('CRASH Get Leaderboard: ', e.message);
+            }
+      }
+
+      function EntriesLB(res, maxPlayers, photoSize) {
+            let LeaderboardEntriesText = '';
+            let playersCount;
+
+            if (res.entries.length < maxPlayers) {
+                playersCount = res.entries.length;
+            } else {
+                playersCount = maxPlayers;
+            }
+
+            let ranks = new Array(playersCount);
+            let photos = new Array(playersCount);
+            let mames = new Array(playersCount);
+            let scores = new Array(playersCount);
+            let uniqueIDs = new Array(playersCount);
+
+            for (i = 0; i < playersCount; i++) {
+                ranks[i] = res.entries[i].rank;
+                scores[i] = res.entries[i].score;
+                uniqueIDs[i] = res.entries[i].player.uniqueID;
+
+                if (photoSize === 'nonePhoto' || res.entries[i].player.scopePermissions.avatar !== "allow") {
+                    photos[i] = 'nonePhoto';
+                } else {
+                    photos[i] = res.entries[i].player.getAvatarSrc(photoSize);
+                }
+
+                if (res.entries[i].player.scopePermissions.public_name !== "allow") {
+                    mames[i] = "anonymous";
+                } else {
+                    mames[i] = res.entries[i].player.publicName;
+                }
+
+                LeaderboardEntriesText += ranks[i] + '. ' + mames[i] + ": " + scores[i] + '\n';
+            }
+
+            if (playersCount === 0) {
+                LeaderboardEntriesText = 'no data';
+            }
+
+            let jsonPlayers = {
+                "entries": LeaderboardEntriesText,
+                "ranks": ranks,
+                "photos": photos,
+                "names": mames,
+                "scores": scores,
+                "uniqueIDs": uniqueIDs
+            };
+
+            return jsonPlayers;
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.4"
+      function GetLeaderboardScores(nameLB, maxPlayers, quantityTop, quantityAround, photoSize, auth) {
+        if (auth) {
+            try {
+                ysdk.getLeaderboards()
+                    .then(leaderboard => {
+                        leaderboard.getLeaderboardEntries('' + nameLB, {
+                            quantityTop: quantityTop,
+                            includeUser: true,
+                            quantityAround: quantityAround
+                        })
+                            .then(res => {
+                                EntriesLB(res, nameLB, maxPlayers, photoSize);
+                            });
+                    });
+            } catch (e) {
+                console.error('CRASH Get Leaderboard Scores: ', e.message);
+            }
+        } else {
+            try {
+                ysdk.getLeaderboards()
+                    .then(leaderboard => {
+                        leaderboard.getLeaderboardEntries('' + nameLB, {quantityTop: quantityTop})
+                            .then(res => {
+                                EntriesLB(res, nameLB, maxPlayers, photoSize);
+                            });
+                    });
+            } catch (e) {
+                console.error('CRASH Get Leaderboard Scores: ', e.message);
+            }
+        }
+      }
+
+      function EntriesLB(res, nameLB, maxPlayers, photoSize) {
+        let LeaderboardEntriesText = '';
+
+        let playersCount;
+        if (res.entries.length < maxPlayers) {
+            playersCount = res.entries.length;
+        } else {
+            playersCount = maxPlayers;
+        }
+
+        let rank = [maxPlayers];
+        let photo = [maxPlayers];
+        let playersName = [maxPlayers];
+        let scorePlayers = [maxPlayers];
+
+        for (i = 0; i < playersCount; i++) {
+            rank[i] = res.entries[i].rank;
+            scorePlayers[i] = res.entries[i].score;
+
+            if (photoSize === 'nonePhoto' || res.entries[i].player.scopePermissions.avatar !== "allow") {
+                photo[i] = 'nonePhoto';
+            } else {
+                photo[i] = res.entries[i].player.getAvatarSrc(photoSize);
+            }
+
+            if (res.entries[i].player.scopePermissions.public_name !== "allow") {
+                playersName[i] = "anonymous";
+            } else {
+                playersName[i] = res.entries[i].player.publicName;
+            }
+
+            LeaderboardEntriesText += rank[i] + '. ' + playersName[i] + ": " + scorePlayers[i] + '\n';
+        }
+
+        if (playersCount === 0) {
+            LeaderboardEntriesText = 'No data';
+        }
+
+        let jsonLB = {
+            "nameLB": nameLB,
+            "entries": LeaderboardEntriesText,
+            "rank": rank,
+            "photo": photo,
+            "playersName": playersName,
+            "scorePlayers": scorePlayers
+        };
+        myGameInstance.SendMessage('YandexGame', 'LeaderboardEntries', JSON.stringify(jsonLB));
+      }
+      #endif
+
+      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+      function LanguageRequest() {
+            try {
+                myGameInstance.SendMessage('YandexGame', 'SetLanguage', ysdk.environment.i18n.lang);
+            } catch (e) {
+                console.error('CRASH Language Request: ', e.message);
+            }
+      }
+
+      function RequestingEnvironmentData() {
+            try {
+                let jsonEnvir = {
+                    "language": ysdk.environment.i18n.lang,
+                    "domain": ysdk.environment.i18n.tld,
+                    "deviceType": ysdk.deviceInfo.type,
+                    "isMobile": ysdk.deviceInfo.isMobile(),
+                    "isDesktop": ysdk.deviceInfo.isDesktop(),
+                    "isTablet": ysdk.deviceInfo.isTablet(),
+                    "isTV": ysdk.deviceInfo.isTV(),
+                    "appID": ysdk.environment.app.id,
+                    "browserLang": ysdk.environment.browser.lang,
+                    "payload": ysdk.environment.payload,
+                    "promptCanShow": promptCanShow,
+                    "reviewCanShow": reviewCanShow
+                };
+                myGameInstance.SendMessage('YandexGame', 'SetEnvironmentData', JSON.stringify(jsonEnvir));
+            } catch (e) {
+                console.error('CRASH Requesting Environment Data: ', e.message);
+            }
+      }
+      #endif
+
+      function Review() {
+            try {
+                ysdk.feedback.canReview()
+                    .then(({ value, reason }) => {
+                        if (value) {
+                            ysdk.feedback.requestReview().then(({ feedbackSent }) => {
+                                console.log('feedbackSent ', feedbackSent);
+                                if (feedbackSent) {
+                                    myGameInstance.SendMessage('YandexGame', 'ReviewSent', 'true');
+                                    console.log('Review left')
+                                }
+                                else {
+                                    myGameInstance.SendMessage('YandexGame', 'ReviewSent', 'false');
+                                    console.log('Review not left', reason)
+                                }
+                                FocusGame();
+                            })
+                        }
+                        else {
+                            console.log('Review can show = false', reason);
+                            FocusGame();
+                        }
+                    })
+            } catch (e) {
+                console.error('CRASH Review: ', e.message);
+                FocusGame();
+            }
+      }
+
+      function PromptShow() {
+            try {
+                ysdk.shortcut.showPrompt()
+                    .then(result => {
+                        console.log('Shortcut created?:', result);
+                        if (result.outcome === 'accepted') {
+                            console.log('Prompt Success');
+                            myGameInstance.SendMessage('YandexGame', 'OnPromptSuccess');
+                        }
+                        else {
+                            myGameInstance.SendMessage('YandexGame', 'OnPromptFail');
+                        }
+                        FocusGame();
+                    });
+        } catch (e) {
+          console.error('CRASH Prompt Show: ', e.message);
+          FocusGame();
+        }
+      }
+
+      function PaintRBT(rbt) {
+            try {
+                document.getElementById(rbt).style.background = '#ff0000';
+            } catch (e) {
+                console.error('CRASH Paint RBT: ', e.message);
+            }
+      }
+
+      function StaticRBTDeactivate() {
+            #if YG_BANNER_STATIC_1 && YG_BANNER_STATIC_1 !== "-" && YG_BANNER_STATIC_1 !== " "
+            try {
+                rbtLoadGame1.classList.remove('show');
+                document.getElementById('RTBStatic1').style.display = 'none';
+            } catch (e) {
+                console.error('CRASH off RTBStatic1: ', e.message);
+            }
+            #endif
+            #if YG_BANNER_STATIC_2 && YG_BANNER_STATIC_2 !== "-" && YG_BANNER_STATIC_2 !== " "
+            try {
+                rbtLoadGame2.classList.remove('show');
+                document.getElementById('RTBStatic2').style.display = 'none';
+            } catch (e) {
+                console.error('CRASH off RTBStatic2: ', e.message);
+            }
+            #endif
+      }
+
+      // Additional script modules:
+
+      document.body.appendChild(script);
+      #endif
+      #if CONNECT_PLUGIN == "" || CONNECT_PLUGIN == " " || CONNECT_PLUGIN == "-"
+      // Подключаем myGameInstance для связи Unity с браузером
+      var myGameInstance = null;
+
+      // Загрузка файлов
+      var unityLoader = document.createElement("script");
+      unityLoader.src = "Build/{{{ LOADER_FILENAME }}}";
+      unityLoader.onload = () => {
+        createUnityInstance(canvas, {
+          dataUrl: "Build/{{{ DATA_FILENAME }}}",
+          frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+          #if USE_THREADS
+          workerUrl: "Build/{{{ WORKER_FILENAME }}}",
+          #endif
+          #if USE_WASM
+          codeUrl: "Build/{{{ CODE_FILENAME }}}",
+          #endif
+          #if MEMORY_FILENAME
+          memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+          #endif
+          #if SYMBOLS_FILENAME
+          symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+          #endif
+          streamingAssetsUrl: "StreamingAssets",
+          companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+          productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+          productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+	  showBanner: unityShowBanner,
+        }, (progress) => {
+          loading_bar_fill.style.width = 111.2 * progress + "%";
+          Update();
+        }).then((unityInstance) => {
+          myGameInstance = unityInstance;
+          ATinstance = unityInstance;
+          loading_bg.style.display = "none";
+          Update();
+
+          #if CONFIGURE_SHADOWS_AROUND_CANVAS !== "" && CONFIGURE_SHADOWS_AROUND_CANVAS !== " " && CONFIGURE_SHADOWS_AROUND_CANVAS !== "-"
+          // Настраиваем тени
+          var boxShadowText = '{{{ CONFIGURE_SHADOWS_AROUND_CANVAS }}}'.replace(/shadow|;|:|-|box|webkit|moz|""/gi, '').toLowerCase();
+      
+          var shadowLowTypes = ["low", "small", "first", "one", "перв"];
+          var shadowMediumTypes = ["medium", "second", "two", "средний", "середина", "втор"];
+          var shadowHighTypes = ["high", "third", "three", "последний", "трет"];
+
+          if(shadowLowTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 10px 4px rgba(34, 60, 80, 0.6)";
+          } else if(shadowMediumTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 20px 6px rgba(34, 60, 80, 0.7)";
+          } else if(shadowHighTypes.some(i => boxShadowText.includes(i))) {
+            canvas.style.boxShadow = "0px 0px 30px 8px rgba(34, 60, 80, 0.8)";
+          } else {
+            canvas.style.boxShadow = boxShadowText;
+          }
+          #endif
+        }).catch((message) => {
+          console.error(message);
+          console.error("Не удалось загрузить файлы игры, пробуем заново");
+          unityLoader.onload();
+        });
+      };
+      document.body.appendChild(unityLoader);
+      #endif
+    </script>
+  </body>
+</html>

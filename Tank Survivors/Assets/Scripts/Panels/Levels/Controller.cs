@@ -31,7 +31,7 @@ namespace Panels.Levels
 
         public void CreateLevels(RectTransform levelContainer)
         {
-            foreach (var level in levels.LevelsInfo)
+            foreach (LevelInfo level in levels.LevelsInfo)
             {
                 Level levelButton = Instantiate(levelTemplate, levelContainer);
 

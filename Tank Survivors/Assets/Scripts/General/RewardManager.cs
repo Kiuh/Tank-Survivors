@@ -1,4 +1,5 @@
-﻿using Tank;
+﻿using System.Collections.Generic;
+using Tank;
 using UnityEngine;
 using YG;
 
@@ -26,8 +27,8 @@ namespace General
             {
                 case Reward.SecondLife:
                     tank.Heal(tank.Health.MaxValue / 2);
-                    var enemies = tank.EnemyFinder.GetAllEnemies();
-                    foreach (var enemy in enemies)
+                    IEnumerable<Transform> enemies = tank.EnemyFinder.GetAllEnemies();
+                    foreach (Transform enemy in enemies)
                     {
                         Destroy(enemy.gameObject);
                     }
