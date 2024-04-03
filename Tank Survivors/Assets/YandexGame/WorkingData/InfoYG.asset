@@ -273,12 +273,6 @@ MonoBehaviour:
     de: 
     hi: 
   purshasesSimulation:
-  - id: gun
-    title: Gun
-    description: Product - Gun
-    imageURI: https://justplaygames.ru/public/Paymant1.png
-    priceValue: 5
-    consumed: 1
   - id: armor
     title: Armor
     description: Product - Armor
