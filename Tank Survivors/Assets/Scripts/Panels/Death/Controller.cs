@@ -1,7 +1,9 @@
 ﻿using System.Text;
 using General;
 using Tank;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using YG;
 
 namespace Panels.Death
 {
@@ -26,6 +28,15 @@ namespace Panels.Death
         {
             Time.timeScale = 0.0f;
             view.ShowLosePanel(GetInfoString());
+        }
+
+        public void UseSecondLifeBonus()
+        {
+            int idOfSecondLife = 0;
+            YandexGame.RewVideoShow(idOfSecondLife);
+
+            Time.timeScale = 1.0f;
+            view.HideLosePanel();
         }
 
         public void RepeatGame()

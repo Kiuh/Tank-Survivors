@@ -17,6 +17,9 @@ namespace Panels.Death
         private TMP_Text infoLabel;
 
         [SerializeField]
+        private Button secondLifeButton;
+
+        [SerializeField]
         private Button repeatButton;
 
         [SerializeField]
@@ -24,8 +27,14 @@ namespace Panels.Death
 
         private void Awake()
         {
+            secondLifeButton.onClick.AddListener(UseSecondLifeBonusClick);
             repeatButton.onClick.AddListener(RepeatButtonClick);
             leaveButton.onClick.AddListener(LeaveButtonClick);
+        }
+
+        private void UseSecondLifeBonusClick()
+        {
+            controller.UseSecondLifeBonus();
         }
 
         private void RepeatButtonClick()
@@ -42,6 +51,11 @@ namespace Panels.Death
         {
             infoLabel.text = infoString;
             losePanel.SetActive(true);
+        }
+
+        public void HideLosePanel()
+        {
+            losePanel.SetActive(false);
         }
     }
 }
