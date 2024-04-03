@@ -5056,7 +5056,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5147,6 +5147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2581131972217548194}
     m_Modifications:
+    - target: {fileID: 3962424545472068524, guid: bb912e18ce9d11845961ace5ae41eacf, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4070203815433384261, guid: bb912e18ce9d11845961ace5ae41eacf, type: 3}
       propertyPath: m_Name
       value: FirePaticles

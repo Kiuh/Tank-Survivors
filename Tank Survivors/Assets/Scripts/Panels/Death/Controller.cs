@@ -29,13 +29,15 @@ namespace Panels.Death
             view.ShowLosePanel(GetInfoString());
         }
 
-        public void UseSecondLifeBonus()
+        public void HideLosePanel()
         {
-            int idOfSecondLife = 0;
-            YandexGame.RewVideoShow(idOfSecondLife);
-
             Time.timeScale = 1.0f;
             view.HideLosePanel();
+        }
+
+        public void UseSecondLifeBonus()
+        {
+            YandexGame.RewVideoShow((int)Reward.SecondLife);
         }
 
         public void RepeatGame()

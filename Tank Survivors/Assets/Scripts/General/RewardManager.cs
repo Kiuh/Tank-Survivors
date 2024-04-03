@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Enemies;
 using Tank;
 using UnityEngine;
 using YG;
@@ -15,6 +16,9 @@ namespace General
         [SerializeField]
         private TankImpl tank;
 
+        [SerializeField]
+        private Panels.Death.Controller controller;
+
         private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
 
         private void OnDisable() => YandexGame.RewardVideoEvent -= Rewarded;
@@ -26,17 +30,25 @@ namespace General
             switch (reward)
             {
                 case Reward.SecondLife:
-                    tank.Heal(tank.Health.MaxValue / 2);
-                    IEnumerable<Transform> enemies = tank.EnemyFinder.GetAllEnemies();
-                    foreach (Transform enemy in enemies)
-                    {
-                        Destroy(enemy.gameObject);
-                    }
+                    ApplySecondLife();
                     break;
                 default:
                     Debug.LogError($"Unknown reward type {reward}");
                     break;
             }
+        }
+
+        private void ApplySecondLife()
+        {
+            tank.Heal(tank.Health.MaxValue / 2);
+
+            IEnumerable<IEnemy> enemies = tank.EnemyFinder.GetAllEnemies();
+            foreach (IEnemy enemy in enemies)
+            {
+                enemy.TakeDamage(float.MaxValue);
+            }
+
+            controller.HideLosePanel();
         }
     }
 }

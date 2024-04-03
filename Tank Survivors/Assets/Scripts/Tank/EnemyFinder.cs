@@ -10,7 +10,27 @@ namespace Tank
         [SerializeField]
         private float detectionRadius = 10f;
 
-        public IEnumerable<Transform> GetAllEnemies()
+        public IEnumerable<IEnemy> GetAllEnemies()
+        {
+            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
+
+            List<IEnemy> enemies = new List<IEnemy>();
+            if (objects.Length == 0)
+            {
+                return enemies;
+            }
+
+            foreach (Collider2D obj in objects)
+            {
+                if (obj.gameObject.TryGetComponent(out IEnemy enemy))
+                {
+                    enemies.Add(enemy);
+                }
+            }
+            return enemies;
+        }
+
+        public IEnumerable<Transform> GetAllEnemiesTransform()
         {
             Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
@@ -32,7 +52,7 @@ namespace Tank
 
         public Transform GetNearestTransformOrNull()
         {
-            IEnumerable<Transform> enemies = GetAllEnemies();
+            IEnumerable<Transform> enemies = GetAllEnemiesTransform();
 
             if (enemies.Count() == 0)
             {
