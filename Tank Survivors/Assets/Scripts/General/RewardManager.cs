@@ -19,9 +19,15 @@ namespace General
         [SerializeField]
         private Panels.Death.Controller controller;
 
-        private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
+        private void OnEnable()
+        {
+            YandexGame.RewardVideoEvent += Rewarded;
+        }
 
-        private void OnDisable() => YandexGame.RewardVideoEvent -= Rewarded;
+        private void OnDisable()
+        {
+            YandexGame.RewardVideoEvent -= Rewarded;
+        }
 
         void Rewarded(int id)
         {
