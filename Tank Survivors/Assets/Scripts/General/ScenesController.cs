@@ -9,6 +9,7 @@ namespace General
     public enum InGameScene
     {
         MainScene,
+        LevelsScene,
         GameplayScene
     }
 

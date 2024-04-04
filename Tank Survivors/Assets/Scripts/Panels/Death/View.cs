@@ -14,7 +14,13 @@ namespace Panels.Death
         private GameObject losePanel;
 
         [SerializeField]
+        private StarsContainer starsContainer;
+
+        [SerializeField]
         private TMP_Text infoLabel;
+
+        [SerializeField]
+        private Button secondLifeButton;
 
         [SerializeField]
         private Button repeatButton;
@@ -24,8 +30,14 @@ namespace Panels.Death
 
         private void Awake()
         {
+            secondLifeButton.onClick.AddListener(UseSecondLifeBonusClick);
             repeatButton.onClick.AddListener(RepeatButtonClick);
             leaveButton.onClick.AddListener(LeaveButtonClick);
+        }
+
+        private void UseSecondLifeBonusClick()
+        {
+            controller.UseSecondLifeBonus();
         }
 
         private void RepeatButtonClick()
@@ -38,10 +50,21 @@ namespace Panels.Death
             controller.LeaveGame();
         }
 
-        public void ShowLosePanel(string infoString)
+        public void HideSecondLifeButton()
+        {
+            secondLifeButton.gameObject.SetActive(false);
+        }
+
+        public void ShowLosePanel(string infoString, int starsCount)
         {
             infoLabel.text = infoString;
+            starsContainer.SetupProgress(starsCount);
             losePanel.SetActive(true);
+        }
+
+        public void HideLosePanel()
+        {
+            losePanel.SetActive(false);
         }
     }
 }
