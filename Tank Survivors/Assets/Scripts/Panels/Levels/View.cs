@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using General;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Panels.Levels
@@ -20,8 +21,13 @@ namespace Panels.Levels
 
         private void Awake()
         {
-            exitButton.onClick.AddListener(Hide);
+            exitButton.onClick.AddListener(Exit);
             controller.CreateLevels(levelsContainer);
+        }
+
+        private void Exit()
+        {
+            ScenesController.Instance.LoadScene(InGameScene.MainScene);
         }
 
         public void Show()

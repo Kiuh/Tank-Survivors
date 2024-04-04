@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using General;
+using UnityEngine;
 using YG;
 
 namespace Panels.MainMenu
@@ -6,9 +7,6 @@ namespace Panels.MainMenu
     [AddComponentMenu("Panels.MainMenu.Controller")]
     internal class Controller : MonoBehaviour
     {
-        [SerializeField]
-        private Levels.Controller levelsController;
-
         private void Start()
         {
             YandexGame.FullscreenShow();
@@ -16,7 +14,7 @@ namespace Panels.MainMenu
 
         public void Play()
         {
-            levelsController.ShowPanel();
+            ScenesController.Instance.LoadScene(InGameScene.LevelsScene);
         }
     }
 }
