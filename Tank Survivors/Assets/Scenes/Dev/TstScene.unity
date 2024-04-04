@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DataTransfer>k__BackingField: {fileID: 11400000, guid: 8f82e63ec9a29ea40ada8cf67aafbd81, type: 2}
-  gameConfig: {fileID: 11400000, guid: 2cdfa6bda48cc154abbcad19a89b815d, type: 2}
+  gameConfig: {fileID: 11400000, guid: f0666a5a42b4b8649b4d8839c65bcf2a, type: 2}
 --- !u!4 &1075597818
 Transform:
   m_ObjectHideFlags: 0
