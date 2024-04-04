@@ -1029,9 +1029,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1468040654}
     m_Modifications:
+    - target: {fileID: 2239325124405413005, guid: e26065796da21154297482bed15853ca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6761959711665706527, guid: e26065796da21154297482bed15853ca, type: 3}
       propertyPath: m_Name
       value: Levels Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761959711665706527, guid: e26065796da21154297482bed15853ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7140316596767959585, guid: e26065796da21154297482bed15853ca, type: 3}
       propertyPath: levelsContainer

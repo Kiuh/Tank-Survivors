@@ -6,8 +6,8 @@ namespace General
     [AddComponentMenu("General.GameContext")]
     public class GameContext : MonoBehaviour
     {
-        [SerializeField]
-        private DataTransfer dataTransfer;
+        [field: SerializeField]
+        public DataTransfer DataTransfer { get; private set; }
 
         [SerializeField]
         private Game gameConfig;
@@ -15,7 +15,7 @@ namespace General
 
         private void Awake()
         {
-            gameConfig.EnemiesConfig = dataTransfer.LevelInfo.Enemies;
+            gameConfig.EnemiesConfig = DataTransfer.LevelInfo.Enemies;
         }
     }
 }

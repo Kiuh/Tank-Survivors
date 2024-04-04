@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Enemies;
+using Enemies.Bosses;
 using Tank;
 using UnityEngine;
 using YG;
@@ -51,9 +52,15 @@ namespace General
             IEnumerable<IEnemy> enemies = tank.EnemyFinder.GetAllEnemies();
             foreach (IEnemy enemy in enemies)
             {
+                if (enemy is Boss)
+                {
+                    continue;
+                }
+
                 enemy.TakeDamage(float.MaxValue);
             }
 
+            controller.HideSecondLifeButton();
             controller.HideLosePanel();
         }
     }

@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   LevelsInfo:
-  - Name: Hello
+  - Name: 1
     Progress: 0
     Enemies: {fileID: 11400000, guid: fc911a0dcc46de341b52c049302cb930, type: 2}
   - Name: 2

@@ -17,9 +17,9 @@ namespace Configs
     {
         public string Name;
 
-        [Range(0f, 1f)]
+        [Range(0f, 3f)]
         [ReadOnly]
-        public float Progress;
+        public int Progress;
 
         [OdinSerialize]
         public Enemies Enemies;

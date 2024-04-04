@@ -1,4 +1,5 @@
 using System;
+using Configs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +13,15 @@ namespace Panels.Levels
         private TextMeshProUGUI levelName;
 
         [SerializeField]
+        private StarsContainer starsContainer;
+
+        [SerializeField]
         private Button button;
 
-        public void SetupLevelButton(string levelName, Action action)
+        public void SetupLevelButton(LevelInfo levelInfo, Action action)
         {
-            this.levelName.text = levelName;
+            levelName.text = levelInfo.Name;
+            starsContainer.SetupProgress(levelInfo.Progress);
             button.onClick.AddListener(() => action());
         }
     }

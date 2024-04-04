@@ -14,6 +14,9 @@ namespace Panels.Death
         private GameObject losePanel;
 
         [SerializeField]
+        private StarsContainer starsContainer;
+
+        [SerializeField]
         private TMP_Text infoLabel;
 
         [SerializeField]
@@ -47,9 +50,15 @@ namespace Panels.Death
             controller.LeaveGame();
         }
 
-        public void ShowLosePanel(string infoString)
+        public void HideSecondLifeButton()
+        {
+            secondLifeButton.gameObject.SetActive(false);
+        }
+
+        public void ShowLosePanel(string infoString, int starsCount)
         {
             infoLabel.text = infoString;
+            starsContainer.SetupProgress(starsCount);
             losePanel.SetActive(true);
         }
 

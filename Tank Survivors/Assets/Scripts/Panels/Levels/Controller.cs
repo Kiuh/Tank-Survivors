@@ -36,7 +36,7 @@ namespace Panels.Levels
                 Level levelButton = Instantiate(levelTemplate, levelContainer);
 
                 levelButton.SetupLevelButton(
-                    level.Name,
+                    level,
                     () =>
                     {
                         SetData(level);

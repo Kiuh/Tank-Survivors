@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using General;
-using Tank;
 using UnityEngine;
 using YG;
 
@@ -10,7 +9,7 @@ namespace Panels.Death
     public class Controller : MonoBehaviour
     {
         [SerializeField]
-        private TankImpl tank;
+        private ProgressController progressController;
 
         [SerializeField]
         private General.Timer timer;
@@ -20,19 +19,24 @@ namespace Panels.Death
 
         private void Awake()
         {
-            tank.OnDeath += ShowLosePanel;
+            progressController.OnLoose += ShowLosePanel;
         }
 
-        private void ShowLosePanel()
+        public void ShowLosePanel()
         {
             Time.timeScale = 0.0f;
-            view.ShowLosePanel(GetInfoString());
+            view.ShowLosePanel(GetInfoString(), progressController.Progress);
         }
 
         public void HideLosePanel()
         {
             Time.timeScale = 1.0f;
             view.HideLosePanel();
+        }
+
+        public void HideSecondLifeButton()
+        {
+            view.HideSecondLifeButton();
         }
 
         public void UseSecondLifeBonus()
