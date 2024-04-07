@@ -7,7 +7,7 @@ using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
-namespace Enemies.Bosses
+namespace Enemies
 {
     public class Enemy : SerializedMonoBehaviour, IEnemy
     {
@@ -29,6 +29,8 @@ namespace Enemies.Bosses
         [ListDrawerSettings(DraggableItems = false, HideAddButton = true, HideRemoveButton = true)]
         [FoldoutGroup("Modules")]
         public List<IModule> Modules { get; set; } = new();
+        public List<IAbility> UpdatableAbilities { get; set; } = new();
+        public List<IAbility> FixedUpdatableAbilities { get; set; } = new();
 
         private TankImpl tank;
         public event Action OnDeath;
@@ -42,7 +44,17 @@ namespace Enemies.Bosses
             OnDeath += () => Destroy(gameObject);
         }
 
+        public void FixedUpdate()
+        {
+            UseAbilities(FixedUpdatableAbilities);
+        }
+
         public void Update()
+        {
+            UseAbilities(UpdatableAbilities);
+        }
+
+        private void UseAbilities(List<IAbility> abilities)
         {
             abilities.ForEach(
                 (ability) =>
@@ -57,7 +69,7 @@ namespace Enemies.Bosses
 
         public void TakeDamage(float damageAmount)
         {
-            if (Health < 0)
+            if (Health <= 0)
             {
                 return;
             }
@@ -69,7 +81,7 @@ namespace Enemies.Bosses
             }
         }
 
-        public T GetAbility<T>()
+        public T GetConcreteAbility<T>()
             where T : class, IAbility
         {
             return abilities.GetConcrete<T, IAbility>();
