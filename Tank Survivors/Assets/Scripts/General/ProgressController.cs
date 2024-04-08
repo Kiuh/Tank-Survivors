@@ -11,7 +11,7 @@ namespace General
         private TankImpl tank;
 
         [SerializeField]
-        EnemyGenerator enemyGenerator;
+        private EnemyGenerator enemyGenerator;
 
         [SerializeField]
         private Configs.Levels levels;

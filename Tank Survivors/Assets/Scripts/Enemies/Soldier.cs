@@ -59,7 +59,7 @@ namespace Enemies
             Vector2 direction = GetDirectionToTank();
             RotateToTank(direction);
             rigidBody.MovePosition(
-                rigidBody.position + direction * stats.MovementSpeed * Time.fixedDeltaTime
+                rigidBody.position + (direction * stats.MovementSpeed * Time.fixedDeltaTime)
             );
         }
 

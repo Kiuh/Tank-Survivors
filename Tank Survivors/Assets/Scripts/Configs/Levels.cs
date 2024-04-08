@@ -9,7 +9,7 @@ namespace Configs
     [CreateAssetMenu(fileName = "LevelsConfig", menuName = "Configs/LevelsConfig")]
     public class Levels : SerializedScriptableObject
     {
-        public List<LevelInfo> LevelInfos = new List<LevelInfo>();
+        public List<LevelInfo> LevelInfos = new();
     }
 
     [Serializable]

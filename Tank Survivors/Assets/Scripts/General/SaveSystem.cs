@@ -18,7 +18,6 @@ public class SaveSystem : MonoBehaviour
     {
         YandexGame.LoadProgress();
         List<int> progresses = YandexGame.savesData.LevelProgresses;
-        //if (progresses.Count != levels) { }
 
         for (int i = 0; i < progresses.Count; i++)
         {

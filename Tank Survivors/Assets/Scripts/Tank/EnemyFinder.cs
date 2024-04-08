@@ -14,7 +14,7 @@ namespace Tank
         {
             Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
-            List<IEnemy> enemies = new List<IEnemy>();
+            List<IEnemy> enemies = new();
             if (objects.Length == 0)
             {
                 return enemies;
@@ -34,7 +34,7 @@ namespace Tank
         {
             Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
 
-            List<Transform> enemies = new List<Transform>();
+            List<Transform> enemies = new();
             if (objects.Length == 0)
             {
                 return enemies;
@@ -42,7 +42,7 @@ namespace Tank
 
             foreach (Collider2D obj in objects)
             {
-                if (obj.gameObject.TryGetComponent(out IEnemy enemy))
+                if (obj.gameObject.TryGetComponent(out IEnemy _))
                 {
                     enemies.Add(obj.transform);
                 }
