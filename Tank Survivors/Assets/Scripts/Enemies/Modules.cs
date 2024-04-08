@@ -124,7 +124,7 @@ namespace Enemies
     public class ShootingRangeModule : IModule
     {
         [OdinSerialize]
-        [FoldoutGroup("Shootin Range")]
+        [FoldoutGroup("Shooting Range")]
         public ModifiableValue<float> ShootingRange { get; set; } = new(1.0f);
 
         public IModule Clone()
@@ -142,15 +142,32 @@ namespace Enemies
     public class ShootingRateModule : IModule
     {
         [OdinSerialize]
-        [FoldoutGroup("Explosive radius")]
-        [Unit(Units.Second)]
-        public ModifiableValue<float> ShootCooldown { get; set; } = new(1.0f);
+        [FoldoutGroup("Shoot Cooldown")]
+        public ModifiableValue<float> ShootCooldown { get; set; } = new(0.001f);
 
         public IModule Clone()
         {
             ShootingRateModule module = new();
             module.ShootCooldown.SourceValue = ShootCooldown.SourceValue;
             module.ShootCooldown.Modifications.AddRange(ShootCooldown.Modifications);
+            return module;
+        }
+    }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class ProjectileSpeedModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("BulletSpeed")]
+        public ModifiableValue<float> ProjectileSpeed { get; set; } = new(1.0f);
+
+        public IModule Clone()
+        {
+            ProjectileSpeedModule module = new();
+            module.ProjectileSpeed.SourceValue = ProjectileSpeed.SourceValue;
+            module.ProjectileSpeed.Modifications.AddRange(ProjectileSpeed.Modifications);
             return module;
         }
     }

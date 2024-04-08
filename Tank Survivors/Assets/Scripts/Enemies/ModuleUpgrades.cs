@@ -209,4 +209,29 @@ namespace Enemies
             }
         }
     }
+
+    [Serializable]
+    [LabelText("Projectile Speed")]
+    public class ProjectileSpeedUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ProjectileSpeedModule module = GetModule<ProjectileSpeedModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ProjectileSpeed.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ProjectileSpeed.SourceValue;
+                }
+                module.ProjectileSpeed.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
 }
