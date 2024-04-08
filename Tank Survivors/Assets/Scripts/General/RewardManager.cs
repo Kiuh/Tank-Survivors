@@ -30,7 +30,7 @@ namespace General
             YandexGame.RewardVideoEvent -= Rewarded;
         }
 
-        void Rewarded(int id)
+        private void Rewarded(int id)
         {
             Reward reward = (Reward)id;
 

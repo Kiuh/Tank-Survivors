@@ -59,7 +59,7 @@ namespace Enemies
             Vector2 direction = GetDirectionToTank();
             RotateToTank(direction);
             rigidBody.MovePosition(
-                rigidBody.position + direction * stats.MovementSpeed * Time.fixedDeltaTime
+                rigidBody.position + (direction * stats.MovementSpeed * Time.fixedDeltaTime)
             );
         }
 
@@ -76,6 +76,11 @@ namespace Enemies
 
         public void TakeDamage(float damageAmount)
         {
+            if (stats.Health <= 0)
+            {
+                return;
+            }
+
             stats.Health -= damageAmount;
             if (stats.Health <= 0)
             {

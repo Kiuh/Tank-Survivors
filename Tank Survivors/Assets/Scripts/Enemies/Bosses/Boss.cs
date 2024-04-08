@@ -39,6 +39,11 @@ namespace Enemies.Bosses
 
         public void TakeDamage(float damageAmount)
         {
+            if (stats.Health <= 0)
+            {
+                return;
+            }
+
             Health -= damageAmount;
             if (Health <= 0.0f)
             {

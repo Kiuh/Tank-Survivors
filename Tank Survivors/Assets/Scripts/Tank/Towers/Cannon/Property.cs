@@ -13,7 +13,7 @@ namespace Tank.Towers.Cannon
 
         private void OnDrawGizmos()
         {
-            var rotatedVector =
+            Vector3 rotatedVector =
                 Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * Vector3.up;
 
             Gizmos.color = Color.red;
