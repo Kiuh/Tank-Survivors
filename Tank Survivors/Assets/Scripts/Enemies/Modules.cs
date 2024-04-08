@@ -117,4 +117,41 @@ namespace Enemies
             return module;
         }
     }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class ShootingRangeModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("Shootin Range")]
+        public ModifiableValue<float> ShootingRange { get; set; } = new(1.0f);
+
+        public IModule Clone()
+        {
+            ShootingRangeModule module = new();
+            module.ShootingRange.SourceValue = ShootingRange.SourceValue;
+            module.ShootingRange.Modifications.AddRange(ShootingRange.Modifications);
+            return module;
+        }
+    }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class ShootingRateModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("Explosive radius")]
+        [Unit(Units.Second)]
+        public ModifiableValue<float> ShootCooldown { get; set; } = new(1.0f);
+
+        public IModule Clone()
+        {
+            ShootingRateModule module = new();
+            module.ShootCooldown.SourceValue = ShootCooldown.SourceValue;
+            module.ShootCooldown.Modifications.AddRange(ShootCooldown.Modifications);
+            return module;
+        }
+    }
 }

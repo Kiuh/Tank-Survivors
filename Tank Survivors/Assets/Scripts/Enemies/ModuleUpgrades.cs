@@ -159,4 +159,54 @@ namespace Enemies
             }
         }
     }
+
+    [Serializable]
+    [LabelText("FireRange")]
+    public class FireRangeUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ShootingRangeModule module = GetModule<ShootingRangeModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ShootingRange.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ShootingRange.SourceValue;
+                }
+                module.ShootingRange.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("FireRate")]
+    public class FireRateUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ShootingRateModule module = GetModule<ShootingRateModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ShootCooldown.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ShootCooldown.SourceValue;
+                }
+                module.ShootCooldown.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
 }
