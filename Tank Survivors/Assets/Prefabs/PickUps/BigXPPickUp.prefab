@@ -135,12 +135,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiQmlnIFhQIg==
+    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABBgAAAEIAaQBnACAAWABQAA==
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  experienceAmount: 30
+  experienceAmount: 50

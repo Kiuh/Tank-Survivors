@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a09c37d120d5e145aae85b83f60067a, type: 3}
-  m_Name: LevelProgressionConfig
+  m_Script: {fileID: 11500000, guid: 095910d4bba0c0b47b2c1c8bd02162b9, type: 3}
+  m_Name: TestDataTransfer
   m_EditorClassIdentifier: 
-  firstLevelExperience: 100
-  experienceUpValue: 1.15
-  defaultExperience: 0
+  <LevelInfo>k__BackingField:
+    Name: 
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 607d6880bcd31f14f945514ed6b9a27b, type: 2}

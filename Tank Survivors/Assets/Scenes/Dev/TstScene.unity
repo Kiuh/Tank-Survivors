@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6f2eb0d1e1fd4daeec8e62deb7343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DataTransfer>k__BackingField: {fileID: 11400000, guid: 8f82e63ec9a29ea40ada8cf67aafbd81, type: 2}
+  <DataTransfer>k__BackingField: {fileID: 11400000, guid: d405c4cd22fa15241a3ed9b19c94d49d, type: 2}
   gameConfig: {fileID: 11400000, guid: f0666a5a42b4b8649b4d8839c65bcf2a, type: 2}
 --- !u!4 &1075597818
 Transform:
