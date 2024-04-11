@@ -52,7 +52,7 @@ namespace General
             IEnumerable<IEnemy> enemies = tank.EnemyFinder.GetAllEnemies();
             foreach (IEnemy enemy in enemies)
             {
-                if (enemy is Boss)
+                if (enemy is Enemy)
                 {
                     continue;
                 }
