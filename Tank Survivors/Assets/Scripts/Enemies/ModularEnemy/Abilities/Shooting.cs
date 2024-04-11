@@ -39,7 +39,7 @@ namespace Enemies.Abilities
             };
         }
 
-        public void Initialize(Enemy enemy, TankImpl tank, List<IModule> modules)
+        public void Initialize(Enemy enemy, TankImpl tank)
         {
             this.tank = tank;
             this.enemy = enemy;

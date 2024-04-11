@@ -39,7 +39,7 @@ namespace Enemies
         {
             this.tank = tank;
             Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
-            abilities.ForEach(ability => ability.Initialize(this, this.tank, Modules));
+            abilities.ForEach(ability => ability.Initialize(this, this.tank));
             OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
             OnDeath += () => Destroy(gameObject);
         }

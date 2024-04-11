@@ -40,11 +40,11 @@ namespace Enemies.Abilities
             enemy.transform.eulerAngles = Vector3.forward * -rotationAngle;
         }
 
-        public void Initialize(Enemy enemy, TankImpl tank, List<IModule> modules)
+        public void Initialize(Enemy enemy, TankImpl tank)
         {
             this.tank = tank;
             this.enemy = enemy;
-            movement = modules.GetConcrete<MovementModule, IModule>();
+            movement = enemy.Modules.GetConcrete<MovementModule, IModule>();
             rigidbody = enemy.Rigidbody;
             enemy.FixedUpdatableAbilities.Add(this);
             IsActive = true;

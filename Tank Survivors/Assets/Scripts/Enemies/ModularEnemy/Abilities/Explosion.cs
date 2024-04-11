@@ -31,12 +31,12 @@ namespace Enemies.Abilities
             return new() { new ExplosionModule() };
         }
 
-        public void Initialize(Enemy enemy, TankImpl tank, List<IModule> modules)
+        public void Initialize(Enemy enemy, TankImpl tank)
         {
             this.tank = tank;
             this.enemy = enemy;
-            damage = modules.GetConcrete<DamageModule, IModule>();
-            explosion = modules.GetConcrete<ExplosionModule, IModule>();
+            damage = enemy.Modules.GetConcrete<DamageModule, IModule>();
+            explosion = enemy.Modules.GetConcrete<ExplosionModule, IModule>();
             enemy.FixedUpdatableAbilities.Add(this);
             dangerZone.transform.localScale *= explosion.Radius.GetModifiedValue();
             particle.transform.localScale *= explosion.Radius.GetModifiedValue();

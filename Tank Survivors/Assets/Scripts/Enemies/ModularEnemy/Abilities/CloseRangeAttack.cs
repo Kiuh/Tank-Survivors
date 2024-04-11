@@ -4,7 +4,6 @@ using Common;
 using Enemies.Bosses.Abilities;
 using Sirenix.OdinInspector;
 using Tank;
-using Unity.Loading;
 using UnityEngine;
 
 namespace Enemies.Abilities
@@ -26,13 +25,13 @@ namespace Enemies.Abilities
             return new() { new AttackCooldownModule() };
         }
 
-        public void Initialize(Enemy enemy, TankImpl tank, List<IModule> modules)
+        public void Initialize(Enemy enemy, TankImpl tank)
         {
             this.tank = tank;
             collider = enemy.Collider;
             tankCollider = tank.GetComponent<BoxCollider2D>();
-            damage = modules.GetConcrete<DamageModule, IModule>();
-            attackCooldown = modules.GetConcrete<AttackCooldownModule, IModule>();
+            damage = enemy.Modules.GetConcrete<DamageModule, IModule>();
+            attackCooldown = enemy.Modules.GetConcrete<AttackCooldownModule, IModule>();
             enemy.FixedUpdatableAbilities.Add(this);
             IsActive = true;
         }

@@ -7,7 +7,7 @@ namespace Enemies.Bosses.Abilities
     [HideReferenceObjectPicker]
     public interface IAbility
     {
-        public void Initialize(Enemy enemy, TankImpl tank, List<IModule> modules);
+        public void Initialize(Enemy enemy, TankImpl tank);
         public void Use();
         public void Enable()
         {
