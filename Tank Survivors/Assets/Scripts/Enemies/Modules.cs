@@ -21,7 +21,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            MovementModule module = new MovementModule();
+            MovementModule module = new();
             module.Speed.SourceValue = Speed.SourceValue;
             module.Speed.Modifications.AddRange(Speed.Modifications);
             return module;
@@ -39,7 +39,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            HealthModule module = new HealthModule();
+            HealthModule module = new();
             module.Health.SourceValue = Health.SourceValue;
             module.Health.Modifications.AddRange(Health.Modifications);
             return module;
@@ -57,7 +57,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            DamageModule module = new DamageModule();
+            DamageModule module = new();
             module.Damage.SourceValue = Damage.SourceValue;
             module.Damage.Modifications.AddRange(Damage.Modifications);
             return module;
@@ -75,7 +75,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            AttackCooldownModule module = new AttackCooldownModule();
+            AttackCooldownModule module = new();
             module.Cooldown.SourceValue = Cooldown.SourceValue;
             module.Cooldown.Modifications.AddRange(Cooldown.Modifications);
             return module;
@@ -93,7 +93,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            ExperienceModule module = new ExperienceModule();
+            ExperienceModule module = new();
             module.DropAmount.SourceValue = DropAmount.SourceValue;
             module.DropAmount.Modifications.AddRange(DropAmount.Modifications);
             return module;
@@ -111,7 +111,7 @@ namespace Enemies
 
         public IModule Clone()
         {
-            ExplosionModule module = new ExplosionModule();
+            ExplosionModule module = new();
             module.Radius.SourceValue = Radius.SourceValue;
             module.Radius.Modifications.AddRange(Radius.Modifications);
             return module;

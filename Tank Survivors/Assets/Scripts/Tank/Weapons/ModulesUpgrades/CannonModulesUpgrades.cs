@@ -16,9 +16,8 @@ namespace Tank.Weapons.ModulesUpgrades.Cannon
 
         public void ApplyUpgrade(IWeapon weapon)
         {
-            MonoBehaviour tower = (
-                weapon.Modules.GetConcrete<TowerModule, IWeaponModule>().Tower as MonoBehaviour
-            );
+            MonoBehaviour tower =
+                weapon.Modules.GetConcrete<TowerModule, IWeaponModule>().Tower as MonoBehaviour;
             tower.GetComponent<Towers.Cannon.Controller>().AddCannon(CannonPosition);
         }
 

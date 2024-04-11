@@ -93,7 +93,7 @@ namespace Tank.Weapons.Projectiles
             startPoint = transform.position;
             endPoint = startPoint + direction;
 
-            Vector3 explosionSize = new Vector3(damageRadius, damageRadius, damageRadius);
+            Vector3 explosionSize = new(damageRadius, damageRadius, damageRadius);
 
             Transform hitMark = Instantiate(
                 hitMarkPrefab,
@@ -140,7 +140,7 @@ namespace Tank.Weapons.Projectiles
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.transform.TryGetComponent(out Enemies.IEnemy enemy))
+            if (collision.transform.TryGetComponent(out Enemies.IEnemy _))
             {
                 StopCoroutine(flyCoroutine);
                 StartExplosion();

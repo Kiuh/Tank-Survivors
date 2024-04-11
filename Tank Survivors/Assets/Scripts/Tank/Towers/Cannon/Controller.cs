@@ -60,7 +60,7 @@ namespace Tank.Towers.Cannon
 
         private void FireAllCannons()
         {
-            foreach (var cannon in cannons)
+            foreach (Cannon cannon in cannons)
             {
                 IProjectile projectile = weapon
                     .GetModule<ProjectileModule>()

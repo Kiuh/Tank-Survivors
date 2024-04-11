@@ -11,7 +11,7 @@ namespace General
         private TankImpl tank;
 
         [SerializeField]
-        EnemyGenerator enemyGenerator;
+        private EnemyGenerator enemyGenerator;
 
         [SerializeField]
         private Configs.Levels levels;
@@ -43,19 +43,21 @@ namespace General
         private void OnTankDeath()
         {
             OnLoose?.Invoke();
+            SaveSystem.SaveData(levels);
         }
 
         private void OnBossDead()
         {
             Progress++;
-            Debug.Log(Progress);
+            levels
+                .LevelInfos.Find(x => x.Name.Equals(gameContext.DataTransfer.LevelInfo.Name))
+                .Progress = Progress;
+
             if (Progress == BossCount)
             {
                 OnWin?.Invoke();
+                SaveSystem.SaveData(levels);
             }
-            levels
-                .LevelsInfo.Find(x => x.Name.Equals(gameContext.DataTransfer.LevelInfo.Name))
-                .Progress = Progress;
         }
     }
 }

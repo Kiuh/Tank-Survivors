@@ -38,7 +38,7 @@ namespace Common
                 MathOperation.Minus => (source) => source - value,
                 MathOperation.Mul => (source) => source * value,
                 MathOperation.Divide
-                    => value.Value == 0
+                    => value.NormalizedValue == 0
                         ? throw new DivideByZeroException()
                         : (source) => source / value,
                 _ => (source) => source

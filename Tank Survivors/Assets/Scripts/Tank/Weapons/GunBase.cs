@@ -112,13 +112,17 @@ namespace Tank.Weapons
                 tank.DamageModifier
             );
 
-            bool isCritical = (
-                criticalChance.GetModifiedValue() + tank.CriticalChance.GetModifiedValue()
-            ).TryChance();
+            Percentage wholeChance =
+                criticalChance.GetModifiedValue() + tank.CriticalChance.GetModifiedValue();
 
-            return isCritical
-                ? damageModifiableValue.GetPercentagesValue(criticalMultiplier)
-                : damageModifiableValue.GetModifiedValue();
+            if (wholeChance.TryChance())
+            {
+                return damageModifiableValue.GetPercentagesValue(criticalMultiplier);
+            }
+            else
+            {
+                return damageModifiableValue.GetModifiedValue();
+            }
         }
 
         protected ITower CreateTower(Transform transform)

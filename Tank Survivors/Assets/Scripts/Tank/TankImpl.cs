@@ -149,6 +149,11 @@ namespace Tank
 
         public void TakeDamage(float damageAmount)
         {
+            if (Health.Value <= 0)
+            {
+                return;
+            }
+
             if (EvadeChance.GetModifiedValue().TryChance())
             {
                 return;
