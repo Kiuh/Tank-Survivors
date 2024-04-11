@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestGameConfig
   m_EditorClassIdentifier: 
   TankStartProperties: {fileID: 11400000, guid: e6e5f94542d56aa4bb3c34c6bafa17dd, type: 2}
-  EnemiesConfig: {fileID: 11400000, guid: 607d6880bcd31f14f945514ed6b9a27b, type: 2}
+  EnemiesConfig: {fileID: 0}
   TankUpgradesConfig: {fileID: 11400000, guid: 5eb6d8befa0f4af45bbdf72dca0498cc, type: 2}
   WeaponsConfig: {fileID: 11400000, guid: b9a183e1758aebb4986e8e59a984a7fa, type: 2}
   LevelProgressionConfig: {fileID: 11400000, guid: 27e9bbfb210a2be47ba66b7a82ebfd20, type: 2}

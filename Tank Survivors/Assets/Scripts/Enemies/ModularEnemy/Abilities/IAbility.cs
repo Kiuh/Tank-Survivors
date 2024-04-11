@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Tank;
 
 namespace Enemies.Bosses.Abilities
@@ -6,8 +7,8 @@ namespace Enemies.Bosses.Abilities
     [HideReferenceObjectPicker]
     public interface IAbility
     {
-        public void Initialize(Boss boss, TankImpl tank);
-        public void Execute();
+        public void Initialize(Enemy enemy, TankImpl tank);
+        public void Use();
         public void Enable()
         {
             IsActive = true;
@@ -17,5 +18,6 @@ namespace Enemies.Bosses.Abilities
             IsActive = false;
         }
         public bool IsActive { get; set; }
+        public List<IModule> GetModules();
     }
 }
