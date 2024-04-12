@@ -15,4 +15,4 @@ MonoBehaviour:
   <LevelInfo>k__BackingField:
     Name: 
     Progress: 0
-    Enemies: {fileID: 11400000, guid: 607d6880bcd31f14f945514ed6b9a27b, type: 2}
+    Enemies: {fileID: 11400000, guid: 553fb1ba51f47ae46b6ef60f026dc670, type: 2}

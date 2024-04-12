@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiSGVhbHRoIg==
+    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABBgAAAEgAZQBhAGwAdABoAA==
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  healAmount: 30
+  healAmount: 10
 --- !u!61 &7647850923129408509
 BoxCollider2D:
   m_ObjectHideFlags: 0
