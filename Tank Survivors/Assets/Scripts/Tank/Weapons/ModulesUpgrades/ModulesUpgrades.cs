@@ -224,6 +224,7 @@ namespace Tank.Weapons.ModulesUpgrades
         }
     }
 
+    [Serializable]
     public class FireDamage : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
@@ -236,6 +237,7 @@ namespace Tank.Weapons.ModulesUpgrades
         }
     }
 
+    [Serializable]
     public class FireFireRate : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
@@ -248,6 +250,7 @@ namespace Tank.Weapons.ModulesUpgrades
         }
     }
 
+    [Serializable]
     public class ProjectileFireTimer : BaseModuleMathUpgrade<float>
     {
         public override void ApplyUpgrade(IWeapon weapon)
@@ -260,6 +263,7 @@ namespace Tank.Weapons.ModulesUpgrades
         }
     }
 
+    [Serializable]
     public class ChangeSpawnVariation : IModuleUpgrade
     {
         public SpawnVariation SpawnVariation;
@@ -269,6 +273,19 @@ namespace Tank.Weapons.ModulesUpgrades
             weapon
                 .Modules.GetConcrete<TowerModule, IWeaponModule>()
                 .Tower.ChangeSpawnVariation(SpawnVariation);
+        }
+    }
+
+    [Serializable]
+    public class ProjectileSpeed : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<ProjectileSpeedModule, IWeaponModule>()
+                .ProjectileSpeed.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
         }
     }
 }

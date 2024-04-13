@@ -233,4 +233,29 @@ namespace Enemies
             }
         }
     }
+
+    [Serializable]
+    [LabelText("Damage")]
+    public class DamageUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            DamageModule module = GetModule<DamageModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.Damage.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Damage.SourceValue;
+                }
+                module.Damage.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
 }
