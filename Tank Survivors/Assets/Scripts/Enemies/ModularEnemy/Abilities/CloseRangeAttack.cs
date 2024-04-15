@@ -12,8 +12,8 @@ namespace Enemies.Abilities
     [LabelText("CloseRangeAttack")]
     public class CloseRangeAttack : IAbility
     {
-        private DamageModule damage;
-        private AttackCooldownModule attackCooldown;
+        private float damage;
+        private float attackCooldown;
         private Collider2D collider;
         private TankImpl tank;
         private Collider2D tankCollider;
@@ -30,8 +30,10 @@ namespace Enemies.Abilities
             this.tank = tank;
             collider = enemy.Collider;
             tankCollider = tank.GetComponent<BoxCollider2D>();
-            damage = enemy.Modules.GetConcrete<DamageModule, IModule>();
-            attackCooldown = enemy.Modules.GetConcrete<AttackCooldownModule, IModule>();
+            damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            attackCooldown = enemy
+                .Modules.GetConcrete<AttackCooldownModule, IModule>()
+                .Cooldown.GetModifiedValue();
             enemy.FixedUpdatableAbilities.Add(this);
             IsActive = true;
         }
@@ -43,8 +45,8 @@ namespace Enemies.Abilities
             {
                 if (timer <= 0)
                 {
-                    tank.TakeDamage(damage.Damage.GetModifiedValue());
-                    timer = attackCooldown.Cooldown.GetModifiedValue();
+                    tank.TakeDamage(damage);
+                    timer = attackCooldown;
                     return;
                 }
             }

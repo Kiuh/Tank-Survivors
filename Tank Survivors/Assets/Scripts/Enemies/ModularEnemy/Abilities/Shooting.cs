@@ -20,10 +20,10 @@ namespace Enemies.Abilities
         [OdinSerialize]
         private Projectile projectile;
 
-        private DamageModule damage;
-        private ShootingRangeModule range;
-        private ShootingRateModule rate;
-        private ProjectileSpeedModule speed;
+        private float damage;
+        private float range;
+        private float rate;
+        private float speed;
         private TankImpl tank;
         private Enemy enemy;
         private float timer;
@@ -43,11 +43,17 @@ namespace Enemies.Abilities
         {
             this.tank = tank;
             this.enemy = enemy;
-            damage = enemy.Modules.GetConcrete<DamageModule, IModule>();
-            range = enemy.Modules.GetConcrete<ShootingRangeModule, IModule>();
-            rate = enemy.Modules.GetConcrete<ShootingRateModule, IModule>();
-            speed = enemy.Modules.GetConcrete<ProjectileSpeedModule, IModule>();
-            enemy.FixedUpdatableAbilities.Add(this);
+            damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            range = enemy
+                .Modules.GetConcrete<ShootingRangeModule, IModule>()
+                .ShootingRange.GetModifiedValue();
+            rate = enemy
+                .Modules.GetConcrete<ShootingRateModule, IModule>()
+                .ShootCooldown.GetModifiedValue();
+            speed = enemy
+                .Modules.GetConcrete<ProjectileSpeedModule, IModule>()
+                .ProjectileSpeed.GetModifiedValue();
+            enemy.UpdatableAbilities.Add(this);
             IsActive = true;
         }
 
@@ -57,7 +63,7 @@ namespace Enemies.Abilities
             if (timer < 0)
             {
                 Shoot();
-                timer = rate.ShootCooldown.GetModifiedValue();
+                timer = rate;
             }
         }
 
@@ -67,12 +73,7 @@ namespace Enemies.Abilities
             GameObject
                 .Instantiate(projectile, shootingPoint.position, Quaternion.identity)
                 .GetComponent<Projectile>()
-                .Initialize(
-                    damage.Damage.GetModifiedValue(),
-                    range.ShootingRange.GetModifiedValue(),
-                    speed.ProjectileSpeed.GetModifiedValue(),
-                    direction
-                );
+                .Initialize(damage, range, speed, direction);
             ;
         }
     }

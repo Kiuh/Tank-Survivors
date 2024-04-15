@@ -19,8 +19,8 @@ namespace Enemies.Abilities
         [OdinSerialize]
         private SpriteRenderer dangerZone;
 
-        private DamageModule damage;
-        private ExplosionModule explosion;
+        private float damage;
+        private float radius;
         private TankImpl tank;
         private Enemy enemy;
         private bool isExploded = false;
@@ -35,11 +35,13 @@ namespace Enemies.Abilities
         {
             this.tank = tank;
             this.enemy = enemy;
-            damage = enemy.Modules.GetConcrete<DamageModule, IModule>();
-            explosion = enemy.Modules.GetConcrete<ExplosionModule, IModule>();
+            damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            radius = enemy
+                .Modules.GetConcrete<ExplosionModule, IModule>()
+                .Radius.GetModifiedValue();
             enemy.FixedUpdatableAbilities.Add(this);
-            dangerZone.transform.localScale *= explosion.Radius.GetModifiedValue();
-            particle.transform.localScale *= explosion.Radius.GetModifiedValue();
+            dangerZone.transform.localScale *= radius;
+            particle.transform.localScale *= radius;
             IsActive = true;
         }
 
@@ -49,10 +51,7 @@ namespace Enemies.Abilities
             {
                 return;
             }
-            if (
-                (enemy.transform.position - tank.transform.position).magnitude
-                < explosion.Radius.GetModifiedValue()
-            )
+            if ((enemy.transform.position - tank.transform.position).magnitude < radius)
             {
                 Explode();
             }
@@ -67,7 +66,7 @@ namespace Enemies.Abilities
                 movement.IsActive = false;
             }
             enemy.Collider.enabled = false;
-            tank.TakeDamage(damage.Damage.GetModifiedValue());
+            tank.TakeDamage(damage);
             particle.Play();
             GameObject.Destroy(
                 enemy.gameObject,
