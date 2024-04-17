@@ -1,7 +1,9 @@
 ﻿using System;
 using Common;
+using Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -169,6 +171,40 @@ namespace Enemies
             module.ProjectileSpeed.SourceValue = ProjectileSpeed.SourceValue;
             module.ProjectileSpeed.Modifications.AddRange(ProjectileSpeed.Modifications);
             return module;
+        }
+    }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class DashModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [MinValue(0)]
+        public float AimTime { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [PropertyRange(0.0f, 1.0f)]
+        public float SlowPercent { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        public float DashSpeedMultiplier { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        public CircleZone CircleZone { private set; get; } = new();
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [MinValue(0.01f)]
+        public float CoolDown { private set; get; } = 1.0f;
+
+        public IModule Clone()
+        {
+            return this;
         }
     }
 }

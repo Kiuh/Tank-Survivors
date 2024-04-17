@@ -12,7 +12,7 @@ namespace Enemies.Abilities
     [LabelText("Movement")]
     public class Movement : IAbility
     {
-        private float speed;
+        public float Speed { set; get; }
         private TankImpl tank;
         private Rigidbody2D rigidbody;
         private Enemy enemy;
@@ -22,7 +22,7 @@ namespace Enemies.Abilities
         public void Use()
         {
             Vector2 direction = CalculateDirection();
-            rigidbody.MovePosition(rigidbody.position + speed * Time.fixedDeltaTime * direction);
+            rigidbody.MovePosition(rigidbody.position + Speed * Time.fixedDeltaTime * direction);
             RotatateToTank(direction);
         }
 
@@ -41,7 +41,7 @@ namespace Enemies.Abilities
         {
             this.tank = tank;
             this.enemy = enemy;
-            speed = enemy.Modules.GetConcrete<MovementModule, IModule>().Speed.GetModifiedValue();
+            Speed = enemy.Modules.GetConcrete<MovementModule, IModule>().Speed.GetModifiedValue();
             rigidbody = enemy.Rigidbody;
             enemy.FixedUpdatableAbilities.Add(this);
             IsActive = true;
