@@ -20,10 +20,10 @@ namespace Enemies.Abilities
         [OdinSerialize]
         private Projectile projectile;
 
-        private float damage;
-        private float range;
-        private float rate;
-        private float speed;
+        public float Damage { set; get; }
+        public float Range { set; get; }
+        public float ShootingCooldown { set; get; }
+        public float ProjectileSpeed { set; get; }
         private TankImpl tank;
         private Enemy enemy;
         private float timer;
@@ -43,14 +43,14 @@ namespace Enemies.Abilities
         {
             this.tank = tank;
             this.enemy = enemy;
-            damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
-            range = enemy
+            Damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
+            Range = enemy
                 .Modules.GetConcrete<ShootingRangeModule, IModule>()
                 .ShootingRange.GetModifiedValue();
-            rate = enemy
+            ShootingCooldown = enemy
                 .Modules.GetConcrete<ShootingRateModule, IModule>()
                 .ShootCooldown.GetModifiedValue();
-            speed = enemy
+            ProjectileSpeed = enemy
                 .Modules.GetConcrete<ProjectileSpeedModule, IModule>()
                 .ProjectileSpeed.GetModifiedValue();
             enemy.UpdatableAbilities.Add(this);
@@ -63,7 +63,7 @@ namespace Enemies.Abilities
             if (timer < 0)
             {
                 Shoot();
-                timer = rate;
+                timer = ShootingCooldown;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Enemies.Abilities
             GameObject
                 .Instantiate(projectile, shootingPoint.position, Quaternion.identity)
                 .GetComponent<Projectile>()
-                .Initialize(damage, range, speed, direction);
+                .Initialize(Damage, Range, ProjectileSpeed, direction);
             ;
         }
     }

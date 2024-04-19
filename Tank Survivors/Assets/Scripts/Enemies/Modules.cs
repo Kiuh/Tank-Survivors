@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Common;
 using Configs;
+using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -207,4 +210,40 @@ namespace Enemies
             return this;
         }
     }
+}
+
+[Serializable]
+[HideReferenceObjectPicker]
+[HideLabel]
+public class RageModule : IModule
+{
+    [OdinSerialize]
+    [FoldoutGroup("RageModule")]
+    public List<RageProperties> ScaleList = new();
+
+    [OdinSerialize]
+    [FoldoutGroup("RageModule")]
+    public float MinimumCooldown = 0.0f;
+
+    public IModule Clone()
+    {
+        RageModule rage = new();
+        rage.MinimumCooldown = MinimumCooldown;
+        rage.ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList();
+        return this;
+    }
+}
+
+[Serializable]
+[HideReferenceObjectPicker]
+[HideLabel]
+public class RageProperties
+{
+    [OdinSerialize]
+    [PropertyRange(0, 1.0f)]
+    public float EnemyHealthPercentage { private set; get; } = 0.0f;
+
+    [OdinSerialize]
+    [PropertyRange(0, 1.0f)]
+    public float CooldownPercentage { private set; get; } = 0.0f;
 }
