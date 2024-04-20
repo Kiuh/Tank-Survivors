@@ -31,6 +31,7 @@ namespace Enemies.Abilities
                 .Modules.GetConcrete<HealthModule, IModule>()
                 .Health.GetModifiedValue();
             IsActive = true;
+            enemy.FixedUpdatableAbilities.Add(this);
         }
 
         public void Use()
@@ -40,7 +41,7 @@ namespace Enemies.Abilities
                 return;
             }
             float healthPercentage = enemy.Health / initialHealth;
-            if (rage.ScaleList[0].CooldownPercentage <= healthPercentage)
+            if (rage.ScaleList[0].EnemyHealthPercentage >= healthPercentage)
             {
                 shooting.ShootingCooldown -=
                     shooting.ShootingCooldown * rage.ScaleList[0].CooldownPercentage;

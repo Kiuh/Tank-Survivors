@@ -230,7 +230,7 @@ public class RageModule : IModule
         RageModule rage = new();
         rage.MinimumCooldown = MinimumCooldown;
         rage.ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList();
-        return this;
+        return rage;
     }
 }
 
