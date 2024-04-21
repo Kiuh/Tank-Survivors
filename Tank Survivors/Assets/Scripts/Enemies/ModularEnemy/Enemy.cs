@@ -24,10 +24,7 @@ namespace Enemies
         [OdinSerialize]
         [LabelText("Abilities")]
         private List<IAbility> abilities = new();
-        public List<IAbility> Abilities
-        {
-            get { return abilities; }
-        }
+        public List<IAbility> Abilities => abilities;
 
         [OdinSerialize]
         [ListDrawerSettings(DraggableItems = false, HideAddButton = true, HideRemoveButton = true)]

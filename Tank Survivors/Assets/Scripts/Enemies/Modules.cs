@@ -6,7 +6,6 @@ using Configs;
 using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using UnityEngine;
 
 namespace Enemies
 {
@@ -227,9 +226,12 @@ public class RageModule : IModule
 
     public IModule Clone()
     {
-        RageModule rage = new();
-        rage.MinimumCooldown = MinimumCooldown;
-        rage.ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList();
+        RageModule rage =
+            new()
+            {
+                MinimumCooldown = MinimumCooldown,
+                ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList()
+            };
         return rage;
     }
 }

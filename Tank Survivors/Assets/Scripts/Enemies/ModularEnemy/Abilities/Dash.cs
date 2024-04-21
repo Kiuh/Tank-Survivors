@@ -90,7 +90,7 @@ namespace Enemies.Abilities
             if (movement != null)
             {
                 speed = movement.Speed;
-                movement.Speed *= (1 - dash.SlowPercent);
+                movement.Speed *= 1 - dash.SlowPercent;
             }
             executeState = () =>
             {
@@ -133,7 +133,7 @@ namespace Enemies.Abilities
                     tank.TakeDamage(speed);
                     UpdateState();
                 }
-                rigidbody.MovePosition(rigidbody.position + direction * speed * Time.deltaTime);
+                rigidbody.MovePosition(rigidbody.position + (direction * speed * Time.deltaTime));
                 if ((rigidbody.transform.position - startPpoint).magnitude >= distance)
                 {
                     UpdateState();

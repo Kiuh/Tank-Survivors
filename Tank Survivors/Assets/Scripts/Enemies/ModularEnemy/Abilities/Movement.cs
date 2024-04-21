@@ -22,7 +22,7 @@ namespace Enemies.Abilities
         public void Use()
         {
             Vector2 direction = CalculateDirection();
-            rigidbody.MovePosition(rigidbody.position + Speed * Time.fixedDeltaTime * direction);
+            rigidbody.MovePosition(rigidbody.position + (Speed * Time.fixedDeltaTime * direction));
             RotatateToTank(direction);
         }
 
