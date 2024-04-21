@@ -8,17 +8,17 @@ using UnityEngine;
 
 namespace Enemies.Abilities
 {
-    public enum States
-    {
-        Disabled,
-        Preparing,
-        Dashing
-    }
-
     [Serializable]
     [LabelText("Dash")]
     public class Dash : IAbility
     {
+        public enum States
+        {
+            Disabled,
+            Preparing,
+            Dashing
+        }
+
         private States state;
         private Enemy enemy;
         private TankImpl tank;
@@ -109,9 +109,12 @@ namespace Enemies.Abilities
         {
             state = States.Dashing;
             SetAbilityActive(false);
+            MovementModule movement = enemy.Modules.GetConcrete<MovementModule, IModule>();
+
             float speed =
-                enemy.Modules.GetConcrete<MovementModule, IModule>().Speed.GetModifiedValue()
-                * dash.DashSpeedMultiplier;
+                movement == null
+                    ? movement.Speed.GetModifiedValue() * dash.DashSpeedMultiplier
+                    : 0.0f;
             float damage =
                 enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue() * 2.0f;
 
