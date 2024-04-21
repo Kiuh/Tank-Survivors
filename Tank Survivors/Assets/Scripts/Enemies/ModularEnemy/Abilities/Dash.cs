@@ -113,8 +113,9 @@ namespace Enemies.Abilities
 
             float speed =
                 movement == null
-                    ? movement.Speed.GetModifiedValue() * dash.DashSpeedMultiplier
-                    : 0.0f;
+                    ? 0.0f
+                    : movement.Speed.GetModifiedValue() * dash.DashSpeedMultiplier;
+
             float damage =
                 enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue() * 2.0f;
 
