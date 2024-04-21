@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Common;
+using Configs;
+using Enemies;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
@@ -171,4 +175,77 @@ namespace Enemies
             return module;
         }
     }
+
+    [Serializable]
+    [HideReferenceObjectPicker]
+    [HideLabel]
+    public class DashModule : IModule
+    {
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [MinValue(0)]
+        public float AimTime { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [PropertyRange(0.0f, 1.0f)]
+        public float SlowPercent { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        public float DashSpeedMultiplier { private set; get; } = 0.0f;
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        public CircleZone CircleZone { private set; get; } = new();
+
+        [OdinSerialize]
+        [FoldoutGroup("Dash")]
+        [MinValue(0.01f)]
+        public float CoolDown { private set; get; } = 1.0f;
+
+        public IModule Clone()
+        {
+            return this;
+        }
+    }
+}
+
+[Serializable]
+[HideReferenceObjectPicker]
+[HideLabel]
+public class RageModule : IModule
+{
+    [OdinSerialize]
+    [FoldoutGroup("RageModule")]
+    public List<RageProperties> ScaleList = new();
+
+    [OdinSerialize]
+    [FoldoutGroup("RageModule")]
+    public float MinimumCooldown = 0.0f;
+
+    public IModule Clone()
+    {
+        RageModule rage =
+            new()
+            {
+                MinimumCooldown = MinimumCooldown,
+                ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList()
+            };
+        return rage;
+    }
+}
+
+[Serializable]
+[HideReferenceObjectPicker]
+[HideLabel]
+public class RageProperties
+{
+    [OdinSerialize]
+    [PropertyRange(0, 1.0f)]
+    public float EnemyHealthPercentage { private set; get; } = 0.0f;
+
+    [OdinSerialize]
+    [PropertyRange(0, 1.0f)]
+    public float CooldownPercentage { private set; get; } = 0.0f;
 }
