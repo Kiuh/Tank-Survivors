@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelProgressionConfig
   m_EditorClassIdentifier: 
   firstLevelExperience: 100
-  experienceUpValue: 1.1
+  experienceUpValue: 1.08
   defaultExperience: 0
