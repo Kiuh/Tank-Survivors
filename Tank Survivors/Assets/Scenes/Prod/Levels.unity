@@ -443,9 +443,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 720, y: 1280}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -460,7 +460,7 @@ Canvas:
   m_GameObject: {fileID: 1468040650}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 789981206}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -468,7 +468,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -520,17 +520,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734314671}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70795107, w: -0.70626146}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1468040654}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.137}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734314673
 MonoBehaviour:
@@ -552,8 +552,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -7443756053782179069, guid: 45ab0ec7401c36543a7e1f1d3f9c3391, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -578,22 +578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1468040654}
     m_Modifications:
-    - target: {fileID: 2239325124405413005, guid: e26065796da21154297482bed15853ca, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6761959711665706527, guid: e26065796da21154297482bed15853ca, type: 3}
       propertyPath: m_Name
       value: Levels Panel
       objectReference: {fileID: 0}
-    - target: {fileID: 6761959711665706527, guid: e26065796da21154297482bed15853ca, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7140316596767959585, guid: e26065796da21154297482bed15853ca, type: 3}
-      propertyPath: levelsContainer
-      value: 
-      objectReference: {fileID: 8805449891344514933}
     - target: {fileID: 8225658709422652274, guid: e26065796da21154297482bed15853ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -682,11 +670,6 @@ PrefabInstance:
 --- !u!224 &2202953761925901973 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8225658709422652274, guid: e26065796da21154297482bed15853ca, type: 3}
-  m_PrefabInstance: {fileID: 224849362593595354}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &8805449891344514933 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2239325124405413005, guid: e26065796da21154297482bed15853ca, type: 3}
   m_PrefabInstance: {fileID: 224849362593595354}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

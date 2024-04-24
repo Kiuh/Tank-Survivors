@@ -10,6 +10,15 @@ namespace Configs
     public class Levels : SerializedScriptableObject
     {
         public List<LevelInfo> LevelInfos = new();
+
+        [Button]
+        private void ResetConfig()
+        {
+            foreach (LevelInfo level in LevelInfos)
+            {
+                level.Progress = 0;
+            }
+        }
     }
 
     [Serializable]
