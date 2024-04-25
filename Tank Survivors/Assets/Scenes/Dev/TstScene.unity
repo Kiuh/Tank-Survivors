@@ -2349,6 +2349,10 @@ PrefabInstance:
       propertyPath: progressController
       value: 
       objectReference: {fileID: 1132589958}
+    - target: {fileID: 7361561004959231165, guid: 284648cf8dbf34b43b9bd4031ee21bf4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90.569824
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
