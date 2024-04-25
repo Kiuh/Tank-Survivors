@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Modules;
+using Tank.Weapons.Modules.Cannon;
 using UnityEngine;
 
 namespace Tank.Weapons.ModulesUpgrades
@@ -284,6 +285,32 @@ namespace Tank.Weapons.ModulesUpgrades
             weapon
                 .Modules.GetConcrete<ProjectileSpeedModule, IWeaponModule>()
                 .ProjectileSpeed.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class RayFireRate : BaseModuleMathUpgrade<float>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<RayFireRateModule, IWeaponModule>()
+                .FireRate.Modifications.Add(
+                    new(MathOperation.ToFunction(OperationValue), ModificationPriority)
+                );
+        }
+    }
+
+    [Serializable]
+    public class MultiCannonFireRate : BaseModuleMathUpgrade<Percentage>
+    {
+        public override void ApplyUpgrade(IWeapon weapon)
+        {
+            weapon
+                .Modules.GetConcrete<MultiCannonFireRateModule, IWeaponModule>()
+                .Percent.Modifications.Add(
                     new(MathOperation.ToFunction(OperationValue), ModificationPriority)
                 );
         }
