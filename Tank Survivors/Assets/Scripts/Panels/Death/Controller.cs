@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using General;
 using UnityEngine;
-using YG;
 
 namespace Panels.Death
 {
@@ -41,7 +40,7 @@ namespace Panels.Death
 
         public void UseSecondLifeBonus()
         {
-            YandexGame.RewVideoShow((int)Reward.SecondLife);
+            //YandexGame.RewVideoShow((int)Reward.SecondLife);
         }
 
         public void RepeatGame()

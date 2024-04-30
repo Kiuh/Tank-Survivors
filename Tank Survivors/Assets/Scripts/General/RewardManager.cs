@@ -2,7 +2,6 @@
 using Enemies;
 using Tank;
 using UnityEngine;
-using YG;
 
 namespace General
 {
@@ -21,12 +20,12 @@ namespace General
 
         private void OnEnable()
         {
-            YandexGame.RewardVideoEvent += Rewarded;
+            //YandexGame.RewardVideoEvent += Rewarded;
         }
 
         private void OnDisable()
         {
-            YandexGame.RewardVideoEvent -= Rewarded;
+            //YandexGame.RewardVideoEvent -= Rewarded;
         }
 
         private void Rewarded(int id)

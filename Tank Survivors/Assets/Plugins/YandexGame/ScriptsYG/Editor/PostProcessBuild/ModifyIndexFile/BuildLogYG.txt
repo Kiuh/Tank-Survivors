@@ -1,2 +1,0 @@
-Build path: C:/Users/bench_machine/Desktop/Build
-Build number: 9

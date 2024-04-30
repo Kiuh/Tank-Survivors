@@ -1,6 +1,5 @@
 ﻿using General;
 using UnityEngine;
-using YG;
 
 namespace Panels.MainMenu
 {
@@ -9,7 +8,7 @@ namespace Panels.MainMenu
     {
         private void Start()
         {
-            YandexGame.FullscreenShow();
+            // YandexGame.FullscreenShow();
         }
 
         public void Play()
