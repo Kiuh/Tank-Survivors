@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d9de229cfae180543b2d3755a04aad15
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/CircleWipe/CircleIN.controller
+  uploadId: 587727

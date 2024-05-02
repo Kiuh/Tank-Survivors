@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0208933b0e3a443a9c1b5975c0fcb7, type: 3}
+  m_Name: LinearWipe
+  m_EditorClassIdentifier: 
+  multiplyColorMaterial: {fileID: 2100000, guid: 53171468e32441749b007c64337cd3db, type: 2}
+  addColorMaterial: {fileID: 2100000, guid: 65ccb7b6cbefce14eb6f884cfc33ba91, type: 2}
+  refrenceResolution: {x: 1920, y: 1080}
+  blockRaycasts: 1
+  colorTintMode: 0
+  colorTint: {r: 1, g: 1, b: 1, a: 1}
+  isCutoutTransition: 0
+  transitionSpeed: 1
+  autoAdjustTransitionTime: 1
+  flipX: 0
+  flipY: 0
+  transitionTime: 0.75
+  destroyTime: 1.5
+  transitionIn: {fileID: 2846249025423157759, guid: f17ff05ffec4a3949a12ac8c568bd827, type: 3}
+  transitionOut: {fileID: 4376996571985838007, guid: d777d67ce4965e9489816615dc6fddf3, type: 3}

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 618da791ac68cc9428142a5378a62f17
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DiagonalRectangleGrid/DiagonalRectangleGridOUT.prefab
+  uploadId: 587727

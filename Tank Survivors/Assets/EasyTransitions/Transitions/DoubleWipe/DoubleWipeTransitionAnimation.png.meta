@@ -1,0 +1,1779 @@
+fileFormatVersion: 2
+guid: 692764b5e9f55d74ba56a35f0d555ad5
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DoubleWipe/DoubleWipeTransitionAnimation.png
+  uploadId: 587727
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1931593557532813390
+    second: DoubleWipeTransitionAnimation_0
+  - first:
+      213: -4392772109043321236
+    second: DoubleWipeTransitionAnimation_1
+  - first:
+      213: 2322237193958946904
+    second: DoubleWipeTransitionAnimation_2
+  - first:
+      213: -8944016170208892355
+    second: DoubleWipeTransitionAnimation_3
+  - first:
+      213: -7164622813493917806
+    second: DoubleWipeTransitionAnimation_4
+  - first:
+      213: 9208746855277230703
+    second: DoubleWipeTransitionAnimation_5
+  - first:
+      213: -5705398120797429715
+    second: DoubleWipeTransitionAnimation_6
+  - first:
+      213: -2156289138318470128
+    second: DoubleWipeTransitionAnimation_7
+  - first:
+      213: -3627544344789268279
+    second: DoubleWipeTransitionAnimation_8
+  - first:
+      213: 1634230436679859616
+    second: DoubleWipeTransitionAnimation_9
+  - first:
+      213: 8028129703888885268
+    second: DoubleWipeTransitionAnimation_10
+  - first:
+      213: -4654045172308771796
+    second: DoubleWipeTransitionAnimation_11
+  - first:
+      213: 975284392153331633
+    second: DoubleWipeTransitionAnimation_12
+  - first:
+      213: -4108927425671821949
+    second: DoubleWipeTransitionAnimation_13
+  - first:
+      213: 4370481262250246404
+    second: DoubleWipeTransitionAnimation_14
+  - first:
+      213: -8106725058000893925
+    second: DoubleWipeTransitionAnimation_15
+  - first:
+      213: 1538160132789665190
+    second: DoubleWipeTransitionAnimation_16
+  - first:
+      213: 1232685491829264442
+    second: DoubleWipeTransitionAnimation_17
+  - first:
+      213: 6893041431853758200
+    second: DoubleWipeTransitionAnimation_18
+  - first:
+      213: 8230668359886186150
+    second: DoubleWipeTransitionAnimation_19
+  - first:
+      213: 3759595164343210605
+    second: DoubleWipeTransitionAnimation_20
+  - first:
+      213: -7320054041678134004
+    second: DoubleWipeTransitionAnimation_21
+  - first:
+      213: -9125451188871725299
+    second: DoubleWipeTransitionAnimation_22
+  - first:
+      213: -1656867700729023930
+    second: DoubleWipeTransitionAnimation_23
+  - first:
+      213: 8895966784151878888
+    second: DoubleWipeTransitionAnimation_24
+  - first:
+      213: 5627423994570934259
+    second: DoubleWipeTransitionAnimation_25
+  - first:
+      213: 3375706056888655841
+    second: DoubleWipeTransitionAnimation_26
+  - first:
+      213: -3553941937572347968
+    second: DoubleWipeTransitionAnimation_27
+  - first:
+      213: 2400398560538756491
+    second: DoubleWipeTransitionAnimation_28
+  - first:
+      213: 3920644204800939480
+    second: DoubleWipeTransitionAnimation_29
+  - first:
+      213: 1897792671083967731
+    second: DoubleWipeTransitionAnimation_30
+  - first:
+      213: -6487287334136292979
+    second: DoubleWipeTransitionAnimation_31
+  - first:
+      213: -3870827478639779759
+    second: DoubleWipeTransitionAnimation_32
+  - first:
+      213: -8758175020465045682
+    second: DoubleWipeTransitionAnimation_33
+  - first:
+      213: -6557453984516535694
+    second: DoubleWipeTransitionAnimation_34
+  - first:
+      213: -7180139085096639828
+    second: DoubleWipeTransitionAnimation_35
+  - first:
+      213: -3442180208420465183
+    second: DoubleWipeTransitionAnimation_36
+  - first:
+      213: 340062519329586810
+    second: DoubleWipeTransitionAnimation_37
+  - first:
+      213: -8107531928548972299
+    second: DoubleWipeTransitionAnimation_38
+  - first:
+      213: 5900982405847862941
+    second: DoubleWipeTransitionAnimation_39
+  - first:
+      213: -5539292278569233718
+    second: DoubleWipeTransitionAnimation_40
+  - first:
+      213: -3963158766473649407
+    second: DoubleWipeTransitionAnimation_41
+  - first:
+      213: -8412277074341204221
+    second: DoubleWipeTransitionAnimation_42
+  - first:
+      213: 7756969468383826231
+    second: DoubleWipeTransitionAnimation_43
+  - first:
+      213: 6240959728132767226
+    second: DoubleWipeTransitionAnimation_44
+  - first:
+      213: -6478692202864548201
+    second: DoubleWipeTransitionAnimation_45
+  - first:
+      213: 3480979931563012465
+    second: DoubleWipeTransitionAnimation_46
+  - first:
+      213: -3351667155001679093
+    second: DoubleWipeTransitionAnimation_47
+  - first:
+      213: 3357641775500949212
+    second: DoubleWipeTransitionAnimation_48
+  - first:
+      213: 8024314191033626433
+    second: DoubleWipeTransitionAnimation_49
+  - first:
+      213: -1037391938517861196
+    second: DoubleWipeTransitionAnimation_50
+  - first:
+      213: 2310475406830791837
+    second: DoubleWipeTransitionAnimation_51
+  - first:
+      213: -7896772941524785414
+    second: DoubleWipeTransitionAnimation_52
+  - first:
+      213: -5010058864266582889
+    second: DoubleWipeTransitionAnimation_53
+  - first:
+      213: 2462895575618020571
+    second: DoubleWipeTransitionAnimation_54
+  - first:
+      213: -1815158372369071187
+    second: DoubleWipeTransitionAnimation_55
+  - first:
+      213: 8610838887651954961
+    second: DoubleWipeTransitionAnimation_56
+  - first:
+      213: 362140871608741818
+    second: DoubleWipeTransitionAnimation_57
+  - first:
+      213: -4087172155353201502
+    second: DoubleWipeTransitionAnimation_58
+  - first:
+      213: -6060494607760499445
+    second: DoubleWipeTransitionAnimation_59
+  - first:
+      213: 9176910022636643723
+    second: DoubleWipeTransitionAnimation_60
+  - first:
+      213: 7711896576158512257
+    second: DoubleWipeTransitionAnimation_61
+  - first:
+      213: -7140625678475302276
+    second: DoubleWipeTransitionAnimation_62
+  - first:
+      213: 7207291443550654170
+    second: DoubleWipeTransitionAnimation_63
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 960
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7d2d8b4e99135e0800000000000000
+      internalID: -1931593557532813390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66ba3d6a0db903c0800000000000000
+      internalID: -4392772109043321236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8587f169c6e3a3020800000000000000
+      internalID: 2322237193958946904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a695d3ea870e380800000000000000
+      internalID: -8944016170208892355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297090cc285229c90800000000000000
+      internalID: -7164622813493917806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a7b4f897a0ccf70800000000000000
+      internalID: 9208746855277230703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2020bb33aa52d0b0800000000000000
+      internalID: -5705398120797429715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0149e7504725312e0800000000000000
+      internalID: -2156289138318470128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8cbd153af58adc0800000000000000
+      internalID: -3627544344789268279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad3f637ce3fda610800000000000000
+      internalID: 1634230436679859616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4161f0b4e65a96f60800000000000000
+      internalID: 8028129703888885268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2cf9efe292896fb0800000000000000
+      internalID: -4654045172308771796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b73845ccf7e88d00800000000000000
+      internalID: 975284392153331633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38588f0c6482af6c0800000000000000
+      internalID: -4108927425671821949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4014ded5d8117ac30800000000000000
+      internalID: 4370481262250246404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b184912d2802f7f80800000000000000
+      internalID: -8106725058000893925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad7892cd74a85510800000000000000
+      internalID: 1538160132789665190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30d24c7ce06b1110800000000000000
+      internalID: 1232685491829264442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f671bf49a009af50800000000000000
+      internalID: 6893041431853758200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6201fe345393270800000000000000
+      internalID: 8230668359886186150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6214fdf1e3cc2430800000000000000
+      internalID: 3759595164343210605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05cc15e1a1f96a90800000000000000
+      internalID: -7320054041678134004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f72201e72eb5180800000000000000
+      internalID: -9125451188871725299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6427a3aca9f9109e0800000000000000
+      internalID: -1656867700729023930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecfb0748a2d47b70800000000000000
+      internalID: 8895966784151878888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_25
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f709e4ce40a81e40800000000000000
+      internalID: 5627423994570934259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef9bf206cae8de20800000000000000
+      internalID: 3375706056888655841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_27
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cff2aa23acddaec0800000000000000
+      internalID: -3553941937572347968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b858540e5cdef4120800000000000000
+      internalID: 2400398560538756491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_29
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d59addb12de86630800000000000000
+      internalID: 3920644204800939480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_30
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4bc412160565a10800000000000000
+      internalID: 1897792671083967731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_31
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d895aec6a8688f5a0800000000000000
+      internalID: -6487287334136292979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 150eadcaaee084ac0800000000000000
+      internalID: -3870827478639779759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f3b70c836b47680800000000000000
+      internalID: -8758175020465045682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a0ced085e3ff4a0800000000000000
+      internalID: -6557453984516535694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_35
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2aaea4b850b5c90800000000000000
+      internalID: -7180139085096639828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_36
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5d730865bea30d0800000000000000
+      internalID: -3442180208420465183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_37
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e70124f0528b400800000000000000
+      internalID: 340062519329586810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_38
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f863b1aaa24c7f80800000000000000
+      internalID: -8107531928548972299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_39
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e446ebb3084e150800000000000000
+      internalID: 5900982405847862941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac211d4650b7023b0800000000000000
+      internalID: -5539292278569233718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103ecdf79180009c0800000000000000
+      internalID: -3963158766473649407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_42
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30feabf2296914b80800000000000000
+      internalID: -8412277074341204221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_43
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731919022aa46ab60800000000000000
+      internalID: 7756969468383826231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_44
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd3fd48ec75c9650800000000000000
+      internalID: 6240959728132767226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_45
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7966a2f54cf0716a0800000000000000
+      internalID: -6478692202864548201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_46
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171b3130eccee4030800000000000000
+      internalID: 3480979931563012465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_47
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03e7ccfa7c7c71d0800000000000000
+      internalID: -3351667155001679093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6febfb76db89e20800000000000000
+      internalID: 3357641775500949212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_49
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f6faafd371c5f60800000000000000
+      internalID: 8024314191033626433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_50
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bcf9cb37817a91f0800000000000000
+      internalID: -1037391938517861196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_51
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9cec6e1425701020800000000000000
+      internalID: 2310475406830791837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_52
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6af7c39d6096290800000000000000
+      internalID: -7896772941524785414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_53
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794e793e102b87ab0800000000000000
+      internalID: -5010058864266582889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_54
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4e79f1a76fd2220800000000000000
+      internalID: 2462895575618020571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_55
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da38dd3d3134fc6e0800000000000000
+      internalID: -1815158372369071187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1115d9c9858df7770800000000000000
+      internalID: 8610838887651954961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_57
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfa3ea3435960500800000000000000
+      internalID: 362140871608741818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_58
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a40e4854927747c0800000000000000
+      internalID: -4087172155353201502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_59
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0dd34d934cc4eba0800000000000000
+      internalID: -6060494607760499445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_60
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85aaf25b0fea5f70800000000000000
+      internalID: 9176910022636643723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_61
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184ba7e9319260b60800000000000000
+      internalID: 7711896576158512257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_62
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a627037c667ec90800000000000000
+      internalID: -7140625678475302276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DoubleWipeTransitionAnimation_63
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade8c8dc161750460800000000000000
+      internalID: 7207291443550654170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DoubleWipeTransitionAnimation_0: -1931593557532813390
+      DoubleWipeTransitionAnimation_1: -4392772109043321236
+      DoubleWipeTransitionAnimation_10: 8028129703888885268
+      DoubleWipeTransitionAnimation_11: -4654045172308771796
+      DoubleWipeTransitionAnimation_12: 975284392153331633
+      DoubleWipeTransitionAnimation_13: -4108927425671821949
+      DoubleWipeTransitionAnimation_14: 4370481262250246404
+      DoubleWipeTransitionAnimation_15: -8106725058000893925
+      DoubleWipeTransitionAnimation_16: 1538160132789665190
+      DoubleWipeTransitionAnimation_17: 1232685491829264442
+      DoubleWipeTransitionAnimation_18: 6893041431853758200
+      DoubleWipeTransitionAnimation_19: 8230668359886186150
+      DoubleWipeTransitionAnimation_2: 2322237193958946904
+      DoubleWipeTransitionAnimation_20: 3759595164343210605
+      DoubleWipeTransitionAnimation_21: -7320054041678134004
+      DoubleWipeTransitionAnimation_22: -9125451188871725299
+      DoubleWipeTransitionAnimation_23: -1656867700729023930
+      DoubleWipeTransitionAnimation_24: 8895966784151878888
+      DoubleWipeTransitionAnimation_25: 5627423994570934259
+      DoubleWipeTransitionAnimation_26: 3375706056888655841
+      DoubleWipeTransitionAnimation_27: -3553941937572347968
+      DoubleWipeTransitionAnimation_28: 2400398560538756491
+      DoubleWipeTransitionAnimation_29: 3920644204800939480
+      DoubleWipeTransitionAnimation_3: -8944016170208892355
+      DoubleWipeTransitionAnimation_30: 1897792671083967731
+      DoubleWipeTransitionAnimation_31: -6487287334136292979
+      DoubleWipeTransitionAnimation_32: -3870827478639779759
+      DoubleWipeTransitionAnimation_33: -8758175020465045682
+      DoubleWipeTransitionAnimation_34: -6557453984516535694
+      DoubleWipeTransitionAnimation_35: -7180139085096639828
+      DoubleWipeTransitionAnimation_36: -3442180208420465183
+      DoubleWipeTransitionAnimation_37: 340062519329586810
+      DoubleWipeTransitionAnimation_38: -8107531928548972299
+      DoubleWipeTransitionAnimation_39: 5900982405847862941
+      DoubleWipeTransitionAnimation_4: -7164622813493917806
+      DoubleWipeTransitionAnimation_40: -5539292278569233718
+      DoubleWipeTransitionAnimation_41: -3963158766473649407
+      DoubleWipeTransitionAnimation_42: -8412277074341204221
+      DoubleWipeTransitionAnimation_43: 7756969468383826231
+      DoubleWipeTransitionAnimation_44: 6240959728132767226
+      DoubleWipeTransitionAnimation_45: -6478692202864548201
+      DoubleWipeTransitionAnimation_46: 3480979931563012465
+      DoubleWipeTransitionAnimation_47: -3351667155001679093
+      DoubleWipeTransitionAnimation_48: 3357641775500949212
+      DoubleWipeTransitionAnimation_49: 8024314191033626433
+      DoubleWipeTransitionAnimation_5: 9208746855277230703
+      DoubleWipeTransitionAnimation_50: -1037391938517861196
+      DoubleWipeTransitionAnimation_51: 2310475406830791837
+      DoubleWipeTransitionAnimation_52: -7896772941524785414
+      DoubleWipeTransitionAnimation_53: -5010058864266582889
+      DoubleWipeTransitionAnimation_54: 2462895575618020571
+      DoubleWipeTransitionAnimation_55: -1815158372369071187
+      DoubleWipeTransitionAnimation_56: 8610838887651954961
+      DoubleWipeTransitionAnimation_57: 362140871608741818
+      DoubleWipeTransitionAnimation_58: -4087172155353201502
+      DoubleWipeTransitionAnimation_59: -6060494607760499445
+      DoubleWipeTransitionAnimation_6: -5705398120797429715
+      DoubleWipeTransitionAnimation_60: 9176910022636643723
+      DoubleWipeTransitionAnimation_61: 7711896576158512257
+      DoubleWipeTransitionAnimation_62: -7140625678475302276
+      DoubleWipeTransitionAnimation_63: 7207291443550654170
+      DoubleWipeTransitionAnimation_7: -2156289138318470128
+      DoubleWipeTransitionAnimation_8: -3627544344789268279
+      DoubleWipeTransitionAnimation_9: 1634230436679859616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

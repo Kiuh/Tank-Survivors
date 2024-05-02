@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 616d511151a6c554caddf1c754e4f91d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Prefabs/TransitionTemplate.prefab
+  uploadId: 587727

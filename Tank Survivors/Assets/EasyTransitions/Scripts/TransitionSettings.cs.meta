@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bd0208933b0e3a443a9c1b5975c0fcb7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - multiplyColorMaterial: {fileID: 2100000, guid: 53171468e32441749b007c64337cd3db,
+      type: 2}
+  - addColorMaterial: {fileID: 2100000, guid: 65ccb7b6cbefce14eb6f884cfc33ba91, type: 2}
+  - transitionIn: {instanceID: 0}
+  - transitionOut: {instanceID: 0}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: eeeb98c0445060a44895c2b15fa2d04d, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Scripts/TransitionSettings.cs
+  uploadId: 587727

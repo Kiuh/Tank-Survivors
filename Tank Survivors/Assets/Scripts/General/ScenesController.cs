@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common;
+using EasyTransition;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +32,10 @@ namespace General
 
         public static ScenesController Instance;
 
+        [Required]
+        [SerializeField]
+        private TransitionSettings transitionSettings;
+
         private void Awake()
         {
             if (Instance == null)
@@ -45,9 +51,8 @@ namespace General
 
         public void LoadScene(InGameScene inGameScene)
         {
-            SceneManager.LoadScene(
-                scenesWithName.Find(x => x.InGameScene == inGameScene).SceneName
-            );
+            string name = scenesWithName.Find(x => x.InGameScene == inGameScene).SceneName;
+            TransitionManager.Instance().Transition(name, transitionSettings, 0);
         }
     }
 }

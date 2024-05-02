@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a265900f697959f42b1f2ad4a17da051
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Shaders/AdditiveColor.shader
+  uploadId: 587727

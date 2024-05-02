@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b0126e1e0c6c2a04895d564bd230dfb9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/RectangleGrid/RectangleGrid.asset
+  uploadId: 587727

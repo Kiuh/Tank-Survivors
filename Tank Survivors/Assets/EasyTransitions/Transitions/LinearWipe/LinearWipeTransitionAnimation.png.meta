@@ -1,0 +1,1579 @@
+fileFormatVersion: 2
+guid: 0babb8f1d3fe2f042b7ce514cef62ad5
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/LinearWipe/LinearWipeTransitionAnimation.png
+  uploadId: 587727
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8555726752936772466
+    second: LiniarWipeTransitionAnimation_0
+  - first:
+      213: 4151899108588281332
+    second: LiniarWipeTransitionAnimation_1
+  - first:
+      213: 8489221521678698522
+    second: LiniarWipeTransitionAnimation_2
+  - first:
+      213: -411535400201481025
+    second: LiniarWipeTransitionAnimation_3
+  - first:
+      213: 663936390318205744
+    second: LiniarWipeTransitionAnimation_4
+  - first:
+      213: 7800423831272679801
+    second: LiniarWipeTransitionAnimation_5
+  - first:
+      213: -3873970497416801382
+    second: LiniarWipeTransitionAnimation_6
+  - first:
+      213: -1977926369520845657
+    second: LiniarWipeTransitionAnimation_7
+  - first:
+      213: 8921792366571510515
+    second: LiniarWipeTransitionAnimation_8
+  - first:
+      213: 849652187181761305
+    second: LiniarWipeTransitionAnimation_9
+  - first:
+      213: -742947227578803668
+    second: LiniarWipeTransitionAnimation_10
+  - first:
+      213: 4055071787425491955
+    second: LiniarWipeTransitionAnimation_11
+  - first:
+      213: 4944247803793249740
+    second: LiniarWipeTransitionAnimation_12
+  - first:
+      213: 6595955417369819324
+    second: LiniarWipeTransitionAnimation_13
+  - first:
+      213: 6754944951520213490
+    second: LiniarWipeTransitionAnimation_14
+  - first:
+      213: 5314076743840614309
+    second: LiniarWipeTransitionAnimation_15
+  - first:
+      213: -729878113212262867
+    second: LiniarWipeTransitionAnimation_16
+  - first:
+      213: 5697633449524666701
+    second: LiniarWipeTransitionAnimation_17
+  - first:
+      213: 3212659459762842241
+    second: LiniarWipeTransitionAnimation_18
+  - first:
+      213: -1313873478924063148
+    second: LiniarWipeTransitionAnimation_19
+  - first:
+      213: -6737563682959645025
+    second: LiniarWipeTransitionAnimation_20
+  - first:
+      213: -6853499622652877417
+    second: LiniarWipeTransitionAnimation_21
+  - first:
+      213: 8069337040683501880
+    second: LiniarWipeTransitionAnimation_22
+  - first:
+      213: 2790250781045626228
+    second: LiniarWipeTransitionAnimation_23
+  - first:
+      213: -875249737998585643
+    second: LiniarWipeTransitionAnimation_24
+  - first:
+      213: 4937120575559100710
+    second: LiniarWipeTransitionAnimation_25
+  - first:
+      213: 9014576634611196357
+    second: LiniarWipeTransitionAnimation_26
+  - first:
+      213: 8413813262661261108
+    second: LiniarWipeTransitionAnimation_27
+  - first:
+      213: 3989988881576551273
+    second: LiniarWipeTransitionAnimation_28
+  - first:
+      213: 5466590040179588111
+    second: LiniarWipeTransitionAnimation_29
+  - first:
+      213: -7220899718797381139
+    second: LiniarWipeTransitionAnimation_30
+  - first:
+      213: -4660922940911776053
+    second: LiniarWipeTransitionAnimation_31
+  - first:
+      213: 410525090424091144
+    second: LiniarWipeTransitionAnimation_32
+  - first:
+      213: -1703793212424163151
+    second: LiniarWipeTransitionAnimation_33
+  - first:
+      213: -770293905700586205
+    second: LiniarWipeTransitionAnimation_34
+  - first:
+      213: -6177405822690205176
+    second: LiniarWipeTransitionAnimation_35
+  - first:
+      213: -7867185752685089809
+    second: LiniarWipeTransitionAnimation_36
+  - first:
+      213: 8613201746742848887
+    second: LiniarWipeTransitionAnimation_37
+  - first:
+      213: 7953653749499147482
+    second: LiniarWipeTransitionAnimation_38
+  - first:
+      213: 2883140138984773017
+    second: LiniarWipeTransitionAnimation_39
+  - first:
+      213: -3840460551907987142
+    second: LiniarWipeTransitionAnimation_40
+  - first:
+      213: -8373404408696239648
+    second: LiniarWipeTransitionAnimation_41
+  - first:
+      213: 2796621256008034651
+    second: LiniarWipeTransitionAnimation_42
+  - first:
+      213: -6193086210839307701
+    second: LiniarWipeTransitionAnimation_43
+  - first:
+      213: 1135185592025917176
+    second: LiniarWipeTransitionAnimation_44
+  - first:
+      213: -659993215958187928
+    second: LiniarWipeTransitionAnimation_45
+  - first:
+      213: -5846073792965089557
+    second: LiniarWipeTransitionAnimation_46
+  - first:
+      213: 685429704326527126
+    second: LiniarWipeTransitionAnimation_47
+  - first:
+      213: 4897567380815600922
+    second: LiniarWipeTransitionAnimation_48
+  - first:
+      213: -1358365424817007914
+    second: LiniarWipeTransitionAnimation_49
+  - first:
+      213: -2564585300262558882
+    second: LiniarWipeTransitionAnimation_50
+  - first:
+      213: 3693914433847062912
+    second: LiniarWipeTransitionAnimation_51
+  - first:
+      213: -3524384437476750494
+    second: LiniarWipeTransitionAnimation_52
+  - first:
+      213: -1186597666127271746
+    second: LiniarWipeTransitionAnimation_53
+  - first:
+      213: 3389790932171479419
+    second: LiniarWipeTransitionAnimation_54
+  - first:
+      213: 8004305550453289092
+    second: LiniarWipeTransitionAnimation_55
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 960
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2734a10d62c0cb670800000000000000
+      internalID: 8555726752936772466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd5aa6dd328e9930800000000000000
+      internalID: 4151899108588281332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1882430ff5cfc570800000000000000
+      internalID: 8489221521678698522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb41e72ebbee94af0800000000000000
+      internalID: -411535400201481025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b2f5a11a6c63900800000000000000
+      internalID: 663936390318205744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979ef78652ca04c60800000000000000
+      internalID: 7800423831272679801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93d0279b54ec3ac0800000000000000
+      internalID: -3873970497416801382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3780
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acf4d8427efc84e0800000000000000
+      internalID: -1977926369520845657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa594143e290db70800000000000000
+      internalID: 8921792366571510515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9134a9f99229acb00800000000000000
+      internalID: 849652187181761305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2add4dce6580b5f0800000000000000
+      internalID: -742947227578803668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb64345e42864830800000000000000
+      internalID: 4055071787425491955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc51a9a8e2f7d9440800000000000000
+      internalID: 4944247803793249740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb834a6518a898b50800000000000000
+      internalID: 6595955417369819324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f93ea8e4a26ebd50800000000000000
+      internalID: 6754944951520213490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7c8c1b4a46fb940800000000000000
+      internalID: 5314076743840614309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2696ac19b3fed5f0800000000000000
+      internalID: -729878113212262867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d412d4b5f6f021f40800000000000000
+      internalID: 5697633449524666701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a667bd1c8a59c20800000000000000
+      internalID: 3212659459762842241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45eace8380f24cde0800000000000000
+      internalID: -1313873478924063148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f962e99078d5f72a0800000000000000
+      internalID: -6737563682959645025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7956083976a73e0a0800000000000000
+      internalID: -6853499622652877417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83987da094b0cff60800000000000000
+      internalID: 8069337040683501880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4751b7e4d46f8b620800000000000000
+      internalID: 2790250781045626228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d037d4200d7ad3f0800000000000000
+      internalID: -875249737998585643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_25
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629e877610d248440800000000000000
+      internalID: 4937120575559100710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1698a10b53a1d70800000000000000
+      internalID: 9014576634611196357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_27
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4371567859ed3c470800000000000000
+      internalID: 8413813262661261108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963e0287fb94f5730800000000000000
+      internalID: 3989988881576551273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_29
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0cb795adaa3ddb40800000000000000
+      internalID: 5466590040179588111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_30
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de13d56b6f53acb90800000000000000
+      internalID: -7220899718797381139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_31
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce0c75a743115fb0800000000000000
+      internalID: -4660922940911776053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802fc1a056a72b500800000000000000
+      internalID: 410525090424091144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b07cb2b919ea58e0800000000000000
+      internalID: -1703793212424163151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d711226cd5f45f0800000000000000
+      internalID: -770293905700586205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_35
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802ee113222754aa0800000000000000
+      internalID: -6177405822690205176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_36
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: febe0357d3422d290800000000000000
+      internalID: -7867185752685089809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_37
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77da16d9a5d388770800000000000000
+      internalID: 8613201746742848887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_38
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4b955e1fd016e60800000000000000
+      internalID: 7953653749499147482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_39
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9959bdd4ea8f20820800000000000000
+      internalID: 2883140138984773017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31bf95c971f3bac0800000000000000
+      internalID: -3840460551907987142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e988f2fd01bbcb80800000000000000
+      internalID: -8373404408696239648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_42
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b596aa717389fc620800000000000000
+      internalID: 2796621256008034651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_43
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a9d8357ecbd0aa0800000000000000
+      internalID: -6193086210839307701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_44
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6a8de084df0cf00800000000000000
+      internalID: 1135185592025917176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_45
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86005a8baab37d6f0800000000000000
+      internalID: -659993215958187928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_46
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6689febd29edea0800000000000000
+      internalID: -5846073792965089557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_47
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69832ec3fa2238900800000000000000
+      internalID: 685429704326527126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ddd0d9597a7f340800000000000000
+      internalID: 4897567380815600922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_49
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d21c92d7dd162de0800000000000000
+      internalID: -1358365424817007914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_50
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5369a5d143c86cd0800000000000000
+      internalID: -2564585300262558882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_51
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081742c3b9b634330800000000000000
+      internalID: 3693914433847062912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_52
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b8840f60fd61fc0800000000000000
+      internalID: -3524384437476750494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_53
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb82d23a5bb588fe0800000000000000
+      internalID: -1186597666127271746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_54
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79dbe694e4fa0f20800000000000000
+      internalID: 3389790932171479419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LiniarWipeTransitionAnimation_55
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480b4705d71051f60800000000000000
+      internalID: 8004305550453289092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      LiniarWipeTransitionAnimation_0: 8555726752936772466
+      LiniarWipeTransitionAnimation_1: 4151899108588281332
+      LiniarWipeTransitionAnimation_10: -742947227578803668
+      LiniarWipeTransitionAnimation_11: 4055071787425491955
+      LiniarWipeTransitionAnimation_12: 4944247803793249740
+      LiniarWipeTransitionAnimation_13: 6595955417369819324
+      LiniarWipeTransitionAnimation_14: 6754944951520213490
+      LiniarWipeTransitionAnimation_15: 5314076743840614309
+      LiniarWipeTransitionAnimation_16: -729878113212262867
+      LiniarWipeTransitionAnimation_17: 5697633449524666701
+      LiniarWipeTransitionAnimation_18: 3212659459762842241
+      LiniarWipeTransitionAnimation_19: -1313873478924063148
+      LiniarWipeTransitionAnimation_2: 8489221521678698522
+      LiniarWipeTransitionAnimation_20: -6737563682959645025
+      LiniarWipeTransitionAnimation_21: -6853499622652877417
+      LiniarWipeTransitionAnimation_22: 8069337040683501880
+      LiniarWipeTransitionAnimation_23: 2790250781045626228
+      LiniarWipeTransitionAnimation_24: -875249737998585643
+      LiniarWipeTransitionAnimation_25: 4937120575559100710
+      LiniarWipeTransitionAnimation_26: 9014576634611196357
+      LiniarWipeTransitionAnimation_27: 8413813262661261108
+      LiniarWipeTransitionAnimation_28: 3989988881576551273
+      LiniarWipeTransitionAnimation_29: 5466590040179588111
+      LiniarWipeTransitionAnimation_3: -411535400201481025
+      LiniarWipeTransitionAnimation_30: -7220899718797381139
+      LiniarWipeTransitionAnimation_31: -4660922940911776053
+      LiniarWipeTransitionAnimation_32: 410525090424091144
+      LiniarWipeTransitionAnimation_33: -1703793212424163151
+      LiniarWipeTransitionAnimation_34: -770293905700586205
+      LiniarWipeTransitionAnimation_35: -6177405822690205176
+      LiniarWipeTransitionAnimation_36: -7867185752685089809
+      LiniarWipeTransitionAnimation_37: 8613201746742848887
+      LiniarWipeTransitionAnimation_38: 7953653749499147482
+      LiniarWipeTransitionAnimation_39: 2883140138984773017
+      LiniarWipeTransitionAnimation_4: 663936390318205744
+      LiniarWipeTransitionAnimation_40: -3840460551907987142
+      LiniarWipeTransitionAnimation_41: -8373404408696239648
+      LiniarWipeTransitionAnimation_42: 2796621256008034651
+      LiniarWipeTransitionAnimation_43: -6193086210839307701
+      LiniarWipeTransitionAnimation_44: 1135185592025917176
+      LiniarWipeTransitionAnimation_45: -659993215958187928
+      LiniarWipeTransitionAnimation_46: -5846073792965089557
+      LiniarWipeTransitionAnimation_47: 685429704326527126
+      LiniarWipeTransitionAnimation_48: 4897567380815600922
+      LiniarWipeTransitionAnimation_49: -1358365424817007914
+      LiniarWipeTransitionAnimation_5: 7800423831272679801
+      LiniarWipeTransitionAnimation_50: -2564585300262558882
+      LiniarWipeTransitionAnimation_51: 3693914433847062912
+      LiniarWipeTransitionAnimation_52: -3524384437476750494
+      LiniarWipeTransitionAnimation_53: -1186597666127271746
+      LiniarWipeTransitionAnimation_54: 3389790932171479419
+      LiniarWipeTransitionAnimation_55: 8004305550453289092
+      LiniarWipeTransitionAnimation_6: -3873970497416801382
+      LiniarWipeTransitionAnimation_7: -1977926369520845657
+      LiniarWipeTransitionAnimation_8: 8921792366571510515
+      LiniarWipeTransitionAnimation_9: 849652187181761305
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

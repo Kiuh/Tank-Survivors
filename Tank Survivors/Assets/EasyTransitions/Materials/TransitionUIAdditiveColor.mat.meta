@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 65ccb7b6cbefce14eb6f884cfc33ba91
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Materials/TransitionUIAdditiveColor.mat
+  uploadId: 587727

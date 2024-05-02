@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2f784f4169c7ea54492d85bf48c1219f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Noise/NoiseIn.anim
+  uploadId: 587727

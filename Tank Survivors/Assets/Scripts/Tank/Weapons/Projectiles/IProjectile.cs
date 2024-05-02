@@ -13,7 +13,6 @@ namespace Tank.Weapons.Projectiles
             Vector3 direction
         );
         public void Shoot();
-
         public IProjectile Spawn();
         public IProjectile SpawnConnected(Transform Parent);
     }

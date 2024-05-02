@@ -93,7 +93,7 @@ namespace Tank.Weapons.Projectiles
         {
             this.damage = damage;
             this.speed = speed;
-            transform.localScale = new Vector3(size, size, 1);
+            transform.localScale *= size;
             this.fireRange = fireRange;
             this.penetration = penetration;
             this.direction = direction.normalized;

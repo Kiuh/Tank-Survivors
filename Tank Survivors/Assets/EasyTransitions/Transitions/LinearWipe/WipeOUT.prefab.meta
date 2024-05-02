@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d777d67ce4965e9489816615dc6fddf3
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/LinearWipe/WipeOUT.prefab
+  uploadId: 587727

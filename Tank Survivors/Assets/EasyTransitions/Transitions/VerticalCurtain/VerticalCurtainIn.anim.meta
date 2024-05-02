@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a975bf9d4ce2926489dac5e43a84b6a6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/VerticalCurtain/VerticalCurtainIn.anim
+  uploadId: 587727

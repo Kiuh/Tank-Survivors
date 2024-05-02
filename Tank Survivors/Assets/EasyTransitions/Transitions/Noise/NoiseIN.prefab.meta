@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 969dd4df10bff1542827006be3cb2281
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Noise/NoiseIN.prefab
+  uploadId: 587727

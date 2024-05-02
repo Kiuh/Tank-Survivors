@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bfa05bea11a48d541a7e30aa9a305083
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Fade/FadeIN.controller
+  uploadId: 587727

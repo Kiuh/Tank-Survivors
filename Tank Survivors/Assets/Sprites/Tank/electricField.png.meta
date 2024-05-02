@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 1ab148a2d7e48944daed376e29122189
+guid: ac83bcfcfd23d6c40a7d00641c76fec0
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1820880287452278951
     second: electricField_0
+  - first:
+      213: -6228265469222212478
+    second: electricField_1
+  - first:
+      213: 2127772368970283893
+    second: electricField_2
+  - first:
+      213: 290799882785180118
+    second: electricField_3
+  - first:
+      213: 2367830066257557313
+    second: electricField_4
+  - first:
+      213: -2276633179373272490
+    second: electricField_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,6 +98,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -107,7 +134,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -137,10 +176,10 @@ TextureImporter:
       name: electricField_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 28
-        width: 442
-        height: 441
+        x: 4
+        y: 180
+        width: 99
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,6 +189,111 @@ TextureImporter:
       bones: []
       spriteID: 95f45e7a60feab6e0800000000000000
       internalID: -1820880287452278951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricField_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 401
+        width: 227
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28cad24fd81c099a0800000000000000
+      internalID: -6228265469222212478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricField_2
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 317
+        width: 160
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b7d5732bd578d10800000000000000
+      internalID: 2127772368970283893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricField_3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 20
+        width: 159
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d9c222e3f0290400800000000000000
+      internalID: 290799882785180118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricField_4
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 11
+        width: 227
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14775c366e83cd020800000000000000
+      internalID: 2367830066257557313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electricField_5
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 111
+        width: 100
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 652869b7f26c760e0800000000000000
+      internalID: -2276633179373272490
       vertices: []
       indices: 
       edges: []
@@ -164,8 +308,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      electricField_0: -1820880287452278951
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

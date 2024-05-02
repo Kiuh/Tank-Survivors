@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Enemies;
+using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
-using YG;
 
 namespace General
 {
@@ -19,19 +19,10 @@ namespace General
         [SerializeField]
         private Panels.Death.Controller controller;
 
-        private void OnEnable()
+        [Button]
+        public void Rewarded(Reward id)
         {
-            YandexGame.RewardVideoEvent += Rewarded;
-        }
-
-        private void OnDisable()
-        {
-            YandexGame.RewardVideoEvent -= Rewarded;
-        }
-
-        private void Rewarded(int id)
-        {
-            Reward reward = (Reward)id;
+            Reward reward = id;
 
             switch (reward)
             {
