@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "ProgressorConfig", menuName = "Config/ProgressorConfig")]
+    [CreateAssetMenu(fileName = "ProgressorConfig", menuName = "Configs/ProgressorConfig")]
     public class Progressor : SerializedScriptableObject
     {
         public enum Mode

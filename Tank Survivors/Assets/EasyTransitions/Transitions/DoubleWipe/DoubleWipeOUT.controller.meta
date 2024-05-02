@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 43c24a4f1c672964ead207a65ccb41a5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DoubleWipe/DoubleWipeOUT.controller
+  uploadId: 587727

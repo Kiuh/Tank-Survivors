@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using General;
-using Tank;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Panels.Death
 {
@@ -9,23 +9,41 @@ namespace Panels.Death
     public class Controller : MonoBehaviour
     {
         [SerializeField]
-        private TankImpl tank;
+        private ProgressController progressController;
 
         [SerializeField]
-        private Timer timer;
+        private General.Timer timer;
 
         [SerializeField]
         private View view;
 
+        public UnityEvent<Reward> OnUseSecondLife;
+
         private void Awake()
         {
-            tank.OnDeath += ShowLosePanel;
+            progressController.OnLoose += ShowLosePanel;
         }
 
-        private void ShowLosePanel()
+        public void ShowLosePanel()
         {
             Time.timeScale = 0.0f;
-            view.ShowLosePanel(GetInfoString());
+            view.ShowLosePanel(GetInfoString(), progressController.Progress);
+        }
+
+        public void HideLosePanel()
+        {
+            Time.timeScale = 1.0f;
+            view.HideLosePanel();
+        }
+
+        public void HideSecondLifeButton()
+        {
+            view.HideSecondLifeButton();
+        }
+
+        public void UseSecondLifeBonus()
+        {
+            OnUseSecondLife?.Invoke(Reward.SecondLife);
         }
 
         public void RepeatGame()

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Enemies.EnemyProducers;
 using Enemies.Producers;
@@ -26,10 +27,14 @@ namespace General
         private List<IEnemyProducer> toRemove = new();
         private List<BossProducer> bossProducers = new();
 
+        public event Action OnBossDead;
+
         private void Awake()
         {
             enemyProducers = gameContext.GameConfig.EnemiesConfig.EnemyProducers.ToList();
             bossProducers = gameContext.GameConfig.EnemiesConfig.BossProducers.ToList();
+            enemyProducers.ForEach(producer => producer.Initialize());
+            bossProducers.ForEach(producer => producer.Initialize());
         }
 
         private void Update()
@@ -76,7 +81,11 @@ namespace General
                 {
                     producer.Produce(tank, enemyRoot);
                     timer.StopTimer();
-                    producer.OnBossDead(timer.StartTimer);
+                    producer.OnBossDead(() =>
+                    {
+                        timer.StartTimer();
+                        OnBossDead?.Invoke();
+                    });
                     producerToRemove = producer;
                     break;
                 }

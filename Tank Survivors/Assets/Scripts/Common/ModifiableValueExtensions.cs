@@ -9,7 +9,7 @@ namespace Common
             ModifiableValue<Percentage> percentage
         )
         {
-            return value.GetModifiedValue() * (1f + percentage.GetModifiedValue().Value);
+            return value.GetModifiedValue() * (1f + percentage.GetModifiedValue().NormalizedValue);
         }
 
         public static ModifiableValue<float> GetPercentagesModifiableValue(
@@ -18,7 +18,7 @@ namespace Common
         )
         {
             return new ModifiableValue<float>(
-                value.GetModifiedValue() * (1f + percentage.GetModifiedValue().Value)
+                value.GetModifiedValue() * (1f + percentage.GetModifiedValue().NormalizedValue)
             );
         }
     }

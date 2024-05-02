@@ -4,7 +4,9 @@ using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Tank.Towers;
 using Tank.UpgradablePiece;
+using Tank.Weapons.Modules;
 using UnityEngine;
 
 namespace Tank.Weapons
@@ -36,6 +38,9 @@ namespace Tank.Weapons
         [OdinSerialize]
         [ShowInInspector]
         private List<LevelUpWeaponUpgrade> levelUpUpgrades = new();
+
+        protected TankImpl Tank;
+        protected EnemyFinder EnemyFinder;
 
         public T GetModule<T>()
             where T : class, IWeaponModule
@@ -87,16 +92,16 @@ namespace Tank.Weapons
             }
         }
 
-        protected Vector3 GetSpreadDirection(Vector3 direction, float angle)
+        public Vector3 GetSpreadDirection(Vector3 direction, float angle)
         {
             Quaternion rotation = Quaternion.AngleAxis(
-                UnityEngine.Random.Range(-angle, angle),
+                Random.Range(-angle, angle),
                 Vector3.forward
             );
             return rotation * direction;
         }
 
-        protected float GetModifiedDamage(
+        public float GetModifiedDamage(
             ModifiableValue<float> damage,
             ModifiableValue<Percentage> criticalChance,
             ModifiableValue<Percentage> criticalMultiplier,
@@ -107,13 +112,38 @@ namespace Tank.Weapons
                 tank.DamageModifier
             );
 
-            bool isCritical = (
-                criticalChance.GetModifiedValue() + tank.CriticalChance.GetModifiedValue()
-            ).TryChance();
+            Percentage wholeChance =
+                criticalChance.GetModifiedValue() + tank.CriticalChance.GetModifiedValue();
 
-            return isCritical
-                ? damageModifiableValue.GetPercentagesValue(criticalMultiplier)
-                : damageModifiableValue.GetModifiedValue();
+            if (wholeChance.TryChance())
+            {
+                return damageModifiableValue.GetPercentagesValue(criticalMultiplier);
+            }
+            else
+            {
+                return damageModifiableValue.GetModifiedValue();
+            }
+        }
+
+        protected ITower CreateTower(Transform transform)
+        {
+            return CreateTower(transform, SpawnVariation.Disconnected);
+        }
+
+        protected ITower CreateTower(Transform transform, SpawnVariation spawnVariation)
+        {
+            TowerModule towerModule = GetModule<TowerModule>();
+            ITower tower = towerModule.TowerPrefab.Spawn(transform);
+            towerModule.Tower = tower;
+
+            tower.Initialize(Tank, EnemyFinder, this, spawnVariation);
+
+            return tower;
+        }
+
+        protected void DestroyTower(ITower tower)
+        {
+            tower.DestroyYourself();
         }
     }
 }

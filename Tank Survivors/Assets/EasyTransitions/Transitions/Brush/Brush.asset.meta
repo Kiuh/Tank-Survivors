@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b577ec7af0d48c34a9d31ce17f830a8d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Brush/Brush.asset
+  uploadId: 587727

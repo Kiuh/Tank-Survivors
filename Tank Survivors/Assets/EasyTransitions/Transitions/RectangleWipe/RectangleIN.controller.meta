@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec785bc928c130a46bd6bb83a8366252
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/RectangleWipe/RectangleIN.controller
+  uploadId: 587727

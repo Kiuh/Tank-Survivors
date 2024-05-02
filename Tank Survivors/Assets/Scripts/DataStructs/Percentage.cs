@@ -12,7 +12,8 @@ namespace DataStructs
         [OdinSerialize]
         [LabelText("Percentages")]
         [Unit(Units.Percent)]
-        public float Value { get; private set; }
+        private float Value { get; set; }
+        public float NormalizedValue => Value / 100;
 
         public Percentage(float value)
         {
@@ -21,7 +22,7 @@ namespace DataStructs
 
         public bool TryChance()
         {
-            return UnityEngine.Random.Range(0f, 1f) < Value / 100;
+            return UnityEngine.Random.Range(0f, 1f) < NormalizedValue;
         }
 
         public static Percentage operator +(Percentage a, Percentage b)

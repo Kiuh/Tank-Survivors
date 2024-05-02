@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4cff0fa04b3758f49bd878c024b7d37d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Noise/NoiseOut.anim
+  uploadId: 587727

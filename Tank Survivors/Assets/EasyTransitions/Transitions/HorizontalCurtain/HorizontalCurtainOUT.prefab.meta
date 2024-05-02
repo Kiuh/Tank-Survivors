@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 56cfe72327eb8054080542f75de2c758
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/HorizontalCurtain/HorizontalCurtainOUT.prefab
+  uploadId: 587727

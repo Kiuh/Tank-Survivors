@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9fc8103d1638b404a8d8adb3231e62f0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/RectangleGrid/RectangleGridIN.prefab
+  uploadId: 587727

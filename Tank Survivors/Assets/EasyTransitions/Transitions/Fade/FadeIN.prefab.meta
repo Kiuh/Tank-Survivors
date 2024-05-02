@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d8bb38ff38a790d4eb099fdb40036a2c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Fade/FadeIN.prefab
+  uploadId: 587727

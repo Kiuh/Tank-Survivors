@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 19e31f9c7899b4c4fa33d0f46419db92
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/PaintSplash/PaintSplashIN.controller
+  uploadId: 587727

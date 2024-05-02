@@ -9,6 +9,7 @@ namespace Enemies.Producers
     [HideReferenceObjectPicker]
     public interface IEnemyProducer
     {
+        public void Initialize();
         public float StartTime { get; }
         public float EndTime { get; }
         public IEnemy Enemy { get; }

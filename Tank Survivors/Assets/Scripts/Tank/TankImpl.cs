@@ -25,7 +25,7 @@ namespace Tank
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
         [SerializeField]
-        private EnemyFinder enemyFinder;
+        public EnemyFinder EnemyFinder { get; private set; }
 
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
@@ -107,7 +107,7 @@ namespace Tank
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
-            weapons.ForEach(x => x.Initialize(this, enemyFinder));
+            weapons.ForEach(x => x.Initialize(this, EnemyFinder));
             PlayerLevel.Initialize(gameContext.GameConfig.LevelProgressionConfig);
             gameContext.GameConfig.TankStartProperties.AssignStartProperties(this);
         }
@@ -123,7 +123,7 @@ namespace Tank
         public void SwapWeapon(IWeapon weapon)
         {
             weapons.Clear();
-            weapon.Initialize(this, enemyFinder);
+            weapon.Initialize(this, EnemyFinder);
             weapons.Add(weapon);
         }
 
@@ -149,6 +149,11 @@ namespace Tank
 
         public void TakeDamage(float damageAmount)
         {
+            if (Health.Value <= 0)
+            {
+                return;
+            }
+
             if (EvadeChance.GetModifiedValue().TryChance())
             {
                 return;

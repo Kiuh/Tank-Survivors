@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3769ea0ccd9d7dc47b4c8cbe9cf67f18
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/LinearWipe/WipeOut.anim
+  uploadId: 587727

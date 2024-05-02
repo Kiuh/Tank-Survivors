@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2eec88d4ca6df24419aab2fd6b04c543
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DoubleWipe/DoubleWipe.asset
+  uploadId: 587727

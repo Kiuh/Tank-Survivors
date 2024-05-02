@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1049461823314036041, guid: 49cbed8ab801b2940b79747894d03f4d, type: 3}
-  m_Color: {r: 0.8113208, g: 0.10332859, b: 0.10332859, a: 1}
+  m_Sprite: {fileID: -1049461823314036041, guid: c62673bdf69a36b479fe7f20ef7cfc2c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.64, y: 0.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiSGVhbHRoIg==
+    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABBgAAAEgAZQBhAGwAdABoAA==
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  healAmount: 30
+  healAmount: 10
 --- !u!61 &7647850923129408509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,8 +146,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.55, y: 0.53}
-    newSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.64, y: 0.62}
+    newSize: {x: 0.64, y: 0.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

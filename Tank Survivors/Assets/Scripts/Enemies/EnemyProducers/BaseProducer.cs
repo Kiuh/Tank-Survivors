@@ -23,21 +23,37 @@ namespace Enemies.Producers
             DraggableItems = false
         )]
         [FoldoutGroup("Enemy/Enemy stats")]
-        public List<IModule> Modules { get; set; } = new();
+        private List<IModule> baseModules = new();
 
+        [OdinSerialize]
+        [ListDrawerSettings(
+            HideAddButton = true,
+            HideRemoveButton = true,
+            AlwaysAddDefaultValue = true,
+            DraggableItems = false
+        )]
+        [FoldoutGroup("Enemy/Enemy stats")]
+        [LabelText("Modified Modules")]
+        [ReadOnly]
+        public List<IModule> Modules { get; set; } = new();
         public IEnemy Enemy => EnemyPrefab.GetComponent<IEnemy>();
 
         [Button("Clone stats from prefab")]
         [FoldoutGroup("Enemy/Enemy stats")]
         private void GetModules()
         {
-            CloneModules(Enemy.Modules, Modules);
+            CloneModules(Enemy.Modules, baseModules);
         }
 
         [OdinSerialize]
         [FoldoutGroup("Progressor")]
         public Progressor Progressor { get; set; }
         public float ProgressorTimer { get; set; } = 0.0f;
+
+        public virtual void Initialize()
+        {
+            CloneModules(baseModules, Modules);
+        }
 
         private bool EnemiesFilter(GameObject obj)
         {

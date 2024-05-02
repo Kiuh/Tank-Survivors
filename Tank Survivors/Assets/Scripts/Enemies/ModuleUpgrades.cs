@@ -1,6 +1,5 @@
 using System;
 using Common;
-using DataStructs;
 using Enemies.Producers;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -129,6 +128,131 @@ namespace Enemies
                     value *= module.DropAmount.SourceValue;
                 }
                 module.DropAmount.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("Explosion")]
+    public class ExplosionUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ExplosionModule module = GetModule<ExplosionModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.Radius.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Radius.SourceValue;
+                }
+                module.Radius.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("FireRange")]
+    public class FireRangeUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ShootingRangeModule module = GetModule<ShootingRangeModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ShootingRange.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ShootingRange.SourceValue;
+                }
+                module.ShootingRange.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("FireRate")]
+    public class FireRateUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ShootingRateModule module = GetModule<ShootingRateModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ShootCooldown.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ShootCooldown.SourceValue;
+                }
+                module.ShootCooldown.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("Projectile Speed")]
+    public class ProjectileSpeedUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            ProjectileSpeedModule module = GetModule<ProjectileSpeedModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.ProjectileSpeed.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.ProjectileSpeed.SourceValue;
+                }
+                module.ProjectileSpeed.Modifications.Add(
+                    new(Operation.ToFunction(value), ModificationPriority.Medium)
+                );
+            }
+        }
+    }
+
+    [Serializable]
+    [LabelText("Damage")]
+    public class DamageUpgrade : BaseModuleUpgrade
+    {
+        public override void ApplyUpgrade(IEnemyProducer producer)
+        {
+            DamageModule module = GetModule<DamageModule>(producer);
+            if (module != null)
+            {
+                float value = Persent;
+                if (producer.Progressor.CurrentMode == Mode.Current)
+                {
+                    value *= module.Damage.GetModifiedValue();
+                }
+                else
+                {
+                    value *= module.Damage.SourceValue;
+                }
+                module.Damage.Modifications.Add(
                     new(Operation.ToFunction(value), ModificationPriority.Medium)
                 );
             }

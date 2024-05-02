@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8d1f4c836b7ea734da04a6e5b6221fb4
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/RectangleWipe/RectangleIN.prefab
+  uploadId: 587727
