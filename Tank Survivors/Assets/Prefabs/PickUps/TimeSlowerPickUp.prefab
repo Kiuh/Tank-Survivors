@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6321663880512065238, guid: ca1502b5ed257204d8e99175443b36da, type: 3}
+  m_Sprite: {fileID: -6321663880512065238, guid: 8c4f99271cfef51488ab8aa9a1c8d4e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.54, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 1
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: IlBpY2t1cE5hbWUiOiAiVGltZSBTbG93ZXIi
+    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABCwAAAFQAaQBtAGUAIABTAGwAbwB3AGUAcgA=
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
