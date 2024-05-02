@@ -1833,15 +1833,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 552.447
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1115.2115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.358548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1984,6 +1984,34 @@ PrefabInstance:
       propertyPath: progressController
       value: 
       objectReference: {fileID: 1132589958}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1996418916}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Rewarded
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: General.RewardManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938184197448680983, guid: 962250011fd153741a8c9b0e381952cf, type: 3}
+      propertyPath: OnUseSecondLife.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

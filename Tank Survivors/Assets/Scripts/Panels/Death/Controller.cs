@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using General;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Panels.Death
 {
@@ -15,6 +16,8 @@ namespace Panels.Death
 
         [SerializeField]
         private View view;
+
+        public UnityEvent<Reward> OnUseSecondLife;
 
         private void Awake()
         {
@@ -40,7 +43,7 @@ namespace Panels.Death
 
         public void UseSecondLifeBonus()
         {
-            //YandexGame.RewVideoShow((int)Reward.SecondLife);
+            OnUseSecondLife?.Invoke(Reward.SecondLife);
         }
 
         public void RepeatGame()
