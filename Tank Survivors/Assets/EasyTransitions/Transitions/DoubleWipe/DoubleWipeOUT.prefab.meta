@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9d1683652e748654694b465b9128c43e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DoubleWipe/DoubleWipeOUT.prefab
+  uploadId: 587727

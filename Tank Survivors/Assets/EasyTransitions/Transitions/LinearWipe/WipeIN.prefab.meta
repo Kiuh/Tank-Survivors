@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f17ff05ffec4a3949a12ac8c568bd827
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/LinearWipe/WipeIN.prefab
+  uploadId: 587727

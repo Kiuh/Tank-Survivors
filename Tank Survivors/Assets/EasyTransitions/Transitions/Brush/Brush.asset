@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0208933b0e3a443a9c1b5975c0fcb7, type: 3}
+  m_Name: Brush
+  m_EditorClassIdentifier: 
+  multiplyColorMaterial: {fileID: 2100000, guid: 53171468e32441749b007c64337cd3db, type: 2}
+  addColorMaterial: {fileID: 2100000, guid: 65ccb7b6cbefce14eb6f884cfc33ba91, type: 2}
+  refrenceResolution: {x: 1000, y: 500}
+  blockRaycasts: 1
+  colorTintMode: 1
+  colorTint: {r: 0.14002606, g: 0.31282854, b: 0.5566038, a: 1}
+  isCutoutTransition: 0
+  transitionSpeed: 1
+  autoAdjustTransitionTime: 1
+  flipX: 0
+  flipY: 0
+  transitionTime: 1
+  destroyTime: 1.25
+  transitionIn: {fileID: 8146198696072019079, guid: ba56f51867b074f42acabcd86ba13273, type: 3}
+  transitionOut: {fileID: 1971740581942834528, guid: 7169acee88d38d5418744538f27d012b, type: 3}

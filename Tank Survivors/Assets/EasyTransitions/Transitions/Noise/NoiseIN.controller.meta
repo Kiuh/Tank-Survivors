@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b893ad72f7ba4d346a8a18226a07c458
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Noise/NoiseIN.controller
+  uploadId: 587727

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0c02d8d393a528746a5438defdb57524
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/VerticalCurtain/VerticalCurtainIN.prefab
+  uploadId: 587727

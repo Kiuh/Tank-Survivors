@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 04918ee4efcad774e92717c26d955df1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Fade/FadeOUT.prefab
+  uploadId: 587727

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 28c9e4b137f5a424fb352eb97b777b04
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/PaintSplash/PaintSplashOut.prefab
+  uploadId: 587727

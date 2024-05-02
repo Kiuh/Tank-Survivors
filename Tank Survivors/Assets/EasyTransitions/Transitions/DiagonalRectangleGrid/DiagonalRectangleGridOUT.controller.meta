@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4174b37548937094a8a9c0d3da2713f6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DiagonalRectangleGrid/DiagonalRectangleGridOUT.controller
+  uploadId: 587727

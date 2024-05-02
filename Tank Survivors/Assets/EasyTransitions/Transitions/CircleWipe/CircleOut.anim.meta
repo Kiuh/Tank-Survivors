@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e26925c0f0bb7d74a8cd74b74a6e6133
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/CircleWipe/CircleOut.anim
+  uploadId: 587727

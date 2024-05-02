@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b3b10db47bfd72745bc9d0db14665364
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/CircleWipe/CircleIn.anim
+  uploadId: 587727

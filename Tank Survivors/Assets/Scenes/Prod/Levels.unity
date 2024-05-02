@@ -171,6 +171,7 @@ MonoBehaviour:
     SceneName: Assets/Scenes/Prod/Levels.unity
   - InGameScene: 2
     SceneName: Assets/Scenes/Prod/Gameplay.unity
+  transitionSettings: {fileID: 11400000, guid: b577ec7af0d48c34a9d31ce17f830a8d, type: 2}
 --- !u!1 &789981204
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +264,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1024473974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 552.447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1115.2115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.358548
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638886969104835278, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
+      propertyPath: m_Name
+      value: TransitionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
 --- !u!1 &1316802891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,3 +1343,4 @@ SceneRoots:
   - {fileID: 1468040654}
   - {fileID: 1316802894}
   - {fileID: 503888629}
+  - {fileID: 1024473974}

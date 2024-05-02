@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ef4669bd174fed948b0578bce2883331
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Noise/NoiseOUT.prefab
+  uploadId: 587727

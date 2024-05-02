@@ -1,0 +1,904 @@
+fileFormatVersion: 2
+guid: 7fa75236aeaf215479d5720bc5b2caf7
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DiagonalRectangleGrid/DiagonalRectangleGridTransitionAnimation.png
+  uploadId: 587727
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 674907800894665243
+    second: DiagonalRectangleGridTransitionAnimation_0
+  - first:
+      213: -26327355979307610
+    second: DiagonalRectangleGridTransitionAnimation_1
+  - first:
+      213: -7286513123213975015
+    second: DiagonalRectangleGridTransitionAnimation_2
+  - first:
+      213: -5142454123187819932
+    second: DiagonalRectangleGridTransitionAnimation_3
+  - first:
+      213: -1498538141309860516
+    second: DiagonalRectangleGridTransitionAnimation_4
+  - first:
+      213: 6804054390254467359
+    second: DiagonalRectangleGridTransitionAnimation_5
+  - first:
+      213: 6704023676976945305
+    second: DiagonalRectangleGridTransitionAnimation_6
+  - first:
+      213: -3580635993966610510
+    second: DiagonalRectangleGridTransitionAnimation_7
+  - first:
+      213: 6298079693912470380
+    second: DiagonalRectangleGridTransitionAnimation_8
+  - first:
+      213: -4520990982769766762
+    second: DiagonalRectangleGridTransitionAnimation_9
+  - first:
+      213: -392833280418223590
+    second: DiagonalRectangleGridTransitionAnimation_10
+  - first:
+      213: 6065518072558030793
+    second: DiagonalRectangleGridTransitionAnimation_11
+  - first:
+      213: 741827671318646502
+    second: DiagonalRectangleGridTransitionAnimation_12
+  - first:
+      213: 7751326430243126367
+    second: DiagonalRectangleGridTransitionAnimation_13
+  - first:
+      213: -2821488132596612567
+    second: DiagonalRectangleGridTransitionAnimation_14
+  - first:
+      213: -1777973285893481346
+    second: DiagonalRectangleGridTransitionAnimation_15
+  - first:
+      213: 672072402037913656
+    second: DiagonalRectangleGridTransitionAnimation_16
+  - first:
+      213: 8500009625976944158
+    second: DiagonalRectangleGridTransitionAnimation_17
+  - first:
+      213: 7424644854547982611
+    second: DiagonalRectangleGridTransitionAnimation_18
+  - first:
+      213: 3841564958305200416
+    second: DiagonalRectangleGridTransitionAnimation_19
+  - first:
+      213: 7319971467029603002
+    second: DiagonalRectangleGridTransitionAnimation_20
+  - first:
+      213: -3964776156007979514
+    second: DiagonalRectangleGridTransitionAnimation_21
+  - first:
+      213: -3162516643250449263
+    second: DiagonalRectangleGridTransitionAnimation_22
+  - first:
+      213: -9102985881492776594
+    second: DiagonalRectangleGridTransitionAnimation_23
+  - first:
+      213: 6417533251310655064
+    second: DiagonalRectangleGridTransitionAnimation_24
+  - first:
+      213: 2457463808975106282
+    second: DiagonalRectangleGridTransitionAnimation_25
+  - first:
+      213: 8545512443590697310
+    second: DiagonalRectangleGridTransitionAnimation_26
+  - first:
+      213: -9169904138484739885
+    second: DiagonalRectangleGridTransitionAnimation_27
+  - first:
+      213: -4971953979512498152
+    second: DiagonalRectangleGridTransitionAnimation_28
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 960
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b127770b111cd5900800000000000000
+      internalID: 674907800894665243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a56af2c86772aff0800000000000000
+      internalID: -26327355979307610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912eb978bea11ea90800000000000000
+      internalID: -7286513123213975015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46aa5a9883552a8b0800000000000000
+      internalID: -5142454123187819932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c550ad4008f143be0800000000000000
+      internalID: -1498538141309860516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19fd832b6bdc6e50800000000000000
+      internalID: 6804054390254467359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998d408c30a790d50800000000000000
+      internalID: 6704023676976945305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b774a5d8860f4ec0800000000000000
+      internalID: -3580635993966610510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63f0caec16476750800000000000000
+      internalID: 6298079693912470380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e834787a63241c0800000000000000
+      internalID: -4520990982769766762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a68b876306c8af0800000000000000
+      internalID: -392833280418223590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf888dec8c0d2450800000000000000
+      internalID: 6065518072558030793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eec08136508b4a00800000000000000
+      internalID: 741827671318646502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cfcbce15e329b60800000000000000
+      internalID: 7751326430243126367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92249960e7f08d8d0800000000000000
+      internalID: -2821488132596612567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c5f2277be5357e0800000000000000
+      internalID: -1777973285893481346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83830d2f94ea35900800000000000000
+      internalID: 672072402037913656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16b1c748b916f570800000000000000
+      internalID: 8500009625976944158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319a3c26823a90760800000000000000
+      internalID: 7424644854547982611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029ae51e9faff4530800000000000000
+      internalID: 3841564958305200416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab26b423443c59560800000000000000
+      internalID: 7319971467029603002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 606a437a7194af8c0800000000000000
+      internalID: -3964776156007979514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194dbc26edb7c14d0800000000000000
+      internalID: -3162516643250449263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e691a3a0292bba180800000000000000
+      internalID: -9102985881492776594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85611a29d78af0950800000000000000
+      internalID: 6417533251310655064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_25
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0f656605aaa1220800000000000000
+      internalID: 2457463808975106282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5167e79a42c79670800000000000000
+      internalID: 8545512443590697310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_27
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d09b3135c4fdb080800000000000000
+      internalID: -9169904138484739885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRectangleGridTransitionAnimation_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818519bb232100bb0800000000000000
+      internalID: -4971953979512498152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      DiagonalRectangleGridTransitionAnimation_0: 674907800894665243
+      DiagonalRectangleGridTransitionAnimation_1: -26327355979307610
+      DiagonalRectangleGridTransitionAnimation_10: -392833280418223590
+      DiagonalRectangleGridTransitionAnimation_11: 6065518072558030793
+      DiagonalRectangleGridTransitionAnimation_12: 741827671318646502
+      DiagonalRectangleGridTransitionAnimation_13: 7751326430243126367
+      DiagonalRectangleGridTransitionAnimation_14: -2821488132596612567
+      DiagonalRectangleGridTransitionAnimation_15: -1777973285893481346
+      DiagonalRectangleGridTransitionAnimation_16: 672072402037913656
+      DiagonalRectangleGridTransitionAnimation_17: 8500009625976944158
+      DiagonalRectangleGridTransitionAnimation_18: 7424644854547982611
+      DiagonalRectangleGridTransitionAnimation_19: 3841564958305200416
+      DiagonalRectangleGridTransitionAnimation_2: -7286513123213975015
+      DiagonalRectangleGridTransitionAnimation_20: 7319971467029603002
+      DiagonalRectangleGridTransitionAnimation_21: -3964776156007979514
+      DiagonalRectangleGridTransitionAnimation_22: -3162516643250449263
+      DiagonalRectangleGridTransitionAnimation_23: -9102985881492776594
+      DiagonalRectangleGridTransitionAnimation_24: 6417533251310655064
+      DiagonalRectangleGridTransitionAnimation_25: 2457463808975106282
+      DiagonalRectangleGridTransitionAnimation_26: 8545512443590697310
+      DiagonalRectangleGridTransitionAnimation_27: -9169904138484739885
+      DiagonalRectangleGridTransitionAnimation_28: -4971953979512498152
+      DiagonalRectangleGridTransitionAnimation_3: -5142454123187819932
+      DiagonalRectangleGridTransitionAnimation_4: -1498538141309860516
+      DiagonalRectangleGridTransitionAnimation_5: 6804054390254467359
+      DiagonalRectangleGridTransitionAnimation_6: 6704023676976945305
+      DiagonalRectangleGridTransitionAnimation_7: -3580635993966610510
+      DiagonalRectangleGridTransitionAnimation_8: 6298079693912470380
+      DiagonalRectangleGridTransitionAnimation_9: -4520990982769766762
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

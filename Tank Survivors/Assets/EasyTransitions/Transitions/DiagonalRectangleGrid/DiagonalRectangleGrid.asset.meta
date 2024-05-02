@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5d42ad7319df4a8439d74d82f30a60cc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/DiagonalRectangleGrid/DiagonalRectangleGrid.asset
+  uploadId: 587727

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc76d2821fb4ce4408b5340767a71c33
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/Fade/FadeIn.anim
+  uploadId: 587727

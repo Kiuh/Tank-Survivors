@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0208933b0e3a443a9c1b5975c0fcb7, type: 3}
+  m_Name: RectangleGrid
+  m_EditorClassIdentifier: 
+  multiplyColorMaterial: {fileID: 2100000, guid: 53171468e32441749b007c64337cd3db, type: 2}
+  addColorMaterial: {fileID: 2100000, guid: 65ccb7b6cbefce14eb6f884cfc33ba91, type: 2}
+  refrenceResolution: {x: 960, y: 540}
+  blockRaycasts: 1
+  colorTintMode: 0
+  colorTint: {r: 1, g: 1, b: 1, a: 1}
+  isCutoutTransition: 0
+  transitionSpeed: 1
+  autoAdjustTransitionTime: 1
+  flipX: 0
+  flipY: 0
+  transitionTime: 1.3
+  destroyTime: 1.25
+  transitionIn: {fileID: 5319433796827228326, guid: 9fc8103d1638b404a8d8adb3231e62f0, type: 3}
+  transitionOut: {fileID: 7408388071323071454, guid: ead20355430ea0d478955e636e5a7caa, type: 3}

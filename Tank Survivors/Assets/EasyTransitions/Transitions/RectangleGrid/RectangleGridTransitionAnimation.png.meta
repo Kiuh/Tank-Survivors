@@ -1,0 +1,1429 @@
+fileFormatVersion: 2
+guid: 15624411095bc9d4daf87d72aca1f416
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/RectangleGrid/RectangleGridTransitionAnimation.png
+  uploadId: 587727
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 595281173201618543
+    second: RectangleGridTransitionAnimation_0
+  - first:
+      213: -5690871381853731602
+    second: RectangleGridTransitionAnimation_1
+  - first:
+      213: 4566564797313786860
+    second: RectangleGridTransitionAnimation_2
+  - first:
+      213: 2845309715532972926
+    second: RectangleGridTransitionAnimation_3
+  - first:
+      213: -4443984072269656195
+    second: RectangleGridTransitionAnimation_4
+  - first:
+      213: -20384226562720772
+    second: RectangleGridTransitionAnimation_5
+  - first:
+      213: -6837435990059736520
+    second: RectangleGridTransitionAnimation_6
+  - first:
+      213: -4048216080483848671
+    second: RectangleGridTransitionAnimation_7
+  - first:
+      213: 2625579897169945847
+    second: RectangleGridTransitionAnimation_8
+  - first:
+      213: 6028487072289077737
+    second: RectangleGridTransitionAnimation_9
+  - first:
+      213: 5482944643201932314
+    second: RectangleGridTransitionAnimation_10
+  - first:
+      213: -8692882843509474547
+    second: RectangleGridTransitionAnimation_11
+  - first:
+      213: -9221334133376789733
+    second: RectangleGridTransitionAnimation_12
+  - first:
+      213: -3844564932738153240
+    second: RectangleGridTransitionAnimation_13
+  - first:
+      213: -2943513925963466777
+    second: RectangleGridTransitionAnimation_14
+  - first:
+      213: 8133872928282717582
+    second: RectangleGridTransitionAnimation_15
+  - first:
+      213: 3816025417237571236
+    second: RectangleGridTransitionAnimation_16
+  - first:
+      213: 2044253988167842704
+    second: RectangleGridTransitionAnimation_17
+  - first:
+      213: -4388253792182007257
+    second: RectangleGridTransitionAnimation_18
+  - first:
+      213: -4842572234946398295
+    second: RectangleGridTransitionAnimation_19
+  - first:
+      213: 2917011038938502113
+    second: RectangleGridTransitionAnimation_20
+  - first:
+      213: -2211753045953779440
+    second: RectangleGridTransitionAnimation_21
+  - first:
+      213: -1191220790317372652
+    second: RectangleGridTransitionAnimation_22
+  - first:
+      213: -8980273574740203514
+    second: RectangleGridTransitionAnimation_23
+  - first:
+      213: -4147040271729976133
+    second: RectangleGridTransitionAnimation_24
+  - first:
+      213: 3278733737854028186
+    second: RectangleGridTransitionAnimation_25
+  - first:
+      213: 6085639323093438297
+    second: RectangleGridTransitionAnimation_26
+  - first:
+      213: -129074442443013634
+    second: RectangleGridTransitionAnimation_27
+  - first:
+      213: 9201083954839797693
+    second: RectangleGridTransitionAnimation_28
+  - first:
+      213: 3468523156001967584
+    second: RectangleGridTransitionAnimation_29
+  - first:
+      213: 6248537993387716678
+    second: RectangleGridTransitionAnimation_30
+  - first:
+      213: -2025191351930421759
+    second: RectangleGridTransitionAnimation_31
+  - first:
+      213: -134238061818246054
+    second: RectangleGridTransitionAnimation_32
+  - first:
+      213: -1689818698676495644
+    second: RectangleGridTransitionAnimation_33
+  - first:
+      213: 5603860095300457626
+    second: RectangleGridTransitionAnimation_34
+  - first:
+      213: -3765155470887312878
+    second: RectangleGridTransitionAnimation_35
+  - first:
+      213: 1492973423654824815
+    second: RectangleGridTransitionAnimation_36
+  - first:
+      213: 544541799783908388
+    second: RectangleGridTransitionAnimation_37
+  - first:
+      213: -5291366563406483252
+    second: RectangleGridTransitionAnimation_38
+  - first:
+      213: -89192477377087606
+    second: RectangleGridTransitionAnimation_39
+  - first:
+      213: -172144861283301054
+    second: RectangleGridTransitionAnimation_40
+  - first:
+      213: -8038010402816505521
+    second: RectangleGridTransitionAnimation_41
+  - first:
+      213: 2812859487488876921
+    second: RectangleGridTransitionAnimation_42
+  - first:
+      213: 3017184543440038587
+    second: RectangleGridTransitionAnimation_43
+  - first:
+      213: 3129078297381051489
+    second: RectangleGridTransitionAnimation_44
+  - first:
+      213: 713161681552111080
+    second: RectangleGridTransitionAnimation_45
+  - first:
+      213: 6348956197623383675
+    second: RectangleGridTransitionAnimation_46
+  - first:
+      213: 8440935677158395342
+    second: RectangleGridTransitionAnimation_47
+  - first:
+      213: 2856002075878626
+    second: RectangleGridTransitionAnimation_48
+  - first:
+      213: -400300212851563572
+    second: RectangleGridTransitionAnimation_49
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 960
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f660926b21dd24800800000000000000
+      internalID: 595281173201618543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee40c2631a6f501b0800000000000000
+      internalID: -5690871381853731602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce321bb0d72bf5f30800000000000000
+      internalID: 4566564797313786860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e738f467c129c7720800000000000000
+      internalID: 2845309715532972926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f8fd0180cc352c0800000000000000
+      internalID: -4443984072269656195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb35b867a497bff0800000000000000
+      internalID: -20384226562720772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832a40e713c8c11a0800000000000000
+      internalID: -6837435990059736520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 3240
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e6cb45ce8d1d7c0800000000000000
+      internalID: -4048216080483848671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4a83c610fef6420800000000000000
+      internalID: 2625579897169945847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e933dc4d0d79a350800000000000000
+      internalID: 6028487072289077737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c9e256a15571c40800000000000000
+      internalID: 5482944643201932314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bb7865c1dac5780800000000000000
+      internalID: -8692882843509474547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1354e0667d370080800000000000000
+      internalID: -9221334133376789733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e40834209c55aac0800000000000000
+      internalID: -3844564932738153240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e738830ea98627d0800000000000000
+      internalID: -2943513925963466777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2700
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d257a455251e070800000000000000
+      internalID: 8133872928282717582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6ae4816ee35f430800000000000000
+      internalID: 3816025417237571236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b7b6bdb26ae5c10800000000000000
+      internalID: 2044253988167842704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a0bbc0d6ac913c0800000000000000
+      internalID: -4388253792182007257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7b9d8953abbccb0800000000000000
+      internalID: -4842572234946398295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e392ddb51e4b7820800000000000000
+      internalID: 2917011038938502113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0196905b2564e41e0800000000000000
+      internalID: -2211753045953779440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ba218a00fe77fe0800000000000000
+      internalID: -1191220790317372652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 2160
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60868c763c8af5380800000000000000
+      internalID: -8980273574740203514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc9b4648d0c276c0800000000000000
+      internalID: -4147040271729976133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_25
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99c0ed86f6608d20800000000000000
+      internalID: 3278733737854028186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f0224a8b8847450800000000000000
+      internalID: 6085639323093438297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_27
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef14a9c7a7f653ef0800000000000000
+      internalID: -129074442443013634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfb5c48b11d0bf70800000000000000
+      internalID: 9201083954839797693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_29
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edc6b0fe6ba22030800000000000000
+      internalID: 3468523156001967584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_30
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6403865e23447b650800000000000000
+      internalID: 6248537993387716678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_31
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1620
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e7ef1023315e3e0800000000000000
+      internalID: -2025191351930421759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c8cf9a137132ef0800000000000000
+      internalID: -134238061818246054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_33
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea139ab8de8c88e0800000000000000
+      internalID: -1689818698676495644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94de5fe019e4cd40800000000000000
+      internalID: 5603860095300457626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_35
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212a4a14c0b7fbbc0800000000000000
+      internalID: -3765155470887312878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_36
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b6b003b6b18b410800000000000000
+      internalID: 1492973423654824815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_37
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424c87db1e99e8700800000000000000
+      internalID: 544541799783908388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_38
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0f6cb352a4196b0800000000000000
+      internalID: -5291366563406483252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_39
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 1080
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a873d451aef13cef0800000000000000
+      internalID: -89192477377087606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249cc45292b6c9df0800000000000000
+      internalID: -172144861283301054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_41
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f494a373020437090800000000000000
+      internalID: -8038010402816505521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_42
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971acdafcc8490720800000000000000
+      internalID: 2812859487488876921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_43
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbaea854b513fd920800000000000000
+      internalID: 3017184543440038587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_44
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c18c50228bc6b20800000000000000
+      internalID: 3129078297381051489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_45
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5755855c8a5e900800000000000000
+      internalID: 713161681552111080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_46
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b764bd506060c1850800000000000000
+      internalID: 6348956197623383675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_47
+      rect:
+        serializedVersion: 2
+        x: 6720
+        y: 540
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd82f0c64a342570800000000000000
+      internalID: 8440935677158395342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4e53dc4852a0000800000000000000
+      internalID: 2856002075878626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RectangleGridTransitionAnimation_49
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 960
+        height: 540
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc32879c319d17af0800000000000000
+      internalID: -400300212851563572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      RectangleGridTransitionAnimation_0: 595281173201618543
+      RectangleGridTransitionAnimation_1: -5690871381853731602
+      RectangleGridTransitionAnimation_10: 5482944643201932314
+      RectangleGridTransitionAnimation_11: -8692882843509474547
+      RectangleGridTransitionAnimation_12: -9221334133376789733
+      RectangleGridTransitionAnimation_13: -3844564932738153240
+      RectangleGridTransitionAnimation_14: -2943513925963466777
+      RectangleGridTransitionAnimation_15: 8133872928282717582
+      RectangleGridTransitionAnimation_16: 3816025417237571236
+      RectangleGridTransitionAnimation_17: 2044253988167842704
+      RectangleGridTransitionAnimation_18: -4388253792182007257
+      RectangleGridTransitionAnimation_19: -4842572234946398295
+      RectangleGridTransitionAnimation_2: 4566564797313786860
+      RectangleGridTransitionAnimation_20: 2917011038938502113
+      RectangleGridTransitionAnimation_21: -2211753045953779440
+      RectangleGridTransitionAnimation_22: -1191220790317372652
+      RectangleGridTransitionAnimation_23: -8980273574740203514
+      RectangleGridTransitionAnimation_24: -4147040271729976133
+      RectangleGridTransitionAnimation_25: 3278733737854028186
+      RectangleGridTransitionAnimation_26: 6085639323093438297
+      RectangleGridTransitionAnimation_27: -129074442443013634
+      RectangleGridTransitionAnimation_28: 9201083954839797693
+      RectangleGridTransitionAnimation_29: 3468523156001967584
+      RectangleGridTransitionAnimation_3: 2845309715532972926
+      RectangleGridTransitionAnimation_30: 6248537993387716678
+      RectangleGridTransitionAnimation_31: -2025191351930421759
+      RectangleGridTransitionAnimation_32: -134238061818246054
+      RectangleGridTransitionAnimation_33: -1689818698676495644
+      RectangleGridTransitionAnimation_34: 5603860095300457626
+      RectangleGridTransitionAnimation_35: -3765155470887312878
+      RectangleGridTransitionAnimation_36: 1492973423654824815
+      RectangleGridTransitionAnimation_37: 544541799783908388
+      RectangleGridTransitionAnimation_38: -5291366563406483252
+      RectangleGridTransitionAnimation_39: -89192477377087606
+      RectangleGridTransitionAnimation_4: -4443984072269656195
+      RectangleGridTransitionAnimation_40: -172144861283301054
+      RectangleGridTransitionAnimation_41: -8038010402816505521
+      RectangleGridTransitionAnimation_42: 2812859487488876921
+      RectangleGridTransitionAnimation_43: 3017184543440038587
+      RectangleGridTransitionAnimation_44: 3129078297381051489
+      RectangleGridTransitionAnimation_45: 713161681552111080
+      RectangleGridTransitionAnimation_46: 6348956197623383675
+      RectangleGridTransitionAnimation_47: 8440935677158395342
+      RectangleGridTransitionAnimation_48: 2856002075878626
+      RectangleGridTransitionAnimation_49: -400300212851563572
+      RectangleGridTransitionAnimation_5: -20384226562720772
+      RectangleGridTransitionAnimation_6: -6837435990059736520
+      RectangleGridTransitionAnimation_7: -4048216080483848671
+      RectangleGridTransitionAnimation_8: 2625579897169945847
+      RectangleGridTransitionAnimation_9: 6028487072289077737
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

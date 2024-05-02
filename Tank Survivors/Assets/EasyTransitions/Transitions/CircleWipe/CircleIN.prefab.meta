@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9ae6ca60e7061124e9e47ac5bbb31e9b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/CircleWipe/CircleIN.prefab
+  uploadId: 587727

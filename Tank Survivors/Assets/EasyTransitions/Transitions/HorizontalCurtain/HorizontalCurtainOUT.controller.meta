@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9439e0c237fb78041ae937326a070f3c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/HorizontalCurtain/HorizontalCurtainOUT.controller
+  uploadId: 587727

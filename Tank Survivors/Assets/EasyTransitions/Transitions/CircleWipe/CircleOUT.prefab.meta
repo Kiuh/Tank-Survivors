@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 82a04d1e6894c5c49a2653d25abde114
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 225607
+  packageName: Easy Transitions
+  packageVersion: 1.4
+  assetPath: Assets/EasyTransitions/Transitions/CircleWipe/CircleOUT.prefab
+  uploadId: 587727
