@@ -35,7 +35,7 @@ namespace Enemies.Producers
 
         public override float EndTime => endTime;
 
-        public override void Produce(TankImpl tank, Transform enemyRoot)
+        public override IEnemy Produce(TankImpl tank, Transform enemyRoot)
         {
             timer -= Time.deltaTime;
             ProgressorTimer += Time.deltaTime;
@@ -54,7 +54,10 @@ namespace Enemies.Producers
                 CloneModules(Modules, enemy.Modules);
                 enemy.Initialize(tank);
                 timer = spawnInterval;
+                return enemy;
             }
+
+            return null;
         }
     }
 }

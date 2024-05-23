@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Common
@@ -40,31 +39,47 @@ namespace Common
             get
             {
                 modifications ??= new List<ValueModification<T>>();
+                isDirty = true;
                 return modifications;
             }
         }
         public T SourceValue
         {
             get => sourceValue;
-            set => sourceValue = value;
+            set
+            {
+                isDirty = true;
+                sourceValue = value;
+            }
         }
 
         public ModifiableValue()
         {
             SourceValue = default;
+            isDirty = true;
         }
 
         public ModifiableValue(T sourceValue)
         {
             SourceValue = sourceValue;
+            isDirty = true;
         }
 
-        [ShowInInspector]
-        [OdinSerialize]
-        private T ModifiedValue => GetModifiedValue();
+        private bool isDirty = true;
+        private bool notFirstCalculate = false;
+
+        [ReadOnly]
+        [SerializeField]
+        private T cachedValue;
 
         public T GetModifiedValue()
         {
+            if (!isDirty && notFirstCalculate)
+            {
+                return cachedValue;
+            }
+
+            notFirstCalculate = true;
             T value = SourceValue;
             foreach (
                 ValueModification<T> modification in Modifications.OrderBy(x => (int)x.Priority)
@@ -72,6 +87,8 @@ namespace Common
             {
                 value = modification.Func(value);
             }
+            cachedValue = value;
+            isDirty = false;
             return value;
         }
     }

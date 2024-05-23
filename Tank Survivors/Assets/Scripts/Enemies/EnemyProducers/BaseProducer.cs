@@ -81,6 +81,6 @@ namespace Enemies.Producers
 
         public abstract float StartTime { get; }
         public abstract float EndTime { get; }
-        public abstract void Produce(TankImpl tank, Transform enemyRoot);
+        public abstract IEnemy Produce(TankImpl tank, Transform enemyRoot);
     }
 }

@@ -14,12 +14,12 @@ namespace Configs
 {
     [Serializable]
     [HideReferenceObjectPicker]
-    public class SelectableEnemyName
+    public struct SelectableEnemyName
     {
         [OdinSerialize]
         [ValueDropdown("@GetNamesList()")]
         [ShowInInspector]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
 #if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()

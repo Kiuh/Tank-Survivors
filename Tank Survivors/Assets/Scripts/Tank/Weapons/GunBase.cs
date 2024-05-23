@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Common;
 using DataStructs;
@@ -42,11 +43,23 @@ namespace Tank.Weapons
         protected TankImpl Tank;
         protected EnemyFinder EnemyFinder;
 
+        private Dictionary<Type, IWeaponModule> cachedModules = new();
+
         public T GetModule<T>()
             where T : class, IWeaponModule
         {
+            cachedModules ??= new();
+            if (cachedModules.TryGetValue(typeof(T), out IWeaponModule value))
+            {
+                return value as T;
+            }
             IWeaponModule module = Modules.FirstOrDefault(x => x is T);
-            return module == null ? null : module as T;
+            if (module != null)
+            {
+                cachedModules.Add(typeof(T), module);
+                return module as T;
+            }
+            return null;
         }
 
         public IEnumerable<ILeveledUpgrade> Upgrades => leveledUpgrades;
@@ -95,7 +108,7 @@ namespace Tank.Weapons
         public Vector3 GetSpreadDirection(Vector3 direction, float angle)
         {
             Quaternion rotation = Quaternion.AngleAxis(
-                Random.Range(-angle, angle),
+                UnityEngine.Random.Range(-angle, angle),
                 Vector3.forward
             );
             return rotation * direction;

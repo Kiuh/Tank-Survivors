@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Enemies;
 using Sirenix.OdinInspector;
 using Tank;
@@ -39,14 +40,12 @@ namespace General
         {
             tank.Heal(tank.Health.MaxValue / 2);
 
-            IEnumerable<IEnemy> enemies = tank.EnemyFinder.GetAllEnemies();
+            IEnumerable<IEnemy> enemies = tank
+                .EnemyFinder.GetAllEnemies()
+                .Select(x => x.GetComponent<IEnemy>())
+                .Where(x => x != null);
             foreach (IEnemy enemy in enemies)
             {
-                if (enemy is Enemy)
-                {
-                    continue;
-                }
-
                 enemy.TakeDamage(float.MaxValue);
             }
 

@@ -1,27 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enemies;
 using Enemies.EnemyProducers;
 using Enemies.Producers;
+using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
 namespace General
 {
     [AddComponentMenu("General.EnemyGenerator")]
-    public class EnemyGenerator : MonoBehaviour
+    public class EnemyGenerator : SerializedMonoBehaviour
     {
+        [Required]
         [SerializeField]
         private Transform enemyRoot;
 
+        [Required]
         [SerializeField]
         private GameContext gameContext;
 
+        [Required]
         [SerializeField]
         private Timer timer;
 
+        [Required]
         [SerializeField]
         private TankImpl tank;
+
+        [ReadOnly]
+        [SerializeField]
+        private List<Transform> enemies = new();
+        public IEnumerable<Transform> Enemies => enemies;
+
+        [ReadOnly]
+        [SerializeField]
+        private List<Transform> bosses = new();
+        public IEnumerable<Transform> Bosses => bosses;
 
         private List<IEnemyProducer> enemyProducers = new();
         private List<IEnemyProducer> toRemove = new();
@@ -39,6 +55,8 @@ namespace General
 
         private void Update()
         {
+            enemies = enemies.Where(x => x != null).ToList();
+            bosses = bosses.Where(x => x != null).ToList();
             if (!timer.IsPaused)
             {
                 GenerateEnemies();
@@ -55,7 +73,11 @@ namespace General
                     && timer.CurrentTime <= producer.EndTime
                 )
                 {
-                    producer.Produce(tank, enemyRoot);
+                    IEnemy newEnemy = producer.Produce(tank, enemyRoot);
+                    if (newEnemy != null)
+                    {
+                        enemies.Add(newEnemy.Transform);
+                    }
                 }
                 if (timer.CurrentTime >= producer.EndTime)
                 {
@@ -79,7 +101,11 @@ namespace General
             {
                 if (timer.CurrentTime >= producer.StartTime)
                 {
-                    producer.Produce(tank, enemyRoot);
+                    IEnemy boss = producer.Produce(tank, enemyRoot);
+                    if (boss != null)
+                    {
+                        bosses.Add(boss.Transform);
+                    }
                     timer.StopTimer();
                     producer.OnBossDead(() =>
                     {

@@ -60,7 +60,7 @@ namespace Enemies.EnemyProducers
             CloneModules(baseModules, Modules);
         }
 
-        public void Produce(TankImpl tank, Transform enemyRoot)
+        public IEnemy Produce(TankImpl tank, Transform enemyRoot)
         {
             boss = UnityEngine
                 .Object.Instantiate(
@@ -72,6 +72,7 @@ namespace Enemies.EnemyProducers
                 .GetComponent<IEnemy>();
             CloneModules(Modules, boss.Modules);
             boss.Initialize(tank);
+            return boss;
         }
 
         public void OnBossDead(Action action)
