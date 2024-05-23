@@ -48,13 +48,11 @@ namespace Panels.Death
 
         public void RepeatGame()
         {
-            Time.timeScale = 1.0f;
             ScenesController.Instance.LoadScene(InGameScene.GameplayScene);
         }
 
         public void LeaveGame()
         {
-            Time.timeScale = 1.0f;
             ScenesController.Instance.LoadScene(InGameScene.MainScene);
         }
 
