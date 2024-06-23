@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tankBase1_0: -7694644967514649717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

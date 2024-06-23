@@ -308,7 +308,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      electricField_0: -1820880287452278951
+      electricField_1: -6228265469222212478
+      electricField_2: 2127772368970283893
+      electricField_3: 290799882785180118
+      electricField_4: 2367830066257557313
+      electricField_5: -2276633179373272490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

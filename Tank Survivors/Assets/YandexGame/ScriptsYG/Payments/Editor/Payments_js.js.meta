@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2dd21d39f5f407e41b35e01cecb1269b
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235877
+  packageName: PluginYG - Yandex Game integration
+  packageVersion: 1.6.2
+  assetPath: Assets/YandexGame/ScriptsYG/Payments/Editor/Payments_js.js
+  uploadId: 655369
