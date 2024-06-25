@@ -5,18 +5,41 @@ using YG.Utils.Pay;
 
 namespace YG
 {
-    [DefaultExecutionOrder(-101), HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#10e7dfffefdc42ec93b39be0c78e77cb")]
+    [
+        DefaultExecutionOrder(-101),
+        HelpURL(
+            "https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#10e7dfffefdc42ec93b39be0c78e77cb"
+        )
+    ]
     public class PaymentsCatalogYG : MonoBehaviour
     {
         [SerializeField]
         private bool spawnPurchases = true;
 
-        [SerializeField, ConditionallyVisible(nameof(spawnPurchases)), Tooltip("Родительский объект для спавна в нём покупок")]
+        [
+            SerializeField,
+            ConditionallyVisible(nameof(spawnPurchases)),
+            Tooltip("Родительский объект для спавна в нём покупок")
+        ]
         private Transform rootSpawnPurchases;
-        [SerializeField, ConditionallyVisible(nameof(spawnPurchases)), Tooltip("Префаб покупки (объект со компонентом PurchaseYG)")]
+
+        [
+            SerializeField,
+            ConditionallyVisible(nameof(spawnPurchases)),
+            Tooltip("Префаб покупки (объект со компонентом PurchaseYG)")
+        ]
         private GameObject purchasePrefab;
-        public enum UpdateListMethod { OnEnable, Start, DoNotUpdate };
-        [Tooltip("Когда следует обновлять список покупок?\nStart - Обновлять в методе Start.\nOnEnable - Обновлять при каждой активации объекта (в методе OnEnable)\nDoNotUpdate - Не обновлять.")]
+
+        public enum UpdateListMethod
+        {
+            OnEnable,
+            Start,
+            DoNotUpdate
+        };
+
+        [Tooltip(
+            "Когда следует обновлять список покупок?\nStart - Обновлять в методе Start.\nOnEnable - Обновлять при каждой активации объекта (в методе OnEnable)\nDoNotUpdate - Не обновлять."
+        )]
         public UpdateListMethod updateListMethod;
 
         [SerializeField, Tooltip("Список покупок (PurchaseYG)")]
@@ -27,22 +50,27 @@ namespace YG
         private void OnEnable()
         {
             if (updateListMethod != UpdateListMethod.DoNotUpdate)
+            {
                 YandexGame.GetPaymentsEvent += UpdatePurchasesList;
+            }
 
             if (YandexGame.SDKEnabled && updateListMethod == UpdateListMethod.OnEnable)
+            {
                 UpdatePurchasesList();
+            }
         }
 
         private void OnDisable()
         {
             if (updateListMethod != UpdateListMethod.DoNotUpdate)
+            {
                 YandexGame.GetPaymentsEvent -= UpdatePurchasesList;
+            }
         }
 
         private void Start()
         {
-            if (YandexGame.purchases.Length > 0 &&
-                updateListMethod == UpdateListMethod.Start)
+            if (YandexGame.purchases.Length > 0 && updateListMethod == UpdateListMethod.Start)
             {
                 UpdatePurchasesList();
             }

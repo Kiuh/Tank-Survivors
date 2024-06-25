@@ -1,20 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace EasyTransition
 {
     public class CutoutMaskUI : Image
     {
-        public override Material materialForRendering {
+        public override Material materialForRendering
+        {
             get
             {
-                Material material = new Material(base.materialForRendering);
+                Material material = new(base.materialForRendering);
                 material.SetInt("_StencilComp", (int)CompareFunction.NotEqual);
                 return material;
             }
         }
     }
-
 }
-

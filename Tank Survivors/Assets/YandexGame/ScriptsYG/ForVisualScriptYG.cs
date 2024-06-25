@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace YG
@@ -9,45 +9,92 @@ namespace YG
         public YandexGame yandexGame;
         public UnityEvent GetDataEvent;
 
-        [HideInInspector] public bool SDKEnabled;
-        [HideInInspector] public bool auth;
-        [HideInInspector] public string playerName;
-        [HideInInspector] public string playerId;
-        [HideInInspector] public bool initializedLB;
-        [HideInInspector] public string playerPhoto;
-        [HideInInspector] public string photoSize;
-        [HideInInspector] public string language;
-        [HideInInspector] public string domain;
-        [HideInInspector] public string deviceType;
-        [HideInInspector] public bool isMobile;
-        [HideInInspector] public bool isDesktop;
-        [HideInInspector] public bool isTablet;
-        [HideInInspector] public bool isTV;
-        [HideInInspector] public string appID;
-        [HideInInspector] public string browserLang;
-        [HideInInspector] public string payload;
-        [HideInInspector] public bool promptCanShow;
-        [HideInInspector] public bool reviewCanShow;
-        [HideInInspector] public bool isFirstSession;
-        [HideInInspector] public string languageSaves;
-        [HideInInspector] public bool promptDone;
+        [HideInInspector]
+        public bool SDKEnabled;
+
+        [HideInInspector]
+        public bool auth;
+
+        [HideInInspector]
+        public string playerName;
+
+        [HideInInspector]
+        public string playerId;
+
+        [HideInInspector]
+        public bool initializedLB;
+
+        [HideInInspector]
+        public string playerPhoto;
+
+        [HideInInspector]
+        public string photoSize;
+
+        [HideInInspector]
+        public string language;
+
+        [HideInInspector]
+        public string domain;
+
+        [HideInInspector]
+        public string deviceType;
+
+        [HideInInspector]
+        public bool isMobile;
+
+        [HideInInspector]
+        public bool isDesktop;
+
+        [HideInInspector]
+        public bool isTablet;
+
+        [HideInInspector]
+        public bool isTV;
+
+        [HideInInspector]
+        public string appID;
+
+        [HideInInspector]
+        public string browserLang;
+
+        [HideInInspector]
+        public string payload;
+
+        [HideInInspector]
+        public bool promptCanShow;
+
+        [HideInInspector]
+        public bool reviewCanShow;
+
+        [HideInInspector]
+        public bool isFirstSession;
+
+        [HideInInspector]
+        public string languageSaves;
+
+        [HideInInspector]
+        public bool promptDone;
 
         private void Awake()
         {
             if (YandexGame.SDKEnabled)
+            {
                 GetData();
-
-            else StartCoroutine(Initialization());
+            }
+            else
+            {
+                _ = StartCoroutine(Initialization());
+            }
         }
 
-        IEnumerator Initialization()
+        private IEnumerator Initialization()
         {
             yield return YandexGame.SDKEnabled;
             yield return new WaitForSecondsRealtime(0.1f);
             GetData();
         }
 
-        void GetData()
+        private void GetData()
         {
             SDKEnabled = YandexGame.SDKEnabled;
             auth = YandexGame.auth;

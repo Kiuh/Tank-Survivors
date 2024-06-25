@@ -551,9 +551,9 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
-    CHOOSE_LOADING_TYPE: 4
+    CHOOSE_LOADING_TYPE: 2
     CONFIGURE_SHADOWS_AROUND_CANVAS: 
-    CONNECT_PLUGIN: YG1.6.1
+    CONNECT_PLUGIN: YG1.6.2
     CUSTOMIZE_BARS_BACKGROUND: backgroundColor = "#000000"
     CUSTOMIZE_LOADING_SCREEN_BACKGROUND: 
     CUSTOMIZE_LOGO: 
@@ -567,7 +567,7 @@ PlayerSettings:
     GP_TOKEN: 
     IGB_GAME_DISTRIBUTION_GAME_ID: 
     IGB_VK_PLAY_GAME_ID: 
-    LOCK_ASPECT_RATIO: all
+    LOCK_ASPECT_RATIO: lock(canvas, 9/16);
     YG_BANNER_DYNAMIC_1: 
     YG_BANNER_DYNAMIC_2: 
     YG_BANNER_STATIC_1: 
@@ -831,7 +831,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:PluginYG
+  webGLTemplate: PROJECT:AT2.1.1
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -867,7 +867,8 @@ PlayerSettings:
   scriptingBackend:
     Android: 1
   il2cppCompilerConfiguration: {}
-  il2cppCodeGeneration: {}
+  il2cppCodeGeneration:
+    WebGL: 1
   il2cppStacktraceInformation:
     Android: 1
   managedStrippingLevel:
@@ -879,7 +880,7 @@ PlayerSettings:
     PS4: 1
     PS5: 1
     QNX: 1
-    WebGL: 4
+    WebGL: 3
     Windows Store Apps: 1
     XboxOne: 1
     iPhone: 1
