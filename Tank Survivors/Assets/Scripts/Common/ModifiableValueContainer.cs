@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Common
 {
     [Serializable]
-    [HideReferenceObjectPicker]
     public class ModifiableValueContainer
     {
         public ModifiableValueContainer() { }

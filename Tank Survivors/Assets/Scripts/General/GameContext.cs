@@ -1,4 +1,5 @@
 ﻿using Configs;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace General
@@ -6,9 +7,16 @@ namespace General
     [AddComponentMenu("General.GameContext")]
     public class GameContext : MonoBehaviour
     {
-        [field: SerializeField]
-        public DataTransfer DataTransfer { get; private set; }
+        [ReadOnly]
+        [SerializeField]
+        private DataTransfer dataTransfer;
+        public DataTransfer DataTransfer
+        {
+            get => dataTransfer;
+            private set => dataTransfer = value;
+        }
 
+        [Required]
         [SerializeField]
         private Game gameConfig;
         public Game GameConfig => gameConfig;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataStructs;
 using Enemies;
 using Sirenix.OdinInspector;
@@ -13,13 +14,16 @@ using UnityEditor;
 namespace Configs
 {
     [Serializable]
-    [HideReferenceObjectPicker]
     public struct SelectableEnemyName
     {
-        [OdinSerialize]
+        [SerializeField]
         [ValueDropdown("@GetNamesList()")]
-        [ShowInInspector]
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get => name;
+            set => name = value;
+        }
 
 #if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
@@ -43,13 +47,16 @@ namespace Configs
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     public class SelectablePickupName
     {
-        [OdinSerialize]
+        [SerializeField]
         [ValueDropdown("@GetNamesList()")]
-        [ShowInInspector]
-        public string Name { get; private set; }
+        private string name;
+        public string Name
+        {
+            get => name;
+            private set => name = value;
+        }
 
 #if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
@@ -73,11 +80,30 @@ namespace Configs
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     public class PickupGenerationConfig
     {
-        [OdinSerialize]
-        public Dictionary<SelectablePickupName, Percentage> Chances { get; private set; } = new();
+        [Serializable]
+        private struct PickupNamePercentage
+        {
+            public SelectablePickupName SelectablePickupName;
+            public Percentage Percentage;
+        }
+
+        [SerializeField]
+        private List<PickupNamePercentage> pickupNamePercentages;
+        private Dictionary<SelectablePickupName, Percentage> chances = new();
+
+        public Dictionary<SelectablePickupName, Percentage> Chances
+        {
+            get
+            {
+                chances ??= pickupNamePercentages.ToDictionary(
+                    x => x.SelectablePickupName,
+                    x => x.Percentage
+                );
+                return chances;
+            }
+        }
     }
 
     [CreateAssetMenu(
@@ -87,11 +113,29 @@ namespace Configs
     )]
     public class EnemiesPickupsDrops : SerializedScriptableObject
     {
+        [Serializable]
+        private struct EnemyNamePickupGeneration
+        {
+            public SelectableEnemyName SelectableEnemyName;
+            public PickupGenerationConfig PickupGenerationConfig;
+        }
+
+        [SerializeField]
+        private List<EnemyNamePickupGeneration> enemyNamePercentages;
+
+        private Dictionary<SelectableEnemyName, PickupGenerationConfig> chances = new();
+
         [OdinSerialize]
         public Dictionary<SelectableEnemyName, PickupGenerationConfig> EnemiesPickupsChances
         {
-            get;
-            private set;
-        } = new();
+            get
+            {
+                chances ??= enemyNamePercentages.ToDictionary(
+                    x => x.SelectableEnemyName,
+                    x => x.PickupGenerationConfig
+                );
+                return chances;
+            }
+        }
     }
 }

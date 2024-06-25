@@ -1,5 +1,4 @@
 ﻿using System;
-using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
@@ -20,11 +19,21 @@ namespace General
         private GameContext gameContext;
 
         [SerializeField]
-        [ReadOnly]
-        public int BossCount { get; private set; } = 3;
+        private int bossCount = 3;
+        public int BossCount
+        {
+            get => bossCount;
+            private set => bossCount = value;
+        }
 
-        public int Progress { get; private set; } = 0;
+        [SerializeField]
+        private int progress = 0;
 
+        public int Progress
+        {
+            get => progress;
+            private set => progress = value;
+        }
         public event Action OnWin;
         public event Action OnLoose;
 

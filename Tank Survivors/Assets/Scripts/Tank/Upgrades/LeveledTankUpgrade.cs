@@ -1,26 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.UpgradablePiece;
+using UnityEngine;
 
 namespace Tank.Upgrades
 {
     [Serializable]
-    [HideReferenceObjectPicker]
     public class LeveledTankUpgrade : ILeveledUpgrade
     {
         [FoldoutGroup("$UpgradingLevel")]
-        [OdinSerialize]
-        public uint UpgradingLevel { get; private set; }
+        [SerializeField]
+        private uint upgradingLevel;
+        public uint UpgradingLevel
+        {
+            get => upgradingLevel;
+            private set => upgradingLevel = value;
+        }
 
         [FoldoutGroup("$UpgradingLevel")]
         [MultiLineProperty]
-        [OdinSerialize]
-        public string Description { get; private set; }
+        [SerializeField]
+        private string description;
+        public string Description
+        {
+            get => description;
+            private set => description = value;
+        }
 
         [FoldoutGroup("$UpgradingLevel")]
-        [NonSerialized, OdinSerialize]
+        [SerializeReference]
         [PropertyOrder(1)]
         private List<IPropertyUpgrade> propertyUpgrades = new();
 

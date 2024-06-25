@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Configs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
 namespace Enemies.Producers
 {
+    [Serializable]
     public abstract class BaseProducer : IEnemyProducer
     {
         [AssetsOnly]
@@ -15,7 +16,7 @@ namespace Enemies.Producers
         [FoldoutGroup("Enemy")]
         protected GameObject EnemyPrefab;
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(
             HideAddButton = true,
             HideRemoveButton = true,
@@ -25,7 +26,7 @@ namespace Enemies.Producers
         [FoldoutGroup("Enemy/Enemy stats")]
         private List<IModule> baseModules = new();
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(
             HideAddButton = true,
             HideRemoveButton = true,
@@ -35,7 +36,13 @@ namespace Enemies.Producers
         [FoldoutGroup("Enemy/Enemy stats")]
         [LabelText("Modified Modules")]
         [ReadOnly]
-        public List<IModule> Modules { get; set; } = new();
+        private List<IModule> modules = new();
+
+        public List<IModule> Modules
+        {
+            get => modules;
+            set => modules = value;
+        }
         public IEnemy Enemy => EnemyPrefab.GetComponent<IEnemy>();
 
         [Button("Clone stats from prefab")]
@@ -45,10 +52,24 @@ namespace Enemies.Producers
             CloneModules(Enemy.Modules, baseModules);
         }
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Progressor")]
-        public Progressor Progressor { get; set; }
-        public float ProgressorTimer { get; set; } = 0.0f;
+        private Progressor progressor;
+
+        public Progressor Progressor
+        {
+            get => progressor;
+            set => progressor = value;
+        }
+
+        [ReadOnly]
+        [SerializeField]
+        private float progressorTimer = 0.0f;
+        public float ProgressorTimer
+        {
+            get => progressorTimer;
+            set => progressorTimer = value;
+        }
 
         public virtual void Initialize()
         {
@@ -66,10 +87,10 @@ namespace Enemies.Producers
             source.ForEach(module => target.Add(module.Clone()));
         }
 
-        protected void UpgragdeStats()
+        protected void UpgradeStats()
         {
             int applyCount = (int)(ProgressorTimer / Progressor.Interval);
-            foreach (IModuleUpgrade upgrade in Progressor.UpgradebleModules)
+            foreach (IModuleUpgrade upgrade in Progressor.UpgradableModules)
             {
                 for (int i = 0; i < applyCount; i++)
                 {

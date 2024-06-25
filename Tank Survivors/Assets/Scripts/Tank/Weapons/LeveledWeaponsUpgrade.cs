@@ -9,7 +9,6 @@ using Tank.Weapons.ModulesUpgrades;
 namespace Tank.Weapons
 {
     [Serializable]
-    [HideReferenceObjectPicker]
     public class LeveledWeaponUpgrade : ILeveledUpgrade
     {
         [FoldoutGroup("$UpgradingLevel")]
@@ -40,7 +39,6 @@ namespace Tank.Weapons
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     public class LevelUpWeaponUpgrade : ILevelUpUpgrade
     {
         [FoldoutGroup("$LevelForUpgrade")]

@@ -4,13 +4,12 @@ using Configs;
 using DataStructs;
 using Enemies;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.PickUps;
 using UnityEngine;
 
 namespace General
 {
-    public class EnemyPickupsGenerator : SerializedMonoBehaviour
+    public class EnemyPickupsGenerator : MonoBehaviour
     {
         [SerializeField]
         private EnemiesPickupsDrops enemiesPickups;
@@ -18,8 +17,8 @@ namespace General
         [SerializeField]
         private Transform pickupsParent;
 
-        [OdinSerialize]
-        [AssetList(CustomFilterMethod = "PickupsFilter", AutoPopulate = true)]
+        [SerializeField]
+        [AssetList(CustomFilterMethod = nameof(PickupsFilter), AutoPopulate = true)]
         private List<GameObject> pickUps;
         private Dictionary<string, GameObject> pickupsByName;
         private Dictionary<string, PickupGenerationConfig> pickupsConfigsByName;

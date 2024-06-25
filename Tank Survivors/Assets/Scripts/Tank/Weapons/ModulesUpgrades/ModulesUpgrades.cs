@@ -19,7 +19,6 @@ namespace Tank.Weapons.ModulesUpgrades
     [HideLabel]
     [Serializable]
     [InlineProperty]
-    [HideReferenceObjectPicker]
     public abstract class BaseModuleMathUpgrade<T> : IModuleUpgrade
     {
         [OdinSerialize]
@@ -45,7 +44,6 @@ namespace Tank.Weapons.ModulesUpgrades
     [HideLabel]
     [Serializable]
     [InlineProperty]
-    [HideReferenceObjectPicker]
     public class WeaponGunCreation : IModuleUpgrade
     {
         [InfoBox("This Module Upgrade Creates Gun")]

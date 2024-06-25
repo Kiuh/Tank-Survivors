@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Common;
 using Enemies.Bosses.Abilities;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -11,25 +10,52 @@ namespace Enemies
 {
     public class Enemy : SerializedMonoBehaviour, IEnemy
     {
-        [OdinSerialize]
-        public string EnemyName { get; private set; }
+        [SerializeField]
+        private string enemyName;
+        public string EnemyName
+        {
+            get => enemyName;
+            private set => enemyName = value;
+        }
 
-        [OdinSerialize]
-        public Rigidbody2D Rigidbody { get; private set; }
+        [SerializeField]
+        private Rigidbody2D rigidBody;
+        public Rigidbody2D RigidBody
+        {
+            get => rigidBody;
+            private set => rigidBody = value;
+        }
 
-        [OdinSerialize]
-        public Collider2D Collider { get; private set; }
-        public float Health { get; private set; }
+        [SerializeField]
+        private Collider2D ownCollider;
+        public Collider2D OwnCollider
+        {
+            get => ownCollider;
+            private set => ownCollider = value;
+        }
 
-        [OdinSerialize]
+        [SerializeField]
+        private float health;
+        public float Health
+        {
+            get => health;
+            private set => health = value;
+        }
+
+        [SerializeReference]
         [LabelText("Abilities")]
         private List<IAbility> abilities = new();
         public List<IAbility> Abilities => abilities;
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(DraggableItems = false, HideAddButton = true, HideRemoveButton = true)]
         [FoldoutGroup("Modules")]
-        public List<IModule> Modules { get; set; } = new();
+        private List<IModule> modules = new();
+        public List<IModule> Modules
+        {
+            get => modules;
+            set => modules = value;
+        }
         public List<IAbility> UpdatableAbilities { get; set; } = new();
         public List<IAbility> FixedUpdatableAbilities { get; set; } = new();
 
@@ -37,6 +63,7 @@ namespace Enemies
         public Transform Transform => enemyTransform;
 
         private TankImpl tank;
+
         public event Action OnDeath;
 
         public void Initialize(TankImpl tank)

@@ -2,7 +2,7 @@
 using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using UnityEngine;
 
 namespace Tank.Upgrades
 {
@@ -14,10 +14,9 @@ namespace Tank.Upgrades
     [HideLabel]
     [Serializable]
     [InlineProperty]
-    [HideReferenceObjectPicker]
     public abstract class BasePropertyMathUpgrade<T> : IPropertyUpgrade
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("@GetType()")]
         [HorizontalGroup("@GetType()/Horizontal")]
         [EnumToggleButtons]
@@ -25,13 +24,13 @@ namespace Tank.Upgrades
 
         [FoldoutGroup("@GetType()")]
         [InlineProperty]
-        [OdinSerialize]
+        [SerializeField]
         protected T OperationValue;
 
         [FoldoutGroup("@GetType()")]
         [LabelText("Priority")]
         [EnumToggleButtons]
-        [OdinSerialize]
+        [SerializeField]
         protected ModificationPriority ModificationPriority = ModificationPriority.Medium;
 
         public abstract void ApplyUpgrade(TankImpl tank);

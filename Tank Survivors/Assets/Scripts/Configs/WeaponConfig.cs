@@ -1,16 +1,20 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Weapons;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "WeaponConfig", menuName = "Configs/WeaponConfig")]
-    public class WeaponConfig : SerializedScriptableObject
+    public class WeaponConfig : ScriptableObject
     {
-        [OdinSerialize]
+        [SerializeReference]
         [HideLabel]
         [InlineProperty]
-        public IWeapon Weapon { get; private set; }
+        private IWeapon weapon;
+        public IWeapon Weapon
+        {
+            get => weapon;
+            private set => weapon = value;
+        }
     }
 }

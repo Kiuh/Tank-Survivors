@@ -1,5 +1,4 @@
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Tank.PickUps
@@ -11,10 +10,16 @@ namespace Tank.PickUps
         private float healAmount;
 
         private bool grabbed;
+
         public bool Grabbed => grabbed;
 
-        [OdinSerialize]
-        public string PickupName { get; private set; }
+        [SerializeField]
+        private string pickupName;
+        public string PickupName
+        {
+            get => pickupName;
+            private set => pickupName = value;
+        }
 
         private void OnEnable()
         {

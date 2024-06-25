@@ -5,7 +5,6 @@ using Common;
 using DataStructs;
 using General;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
@@ -15,7 +14,7 @@ namespace Tank
 {
     [SelectionBase]
     [AddComponentMenu("Tank.TankImpl")]
-    public class TankImpl : SerializedMonoBehaviour
+    public class TankImpl : MonoBehaviour
     {
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
@@ -25,79 +24,143 @@ namespace Tank
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
         [SerializeField]
-        public EnemyFinder EnemyFinder { get; private set; }
+        private EnemyFinder enemyFinder;
+        public EnemyFinder EnemyFinder
+        {
+            get => enemyFinder;
+            private set => enemyFinder = value;
+        }
 
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
-        [OdinSerialize]
-        public EnemyPickupsGenerator EnemyPickupsGenerator { get; private set; }
+        [SerializeField]
+        private EnemyPickupsGenerator enemyPickupsGenerator;
+        public EnemyPickupsGenerator EnemyPickupsGenerator
+        {
+            get => enemyPickupsGenerator;
+            private set => enemyPickupsGenerator = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Health"), HideLabel]
-        public ModifiableValueContainer Health { get; private set; } = new();
+        private ModifiableValueContainer health = new();
+        public ModifiableValueContainer Health
+        {
+            get => health;
+            private set => health = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("PlayerLevel"), HideLabel]
-        public PlayerLevel PlayerLevel { get; private set; } = new();
+        private PlayerLevel playerLevel = new();
+        public PlayerLevel PlayerLevel
+        {
+            get => playerLevel;
+            private set => playerLevel = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<uint> LevelUpChoicesCount { get; private set; } = new();
+        private ModifiableValue<uint> levelUpChoicesCount = new();
+        public ModifiableValue<uint> LevelUpChoicesCount
+        {
+            get => levelUpChoicesCount;
+            private set => levelUpChoicesCount = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<float> Speed { get; private set; } = new();
+        private ModifiableValue<float> speed = new();
+        public ModifiableValue<float> Speed
+        {
+            get => speed;
+            private set => speed = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<float> PickupRadius { get; private set; } = new();
+        private ModifiableValue<float> pickupRadius = new();
+        public ModifiableValue<float> PickupRadius
+        {
+            get => pickupRadius;
+            private set => pickupRadius = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<Percentage> CriticalChance { get; private set; } = new();
+        private ModifiableValue<Percentage> criticalChance = new();
+        public ModifiableValue<Percentage> CriticalChance
+        {
+            get => criticalChance;
+            private set => criticalChance = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<Percentage> EvadeChance { get; private set; } = new();
+        private ModifiableValue<Percentage> evadeChance = new();
+        public ModifiableValue<Percentage> EvadeChance
+        {
+            get => evadeChance;
+            private set => evadeChance = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<Percentage> DamageModifier { get; private set; } = new();
+        private ModifiableValue<Percentage> damageModifier = new();
+        public ModifiableValue<Percentage> DamageModifier
+        {
+            get => damageModifier;
+            private set => damageModifier = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats", order: 1)]
-        public ModifiableValue<Percentage> ProjectileSize { get; private set; } = new();
+        private ModifiableValue<Percentage> projectileSize = new();
+        public ModifiableValue<Percentage> ProjectileSize
+        {
+            get => projectileSize;
+            private set => projectileSize = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<Percentage> RangeModifier { get; private set; } = new();
+        private ModifiableValue<Percentage> rangeModifier = new();
+        public ModifiableValue<Percentage> RangeModifier
+        {
+            get => rangeModifier;
+            private set => rangeModifier = value;
+        }
 
         [ReadOnly]
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tank Stats")]
-        public ModifiableValue<Percentage> FireRateModifier { get; private set; } = new();
+        private ModifiableValue<Percentage> fireRateModifier = new();
+        public ModifiableValue<Percentage> FireRateModifier
+        {
+            get => fireRateModifier;
+            private set => fireRateModifier = value;
+        }
 
         [ReadOnly]
         [PropertyOrder(2)]
-        [OdinSerialize]
-        [ShowInInspector]
+        [SerializeReference]
         private List<TankUpgrade> tankUpgrades = new();
 
         [ReadOnly]
         [PropertyOrder(2)]
-        [OdinSerialize]
-        [ShowInInspector]
+        [SerializeReference]
         private List<IWeapon> weapons = new();
+
         public IEnumerable<IWeapon> Weapons => weapons;
 
         public event Action OnDeath;

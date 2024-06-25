@@ -1,13 +1,12 @@
 using System;
 using Common;
+using Configs;
 using Enemies.Producers;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using static Configs.Progressor;
+using UnityEngine;
 
 namespace Enemies
 {
-    [HideReferenceObjectPicker]
     public interface IModuleUpgrade
     {
         public void ApplyUpgrade(IEnemyProducer producer);
@@ -16,15 +15,20 @@ namespace Enemies
     [Serializable]
     public abstract class BaseModuleUpgrade : IModuleUpgrade
     {
-        [OdinSerialize]
+        [SerializeField]
         [Unit(Units.Percent)]
         [MinValue(0.0f)]
-        private float persent = 0;
-        public float Persent => persent / 100.0f;
+        private float present = 0;
+        public float Present => present / 100.0f;
 
-        [OdinSerialize]
+        [SerializeField]
         [EnumToggleButtons]
-        public MathOperation Operation { get; private set; } = MathOperation.Plus;
+        private MathOperation operation = MathOperation.Plus;
+        public MathOperation Operation
+        {
+            get => operation;
+            private set => operation = value;
+        }
         public abstract void ApplyUpgrade(IEnemyProducer producer);
 
         protected T GetModule<T>(IEnemyProducer producer)
@@ -43,8 +47,8 @@ namespace Enemies
             MovementModule module = GetModule<MovementModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.Speed.GetModifiedValue();
                 }
@@ -68,8 +72,8 @@ namespace Enemies
             HealthModule module = GetModule<HealthModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.Health.GetModifiedValue();
                 }
@@ -93,8 +97,8 @@ namespace Enemies
             AttackCooldownModule module = GetModule<AttackCooldownModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.Cooldown.GetModifiedValue();
                 }
@@ -111,15 +115,15 @@ namespace Enemies
 
     [Serializable]
     [LabelText("XP")]
-    public class ExpeirienceUpgrade : BaseModuleUpgrade
+    public class ExperienceUpgrade : BaseModuleUpgrade
     {
         public override void ApplyUpgrade(IEnemyProducer producer)
         {
             ExperienceModule module = GetModule<ExperienceModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.DropAmount.GetModifiedValue();
                 }
@@ -143,8 +147,8 @@ namespace Enemies
             ExplosionModule module = GetModule<ExplosionModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.Radius.GetModifiedValue();
                 }
@@ -168,8 +172,8 @@ namespace Enemies
             ShootingRangeModule module = GetModule<ShootingRangeModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.ShootingRange.GetModifiedValue();
                 }
@@ -193,8 +197,8 @@ namespace Enemies
             ShootingRateModule module = GetModule<ShootingRateModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.ShootCooldown.GetModifiedValue();
                 }
@@ -218,8 +222,8 @@ namespace Enemies
             ProjectileSpeedModule module = GetModule<ProjectileSpeedModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.ProjectileSpeed.GetModifiedValue();
                 }
@@ -243,8 +247,8 @@ namespace Enemies
             DamageModule module = GetModule<DamageModule>(producer);
             if (module != null)
             {
-                float value = Persent;
-                if (producer.Progressor.CurrentMode == Mode.Current)
+                float value = Present;
+                if (producer.Progressor.CurrentMode == Progressor.Mode.Current)
                 {
                     value *= module.Damage.GetModifiedValue();
                 }
