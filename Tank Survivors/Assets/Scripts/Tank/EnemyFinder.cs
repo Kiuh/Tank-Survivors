@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Enemies;
+using General;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tank
@@ -10,65 +11,31 @@ namespace Tank
         [SerializeField]
         private float detectionRadius = 10f;
 
-        public IEnumerable<IEnemy> GetAllEnemies()
+        [Required]
+        [SerializeField]
+        private EnemyGenerator enemyGenerator;
+
+        public IEnumerable<Transform> GetAllEnemies()
         {
-            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-
-            List<IEnemy> enemies = new();
-            if (objects.Length == 0)
-            {
-                return enemies;
-            }
-
-            foreach (Collider2D obj in objects)
-            {
-                if (obj.gameObject.TryGetComponent(out IEnemy enemy))
-                {
-                    enemies.Add(enemy);
-                }
-            }
-            return enemies;
+            return enemyGenerator.Enemies;
         }
 
-        public IEnumerable<Transform> GetAllEnemiesTransform()
+        private void OnDrawGizmos()
         {
-            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-
-            List<Transform> enemies = new();
-            if (objects.Length == 0)
-            {
-                return enemies;
-            }
-
-            foreach (Collider2D obj in objects)
-            {
-                if (obj.gameObject.TryGetComponent(out IEnemy _))
-                {
-                    enemies.Add(obj.transform);
-                }
-            }
-            return enemies;
+            Color color = Gizmos.color;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+            Gizmos.color = color;
         }
 
         public Transform GetNearestTransformOrNull()
         {
-            IEnumerable<Transform> enemies = GetAllEnemiesTransform();
-
-            if (enemies.Count() == 0)
-            {
-                return null;
-            }
-
-            Transform nearestEnemy = null;
-            foreach (Transform enemy in enemies)
-            {
-                if (nearestEnemy == null || SqrDistanceTo(enemy) < SqrDistanceTo(nearestEnemy))
-                {
-                    nearestEnemy = enemy;
-                }
-            }
-
-            return nearestEnemy;
+            IEnumerable<Transform> allEnemiesTransforms = GetAllEnemies();
+            IOrderedEnumerable<(Transform transform, float dist)> ordered = allEnemiesTransforms
+                .Select(x => (transform: x, dist: SqrDistanceTo(x)))
+                .Where(x => x.dist <= detectionRadius)
+                .OrderBy(x => x.dist);
+            return ordered.Select(x => x.transform).FirstOrDefault();
         }
 
         private float SqrDistanceTo(Transform target)

@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grenadeLauncherGun_0: -8714427963591799668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

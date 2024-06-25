@@ -188,7 +188,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      eliteSoldier_0: -850510156111681037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

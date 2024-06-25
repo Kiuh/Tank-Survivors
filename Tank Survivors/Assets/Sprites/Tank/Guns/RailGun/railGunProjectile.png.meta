@@ -212,7 +212,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      railGunProjectile_0: -2794829542707381148
+      railGunProjectile_1: 3215032155289654091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

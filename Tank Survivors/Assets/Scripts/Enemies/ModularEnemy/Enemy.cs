@@ -33,16 +33,26 @@ namespace Enemies
         public List<IAbility> UpdatableAbilities { get; set; } = new();
         public List<IAbility> FixedUpdatableAbilities { get; set; } = new();
 
+        private Transform enemyTransform;
+        public Transform Transform => enemyTransform;
+
         private TankImpl tank;
         public event Action OnDeath;
 
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
+            enemyTransform = transform;
             Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
             abilities.ForEach(ability => ability.Initialize(this, this.tank));
-            OnDeath += () => tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
-            OnDeath += () => Destroy(gameObject);
+            OnDeath += DeathAction;
+        }
+
+        private void DeathAction()
+        {
+            enemyTransform = null;
+            tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
+            Destroy(gameObject);
         }
 
         public void FixedUpdate()

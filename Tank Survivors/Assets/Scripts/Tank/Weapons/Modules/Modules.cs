@@ -100,13 +100,11 @@ namespace Tank.Weapons.Modules
     public class TowerModule : IWeaponModule
     {
         [OdinSerialize]
-        [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
         public ITower TowerPrefab { get; private set; }
 
         [OdinSerialize]
-        [HideLabel]
         [FoldoutGroup("Tower")]
         [AssetList]
         [ReadOnly]
