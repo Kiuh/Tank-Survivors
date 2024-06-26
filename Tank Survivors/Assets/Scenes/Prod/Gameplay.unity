@@ -305,7 +305,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPickups: {fileID: 11400000, guid: 56da2acbad44b674588c42b714afee40, type: 2}
   pickupsParent: {fileID: 365598697}
-  pickUps: []
+  pickUps:
+  - {fileID: 7257315302054335807, guid: 9a680913ca9c33b4f941698e4f6d1b72, type: 3}
+  - {fileID: 6827374683090020991, guid: cc47f1425f1fe0446b70872356e6357e, type: 3}
+  - {fileID: 3816240034858184738, guid: 3bd840b1ad1ea904a8de78f140d1ac4b, type: 3}
+  - {fileID: 2648407716351878230, guid: 9a1527a8eb796bd47b72dfac0d02d390, type: 3}
 --- !u!1 &552364899
 GameObject:
   m_ObjectHideFlags: 0

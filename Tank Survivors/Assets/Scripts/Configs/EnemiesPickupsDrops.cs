@@ -82,7 +82,7 @@ namespace Configs
 
         [SerializeField]
         private List<PickupNamePercentage> pickupNamePercentages;
-        private Dictionary<SelectablePickupName, Percentage> chances = new();
+        private Dictionary<SelectablePickupName, Percentage> chances;
 
         public Dictionary<SelectablePickupName, Percentage> Chances
         {
@@ -114,7 +114,7 @@ namespace Configs
         [SerializeField]
         private List<EnemyNamePickupGeneration> enemyNamePercentages;
 
-        private Dictionary<SelectableEnemyName, PickupGenerationConfig> chances = new();
+        private Dictionary<SelectableEnemyName, PickupGenerationConfig> chances;
 
         public Dictionary<SelectableEnemyName, PickupGenerationConfig> EnemiesPickupsChances
         {
