@@ -1,19 +1,14 @@
 ﻿using System;
-using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityToolbag;
-using YG.Utils.Lang;
 using YG.Utils.LB;
+using YG.Utils.Lang;
 
 namespace YG
 {
-    [
-        DefaultExecutionOrder(-101),
-        HelpURL(
-            "https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#7f075606f6c24091926fa3ad7ab59d10"
-        )
-    ]
+    [DefaultExecutionOrder(-101), HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#7f075606f6c24091926fa3ad7ab59d10")]
     public class LeaderboardYG : MonoBehaviour
     {
         [Tooltip("Техническое название соревновательной таблицы")]
@@ -30,52 +25,23 @@ namespace YG
         [Range(1, 10)]
         public int quantityAround = 6;
 
-        public enum UpdateLBMethod
-        {
-            Start,
-            OnEnable,
-            DoNotUpdate
-        };
-
-        [Tooltip(
-            "Когда следует обновлять лидерборд?\nStart - Обновлять в методе Start.\nOnEnable - Обновлять при каждой активации объекта (в методе OnEnable)\nDoNotUpdate - Не обновлять лидерборд с помощью данного скрипта (подразоумивается, что метод обновления 'UpdateLB' вы будете запускать сами, когда вам потребуется."
-        )]
+        public enum UpdateLBMethod { Start, OnEnable, DoNotUpdate };
+        [Tooltip("Когда следует обновлять лидерборд?\nStart - Обновлять в методе Start.\nOnEnable - Обновлять при каждой активации объекта (в методе OnEnable)\nDoNotUpdate - Не обновлять лидерборд с помощью данного скрипта (подразоумивается, что метод обновления 'UpdateLB' вы будете запускать сами, когда вам потребуется.")]
         public UpdateLBMethod updateLBMethod = UpdateLBMethod.OnEnable;
 
-        [Tooltip(
-            "Перетащите компонент Text для записи описания таблицы, если вы не выбрали продвинутую таблицу (advanced)"
-        )]
+        [Tooltip("Перетащите компонент Text для записи описания таблицы, если вы не выбрали продвинутую таблицу (advanced)")]
         public Text entriesText;
 
-        [
-            SerializeField,
-            Tooltip(
-                "Продвинутая таблица. Поддерживает подгрузку авата и конвертацию рекордов в тип Time. Подгружает все данные в отдельные элементы интерфейса."
-            )
-        ]
+        [SerializeField, Tooltip("Продвинутая таблица. Поддерживает подгрузку авата и конвертацию рекордов в тип Time. Подгружает все данные в отдельные элементы интерфейса.")]
         private bool advanced;
 
-        [
-            SerializeField,
-            ConditionallyVisible(nameof(advanced)),
-            Tooltip("Родительский объект для спавна в нём объектов 'playerDataPrefab'")
-        ]
+        [SerializeField, ConditionallyVisible(nameof(advanced)), Tooltip("Родительский объект для спавна в нём объектов 'playerDataPrefab'")]
         private Transform rootSpawnPlayersData;
-
-        [
-            ConditionallyVisible(nameof(advanced)),
-            Tooltip("Префаб отображаемых данных игрока (объект со компонентом LBPlayerDataYG)")
-        ]
+        [ConditionallyVisible(nameof(advanced)), Tooltip("Префаб отображаемых данных игрока (объект со компонентом LBPlayerDataYG)")]
         public GameObject playerDataPrefab;
 
         public enum PlayerPhoto
-        {
-            NonePhoto,
-            Small,
-            Medium,
-            Large
-        };
-
+        { NonePhoto, Small, Medium, Large };
         [Tooltip("Размер подгружаемых изображений игроков. NonePhoto = не подгружать изображение")]
         [ConditionallyVisible(nameof(advanced))]
         public PlayerPhoto playerPhoto = PlayerPhoto.Small;
@@ -84,21 +50,11 @@ namespace YG
         [ConditionallyVisible(nameof(advanced))]
         public Sprite isHiddenPlayerPhoto;
 
-        [
-            SerializeField,
-            ConditionallyVisible(nameof(advanced)),
-            Tooltip("Конвертация полученных рекордов в Time тип")
-        ]
+        [SerializeField, ConditionallyVisible(nameof(advanced)), Tooltip("Конвертация полученных рекордов в Time тип")]
         private bool timeTypeConvert;
 
-        [
-            SerializeField,
-            ConditionallyVisible("timeTypeConvert"),
-            Range(0, 3),
-            Tooltip(
-                "Размер десятичной части счёта (при использовании Time type).\n  Например:\n  0 = 00:00\n  1 = 00:00.0\n  2 = 00:00.00\n  3 = 00:00.000\nВы можете проверить это в Unity не прибегая к тестированию в сборке."
-            )
-        ]
+        [SerializeField, ConditionallyVisible("timeTypeConvert"),
+            Range(0, 3), Tooltip("Размер десятичной части счёта (при использовании Time type).\n  Например:\n  0 = 00:00\n  1 = 00:00.0\n  2 = 00:00.00\n  3 = 00:00.000\nВы можете проверить это в Unity не прибегая к тестированию в сборке.")]
         private int decimalSize = 1;
 
         [SerializeField]
@@ -107,25 +63,16 @@ namespace YG
         private string photoSize;
         private LBPlayerDataYG[] players = new LBPlayerDataYG[0];
 
-        private void Start()
+        void Start()
         {
             if (playerPhoto == PlayerPhoto.NonePhoto)
-            {
                 photoSize = "nonePhoto";
-            }
-
             if (playerPhoto == PlayerPhoto.Small)
-            {
                 photoSize = "small";
-            }
             else if (playerPhoto == PlayerPhoto.Medium)
-            {
                 photoSize = "medium";
-            }
             else if (playerPhoto == PlayerPhoto.Large)
-            {
                 photoSize = "large";
-            }
 
             if (updateLBMethod == UpdateLBMethod.Start && YandexGame.initializedLB)
             {
@@ -143,12 +90,9 @@ namespace YG
             }
         }
 
-        private void OnDisable()
-        {
-            YandexGame.onGetLeaderboard -= OnUpdateLB;
-        }
+        private void OnDisable() => YandexGame.onGetLeaderboard -= OnUpdateLB;
 
-        private void OnUpdateLB(LBData lb)
+        void OnUpdateLB(LBData lb)
         {
             if (lb.entries == "initialized")
             {
@@ -170,10 +114,7 @@ namespace YG
                 }
                 if (!advanced)
                 {
-                    lb.entries = lb.entries.Replace(
-                        "anonymous",
-                        LangMethods.IsHiddenTextTranslate(YandexGame.Instance.infoYG)
-                    );
+                    lb.entries = lb.entries.Replace("anonymous", LangMethods.IsHiddenTextTranslate(YandexGame.Instance.infoYG));
                     entriesText.text = lb.entries;
                 }
                 else
@@ -280,24 +221,12 @@ namespace YG
 
         public void UpdateLB()
         {
-            YandexGame.GetLeaderboard(
-                nameLB,
-                maxQuantityPlayers,
-                quantityTop,
-                quantityAround,
-                photoSize
-            );
+            YandexGame.GetLeaderboard(nameLB, maxQuantityPlayers, quantityTop, quantityAround, photoSize);
         }
 
-        public void NewScore(int score)
-        {
-            YandexGame.NewLeaderboardScores(nameLB, score);
-        }
+        public void NewScore(int score) => YandexGame.NewLeaderboardScores(nameLB, score);
 
-        public void NewScoreTimeConvert(float score)
-        {
-            YandexGame.NewLBScoreTimeConvert(nameLB, score);
-        }
+        public void NewScoreTimeConvert(float score) => YandexGame.NewLBScoreTimeConvert(nameLB, score);
 
         public string TimeTypeConvert(int score)
         {
@@ -310,3 +239,4 @@ namespace YG
         }
     }
 }
+

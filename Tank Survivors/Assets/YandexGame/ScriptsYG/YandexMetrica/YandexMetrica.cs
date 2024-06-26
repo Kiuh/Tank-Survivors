@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using YG.Insides;
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using UnityEngine;
 #endif
+using System.Collections.Generic;
+using YG.Insides;
 
 namespace YG
 {
@@ -25,7 +25,7 @@ namespace YG
                 return;
             }
 
-            string eventParamsJson = JsonUtils.ToJson(eventParams);
+            var eventParamsJson = JsonUtils.ToJson(eventParams);
 
             if (string.IsNullOrEmpty(eventParamsJson))
             {
@@ -65,7 +65,7 @@ namespace YG
         {
             if (YandexGame.Instance.infoYG.metricaEnable)
             {
-                _ = YandexMetricaSendInternal(eventName, eventData);
+                YandexMetricaSendInternal(eventName, eventData);
             }
         }
     }

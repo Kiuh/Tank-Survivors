@@ -10,9 +10,7 @@ namespace YG
         public static void InitGRA()
         {
             if (Instance.infoYG.autoGameReadyAPI)
-            {
                 GameReadyAPI();
-            }
         }
 
         [DllImport("__Internal")]
@@ -28,10 +26,6 @@ namespace YG
 #endif
             }
         }
-
-        public void _GameReadyAPI()
-        {
-            GameReadyAPI();
-        }
+        public void _GameReadyAPI() => GameReadyAPI();
     }
 }

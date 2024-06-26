@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 #if YG_TEXT_MESH_PRO
+using TMPro;
 #endif
 
 namespace YG
 {
     public class LangYGAdditionalText : MonoBehaviour
     {
-        public enum Side
-        {
-            Left,
-            Right
-        };
-
+        public enum Side { Left, Right };
         public Side side;
 
         public string additionalText
@@ -24,8 +20,7 @@ namespace YG
             }
         }
 
-        [SerializeField]
-        private string _additionalText;
+        [SerializeField] private string _additionalText;
         private LanguageYG langYG;
 
         public void AssignAdditionalText(LanguageYG languageYG)
@@ -37,9 +32,7 @@ namespace YG
         public void AssignAdditionalText()
         {
             if (langYG)
-            {
                 DoAssignAdditionalText();
-            }
         }
 
         private void DoAssignAdditionalText()
@@ -49,27 +42,19 @@ namespace YG
             if (side == Side.Left)
             {
                 if (langYG.textLComponent)
-                {
                     langYG.textLComponent.text = _additionalText + langYG.textLComponent.text;
-                }
 #if YG_TEXT_MESH_PRO
                 else if (langYG.textMPComponent)
-                {
                     langYG.textMPComponent.text = _additionalText + langYG.textMPComponent.text;
-                }
 #endif
             }
             else if (side == Side.Right)
             {
                 if (langYG.textLComponent)
-                {
                     langYG.textLComponent.text += _additionalText;
-                }
 #if YG_TEXT_MESH_PRO
                 else if (langYG.textMPComponent)
-                {
                     langYG.textMPComponent.text += _additionalText;
-                }
 #endif
             }
         }

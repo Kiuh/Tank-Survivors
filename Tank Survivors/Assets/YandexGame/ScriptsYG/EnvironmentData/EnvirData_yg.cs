@@ -5,7 +5,7 @@ namespace YG
 {
     public partial class YandexGame
     {
-        public static JsonEnvironmentData EnvironmentData = new();
+        public static JsonEnvironmentData EnvironmentData = new JsonEnvironmentData();
 
         // Initialization
 
@@ -39,17 +39,14 @@ namespace YG
             GetDataInvoke();
 #endif
         }
-
-        public void _RequesEnvirData()
-        {
-            RequesEnvirData(true);
-        }
+        public void _RequesEnvirData() => RequesEnvirData(true);
 
         public void SetEnvirData(string data)
         {
             EnvironmentData = JsonUtility.FromJson<JsonEnvironmentData>(data);
             GetDataInvoke();
         }
+
 
 #if UNITY_EDITOR
         private static void InitEnvirForEditor()
@@ -71,13 +68,9 @@ namespace YG
                 EnvironmentData.isTV = false;
             }
 
-            if (
-                Instance.infoYG.playerInfoSimulation.language != ""
-                && Instance.infoYG.playerInfoSimulation.language != null
-            )
-            {
+            if (Instance.infoYG.playerInfoSimulation.language != "" &&
+                Instance.infoYG.playerInfoSimulation.language != null)
                 EnvironmentData.language = Instance.infoYG.playerInfoSimulation.language;
-            }
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -86,6 +79,7 @@ namespace YG
             EnvironmentData = new JsonEnvironmentData();
         }
 #endif
+
 
         public class JsonEnvironmentData
         {

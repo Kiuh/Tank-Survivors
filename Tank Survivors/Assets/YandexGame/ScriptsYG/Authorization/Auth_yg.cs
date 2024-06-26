@@ -15,7 +15,7 @@ namespace YG
             get => _playerName;
             set => _playerName = value;
         }
-        public static string playerId => _playerId;
+        public static string playerId { get => _playerId; }
         public static string playerPhoto
         {
             get => _playerPhoto;
@@ -27,7 +27,8 @@ namespace YG
             set => _photoSize = value;
         }
 
-        private JsonAuth jsonAuth = new();
+        JsonAuth jsonAuth = new JsonAuth();
+
 
         [DllImport("__Internal")]
         private static extern string InitPlayer_js();
@@ -59,19 +60,16 @@ namespace YG
             else
             {
                 if (!Instance.infoYG.scopes)
-                {
                     name = "anonymous";
-                }
             }
 
-            JsonAuth playerDataSimulation =
-                new()
-                {
-                    playerAuth = auth,
-                    playerName = name,
-                    playerId = Instance.infoYG.playerInfoSimulation.uniqueID,
-                    playerPhoto = Instance.infoYG.playerInfoSimulation.photo
-                };
+            JsonAuth playerDataSimulation = new JsonAuth()
+            {
+                playerAuth = auth,
+                playerName = name,
+                playerId = Instance.infoYG.playerInfoSimulation.uniqueID,
+                playerPhoto = Instance.infoYG.playerInfoSimulation.photo
+            };
 
             string json = JsonUtility.ToJson(playerDataSimulation);
             Instance.SetInitializationSDK(json);
@@ -80,7 +78,6 @@ namespace YG
 
         [DllImport("__Internal")]
         public static extern void RequestAuth_js(bool sendback);
-
         public static void RequestAuth(bool sendback = true)
         {
 #if !UNITY_EDITOR
@@ -90,10 +87,8 @@ namespace YG
 #endif
         }
 
-        public void _RequestAuth()
-        {
-            RequestAuth(true);
-        }
+        public void _RequestAuth() => RequestAuth(true);
+
 
         public void SetInitializationSDK(string data)
         {
@@ -129,31 +124,23 @@ namespace YG
             GetDataInvoke();
         }
 
+
         [DllImport("__Internal")]
         private static extern void OpenAuthDialog();
 
         public static void AuthDialog()
         {
             if (auth)
-            {
                 Message("Open Auth Dialog");
-            }
             else
-            {
-                Message(
-                    "SDK Яндекс Игр предлагает войти в аккаунт только тем пользователям, которые еще не вошли."
-                );
-            }
+                Message("SDK Яндекс Игр предлагает войти в аккаунт только тем пользователям, которые еще не вошли.");
 
 #if !UNITY_EDITOR
             OpenAuthDialog();
 #endif
         }
+        public void _OpenAuthDialog() => AuthDialog();
 
-        public void _OpenAuthDialog()
-        {
-            AuthDialog();
-        }
 
         public class JsonAuth
         {

@@ -35,10 +35,9 @@ namespace YG
         public static void PayDoEvent()
         {
             if (purchases.Length > 0)
-            {
                 GetPaymentsEvent?.Invoke();
-            }
         }
+
 
         // Sending messages
 
@@ -55,10 +54,8 @@ namespace YG
 #endif
         }
 
-        public void _GetPayments()
-        {
-            GetPayments();
-        }
+        public void _GetPayments() => GetPayments();
+
 
         public static Purchase PurchaseByID(string ID)
         {
@@ -72,6 +69,7 @@ namespace YG
 
             return null;
         }
+
 
         [DllImport("__Internal")]
         private static extern void ConsumePurchase_js(string id);
@@ -93,6 +91,7 @@ namespace YG
 #endif
         }
 
+
         [DllImport("__Internal")]
         private static extern void BuyPayments_js(string id);
 
@@ -106,10 +105,9 @@ namespace YG
 #endif
         }
 
-        public void _BuyPayments(string id)
-        {
-            BuyPayments(id);
-        }
+        public void _BuyPayments(string id) => BuyPayments(id);
+
+
 
         // Receiving Data
 
@@ -138,10 +136,9 @@ namespace YG
             langPayments = "ru";
 #endif
             if (isInitPayments)
-            {
                 GetPaymentsEvent?.Invoke();
-            }
         }
+
 
         public void OnPurchaseSuccess(string id)
         {
@@ -155,6 +152,7 @@ namespace YG
             PurchaseFailed?.Invoke();
             PurchaseFailedEvent?.Invoke(id);
         }
+
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void ResetStaticPayments()

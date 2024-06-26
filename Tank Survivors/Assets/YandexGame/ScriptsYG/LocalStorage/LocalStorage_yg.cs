@@ -1,6 +1,6 @@
-﻿using System;
+﻿using UnityEngine;
 using System.Runtime.InteropServices;
-using UnityEngine;
+using System;
 
 namespace YG
 {
@@ -11,6 +11,7 @@ namespace YG
 
         [DllImport("__Internal")]
         private static extern string LoadFromLocalStorage(string key);
+
 
         [DllImport("__Internal")]
         private static extern int HasKeyInLocalStorage(string key);
@@ -30,10 +31,6 @@ namespace YG
 
         [DllImport("__Internal")]
         private static extern void RemoveFromLocalStorage(string key);
-
-        public static void RemoveLocalSaves()
-        {
-            RemoveFromLocalStorage("savesData");
-        }
+        public static void RemoveLocalSaves() => RemoveFromLocalStorage("savesData");
     }
 }

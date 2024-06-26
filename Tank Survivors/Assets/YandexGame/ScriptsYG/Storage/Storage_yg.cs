@@ -10,17 +10,12 @@ namespace YG
 {
     public partial class YandexGame
     {
-        public static SavesYG savesData = new();
+        public static SavesYG savesData = new SavesYG();
         public static Action onResetProgress;
 
-        private enum DataState
-        {
-            Exist,
-            NotExist,
-            Broken
-        };
-
+        private enum DataState { Exist, NotExist, Broken };
         private static bool isResetProgress;
+
 
         [DllImport("__Internal")]
         private static extern string InitCloudStorage_js();
@@ -47,9 +42,7 @@ namespace YG
         }
 
 #if UNITY_EDITOR
-        private static string PATH_SAVES_EDITOR =
-            "/YandexGame/WorkingData/Editor/SavesEditorYG.json";
-
+        static string PATH_SAVES_EDITOR = "/YandexGame/WorkingData/Editor/SavesEditorYG.json";
         public static void SaveEditor()
         {
             Message("Save Editor");
@@ -57,15 +50,11 @@ namespace YG
             string directory = Path.GetDirectoryName(path);
 
             if (!Directory.Exists(directory))
-            {
                 Directory.CreateDirectory(directory);
-            }
 
             bool fileExits = false;
             if (File.Exists(path))
-            {
                 fileExits = true;
-            }
 
 #if YG_NEWTONSOFT_FOR_SAVES
             string json = JsonConvert.SerializeObject(savesData, Formatting.Indented);
@@ -73,6 +62,7 @@ namespace YG
             string json = JsonUtility.ToJson(savesData, true);
 #endif
             File.WriteAllText(path, json);
+
             if (!fileExits && File.Exists(path))
             {
                 UnityEditor.AssetDatabase.Refresh();
@@ -119,15 +109,11 @@ namespace YG
             Message("Load Local");
 
             if (!HasKey("savesData"))
-            {
                 ResetSaveProgress();
-            }
             else
             {
 #if YG_NEWTONSOFT_FOR_SAVES
-                savesData = JsonConvert.DeserializeObject<SavesYG>(
-                    LoadFromLocalStorage("savesData")
-                );
+                savesData = JsonConvert.DeserializeObject<SavesYG>(LoadFromLocalStorage("savesData"));
 #else
                 savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
 #endif
@@ -150,63 +136,49 @@ namespace YG
                 GetDataInvoke();
             }
         }
-
-        public static void ResetSaveProgress()
-        {
-            Instance._ResetSaveProgress();
-        }
+        public static void ResetSaveProgress() => Instance._ResetSaveProgress();
 
         public void _SaveProgress()
         {
             savesData.idSave++;
 #if !UNITY_EDITOR
-            if (!infoYG.saveCloud || (infoYG.saveCloud && infoYG.localSaveSync))
-            {
-                SaveLocal();
-            }
+                if (!infoYG.saveCloud || (infoYG.saveCloud && infoYG.localSaveSync))
+                {
+                    SaveLocal();
+                }
 
-            if (infoYG.saveCloud && timerSaveCloud >= infoYG.saveCloudInterval + 1)
-            {
-                timerSaveCloud = 0;
-                SaveCloud();
-            }
+                if (infoYG.saveCloud && timerSaveCloud >= infoYG.saveCloudInterval + 1)
+                {
+                    timerSaveCloud = 0;
+                    SaveCloud();
+                }
 #else
             SaveEditor();
 #endif
         }
-
-        public static void SaveProgress()
-        {
-            Instance._SaveProgress();
-        }
+        public static void SaveProgress() => Instance._SaveProgress();
 
         public void _LoadProgress()
         {
 #if !UNITY_EDITOR
             if (!infoYG.saveCloud)
                 LoadLocal();
-            else
-                LoadCloud();
+            else LoadCloud();
 #else
             LoadEditor();
 #endif
             if (savesData.idSave > 0)
-            {
                 GetDataInvoke();
-            }
         }
+        public static void LoadProgress() => Instance._LoadProgress();
 
-        public static void LoadProgress()
-        {
-            Instance._LoadProgress();
-        }
 
         public void SetLoadSaves(string data)
         {
             DataState cloudDataState = DataState.Exist;
             DataState localDataState = DataState.Exist;
-            SavesYG cloudData = new();
-            SavesYG localData = new();
+            SavesYG cloudData = new SavesYG();
+            SavesYG localData = new SavesYG();
 
             if (data != "noData")
             {
@@ -229,10 +201,7 @@ namespace YG
                     cloudDataState = DataState.Broken;
                 }
             }
-            else
-            {
-                cloudDataState = DataState.NotExist;
-            }
+            else cloudDataState = DataState.NotExist;
 
             if (infoYG.localSaveSync == false)
             {
@@ -244,15 +213,8 @@ namespace YG
                 else
                 {
                     if (cloudDataState == DataState.Broken)
-                    {
-                        Message(
-                            "Load Cloud Broken! But we tried to restore and load cloud saves. Local saves are disabled."
-                        );
-                    }
-                    else
-                    {
-                        Message("Load Cloud Complete! Local saves are disabled.");
-                    }
+                        Message("Load Cloud Broken! But we tried to restore and load cloud saves. Local saves are disabled.");
+                    else Message("Load Cloud Complete! Local saves are disabled.");
 
                     savesData = cloudData;
                 }
@@ -264,9 +226,7 @@ namespace YG
                 try
                 {
 #if YG_NEWTONSOFT_FOR_SAVES
-                    localData = JsonConvert.DeserializeObject<SavesYG>(
-                        LoadFromLocalStorage("savesData")
-                    );
+                    localData = JsonConvert.DeserializeObject<SavesYG>(LoadFromLocalStorage("savesData"));
 #else
                     localData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
 #endif
@@ -277,25 +237,18 @@ namespace YG
                     localDataState = DataState.Broken;
                 }
             }
-            else
-            {
-                localDataState = DataState.NotExist;
-            }
+            else localDataState = DataState.NotExist;
 
             if (cloudDataState == DataState.Exist && localDataState == DataState.Exist)
             {
                 if (cloudData.idSave >= localData.idSave)
                 {
-                    Message(
-                        $"Load Cloud Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}"
-                    );
+                    Message($"Load Cloud Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = cloudData;
                 }
                 else
                 {
-                    Message(
-                        $"Load Local Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}"
-                    );
+                    Message($"Load Local Complete! ID Cloud Save: {cloudData.idSave}, ID Local Save: {localData.idSave}");
                     savesData = localData;
                 }
             }
@@ -309,10 +262,8 @@ namespace YG
                 savesData = localData;
                 Message("Load Local Complete! Cloud Data - " + cloudDataState);
             }
-            else if (
-                cloudDataState == DataState.Broken
-                || (cloudDataState == DataState.Broken && localDataState == DataState.Broken)
-            )
+            else if (cloudDataState == DataState.Broken ||
+                (cloudDataState == DataState.Broken && localDataState == DataState.Broken))
             {
                 Message("Local Saves - " + localDataState);
                 Message("Cloud Saves - Broken! Data Recovering...");
@@ -330,9 +281,7 @@ namespace YG
                 Message("Local Saves - Broken! Data Recovering...");
                 ResetSaveProgress();
 #if YG_NEWTONSOFT_FOR_SAVES
-                savesData = JsonConvert.DeserializeObject<SavesYG>(
-                    LoadFromLocalStorage("savesData")
-                );
+                savesData = JsonConvert.DeserializeObject<SavesYG>(LoadFromLocalStorage("savesData"));
 #else
                 savesData = JsonUtility.FromJson<SavesYG>(LoadFromLocalStorage("savesData"));
 #endif
