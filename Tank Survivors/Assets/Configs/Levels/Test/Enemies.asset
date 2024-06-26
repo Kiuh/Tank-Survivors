@@ -12,8 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
   m_Name: Enemies
   m_EditorClassIdentifier: 
-  enemyProducers: []
+  enemyProducers:
+  - rid: 3201943389564829697
   bossProducers: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943389564829697
+      type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
+      data:
+        EnemyPrefab: {fileID: 3017579110327134564, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
+        baseModules:
+        - rid: 3201943389564829747
+        - rid: 3201943389564829748
+        modules: []
+        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
+        progressorTimer: 0
+        spawnInterval: 4
+        radiusPreset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+        timer: 0
+    - rid: 3201943389564829747
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829748
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 5
+          cachedValue: 0
