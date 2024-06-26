@@ -135,4 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceAmount: 40
+  effectText: +40 EXP
+  effectColor: {r: 0.77647066, g: 0.41960788, b: 1, a: 1}
+  grabbed: 0
   pickupName: BigXP
+  floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
