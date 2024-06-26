@@ -14,12 +14,17 @@ namespace Tank.PickUps
         [Range(0.0f, 1.0f)]
         private float timeSlowerPercentage;
 
+        [SerializeField]
+        private string effectText;
+
+        [SerializeField]
+        private Color effectColor;
+
         [Required]
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
-        private readonly float defaultTimeScale = 1.0f;
-
+        [SerializeField]
         private bool grabbed;
         public bool Grabbed => grabbed;
 
@@ -27,7 +32,11 @@ namespace Tank.PickUps
         private string pickupName;
         public string PickupName => pickupName;
 
-        private void OnEnable()
+        [Required]
+        [SerializeField]
+        private FloatingEffect floatingEffect;
+
+        private void Awake()
         {
             grabbed = false;
         }
@@ -42,8 +51,14 @@ namespace Tank.PickUps
         private IEnumerator StartTimeSLower()
         {
             Time.timeScale = timeSlowerPercentage;
+            FloatingEffect effect = Instantiate(
+                floatingEffect,
+                transform.position,
+                Quaternion.identity
+            );
+            effect.Launch(effectText, effectColor);
             yield return new WaitForSecondsRealtime(time);
-            Time.timeScale = defaultTimeScale;
+            Time.timeScale = 1.0f;
             Destroy(gameObject);
         }
     }

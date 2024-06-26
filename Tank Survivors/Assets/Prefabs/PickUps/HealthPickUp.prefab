@@ -99,7 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 5
+  effectText: +5 HP
+  effectColor: {r: 0.44705886, g: 0.90196085, b: 0.37647063, a: 1}
+  grabbed: 0
   pickupName: Health
+  floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
 --- !u!61 &7647850923129408509
 BoxCollider2D:
   m_ObjectHideFlags: 0

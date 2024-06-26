@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using Tank;
 using Tank.UpgradablePiece;
 using Tank.Weapons;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Panels.LevelUp
 {
@@ -31,6 +33,16 @@ namespace Panels.LevelUp
         [SerializeField]
         [ReadOnly]
         private uint levelUpStack = 0;
+
+        [SerializeField]
+        private float resumeDelay;
+
+        [SerializeField]
+        private float startAlfa;
+
+        [Required]
+        [SerializeField]
+        private Image lerpImage;
 
         private void OnEnable()
         {
@@ -111,6 +123,8 @@ namespace Panels.LevelUp
             });
         }
 
+        private Tween delayTween;
+
         private void HandleLevelUp()
         {
             if (levelUpStack > 0)
@@ -121,7 +135,21 @@ namespace Panels.LevelUp
             else
             {
                 levelUpPanel.SetActive(false);
-                Time.timeScale = 1.0f;
+                lerpImage.gameObject.SetActive(true);
+                lerpImage.color = new Color(
+                    lerpImage.color.r,
+                    lerpImage.color.g,
+                    lerpImage.color.b,
+                    startAlfa
+                );
+                delayTween = lerpImage
+                    .DOFade(0, resumeDelay)
+                    .SetUpdate(true)
+                    .OnComplete(() =>
+                    {
+                        Time.timeScale = 1.0f;
+                        lerpImage.gameObject.SetActive(false);
+                    });
             }
         }
 
@@ -130,6 +158,11 @@ namespace Panels.LevelUp
             UpgradeBlock upgradeBlock = Instantiate(upgradeBlockPrefab, upgradeBlocksViewRoot);
             upgradeBlock.UpgradeName = upgrade.UpgradeName;
             return upgradeBlock;
+        }
+
+        private void OnDestroy()
+        {
+            delayTween?.Kill();
         }
     }
 }

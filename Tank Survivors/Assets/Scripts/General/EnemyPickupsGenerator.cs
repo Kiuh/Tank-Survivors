@@ -20,6 +20,9 @@ namespace General
         private Transform pickupsParent;
 
         [SerializeField]
+        private Vector2 randomRange;
+
+        [SerializeField]
         [AssetList(CustomFilterMethod = nameof(PickupsFilter), AutoPopulate = true)]
         private List<GameObject> pickUps;
         private Dictionary<string, GameObject> pickupsByName;
@@ -52,9 +55,14 @@ namespace General
                 {
                     if (item.Value.TryChance())
                     {
+                        Vector2 shift =
+                            new(
+                                Random.Range(-randomRange.x, randomRange.x),
+                                Random.Range(-randomRange.y, randomRange.y)
+                            );
                         _ = Instantiate(
                             pickupsByName[item.Key.Name],
-                            position.position,
+                            position.position + (Vector3)shift,
                             Quaternion.identity,
                             pickupsParent
                         );

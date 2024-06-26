@@ -136,5 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   timeSlowerPercentage: 0.2
+  effectText: Time Slow...
+  effectColor: {r: 0.45882356, g: 0.32941177, b: 0.30980393, a: 1}
   spriteRenderer: {fileID: 337425409110343240}
+  grabbed: 0
   pickupName: TimeSlower
+  floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
