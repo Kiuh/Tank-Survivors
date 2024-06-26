@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "LevelsConfig", menuName = "Configs/LevelsConfig")]
-    public class Levels : SerializedScriptableObject
+    public class Levels : ScriptableObject
     {
         public List<LevelInfo> LevelInfos = new();
 
@@ -30,7 +29,6 @@ namespace Configs
         [ReadOnly]
         public int Progress;
 
-        [OdinSerialize]
         public Enemies Enemies;
     }
 }

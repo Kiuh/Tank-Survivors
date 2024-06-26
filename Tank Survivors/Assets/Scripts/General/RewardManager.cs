@@ -14,9 +14,11 @@ namespace General
 
     public class RewardManager : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private Panels.Death.Controller controller;
 

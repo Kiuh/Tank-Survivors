@@ -4,7 +4,6 @@ using Common;
 using Enemies.Bosses.Abilities;
 using Enemies.Projectiles;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -14,10 +13,12 @@ namespace Enemies.Abilities
     [LabelText("Shooting")]
     public class Shooting : IAbility
     {
-        [OdinSerialize]
+        [Required]
+        [SerializeField]
         private Transform shootingPoint;
 
-        [OdinSerialize]
+        [Required]
+        [SerializeField]
         private Projectile projectile;
 
         public float Damage { set; get; }
@@ -74,7 +75,6 @@ namespace Enemies.Abilities
                 .Instantiate(projectile, shootingPoint.position, Quaternion.identity)
                 .GetComponent<Projectile>()
                 .Initialize(Damage, Range, ProjectileSpeed, direction);
-            ;
         }
     }
 }

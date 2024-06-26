@@ -15,7 +15,7 @@ namespace Sirenix.OdinValidator.Editor
 
     internal static class EnsureCorrectOdinVersion
     {
-        private const string validatorVersion = "3.2.1.0";
+        private const string validatorVersion = "3.3.1.3";
 
         private static bool IsHeadlessOrBatchMode { get { return SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null || UnityEditorInternal.InternalEditorUtility.inBatchMode; } }
 

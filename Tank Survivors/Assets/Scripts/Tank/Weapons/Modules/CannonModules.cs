@@ -1,24 +1,26 @@
 ﻿using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using UnityEngine;
 
 namespace Tank.Weapons.Modules.Cannon
 {
     public class CannonModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [AssetList]
         [FoldoutGroup("Cannon Prefab")]
-        public Towers.Cannon.Cannon CannonPrefab { get; private set; }
+        private Towers.Cannon.Cannon cannonPrefab;
+        public Towers.Cannon.Cannon CannonPrefab => cannonPrefab;
     }
 
     public class MultiCannonFireRateModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Cannons Fire Rate Percent")]
-        public ModifiableValue<Percentage> Percent { get; private set; }
+        private ModifiableValue<Percentage> percent;
+        public ModifiableValue<Percentage> Percent => percent;
     }
 }

@@ -1,21 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Enemies;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "ProgressorConfig", menuName = "Configs/ProgressorConfig")]
-    public class Progressor : SerializedScriptableObject
+    public class Progressor : ScriptableObject
     {
+        [Serializable]
         public enum Mode
         {
             Source,
             Current
         }
 
-        [OdinSerialize]
+        [SerializeField]
         [Unit(Units.Second)]
         private float interval;
 
@@ -25,20 +26,22 @@ namespace Configs
             private set => interval = value;
         }
 
-        [OdinSerialize]
-        [Unit(Units.Minute)]
-        [ReadOnly]
-        public float IntervalInMinutes
+        [SerializeField]
+        [EnumToggleButtons]
+        private Mode currentMode = Mode.Source;
+
+        public Mode CurrentMode
         {
-            get => interval / 60.0f;
-            private set => interval = value * 60.0f;
+            get => currentMode;
+            private set => currentMode = value;
         }
 
-        [OdinSerialize]
-        [EnumToggleButtons]
-        public Mode CurrentMode { get; private set; } = Mode.Source;
-
-        [OdinSerialize]
-        public List<IModuleUpgrade> UpgradebleModules { get; set; } = new();
+        [SerializeReference]
+        private List<IModuleUpgrade> upgradableModules = new();
+        public List<IModuleUpgrade> UpgradableModules
+        {
+            get => upgradableModules;
+            set => upgradableModules = value;
+        }
     }
 }

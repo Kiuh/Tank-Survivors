@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Weapons;
 using UnityEngine;
 
@@ -11,11 +10,12 @@ namespace Configs
         menuName = "Configs/TankWeaponsConfig",
         order = 3
     )]
-    public class TankWeapons : SerializedScriptableObject
+    public class TankWeapons : ScriptableObject
     {
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(DraggableItems = false)]
         [LabelText("All Weapons")]
-        public List<IWeapon> Weapons { get; private set; }
+        private List<IWeapon> weapons;
+        public List<IWeapon> Weapons => weapons;
     }
 }

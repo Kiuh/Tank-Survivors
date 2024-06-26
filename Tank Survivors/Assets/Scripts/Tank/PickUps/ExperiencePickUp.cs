@@ -1,11 +1,9 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Tank.PickUps
 {
     [AddComponentMenu("Tank.PickUps.ExperiencePickUp")]
-    public class ExperiencePickUp : SerializedMonoBehaviour, IPickUp
+    public class ExperiencePickUp : MonoBehaviour, IPickUp
     {
         [SerializeField]
         private float experienceAmount;
@@ -13,8 +11,9 @@ namespace Tank.PickUps
         private bool grabbed;
         public bool Grabbed => grabbed;
 
-        [OdinSerialize]
-        public string PickupName { get; private set; }
+        [SerializeField]
+        private string pickupName;
+        public string PickupName => pickupName;
 
         public void Initialize(float experienceAmount)
         {

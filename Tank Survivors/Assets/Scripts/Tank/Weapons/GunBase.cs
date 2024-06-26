@@ -4,7 +4,6 @@ using System.Linq;
 using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Modules;
@@ -16,28 +15,34 @@ namespace Tank.Weapons
     {
         [Title("@GetType()")]
         [FoldoutGroup("$UpgradeName", expanded: true)]
-        [OdinSerialize]
+        [SerializeField]
         [LabelText("Weapon Name")]
-        public string UpgradeName { get; private set; }
+        private string upgradeName;
+        public string UpgradeName => upgradeName;
 
         [FoldoutGroup("$UpgradeName")]
-        [OdinSerialize]
-        public uint CurrentLevel { get; set; }
+        [SerializeField]
+        private uint currentLevel;
+
+        public uint CurrentLevel
+        {
+            get => currentLevel;
+            set => currentLevel = value;
+        }
 
         [FoldoutGroup("$UpgradeName")]
-        [OdinSerialize]
-        public uint MaxLevel { get; private set; }
+        [SerializeField]
+        private uint maxLevel;
+        public uint MaxLevel => maxLevel;
 
         [FoldoutGroup("$UpgradeName")]
         [PropertyOrder(1)]
-        [OdinSerialize]
-        [ShowInInspector]
+        [SerializeField]
         private List<LeveledWeaponUpgrade> leveledUpgrades = new();
 
         [FoldoutGroup("$UpgradeName")]
         [PropertyOrder(1)]
-        [OdinSerialize]
-        [ShowInInspector]
+        [SerializeField]
         private List<LevelUpWeaponUpgrade> levelUpUpgrades = new();
 
         protected TankImpl Tank;
@@ -75,7 +80,7 @@ namespace Tank.Weapons
 
         protected abstract List<IWeaponModule> GetBaseModules();
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(
             HideAddButton = true,
             HideRemoveButton = true,
@@ -84,7 +89,9 @@ namespace Tank.Weapons
         )]
         [FoldoutGroup("$UpgradeName")]
         [PropertyOrder(2)]
-        public List<IWeaponModule> Modules { get; protected set; } = new();
+        private List<IWeaponModule> modules = new();
+
+        public List<IWeaponModule> Modules => modules;
 
         [Button]
         [PropertyOrder(2)]
@@ -147,7 +154,7 @@ namespace Tank.Weapons
         {
             TowerModule towerModule = GetModule<TowerModule>();
             ITower tower = towerModule.TowerPrefab.Spawn(transform);
-            towerModule.Tower = tower;
+            towerModule.SetNewTower(tower);
 
             tower.Initialize(Tank, EnemyFinder, this, spawnVariation);
 

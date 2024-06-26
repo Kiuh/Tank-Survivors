@@ -1,7 +1,7 @@
 using System.Collections;
 using Common;
 using Enemies;
-using Tank.Towers;
+using Sirenix.OdinInspector;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
@@ -10,6 +10,8 @@ namespace Tank.Weapons.Projectiles
     [RequireComponent(typeof(LineRenderer))]
     public class RayRenderer : MonoBehaviour, IProjectile
     {
+        [Required]
+        [SerializeField]
         private LineRenderer lineRenderer;
 
         private float damage;
@@ -24,18 +26,7 @@ namespace Tank.Weapons.Projectiles
         private Vector3 startPoint;
         private Vector3 endPoint;
 
-        private void Awake()
-        {
-            lineRenderer = GetComponent<LineRenderer>();
-        }
-
-        public void Initialize(
-            GunBase weapon,
-            TankImpl tank,
-            ITower tower,
-            Vector3 shotPoint,
-            Vector3 direction
-        )
+        public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
             float fireRange = weapon
                 .GetModule<FireRangeModule>()

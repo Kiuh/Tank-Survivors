@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Common;
 using Configs;
-using Enemies;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -15,13 +14,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class MovementModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Movement speed")]
-        public ModifiableValue<float> Speed { get; set; } = new();
+        private ModifiableValue<float> speed = new();
+        public ModifiableValue<float> Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
 
         public IModule Clone()
         {
@@ -33,13 +36,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class HealthModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Health")]
-        public ModifiableValue<float> Health { get; set; } = new();
+        private ModifiableValue<float> health = new();
+        public ModifiableValue<float> Health
+        {
+            get => health;
+            set => health = value;
+        }
 
         public IModule Clone()
         {
@@ -51,13 +58,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class DamageModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Damage")]
-        public ModifiableValue<float> Damage { get; set; } = new();
+        private ModifiableValue<float> damage = new();
+        public ModifiableValue<float> Damage
+        {
+            get => damage;
+            set => damage = value;
+        }
 
         public IModule Clone()
         {
@@ -69,13 +80,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class AttackCooldownModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Cooldown")]
-        public ModifiableValue<float> Cooldown { get; set; } = new(0.001f);
+        private ModifiableValue<float> cooldown = new(0.001f);
+        public ModifiableValue<float> Cooldown
+        {
+            get => cooldown;
+            set => cooldown = value;
+        }
 
         public IModule Clone()
         {
@@ -87,13 +102,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class ExperienceModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("XP drop amount")]
-        public ModifiableValue<float> DropAmount { get; set; } = new();
+        private ModifiableValue<float> dropAmount = new();
+        public ModifiableValue<float> DropAmount
+        {
+            get => dropAmount;
+            set => dropAmount = value;
+        }
 
         public IModule Clone()
         {
@@ -105,13 +124,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class ExplosionModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Explosive radius")]
-        public ModifiableValue<float> Radius { get; set; } = new(1.0f);
+        private ModifiableValue<float> radius = new(1.0f);
+        public ModifiableValue<float> Radius
+        {
+            get => radius;
+            set => radius = value;
+        }
 
         public IModule Clone()
         {
@@ -123,13 +146,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class ShootingRangeModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Shooting Range")]
-        public ModifiableValue<float> ShootingRange { get; set; } = new(1.0f);
+        private ModifiableValue<float> shootingRange = new(1.0f);
+        public ModifiableValue<float> ShootingRange
+        {
+            get => shootingRange;
+            set => shootingRange = value;
+        }
 
         public IModule Clone()
         {
@@ -141,13 +168,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class ShootingRateModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Shoot Cooldown")]
-        public ModifiableValue<float> ShootCooldown { get; set; } = new(0.001f);
+        private ModifiableValue<float> shootCooldown = new(0.001f);
+        public ModifiableValue<float> ShootCooldown
+        {
+            get => shootCooldown;
+            set => shootCooldown = value;
+        }
 
         public IModule Clone()
         {
@@ -159,13 +190,17 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class ProjectileSpeedModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("BulletSpeed")]
-        public ModifiableValue<float> ProjectileSpeed { get; set; } = new(1.0f);
+        private ModifiableValue<float> projectileSpeed = new(1.0f);
+        public ModifiableValue<float> ProjectileSpeed
+        {
+            get => projectileSpeed;
+            set => projectileSpeed = value;
+        }
 
         public IModule Clone()
         {
@@ -177,75 +212,106 @@ namespace Enemies
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     [HideLabel]
     public class DashModule : IModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Dash")]
         [MinValue(0)]
-        public float AimTime { private set; get; } = 0.0f;
+        private float aimTime = 0.0f;
+        public float AimTime
+        {
+            get => aimTime;
+            private set => aimTime = value;
+        }
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Dash")]
         [PropertyRange(0.0f, 1.0f)]
-        public float SlowPercent { private set; get; } = 0.0f;
+        private float slowPercent = 0.0f;
+        public float SlowPercent
+        {
+            get => slowPercent;
+            private set => slowPercent = value;
+        }
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Dash")]
-        public float DashSpeedMultiplier { private set; get; } = 0.0f;
+        private float dashSpeedMultiplier = 0.0f;
+        public float DashSpeedMultiplier
+        {
+            get => dashSpeedMultiplier;
+            private set => dashSpeedMultiplier = value;
+        }
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Dash")]
-        public CircleZone CircleZone { private set; get; } = new();
+        private CircleZone circleZone = new();
+        public CircleZone CircleZone
+        {
+            get => circleZone;
+            private set => circleZone = value;
+        }
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Dash")]
         [MinValue(0.01f)]
-        public float CoolDown { private set; get; } = 1.0f;
+        private float coolDown = 1.0f;
+        public float CoolDown
+        {
+            get => coolDown;
+            private set => coolDown = value;
+        }
 
         public IModule Clone()
         {
             return this;
         }
     }
-}
 
-[Serializable]
-[HideReferenceObjectPicker]
-[HideLabel]
-public class RageModule : IModule
-{
-    [OdinSerialize]
-    [FoldoutGroup("RageModule")]
-    public List<RageProperties> ScaleList = new();
-
-    [OdinSerialize]
-    [FoldoutGroup("RageModule")]
-    public float MinimumCooldown = 0.0f;
-
-    public IModule Clone()
+    [Serializable]
+    [HideLabel]
+    public class RageModule : IModule
     {
-        RageModule rage =
-            new()
-            {
-                MinimumCooldown = MinimumCooldown,
-                ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList()
-            };
-        return rage;
+        [FoldoutGroup("RageModule")]
+        public List<RageProperties> ScaleList = new();
+
+        [FoldoutGroup("RageModule")]
+        public float MinimumCooldown = 0.0f;
+
+        public IModule Clone()
+        {
+            RageModule rage =
+                new()
+                {
+                    MinimumCooldown = MinimumCooldown,
+                    ScaleList = ScaleList.OrderBy((x) => x.EnemyHealthPercentage).ToList()
+                };
+            return rage;
+        }
     }
-}
 
-[Serializable]
-[HideReferenceObjectPicker]
-[HideLabel]
-public class RageProperties
-{
-    [OdinSerialize]
-    [PropertyRange(0, 1.0f)]
-    public float EnemyHealthPercentage { private set; get; } = 0.0f;
+    [Serializable]
+    [HideLabel]
+    public class RageProperties
+    {
+        [SerializeField]
+        [PropertyRange(0, 1.0f)]
+        private float enemyHealthPercentage = 0.0f;
 
-    [OdinSerialize]
-    [PropertyRange(0, 1.0f)]
-    public float CooldownPercentage { private set; get; } = 0.0f;
+        public float EnemyHealthPercentage
+        {
+            get => enemyHealthPercentage;
+            private set => enemyHealthPercentage = value;
+        }
+
+        [SerializeField]
+        [PropertyRange(0, 1.0f)]
+        private float cooldownPercentage = 0.0f;
+        public float CooldownPercentage
+        {
+            get => cooldownPercentage;
+            private set => cooldownPercentage = value;
+        }
+    }
 }

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Configs
 {
     [CreateAssetMenu(fileName = "SpawnRadiusConfig", menuName = "Configs/SpawnRadiusConfig")]
-    public class CircleRadius : SerializedScriptableObject
+    public class CircleRadius : ScriptableObject
     {
+        [Serializable]
         public enum Preset
         {
             Small,
@@ -16,14 +17,29 @@ namespace Configs
             Big
         }
 
-        [OdinSerialize]
-        private Dictionary<Preset, CircleZone> sizes =
-            new()
+        [Serializable]
+        private struct PresetZone
+        {
+            public Preset Preset;
+            public CircleZone CircleZone;
+        }
+
+        [SerializeField]
+        private List<PresetZone> zones;
+
+        private Dictionary<Preset, CircleZone> sizes;
+
+        public Dictionary<Preset, CircleZone> Sizes
+        {
+            get
             {
-                { Preset.Small, new CircleZone() },
-                { Preset.Medium, new CircleZone() },
-                { Preset.Big, new CircleZone() },
-            };
+                if (zones == null)
+                {
+                    sizes = zones.ToDictionary(x => x.Preset, x => x.CircleZone);
+                }
+                return sizes;
+            }
+        }
 
         public CircleZone GetCircleZone(Preset preset)
         {
@@ -32,19 +48,29 @@ namespace Configs
     }
 
     [Serializable]
-    [HideReferenceObjectPicker]
     public class CircleZone
     {
-        [OdinSerialize]
+        [SerializeField]
         [MinValue(0.0f)]
         [MaxValue(nameof(Max))]
         [FoldoutGroup("CircleZone")]
-        public float Min { get; private set; } = 0.0f;
+        private float min = 0.0f;
 
-        [OdinSerialize]
+        public float Min
+        {
+            get => min;
+            private set => min = value;
+        }
+
+        [SerializeField]
         [FoldoutGroup("CircleZone")]
         [MinValue(nameof(Min))]
-        public float Max { get; private set; } = 0.0f;
+        private float max = 0.0f;
+        public float Max
+        {
+            get => max;
+            private set => max = value;
+        }
 
         public Vector3 GetRandomPoint()
         {

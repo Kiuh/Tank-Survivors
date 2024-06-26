@@ -1,5 +1,6 @@
 ﻿using Configs;
 using General;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Panels.Levels
@@ -7,15 +8,19 @@ namespace Panels.Levels
     [AddComponentMenu("Panels.Levels.Controller")]
     public class Controller : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private View view;
 
+        [Required]
         [SerializeField]
         private Level levelTemplate;
 
+        [Required]
         [SerializeField]
         private Configs.Levels levels;
 
+        [Required]
         [SerializeField]
         private DataTransfer dataTransfer;
 

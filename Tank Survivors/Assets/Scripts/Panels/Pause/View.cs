@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Panels.Pause
@@ -6,18 +7,23 @@ namespace Panels.Pause
     [AddComponentMenu("Panels.Pause.View")]
     public class View : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private Controller controller;
 
+        [Required]
         [SerializeField]
         private GameObject pausePanel;
 
+        [Required]
         [SerializeField]
         private Button resumeButton;
 
+        [Required]
         [SerializeField]
         private Button repeatButton;
 
+        [Required]
         [SerializeField]
         private Button leaveButton;
 

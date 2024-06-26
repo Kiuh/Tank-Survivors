@@ -1,5 +1,4 @@
-﻿
-namespace YG
+﻿namespace YG
 {
     [System.Serializable]
     public class SavesYG
@@ -12,7 +11,7 @@ namespace YG
 
         // Тестовые сохранения для демо сцены
         // Можно удалить этот код, но тогда удалите и демо (папка Example)
-        public int money = 1;                       // Можно задать полям значения по умолчанию
+        public int money = 1; // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
 
@@ -21,7 +20,6 @@ namespace YG
         // ...
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
-
 
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()

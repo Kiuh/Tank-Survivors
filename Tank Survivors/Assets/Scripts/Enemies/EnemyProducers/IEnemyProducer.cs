@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using Configs;
-using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
 namespace Enemies.Producers
 {
-    [HideReferenceObjectPicker]
     public interface IEnemyProducer
     {
         public void Initialize();

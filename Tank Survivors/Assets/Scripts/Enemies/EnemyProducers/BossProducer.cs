@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using Configs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
-using static Configs.CircleRadius;
 
 namespace Enemies.EnemyProducers
 {
     [Serializable]
-    [HideReferenceObjectPicker]
     [LabelText("Boss Producer")]
     public class BossProducer
     {
@@ -25,11 +22,11 @@ namespace Enemies.EnemyProducers
             return obj.TryGetComponent<IEnemy>(out _);
         }
 
-        [OdinSerialize]
+        [SerializeReference]
         [FoldoutGroup("Boss/Boss stats")]
         private List<IModule> baseModules = new();
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(
             HideAddButton = true,
             HideRemoveButton = true,
@@ -39,17 +36,22 @@ namespace Enemies.EnemyProducers
         [FoldoutGroup("Boss/Boss stats")]
         [LabelText("Modules")]
         [ReadOnly]
-        public List<IModule> Modules { get; set; } = new();
+        private List<IModule> modules = new();
+        public List<IModule> Modules
+        {
+            get => modules;
+            set => modules = value;
+        }
 
         [SerializeField]
         [Unit(Units.Minute)]
         private float startTime;
 
-        [OdinSerialize]
+        [SerializeField]
         [EnumToggleButtons]
-        private Preset preset;
+        private CircleRadius.Preset preset;
 
-        [OdinSerialize]
+        [SerializeField]
         private CircleRadius radius;
 
         public float StartTime => startTime * 60;

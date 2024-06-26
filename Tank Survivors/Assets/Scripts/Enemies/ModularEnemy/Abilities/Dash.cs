@@ -119,22 +119,22 @@ namespace Enemies.Abilities
             float damage =
                 enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue() * 2.0f;
 
-            Vector3 startPpoint = enemy.transform.position;
+            Vector3 startPoint = enemy.transform.position;
             Vector2 endPoint =
-                tank.transform.position + dash.CircleZone.GetRandomPoint() - startPpoint;
+                tank.transform.position + dash.CircleZone.GetRandomPoint() - startPoint;
             Vector2 direction = endPoint.normalized;
             float distance = endPoint.magnitude;
-            Rigidbody2D rigidbody = enemy.Rigidbody;
+            Rigidbody2D rigidBody = enemy.RigidBody;
 
             executeState = () =>
             {
-                if (rigidbody.IsTouching(tankCollider))
+                if (rigidBody.IsTouching(tankCollider))
                 {
                     tank.TakeDamage(speed);
                     UpdateState();
                 }
-                rigidbody.MovePosition(rigidbody.position + (direction * speed * Time.deltaTime));
-                if ((rigidbody.transform.position - startPpoint).magnitude >= distance)
+                rigidBody.MovePosition(rigidBody.position + (direction * speed * Time.deltaTime));
+                if ((rigidBody.transform.position - startPoint).magnitude >= distance)
                 {
                     UpdateState();
                 }

@@ -1,11 +1,10 @@
 ﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
 namespace Panels
 {
-    public class PlayerFollower : SerializedMonoBehaviour
+    public class PlayerFollower : MonoBehaviour
     {
         public enum Offset
         {
@@ -13,17 +12,19 @@ namespace Panels
             Value
         }
 
-        [OdinSerialize]
+        [Required]
+        [SerializeField]
         private RectTransform canvas;
 
-        [OdinSerialize]
+        [Required]
+        [SerializeField]
         private TankImpl tank;
 
-        [OdinSerialize]
+        [SerializeField]
         [EnumToggleButtons]
         private Offset offsetType = Offset.Scene;
 
-        [OdinSerialize]
+        [SerializeField]
         private Vector3 offset;
 
         private void Start()

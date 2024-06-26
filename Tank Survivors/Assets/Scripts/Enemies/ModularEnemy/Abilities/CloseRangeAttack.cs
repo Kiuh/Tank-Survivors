@@ -28,7 +28,7 @@ namespace Enemies.Abilities
         public void Initialize(Enemy enemy, TankImpl tank)
         {
             this.tank = tank;
-            collider = enemy.Collider;
+            collider = enemy.OwnCollider;
             tankCollider = tank.GetComponent<BoxCollider2D>();
             damage = enemy.Modules.GetConcrete<DamageModule, IModule>().Damage.GetModifiedValue();
             attackCooldown = enemy

@@ -1,4 +1,6 @@
+using System;
 using Common;
+using Sirenix.OdinInspector;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Projectiles;
@@ -8,6 +10,7 @@ namespace Tank.Towers
 {
     public class SingleShotTower : MonoBehaviour, ITower, ICanRotate
     {
+        [Required]
         [SerializeField]
         private Transform shotPoint;
 
@@ -19,7 +22,7 @@ namespace Tank.Towers
         private EnemyFinder enemyFinder;
         private TankImpl tank;
 
-        public event System.Action OnProceedAttack;
+        public event Action OnProceedAttack;
 
         private void LateUpdate()
         {
@@ -105,7 +108,7 @@ namespace Tank.Towers
 
         private void ClearReference()
         {
-            weapon.GetModule<TowerModule>().Tower = null;
+            weapon.GetModule<TowerModule>().RemoveTower();
         }
 
         private void FireAllProjectiles()
@@ -122,7 +125,7 @@ namespace Tank.Towers
 
                 IProjectile projectile = SpawnProjectile(projectilePrefab);
 
-                projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+                projectile.Initialize(weapon, tank, GetShotPoint(), GetDirection());
                 projectile.Shoot();
             }
         }

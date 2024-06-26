@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
+using Sirenix.OdinInspector;
 using Tank.Weapons;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Modules.Cannon;
@@ -15,6 +16,7 @@ namespace Tank.Towers.Cannon
         [SerializeField]
         private SerializableInterface<ITower> tower;
 
+        [Required]
         [SerializeField]
         private Positioner positioner;
 
@@ -65,13 +67,7 @@ namespace Tank.Towers.Cannon
                 IProjectile projectile = weapon
                     .GetModule<ProjectileModule>()
                     .ProjectilePrefab.Spawn();
-                projectile.Initialize(
-                    weapon,
-                    tank,
-                    tower.Value,
-                    cannon.GetShotPoint(),
-                    cannon.GetDirection()
-                );
+                projectile.Initialize(weapon, tank, cannon.GetShotPoint(), cannon.GetDirection());
                 projectile.Shoot();
             }
         }

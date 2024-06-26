@@ -1,5 +1,4 @@
 using Common;
-using Tank.Towers;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
@@ -14,7 +13,6 @@ namespace Tank.Weapons.Projectiles
         private Vector3 direction;
 
         private Vector3 startPosition;
-        private ITower tower;
 
         private void Start()
         {
@@ -43,16 +41,8 @@ namespace Tank.Weapons.Projectiles
             }
         }
 
-        public void Initialize(
-            GunBase weapon,
-            TankImpl tank,
-            ITower tower,
-            Vector3 shotPoint,
-            Vector3 direction
-        )
+        public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
-            this.tower = tower;
-
             float damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
@@ -65,8 +55,7 @@ namespace Tank.Weapons.Projectiles
                 weapon.GetModule<ProjectileSpreadAngleModule>().SpreadAngle.GetModifiedValue()
             );
 
-            transform.position = shotPoint;
-            transform.rotation = Quaternion.identity;
+            transform.SetPositionAndRotation(shotPoint, Quaternion.identity);
 
             InitializeInternal(
                 damage,
