@@ -13,21 +13,325 @@ MonoBehaviour:
   m_Name: TankUpgradesConfig
   m_EditorClassIdentifier: 
   upgrades:
+  - upgradeName: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+      \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+    currentLevel: 0
+    maxLevel: 20
+    upgradeList:
+    - upgradingLevel: 0
+      description: "+4 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829698
+    - upgradingLevel: 1
+      description: "+4 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829699
+    - upgradingLevel: 2
+      description: "+4 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829700
+    - upgradingLevel: 3
+      description: "+4 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829702
+    - upgradingLevel: 4
+      description: "+4 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829703
+    - upgradingLevel: 5
+      description: "+6 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829704
+    - upgradingLevel: 6
+      description: "+6 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829719
+    - upgradingLevel: 7
+      description: "+6 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829720
+    - upgradingLevel: 8
+      description: "+6 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829721
+    - upgradingLevel: 9
+      description: "+6 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829722
+    - upgradingLevel: 10
+      description: "+8 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829724
+    - upgradingLevel: 11
+      description: "+8 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829725
+    - upgradingLevel: 12
+      description: "+8 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829726
+    - upgradingLevel: 13
+      description: "+8 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829727
+    - upgradingLevel: 14
+      description: "+8 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829728
+    - upgradingLevel: 15
+      description: "+10 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829729
+    - upgradingLevel: 16
+      description: "+10 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829730
+    - upgradingLevel: 17
+      description: "+10 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829731
+    - upgradingLevel: 18
+      description: "+10 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829732
+    - upgradingLevel: 19
+      description: "+10 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435"
+      propertyUpgrades:
+      - rid: 3201943389564829733
+  - upgradeName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+    currentLevel: 0
+    maxLevel: 4
+    upgradeList:
+    - upgradingLevel: 0
+      description: "+1 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+      propertyUpgrades:
+      - rid: 3201943389564829734
+    - upgradingLevel: 1
+      description: "+1 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+      propertyUpgrades:
+      - rid: 3201943389564829735
+    - upgradingLevel: 2
+      description: "+1 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+      propertyUpgrades:
+      - rid: 3201943389564829736
+    - upgradingLevel: 3
+      description: "+1 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+      propertyUpgrades:
+      - rid: 3201943389564829737
+    - upgradingLevel: 4
+      description: "+1 \u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+        \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+      propertyUpgrades:
+      - rid: 3201943389564829738
+  - upgradeName: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0431\u043E\u0440\u0430"
+    currentLevel: 0
+    maxLevel: 1
+    upgradeList:
+    - upgradingLevel: 0
+      description: "+1 \u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0431\u043E\u0440\u0430 "
+      propertyUpgrades:
+      - rid: 3201943389564829739
+    - upgradingLevel: 1
+      description: "+1 \u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0431\u043E\u0440\u0430 "
+      propertyUpgrades:
+      - rid: 3201943389564829740
+  - upgradeName: "\u0428\u0430\u043D\u0441 \u0443\u0440\u043E\u0432\u043E\u0442\u0430"
+    currentLevel: 0
+    maxLevel: 6
+    upgradeList:
+    - upgradingLevel: 0
+      description: "+5% \u0428\u0430\u043D\u0441 \u0443\u0432\u043E\u0440\u043E\u0442\u0430"
+      propertyUpgrades: []
   - upgradeName: 
     currentLevel: 0
     maxLevel: 0
-    upgradeList:
-    - upgradingLevel: 0
-      description: 
-      propertyUpgrades:
-      - rid: 2815594770187419716
+    upgradeList: []
   references:
     version: 2
     RefIds:
-    - rid: 2815594770187419716
-      type: {class: CriticalChance, ns: Tank.Upgrades, asm: Assembly-CSharp}
+    - rid: 3201943389564829698
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
       data:
         MathOperation: 0
-        OperationValue:
-          value: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943389564829699
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943389564829700
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943389564829702
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943389564829703
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943389564829704
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943389564829719
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943389564829720
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943389564829721
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943389564829722
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943389564829724
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943389564829725
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943389564829726
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943389564829727
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943389564829728
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943389564829729
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943389564829730
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943389564829731
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943389564829732
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943389564829733
+      type: {class: MaxHealth, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943389564829734
+      type: {class: Speed, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829735
+      type: {class: Speed, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829736
+      type: {class: Speed, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829737
+      type: {class: Speed, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829738
+      type: {class: Speed, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829739
+      type: {class: PickupRadius, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943389564829740
+      type: {class: PickupRadius, ns: Tank.Upgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
         ModificationPriority: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095910d4bba0c0b47b2c1c8bd02162b9, type: 3}
   m_Name: DataTransfer
   m_EditorClassIdentifier: 
-  <LevelInfo>k__BackingField:
+  levelInfo:
     Name: 
     Progress: 0
     Enemies: {fileID: 11400000, guid: 553fb1ba51f47ae46b6ef60f026dc670, type: 2}

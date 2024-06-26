@@ -33,17 +33,9 @@ namespace Configs
         {
             get
             {
-                if (zones == null)
-                {
-                    sizes = zones.ToDictionary(x => x.Preset, x => x.CircleZone);
-                }
+                sizes ??= zones.ToDictionary(x => x.Preset, x => x.CircleZone);
                 return sizes;
             }
-        }
-
-        public CircleZone GetCircleZone(Preset preset)
-        {
-            return sizes[preset];
         }
     }
 

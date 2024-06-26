@@ -280,15 +280,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b1bc7ed0dd5a4ca97362cdf6e85bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  rigidBody: {fileID: 0}
-  ownCollider: {fileID: 0}
-  health: 0
-  abilities: []
-  modules: []
+  enemyName: Drone
+  rigidBody: {fileID: 2677439162934494719}
+  ownCollider: {fileID: 7078847720920089569}
+  health: 5
+  abilities:
+  - rid: 3201943389564829754
+  - rid: 3201943389564829763
+  modules:
+  - rid: 3201943389564829764
+  - rid: 3201943389564829765
+  - rid: 3201943389564829766
+  - rid: 3201943389564829767
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943389564829754
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943389564829763
+      type: {class: Explosion, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data:
+        particle: {fileID: 8851909549441986645}
+        dangerZone: {fileID: 4060764603155430094}
+    - rid: 3201943389564829764
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829765
+      type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        radius:
+          sourceValue: 1
+          cachedValue: 0
+    - rid: 3201943389564829766
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829767
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 5
+          cachedValue: 0
 --- !u!1001 &343139905336202281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,5 +387,10 @@ PrefabInstance:
 --- !u!4 &2005056297196350370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2238420927087853451, guid: b1e058f0e36cc6b44b4df24a0c995e54, type: 3}
+  m_PrefabInstance: {fileID: 343139905336202281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8851909549441986645 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9086961371361567868, guid: b1e058f0e36cc6b44b4df24a0c995e54, type: 3}
   m_PrefabInstance: {fileID: 343139905336202281}
   m_PrefabAsset: {fileID: 0}

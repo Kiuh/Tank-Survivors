@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3087f1b1e59214ba71dd56868bcbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 10
+  healAmount: 5
   pickupName: Health
 --- !u!61 &7647850923129408509
 BoxCollider2D:
