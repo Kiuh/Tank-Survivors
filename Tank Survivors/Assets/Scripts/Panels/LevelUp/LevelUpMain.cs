@@ -12,15 +12,19 @@ namespace Panels.LevelUp
     [AddComponentMenu("Panels.LevelUp.LevelUpMain")]
     public class LevelUpMain : MonoBehaviour
     {
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private UpgradeBlock upgradeBlockPrefab;
 
+        [Required]
         [SerializeField]
         private RectTransform upgradeBlocksViewRoot;
 
+        [Required]
         [SerializeField]
         private GameObject levelUpPanel;
 

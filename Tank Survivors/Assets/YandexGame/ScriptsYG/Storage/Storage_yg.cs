@@ -73,7 +73,6 @@ namespace YG
             string json = JsonUtility.ToJson(savesData, true);
 #endif
             File.WriteAllText(path, json);
-
             if (!fileExits && File.Exists(path))
             {
                 UnityEditor.AssetDatabase.Refresh();

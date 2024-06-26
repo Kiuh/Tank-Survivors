@@ -8,39 +8,23 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Enemy : SerializedMonoBehaviour, IEnemy
+    public class Enemy : MonoBehaviour, IEnemy
     {
         [SerializeField]
         private string enemyName;
-        public string EnemyName
-        {
-            get => enemyName;
-            private set => enemyName = value;
-        }
+        public string EnemyName => enemyName;
 
         [SerializeField]
         private Rigidbody2D rigidBody;
-        public Rigidbody2D RigidBody
-        {
-            get => rigidBody;
-            private set => rigidBody = value;
-        }
+        public Rigidbody2D RigidBody => rigidBody;
 
         [SerializeField]
         private Collider2D ownCollider;
-        public Collider2D OwnCollider
-        {
-            get => ownCollider;
-            private set => ownCollider = value;
-        }
+        public Collider2D OwnCollider => ownCollider;
 
         [SerializeField]
         private float health;
-        public float Health
-        {
-            get => health;
-            private set => health = value;
-        }
+        public float Health => health;
 
         [SerializeReference]
         [LabelText("Abilities")]
@@ -70,7 +54,7 @@ namespace Enemies
         {
             this.tank = tank;
             enemyTransform = transform;
-            Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
+            health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
             abilities.ForEach(ability => ability.Initialize(this, this.tank));
             OnDeath += DeathAction;
         }
@@ -111,7 +95,7 @@ namespace Enemies
             {
                 return;
             }
-            Health -= damageAmount;
+            health -= damageAmount;
             if (Health <= 0.0f)
             {
                 OnDeath?.Invoke();

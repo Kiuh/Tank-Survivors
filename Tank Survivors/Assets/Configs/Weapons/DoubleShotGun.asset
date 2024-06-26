@@ -13,10 +13,136 @@ MonoBehaviour:
   m_Name: DoubleShotGun
   m_EditorClassIdentifier: 
   weapon:
-    rid: 2815594770187419706
+    rid: 2815594792133853321
   references:
     version: 2
     RefIds:
-    - rid: 2815594770187419706
-      type: {class: BasicGun, ns: Tank.Weapons, asm: Assembly-CSharp}
-      data: 
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2815594792133853321
+      type: {class: DoubleShotGun, ns: Tank.Weapons, asm: Assembly-CSharp}
+      data:
+        upgradeName: 
+        currentLevel: 0
+        maxLevel: 0
+        leveledUpgrades: []
+        levelUpUpgrades: []
+        modules:
+        - rid: 2815594792133853322
+        - rid: 2815594792133853323
+        - rid: 2815594792133853324
+        - rid: 2815594792133853325
+        - rid: 2815594792133853326
+        - rid: 2815594792133853327
+        - rid: 2815594792133853328
+        - rid: 2815594792133853329
+        - rid: 2815594792133853330
+        - rid: 2815594792133853331
+        - rid: 2815594792133853332
+        - rid: 2815594792133853333
+        - rid: 2815594792133853334
+        - rid: 2815594792133853335
+        - rid: 2815594792133853336
+    - rid: 2815594792133853322
+      type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853323
+      type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        fireRate:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853324
+      type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        criticalChance:
+          sourceValue:
+            value: 0
+          cachedValue:
+            value: 0
+    - rid: 2815594792133853325
+      type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        criticalMultiplier:
+          sourceValue:
+            value: 0
+          cachedValue:
+            value: 0
+    - rid: 2815594792133853326
+      type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        fireRange:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853327
+      type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        penetration:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853328
+      type: {class: ProjectileModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectilePrefab:
+          mode: 0
+          unityReference: {fileID: 0}
+          rawReference:
+            rid: -2
+    - rid: 2815594792133853329
+      type: {class: ProjectileSizeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectileSize:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853330
+      type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectileSpeed:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853331
+      type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectilesPerShoot:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853332
+      type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        towerPrefab:
+          mode: 0
+          unityReference: {fileID: 0}
+          rawReference:
+            rid: -2
+        tower:
+          mode: 0
+          unityReference: {fileID: 0}
+          rawReference:
+            rid: -2
+    - rid: 2815594792133853333
+      type: {class: ProjectileSpreadAngleModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        spreadAngle:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853334
+      type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        rotationSpeed:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 2815594792133853335
+      type: {class: MultiCannonFireRateModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
+      data:
+        percent:
+          sourceValue:
+            value: 0
+          cachedValue:
+            value: 0
+    - rid: 2815594792133853336
+      type: {class: CannonModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
+      data:
+        cannonPrefab: {fileID: 0}

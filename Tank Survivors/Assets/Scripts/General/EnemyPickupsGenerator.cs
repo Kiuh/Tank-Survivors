@@ -11,9 +11,11 @@ namespace General
 {
     public class EnemyPickupsGenerator : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private EnemiesPickupsDrops enemiesPickups;
 
+        [Required]
         [SerializeField]
         private Transform pickupsParent;
 

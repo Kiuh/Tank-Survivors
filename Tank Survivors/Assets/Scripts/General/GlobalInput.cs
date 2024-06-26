@@ -1,4 +1,5 @@
 ﻿using Panels.Pause;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +8,11 @@ namespace General
     [AddComponentMenu("General.GlobalInput")]
     public class GlobalInput : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private Controller pauseController;
 
+        [Required]
         [SerializeField]
         private Button pauseButton;
 

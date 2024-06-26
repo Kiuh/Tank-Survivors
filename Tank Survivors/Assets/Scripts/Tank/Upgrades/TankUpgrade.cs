@@ -12,11 +12,7 @@ namespace Tank.Upgrades
         [FoldoutGroup("$UpgradeName")]
         [SerializeField]
         private string upgradeName;
-        public string UpgradeName
-        {
-            get => upgradeName;
-            private set => upgradeName = value;
-        }
+        public string UpgradeName => upgradeName;
 
         [FoldoutGroup("$UpgradeName")]
         [HorizontalGroup("$UpgradeName/Top")]
@@ -34,11 +30,7 @@ namespace Tank.Upgrades
         [MinValue(0, Expression = "@this.CurrentLevel")]
         [SerializeField]
         private uint maxLevel;
-        public uint MaxLevel
-        {
-            get => maxLevel;
-            private set => maxLevel = value;
-        }
+        public uint MaxLevel => maxLevel;
 
         [FoldoutGroup("$UpgradeName")]
         [SerializeField]

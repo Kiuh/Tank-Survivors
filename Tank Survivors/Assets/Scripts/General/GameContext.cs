@@ -7,14 +7,10 @@ namespace General
     [AddComponentMenu("General.GameContext")]
     public class GameContext : MonoBehaviour
     {
-        [ReadOnly]
+        [Required]
         [SerializeField]
         private DataTransfer dataTransfer;
-        public DataTransfer DataTransfer
-        {
-            get => dataTransfer;
-            private set => dataTransfer = value;
-        }
+        public DataTransfer DataTransfer => dataTransfer;
 
         [Required]
         [SerializeField]

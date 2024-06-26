@@ -12,21 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
   m_Name: Enemies
   m_EditorClassIdentifier: 
-  enemyProducers:
-  - rid: 2815594770187419718
+  enemyProducers: []
   bossProducers: []
   references:
     version: 2
-    RefIds:
-    - rid: 2815594770187419718
-      type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
-      data:
-        EnemyPrefab: {fileID: 0}
-        baseModules: []
-        modules: []
-        progressor: {fileID: 0}
-        progressorTimer: 0
-        spawnInterval: 0
-        radiusPreset: 0
-        radius: {fileID: 0}
-        timer: 0
+    RefIds: []

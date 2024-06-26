@@ -13,9 +13,11 @@ namespace Enemies.Abilities
     [LabelText("Shooting")]
     public class Shooting : IAbility
     {
+        [Required]
         [SerializeField]
         private Transform shootingPoint;
 
+        [Required]
         [SerializeField]
         private Projectile projectile;
 

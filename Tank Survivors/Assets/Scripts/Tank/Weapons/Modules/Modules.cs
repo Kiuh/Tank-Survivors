@@ -118,6 +118,16 @@ namespace Tank.Weapons.Modules
         [ReadOnly]
         private SerializableInterface<ITower> tower;
         public ITower Tower => tower.Value;
+
+        public void SetNewTower(ITower tower)
+        {
+            this.tower = new SerializableInterface<ITower>(tower);
+        }
+
+        public void RemoveTower()
+        {
+            tower = null;
+        }
     }
 
     public class RayDurationModule : IWeaponModule

@@ -24,11 +24,7 @@ namespace Enemies
         [SerializeField]
         [EnumToggleButtons]
         private MathOperation operation = MathOperation.Plus;
-        public MathOperation Operation
-        {
-            get => operation;
-            private set => operation = value;
-        }
+        public MathOperation Operation => operation;
         public abstract void ApplyUpgrade(IEnemyProducer producer);
 
         protected T GetModule<T>(IEnemyProducer producer)

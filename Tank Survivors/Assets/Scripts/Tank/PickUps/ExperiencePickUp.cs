@@ -13,11 +13,7 @@ namespace Tank.PickUps
 
         [SerializeField]
         private string pickupName;
-        public string PickupName
-        {
-            get => pickupName;
-            private set => pickupName = value;
-        }
+        public string PickupName => pickupName;
 
         public void Initialize(float experienceAmount)
         {

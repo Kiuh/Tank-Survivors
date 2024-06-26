@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.UpgradablePiece;
 using Tank.Weapons.ModulesUpgrades;
+using UnityEngine;
 
 namespace Tank.Weapons
 {
@@ -12,16 +12,18 @@ namespace Tank.Weapons
     public class LeveledWeaponUpgrade : ILeveledUpgrade
     {
         [FoldoutGroup("$UpgradingLevel")]
-        [OdinSerialize]
-        public uint UpgradingLevel { get; private set; }
+        [SerializeField]
+        private uint upgradingLevel;
+        public uint UpgradingLevel => upgradingLevel;
 
         [FoldoutGroup("$UpgradingLevel")]
         [MultiLineProperty]
-        [OdinSerialize]
-        public string Description { get; private set; }
+        [SerializeField]
+        private string description;
+        public string Description => description;
 
         [FoldoutGroup("$UpgradingLevel")]
-        [NonSerialized, OdinSerialize]
+        [SerializeReference]
         [PropertyOrder(1)]
         private List<IModuleUpgrade> moduleUpgrades = new();
 
@@ -42,16 +44,18 @@ namespace Tank.Weapons
     public class LevelUpWeaponUpgrade : ILevelUpUpgrade
     {
         [FoldoutGroup("$LevelForUpgrade")]
-        [OdinSerialize]
-        public uint LevelForUpgrade { get; private set; }
+        [SerializeField]
+        private uint levelForUpgrade;
+        public uint LevelForUpgrade => levelForUpgrade;
 
         [FoldoutGroup("$LevelForUpgrade")]
         [MultiLineProperty]
-        [OdinSerialize]
-        public string Description { get; private set; }
+        [SerializeField]
+        private string description;
+        public string Description => description;
 
         [FoldoutGroup("$LevelForUpgrade")]
-        [NonSerialized, OdinSerialize]
+        [SerializeReference]
         [PropertyOrder(1)]
         private List<IModuleUpgrade> moduleUpgrades = new();
 

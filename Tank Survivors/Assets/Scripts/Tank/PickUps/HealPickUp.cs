@@ -1,10 +1,9 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tank.PickUps
 {
     [AddComponentMenu("Tank.PickUps.HealPickUp")]
-    public class HealPickUp : SerializedMonoBehaviour, IPickUp
+    public class HealPickUp : MonoBehaviour, IPickUp
     {
         [SerializeField]
         private float healAmount;
@@ -15,11 +14,7 @@ namespace Tank.PickUps
 
         [SerializeField]
         private string pickupName;
-        public string PickupName
-        {
-            get => pickupName;
-            private set => pickupName = value;
-        }
+        public string PickupName => pickupName;
 
         private void OnEnable()
         {

@@ -4,7 +4,6 @@ using System.Linq;
 using DataStructs;
 using Enemies;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.PickUps;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -19,11 +18,7 @@ namespace Configs
         [SerializeField]
         [ValueDropdown("@GetNamesList()")]
         private string name;
-        public string Name
-        {
-            get => name;
-            set => name = value;
-        }
+        public string Name => name;
 
 #if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
@@ -52,11 +47,7 @@ namespace Configs
         [SerializeField]
         [ValueDropdown("@GetNamesList()")]
         private string name;
-        public string Name
-        {
-            get => name;
-            private set => name = value;
-        }
+        public string Name => name;
 
 #if UNITY_EDITOR
         private IEnumerable<string> GetNamesList()
@@ -111,7 +102,7 @@ namespace Configs
         menuName = "Configs/EnemiesPickupsDropsConfig",
         order = 1
     )]
-    public class EnemiesPickupsDrops : SerializedScriptableObject
+    public class EnemiesPickupsDrops : ScriptableObject
     {
         [Serializable]
         private struct EnemyNamePickupGeneration
@@ -125,7 +116,6 @@ namespace Configs
 
         private Dictionary<SelectableEnemyName, PickupGenerationConfig> chances = new();
 
-        [OdinSerialize]
         public Dictionary<SelectableEnemyName, PickupGenerationConfig> EnemiesPickupsChances
         {
             get

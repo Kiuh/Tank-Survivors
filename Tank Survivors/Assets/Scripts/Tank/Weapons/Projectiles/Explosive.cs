@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Enemies;
 using UnityEngine;
 
 namespace Tank.Weapons.Projectiles
 {
+    [Serializable]
     public class Explosive
     {
         private Transform hitMark;

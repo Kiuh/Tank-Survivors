@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,18 +8,23 @@ namespace Panels.Win
     [AddComponentMenu("Panels.Win.View")]
     public class View : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private Controller controller;
 
+        [Required]
         [SerializeField]
         private StarsContainer starsContainer;
 
+        [Required]
         [SerializeField]
         private GameObject winPanel;
 
+        [Required]
         [SerializeField]
         private TMP_Text infoLabel;
 
+        [Required]
         [SerializeField]
         private Button leaveButton;
 

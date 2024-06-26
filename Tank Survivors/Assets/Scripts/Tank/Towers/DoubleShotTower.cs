@@ -120,7 +120,7 @@ namespace Tank.Towers
 
         private void ClearReference()
         {
-            weapon.GetModule<TowerModule>().Tower = null;
+            weapon.GetModule<TowerModule>().RemoveTower();
         }
 
         private void FireAllProjectiles()
@@ -140,7 +140,7 @@ namespace Tank.Towers
             IProjectile projectilePrefab = weapon.GetModule<ProjectileModule>().ProjectilePrefab;
             IProjectile projectile = SpawnProjectile(projectilePrefab);
 
-            projectile.Initialize(weapon, tank, this, GetShotPoint(), GetDirection());
+            projectile.Initialize(weapon, tank, GetShotPoint(), GetDirection());
         }
 
         private IProjectile SpawnProjectile(IProjectile projectilePrefab)

@@ -1,4 +1,5 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
 
@@ -6,34 +7,30 @@ namespace General
 {
     public class ProgressController : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private EnemyGenerator enemyGenerator;
 
+        [Required]
         [SerializeField]
         private Configs.Levels levels;
 
+        [Required]
         [SerializeField]
         private GameContext gameContext;
 
         [SerializeField]
         private int bossCount = 3;
-        public int BossCount
-        {
-            get => bossCount;
-            private set => bossCount = value;
-        }
+        public int BossCount => bossCount;
 
         [SerializeField]
         private int progress = 0;
 
-        public int Progress
-        {
-            get => progress;
-            private set => progress = value;
-        }
+        public int Progress => progress;
         public event Action OnWin;
         public event Action OnLoose;
 
@@ -57,7 +54,7 @@ namespace General
 
         private void OnBossDead()
         {
-            Progress++;
+            progress++;
             levels
                 .LevelInfos.Find(x => x.Name.Equals(gameContext.DataTransfer.LevelInfo.Name))
                 .Progress = Progress;

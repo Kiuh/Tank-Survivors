@@ -12,21 +12,13 @@ namespace Tank.Upgrades
         [FoldoutGroup("$UpgradingLevel")]
         [SerializeField]
         private uint upgradingLevel;
-        public uint UpgradingLevel
-        {
-            get => upgradingLevel;
-            private set => upgradingLevel = value;
-        }
+        public uint UpgradingLevel => upgradingLevel;
 
         [FoldoutGroup("$UpgradingLevel")]
         [MultiLineProperty]
         [SerializeField]
         private string description;
-        public string Description
-        {
-            get => description;
-            private set => description = value;
-        }
+        public string Description => description;
 
         [FoldoutGroup("$UpgradingLevel")]
         [SerializeReference]

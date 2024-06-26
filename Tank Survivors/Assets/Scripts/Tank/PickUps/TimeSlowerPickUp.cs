@@ -1,4 +1,5 @@
 using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tank.PickUps
@@ -13,6 +14,7 @@ namespace Tank.PickUps
         [Range(0.0f, 1.0f)]
         private float timeSlowerPercentage;
 
+        [Required]
         [SerializeField]
         private SpriteRenderer spriteRenderer;
 
@@ -23,11 +25,7 @@ namespace Tank.PickUps
 
         [SerializeField]
         private string pickupName;
-        public string PickupName
-        {
-            get => pickupName;
-            private set => pickupName = value;
-        }
+        public string PickupName => pickupName;
 
         private void OnEnable()
         {

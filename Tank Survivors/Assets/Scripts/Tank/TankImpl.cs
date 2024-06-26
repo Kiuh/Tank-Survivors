@@ -16,140 +16,91 @@ namespace Tank
     [AddComponentMenu("Tank.TankImpl")]
     public class TankImpl : MonoBehaviour
     {
+        [Required]
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
         [SerializeField]
         private GameContext gameContext;
 
+        [Required]
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
         [SerializeField]
         private EnemyFinder enemyFinder;
-        public EnemyFinder EnemyFinder
-        {
-            get => enemyFinder;
-            private set => enemyFinder = value;
-        }
+        public EnemyFinder EnemyFinder => enemyFinder;
 
+        [Required]
         [FoldoutGroup("General Bindings")]
         [PropertyOrder(0)]
         [SerializeField]
         private EnemyPickupsGenerator enemyPickupsGenerator;
-        public EnemyPickupsGenerator EnemyPickupsGenerator
-        {
-            get => enemyPickupsGenerator;
-            private set => enemyPickupsGenerator = value;
-        }
+        public EnemyPickupsGenerator EnemyPickupsGenerator => enemyPickupsGenerator;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Health"), HideLabel]
         private ModifiableValueContainer health = new();
-        public ModifiableValueContainer Health
-        {
-            get => health;
-            private set => health = value;
-        }
+        public ModifiableValueContainer Health => health;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("PlayerLevel"), HideLabel]
         private PlayerLevel playerLevel = new();
-        public PlayerLevel PlayerLevel
-        {
-            get => playerLevel;
-            private set => playerLevel = value;
-        }
+        public PlayerLevel PlayerLevel => playerLevel;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<uint> levelUpChoicesCount = new();
-        public ModifiableValue<uint> LevelUpChoicesCount
-        {
-            get => levelUpChoicesCount;
-            private set => levelUpChoicesCount = value;
-        }
+        public ModifiableValue<uint> LevelUpChoicesCount => levelUpChoicesCount;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<float> speed = new();
-        public ModifiableValue<float> Speed
-        {
-            get => speed;
-            private set => speed = value;
-        }
+        public ModifiableValue<float> Speed => speed;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<float> pickupRadius = new();
-        public ModifiableValue<float> PickupRadius
-        {
-            get => pickupRadius;
-            private set => pickupRadius = value;
-        }
+        public ModifiableValue<float> PickupRadius => pickupRadius;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<Percentage> criticalChance = new();
-        public ModifiableValue<Percentage> CriticalChance
-        {
-            get => criticalChance;
-            private set => criticalChance = value;
-        }
+        public ModifiableValue<Percentage> CriticalChance => criticalChance;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<Percentage> evadeChance = new();
-        public ModifiableValue<Percentage> EvadeChance
-        {
-            get => evadeChance;
-            private set => evadeChance = value;
-        }
+        public ModifiableValue<Percentage> EvadeChance => evadeChance;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<Percentage> damageModifier = new();
-        public ModifiableValue<Percentage> DamageModifier
-        {
-            get => damageModifier;
-            private set => damageModifier = value;
-        }
+        public ModifiableValue<Percentage> DamageModifier => damageModifier;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats", order: 1)]
         private ModifiableValue<Percentage> projectileSize = new();
-        public ModifiableValue<Percentage> ProjectileSize
-        {
-            get => projectileSize;
-            private set => projectileSize = value;
-        }
+        public ModifiableValue<Percentage> ProjectileSize => projectileSize;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<Percentage> rangeModifier = new();
-        public ModifiableValue<Percentage> RangeModifier
-        {
-            get => rangeModifier;
-            private set => rangeModifier = value;
-        }
+        public ModifiableValue<Percentage> RangeModifier => rangeModifier;
 
         [ReadOnly]
         [SerializeField]
         [FoldoutGroup("Tank Stats")]
         private ModifiableValue<Percentage> fireRateModifier = new();
-        public ModifiableValue<Percentage> FireRateModifier
-        {
-            get => fireRateModifier;
-            private set => fireRateModifier = value;
-        }
+        public ModifiableValue<Percentage> FireRateModifier => fireRateModifier;
 
         [ReadOnly]
         [PropertyOrder(2)]

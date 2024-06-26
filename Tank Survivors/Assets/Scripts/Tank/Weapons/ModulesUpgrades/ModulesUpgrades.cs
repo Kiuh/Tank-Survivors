@@ -3,7 +3,6 @@ using Common;
 using Configs;
 using DataStructs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Modules.Cannon;
@@ -21,7 +20,7 @@ namespace Tank.Weapons.ModulesUpgrades
     [InlineProperty]
     public abstract class BaseModuleMathUpgrade<T> : IModuleUpgrade
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("@GetType()")]
         [HorizontalGroup("@GetType()/Horizontal")]
         [EnumToggleButtons]
@@ -29,13 +28,13 @@ namespace Tank.Weapons.ModulesUpgrades
 
         [FoldoutGroup("@GetType()")]
         [InlineProperty]
-        [OdinSerialize]
+        [SerializeField]
         protected T OperationValue;
 
         [FoldoutGroup("@GetType()")]
         [LabelText("Priority")]
         [EnumToggleButtons]
-        [OdinSerialize]
+        [SerializeField]
         protected ModificationPriority ModificationPriority = ModificationPriority.Medium;
 
         public abstract void ApplyUpgrade(IWeapon weapon);
@@ -59,6 +58,7 @@ namespace Tank.Weapons.ModulesUpgrades
     [Serializable]
     public class SwapWeapon : IModuleUpgrade
     {
+        [Required]
         public WeaponConfig NewWeapon;
 
         public void ApplyUpgrade(IWeapon weapon)
