@@ -67,7 +67,7 @@ namespace Enemies.EnemyProducers
             boss = UnityEngine
                 .Object.Instantiate(
                     bossPrefab,
-                    tank.transform.position + radius.GetCircleZone(preset).GetRandomPoint(),
+                    tank.transform.position + radius.Sizes[preset].GetRandomPoint(),
                     Quaternion.identity,
                     enemyRoot
                 )

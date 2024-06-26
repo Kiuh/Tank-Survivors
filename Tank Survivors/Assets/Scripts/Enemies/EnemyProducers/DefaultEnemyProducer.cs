@@ -43,8 +43,7 @@ namespace Enemies.Producers
                 IEnemy enemy = UnityEngine
                     .Object.Instantiate(
                         EnemyPrefab,
-                        tank.transform.position
-                            + radius.GetCircleZone(radiusPreset).GetRandomPoint(),
+                        tank.transform.position + radius.Sizes[radiusPreset].GetRandomPoint(),
                         Quaternion.identity,
                         enemyRoot
                     )

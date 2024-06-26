@@ -301,8 +301,8 @@ MonoBehaviour:
     - rid: 3201943389564829763
       type: {class: Explosion, ns: Enemies.Abilities, asm: Assembly-CSharp}
       data:
-        particle: {fileID: 0}
-        dangerZone: {fileID: 0}
+        particle: {fileID: 8851909549441986645}
+        dangerZone: {fileID: 4060764603155430094}
     - rid: 3201943389564829764
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
@@ -387,5 +387,10 @@ PrefabInstance:
 --- !u!4 &2005056297196350370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2238420927087853451, guid: b1e058f0e36cc6b44b4df24a0c995e54, type: 3}
+  m_PrefabInstance: {fileID: 343139905336202281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8851909549441986645 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9086961371361567868, guid: b1e058f0e36cc6b44b4df24a0c995e54, type: 3}
   m_PrefabInstance: {fileID: 343139905336202281}
   m_PrefabAsset: {fileID: 0}

@@ -37,11 +37,6 @@ namespace Configs
                 return sizes;
             }
         }
-
-        public CircleZone GetCircleZone(Preset preset)
-        {
-            return sizes[preset];
-        }
     }
 
     [Serializable]

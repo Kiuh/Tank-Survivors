@@ -12,9 +12,11 @@ namespace Enemies.Abilities
     [LabelText("Explosion")]
     public class Explosion : IAbility
     {
+        [Required]
         [SerializeField]
         private ParticleSystem particle;
 
+        [Required]
         [SerializeField]
         private SpriteRenderer dangerZone;
 
