@@ -1,63 +1,71 @@
 ﻿using Common;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Weapons.Projectiles;
+using UnityEngine;
 
 namespace Tank.Weapons.Modules.SelfExplosion
 {
     public class FireTimerModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion Fire Time")]
-        public ModifiableValue<float> Time { get; private set; }
+        private ModifiableValue<float> time;
+        public ModifiableValue<float> Time => time;
     }
 
     public class ProjectileModule : IWeaponModule
     {
-        [OdinSerialize]
-        [HideLabel]
+        [Required]
+        [SerializeField]
+        [AssetSelector]
         [FoldoutGroup("Explosion Prefab")]
-        public SelfExplosionProjectile ProjectilePrefab { get; private set; }
+        private SelfExplosionProjectile projectilePrefab;
+        public SelfExplosionProjectile ProjectilePrefab => projectilePrefab;
     }
 
     public class SelfExplosionCountModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion Count")]
-        public ModifiableValue<int> Count { get; private set; }
+        private ModifiableValue<int> count;
+        public ModifiableValue<int> Count => count;
     }
 
     public class FireRateModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion FireRate")]
-        public ModifiableValue<float> FireRate { get; private set; }
+        private ModifiableValue<float> fireRate;
+        public ModifiableValue<float> FireRate => fireRate;
     }
 
     public class RadiusModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion Radius")]
-        public ModifiableValue<float> Radius { get; private set; }
+        private ModifiableValue<float> radius;
+        public ModifiableValue<float> Radius => radius;
     }
 
     public class DamageModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion Damage")]
-        public ModifiableValue<float> Damage { get; private set; }
+        private ModifiableValue<float> damage;
+        public ModifiableValue<float> Damage => damage;
     }
 
     public class HitMarkTimerModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Explosion Hit Mark Timer")]
-        public ModifiableValue<float> Time { get; private set; }
+        private ModifiableValue<float> time;
+        public ModifiableValue<float> Time => time;
     }
 }

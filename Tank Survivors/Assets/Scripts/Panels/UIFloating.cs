@@ -74,15 +74,22 @@ namespace Panels
             Float();
         }
 
+        private Tween moving;
+
         private void Float()
         {
-            Tween moving = rectTransform.DOLocalPath(
+            moving = rectTransform.DOLocalPath(
                 path.ToArray(),
                 duration,
                 PathType.CubicBezier,
                 PathMode.Full3D
             );
             _ = moving.onComplete += Float;
+        }
+
+        private void OnDestroy()
+        {
+            moving?.Kill();
         }
     }
 }

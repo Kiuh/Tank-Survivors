@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Modules;
 
 namespace Tank.Weapons
 {
-    [HideReferenceObjectPicker]
     public interface IWeapon : IUpgradablePiece
     {
         public void ProceedAttack();

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Tank
@@ -6,12 +7,15 @@ namespace Tank
     [AddComponentMenu("Tank.TankView")]
     public class TankView : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private Image healthFrontBar;
 
+        [Required]
         [SerializeField]
         private Image experienceFrontBar;
 

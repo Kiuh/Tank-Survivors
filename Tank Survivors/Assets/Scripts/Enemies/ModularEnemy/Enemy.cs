@@ -3,33 +3,43 @@ using System.Collections.Generic;
 using Common;
 using Enemies.Bosses.Abilities;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
 namespace Enemies
 {
-    public class Enemy : SerializedMonoBehaviour, IEnemy
+    public class Enemy : MonoBehaviour, IEnemy
     {
-        [OdinSerialize]
-        public string EnemyName { get; private set; }
+        [SerializeField]
+        private string enemyName;
+        public string EnemyName => enemyName;
 
-        [OdinSerialize]
-        public Rigidbody2D Rigidbody { get; private set; }
+        [SerializeField]
+        private Rigidbody2D rigidBody;
+        public Rigidbody2D RigidBody => rigidBody;
 
-        [OdinSerialize]
-        public Collider2D Collider { get; private set; }
-        public float Health { get; private set; }
+        [SerializeField]
+        private Collider2D ownCollider;
+        public Collider2D OwnCollider => ownCollider;
 
-        [OdinSerialize]
+        [SerializeField]
+        private float health;
+        public float Health => health;
+
+        [SerializeReference]
         [LabelText("Abilities")]
         private List<IAbility> abilities = new();
         public List<IAbility> Abilities => abilities;
 
-        [OdinSerialize]
+        [SerializeReference]
         [ListDrawerSettings(DraggableItems = false, HideAddButton = true, HideRemoveButton = true)]
         [FoldoutGroup("Modules")]
-        public List<IModule> Modules { get; set; } = new();
+        private List<IModule> modules = new();
+        public List<IModule> Modules
+        {
+            get => modules;
+            set => modules = value;
+        }
         public List<IAbility> UpdatableAbilities { get; set; } = new();
         public List<IAbility> FixedUpdatableAbilities { get; set; } = new();
 
@@ -37,13 +47,14 @@ namespace Enemies
         public Transform Transform => enemyTransform;
 
         private TankImpl tank;
+
         public event Action OnDeath;
 
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
             enemyTransform = transform;
-            Health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
+            health = Modules.GetConcrete<HealthModule, IModule>().Health.GetModifiedValue();
             abilities.ForEach(ability => ability.Initialize(this, this.tank));
             OnDeath += DeathAction;
         }
@@ -84,7 +95,7 @@ namespace Enemies
             {
                 return;
             }
-            Health -= damageAmount;
+            health -= damageAmount;
             if (Health <= 0.0f)
             {
                 OnDeath?.Invoke();

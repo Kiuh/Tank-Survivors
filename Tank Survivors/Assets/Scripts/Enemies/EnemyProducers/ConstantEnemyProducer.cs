@@ -1,10 +1,8 @@
 using System;
 using Configs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
-using static Configs.CircleRadius;
 
 namespace Enemies.Producers
 {
@@ -12,17 +10,19 @@ namespace Enemies.Producers
     [LabelText("ConstantEnemyProducer")]
     public class ConstantEnemyProducer : BaseProducer
     {
-        [OdinSerialize]
+        [SerializeField]
         [Unit(Units.Second)]
         private float spawnInterval;
 
-        [OdinSerialize]
+        [SerializeField]
         [EnumToggleButtons]
-        private Preset radiusPreset;
+        private CircleRadius.Preset radiusPreset;
 
-        [OdinSerialize]
+        [SerializeField]
         private CircleRadius radius;
 
+        [ReadOnly]
+        [SerializeField]
         private float timer = 0;
 
         public override float StartTime => 0.0f;
@@ -35,7 +35,7 @@ namespace Enemies.Producers
             ProgressorTimer += Time.deltaTime;
             if (timer < 0)
             {
-                UpgragdeStats();
+                UpgradeStats();
                 IEnemy enemy = UnityEngine
                     .Object.Instantiate(
                         EnemyPrefab,

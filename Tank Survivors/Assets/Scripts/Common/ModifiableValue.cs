@@ -27,7 +27,6 @@ namespace Common
 
     [Serializable]
     [InlineProperty(LabelWidth = 120)]
-    [HideReferenceObjectPicker]
     public class ModifiableValue<T>
     {
         [SerializeField]

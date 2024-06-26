@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using General;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,12 +9,15 @@ namespace Panels.Death
     [AddComponentMenu("Panels.Death.Controller")]
     public class Controller : MonoBehaviour
     {
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
         [SerializeField]
         private ProgressController progressController;
 
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
         [SerializeField]
         private General.Timer timer;
 
+        [Required]
         [SerializeField]
         private View view;
 

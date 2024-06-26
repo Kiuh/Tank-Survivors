@@ -7,24 +7,30 @@ namespace General
 {
     public class ProgressController : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private EnemyGenerator enemyGenerator;
 
+        [Required]
         [SerializeField]
         private Configs.Levels levels;
 
+        [Required]
         [SerializeField]
         private GameContext gameContext;
 
         [SerializeField]
-        [ReadOnly]
-        public int BossCount { get; private set; } = 3;
+        private int bossCount = 3;
+        public int BossCount => bossCount;
 
-        public int Progress { get; private set; } = 0;
+        [SerializeField]
+        private int progress = 0;
 
+        public int Progress => progress;
         public event Action OnWin;
         public event Action OnLoose;
 
@@ -48,7 +54,7 @@ namespace General
 
         private void OnBossDead()
         {
-            Progress++;
+            progress++;
             levels
                 .LevelInfos.Find(x => x.Name.Equals(gameContext.DataTransfer.LevelInfo.Name))
                 .Progress = Progress;

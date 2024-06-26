@@ -1,9 +1,11 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Tank.CameraMovement
 {
     public class CameraMovement : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 

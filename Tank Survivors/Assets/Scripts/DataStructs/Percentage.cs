@@ -1,6 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+using UnityEngine;
 
 namespace DataStructs
 {
@@ -9,15 +9,20 @@ namespace DataStructs
     {
         [MinValue(0)]
         [ShowInInspector]
-        [OdinSerialize]
+        [SerializeField]
         [LabelText("Percentages")]
         [Unit(Units.Percent)]
-        private float Value { get; set; }
+        private float value;
+        private float Value
+        {
+            get => value;
+            set => this.value = value;
+        }
         public float NormalizedValue => Value / 100;
 
         public Percentage(float value)
         {
-            Value = value;
+            this.value = value;
         }
 
         public bool TryChance()

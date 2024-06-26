@@ -1,169 +1,195 @@
 ﻿using Common;
 using DataStructs;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank.Towers;
 using Tank.Weapons.Projectiles;
+using TNRD;
+using UnityEngine;
 
 namespace Tank.Weapons.Modules
 {
-    [HideReferenceObjectPicker]
     public interface IWeaponModule { }
 
     public class DamageModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Damage")]
-        public ModifiableValue<float> Damage { get; private set; } = new();
+        private ModifiableValue<float> damage = new();
+        public ModifiableValue<float> Damage => damage;
     }
 
     public class FireRangeModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Fire Range")]
-        public ModifiableValue<float> FireRange { get; private set; } = new();
+        private ModifiableValue<float> fireRange = new();
+        public ModifiableValue<float> FireRange => fireRange;
     }
 
     public class ProjectileSizeModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Projectile Size")]
-        public ModifiableValue<float> ProjectileSize { get; private set; } = new();
+        private ModifiableValue<float> projectileSize = new();
+        public ModifiableValue<float> ProjectileSize => projectileSize;
     }
 
     public class PenetrationModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Penetration")]
-        public ModifiableValue<int> Penetration { get; private set; } = new();
+        private ModifiableValue<int> penetration = new();
+        public ModifiableValue<int> Penetration => penetration;
     }
 
     public class ProjectilesPerShootModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Projectiles Per Shoot")]
-        public ModifiableValue<int> ProjectilesPerShoot { get; private set; } = new();
+        private ModifiableValue<int> projectilesPerShoot = new();
+        public ModifiableValue<int> ProjectilesPerShoot => projectilesPerShoot;
     }
 
     public class FireRateModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Fire Rate")]
-        public ModifiableValue<float> FireRate { get; private set; } = new();
+        private ModifiableValue<float> fireRate = new();
+        public ModifiableValue<float> FireRate => fireRate;
     }
 
     public class CriticalChanceModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Critical Chance")]
-        public ModifiableValue<Percentage> CriticalChance { get; private set; } = new();
+        private ModifiableValue<Percentage> criticalChance = new();
+        public ModifiableValue<Percentage> CriticalChance => criticalChance;
     }
 
     public class CriticalMultiplierModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Critical Damage")]
-        public ModifiableValue<Percentage> CriticalMultiplier { get; private set; } = new();
+        private ModifiableValue<Percentage> criticalMultiplier = new();
+        public ModifiableValue<Percentage> CriticalMultiplier => criticalMultiplier;
     }
 
     public class ProjectileModule : IWeaponModule
     {
-        [OdinSerialize]
-        [HideLabel]
-        [AssetList]
+        [SerializeField]
         [FoldoutGroup("Projectile")]
-        public IProjectile ProjectilePrefab { get; private set; }
+        private SerializableInterface<IProjectile> projectilePrefab;
+        public IProjectile ProjectilePrefab => projectilePrefab.Value;
     }
 
     public class ProjectileSpeedModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Projectile Speed")]
-        public ModifiableValue<float> ProjectileSpeed { get; private set; } = new();
+        private ModifiableValue<float> projectileSpeed = new();
+        public ModifiableValue<float> ProjectileSpeed => projectileSpeed;
     }
 
     public class ProjectileDamageRadiusModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Damage Radius")]
-        public ModifiableValue<float> DamageRadius { get; private set; } = new();
+        private ModifiableValue<float> damageRadius = new();
+        public ModifiableValue<float> DamageRadius => damageRadius;
     }
 
     public class TowerModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tower")]
-        [AssetList]
-        public ITower TowerPrefab { get; private set; }
+        private SerializableInterface<ITower> towerPrefab;
+        public ITower TowerPrefab => towerPrefab.Value;
 
-        [OdinSerialize]
+        [SerializeField]
         [FoldoutGroup("Tower")]
-        [AssetList]
         [ReadOnly]
-        public ITower Tower { get; set; }
+        private SerializableInterface<ITower> tower;
+        public ITower Tower => tower.Value;
+
+        public void SetNewTower(ITower tower)
+        {
+            this.tower = new SerializableInterface<ITower>(tower);
+        }
+
+        public void RemoveTower()
+        {
+            tower = null;
+        }
     }
 
     public class RayDurationModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Ray Duration")]
-        public ModifiableValue<float> RayDuration { get; private set; } = new();
+        private ModifiableValue<float> rayDuration = new();
+        public ModifiableValue<float> RayDuration => rayDuration;
     }
 
     public class RayFireRateModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Ray Fire Rate")]
-        public ModifiableValue<float> FireRate { get; private set; } = new();
+        private ModifiableValue<float> fireRate = new();
+        public ModifiableValue<float> FireRate => fireRate;
     }
 
     public class ProjectileSpreadAngleModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Spread Angle")]
-        public ModifiableValue<float> SpreadAngle { get; private set; } = new();
+        private ModifiableValue<float> spreadAngle = new();
+        public ModifiableValue<float> SpreadAngle => spreadAngle;
     }
 
     public class TowerRotationModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Tower Rotation")]
-        public ModifiableValue<float> RotationSpeed { get; private set; } = new();
+        private ModifiableValue<float> rotationSpeed = new();
+        public ModifiableValue<float> RotationSpeed => rotationSpeed;
     }
 
     public class FireDamageModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Fire Damage")]
-        public ModifiableValue<float> Damage { get; private set; }
+        private ModifiableValue<float> damage;
+        public ModifiableValue<float> Damage => damage;
     }
 
     public class FireFireRateModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Fire Fire Rate")]
-        public ModifiableValue<float> FireRate { get; private set; }
+        private ModifiableValue<float> fireRate;
+        public ModifiableValue<float> FireRate => fireRate;
     }
 
     public class ProjectileFireTimerModule : IWeaponModule
     {
-        [OdinSerialize]
+        [SerializeField]
         [HideLabel]
         [FoldoutGroup("Projectile Fire Time")]
-        public ModifiableValue<float> Time { get; private set; }
+        private ModifiableValue<float> time;
+        public ModifiableValue<float> Time => time;
     }
 }

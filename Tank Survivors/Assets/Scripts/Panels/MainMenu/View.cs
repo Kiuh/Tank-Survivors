@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Panels.MainMenu
@@ -6,9 +7,11 @@ namespace Panels.MainMenu
     [AddComponentMenu("Panels.MainMenu.View")]
     public class View : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private Controller controller;
 
+        [Required]
         [SerializeField]
         private Button playButton;
 

@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using General;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Panels.Win
@@ -7,12 +8,15 @@ namespace Panels.Win
     [AddComponentMenu("Panels.Win.Controller")]
     public class Controller : MonoBehaviour
     {
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
         [SerializeField]
         private ProgressController progressController;
 
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
         [SerializeField]
         private General.Timer timer;
 
+        [Required]
         [SerializeField]
         private View view;
 

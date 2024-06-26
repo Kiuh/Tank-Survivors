@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Common;
 using Enemies.Bosses.Abilities;
 using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using Tank;
 using UnityEngine;
 
@@ -13,10 +12,10 @@ namespace Enemies.Abilities
     [LabelText("Explosion")]
     public class Explosion : IAbility
     {
-        [OdinSerialize]
+        [SerializeField]
         private ParticleSystem particle;
 
-        [OdinSerialize]
+        [SerializeField]
         private SpriteRenderer dangerZone;
 
         private float damage;
@@ -65,7 +64,7 @@ namespace Enemies.Abilities
             {
                 movement.IsActive = false;
             }
-            enemy.Collider.enabled = false;
+            enemy.OwnCollider.enabled = false;
             tank.TakeDamage(damage);
             particle.Play();
             GameObject.Destroy(

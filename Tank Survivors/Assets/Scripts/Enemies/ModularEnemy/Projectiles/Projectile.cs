@@ -1,12 +1,9 @@
-﻿using System;
-using Sirenix.OdinInspector;
-using Tank;
+﻿using Tank;
 using UnityEngine;
 
 namespace Enemies.Projectiles
 {
-    [Serializable]
-    public class Projectile : SerializedMonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         private float damage;
         private float range;

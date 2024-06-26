@@ -6,9 +6,11 @@ namespace Tank
     [AddComponentMenu("Tank.Moving")]
     public class Moving : MonoBehaviour
     {
+        [Required]
         [SerializeField]
         private TankImpl tank;
 
+        [Required]
         [SerializeField]
         private Rigidbody2D tankRigidBody;
 

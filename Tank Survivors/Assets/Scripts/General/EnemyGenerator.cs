@@ -11,7 +11,7 @@ using UnityEngine;
 namespace General
 {
     [AddComponentMenu("General.EnemyGenerator")]
-    public class EnemyGenerator : SerializedMonoBehaviour
+    public class EnemyGenerator : MonoBehaviour
     {
         [Required]
         [SerializeField]

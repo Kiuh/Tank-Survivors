@@ -1,6 +1,6 @@
 using System.Collections;
 using Common;
-using Tank.Towers;
+using Sirenix.OdinInspector;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
@@ -8,18 +8,23 @@ namespace Tank.Weapons.Projectiles
 {
     public class FlyingProjectile : MonoBehaviour, IProjectile
     {
+        [Required]
         [SerializeField]
         private Transform hitMarkPrefab;
 
+        [Required]
         [SerializeField]
         private ParticleSystem explosionParticle;
 
+        [Required]
         [SerializeField]
         private ParticleSystem fireParticle;
 
+        [Required]
         [SerializeField]
         private SpriteRenderer sprite;
 
+        [Required]
         [SerializeField]
         private Collider2D collider2d;
 
@@ -33,18 +38,9 @@ namespace Tank.Weapons.Projectiles
 
         private Coroutine flyCoroutine;
         private Explosive explosive;
-        private ITower tower;
 
-        public void Initialize(
-            GunBase weapon,
-            TankImpl tank,
-            ITower tower,
-            Vector3 shotPoint,
-            Vector3 direction
-        )
+        public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
-            this.tower = tower;
-
             float damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
@@ -63,8 +59,7 @@ namespace Tank.Weapons.Projectiles
 
             FireParameters fireParameters = GetFireParameters(weapon, tank);
 
-            transform.position = shotPoint;
-            transform.rotation = Quaternion.identity;
+            transform.SetPositionAndRotation(shotPoint, Quaternion.identity);
 
             InitializeInternal(
                 damage,

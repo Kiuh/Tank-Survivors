@@ -1,5 +1,5 @@
 using Common;
-using Tank.Towers;
+using Sirenix.OdinInspector;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
@@ -14,37 +14,31 @@ namespace Tank.Weapons.Projectiles
 {
     public class SelfExplosionProjectile : MonoBehaviour, IProjectile
     {
+        [Required]
         [SerializeField]
         private Transform hitMark;
 
+        [Required]
         [SerializeField]
         private ParticleSystem explosionParticle;
 
+        [Required]
         [SerializeField]
         private ParticleSystem fireParticle;
 
         private GunBase weapon;
-        private ITower tower;
         private Explosive explosive;
 
-        public void Initialize(
-            GunBase weapon,
-            TankImpl tank,
-            ITower tower,
-            Vector3 shotPoint,
-            Vector3 direction
-        )
+        public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
             this.weapon = weapon;
-            this.tower = tower;
 
             float damage = weapon
                 .GetModule<Modules.SelfExplosion.DamageModule>()
                 .Damage.GetPercentagesModifiableValue(tank.DamageModifier)
                 .GetModifiedValue();
 
-            transform.position = shotPoint;
-            transform.rotation = Quaternion.identity;
+            transform.SetPositionAndRotation(shotPoint, Quaternion.identity);
 
             InitializeInternal(
                 damage,

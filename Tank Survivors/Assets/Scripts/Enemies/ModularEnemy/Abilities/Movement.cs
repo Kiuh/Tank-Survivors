@@ -14,7 +14,7 @@ namespace Enemies.Abilities
     {
         public float Speed { set; get; }
         private TankImpl tank;
-        private Rigidbody2D rigidbody;
+        private Rigidbody2D rigidBody;
         private Enemy enemy;
 
         public bool IsActive { get; set; }
@@ -22,8 +22,8 @@ namespace Enemies.Abilities
         public void Use()
         {
             Vector2 direction = CalculateDirection();
-            rigidbody.MovePosition(rigidbody.position + (Speed * Time.fixedDeltaTime * direction));
-            RotatateToTank(direction);
+            rigidBody.MovePosition(rigidBody.position + (Speed * Time.fixedDeltaTime * direction));
+            RotateToTank(direction);
         }
 
         private Vector3 CalculateDirection()
@@ -31,7 +31,7 @@ namespace Enemies.Abilities
             return (tank.transform.position - enemy.transform.position).normalized;
         }
 
-        private void RotatateToTank(Vector3 direction)
+        private void RotateToTank(Vector3 direction)
         {
             float rotationAngle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
             enemy.transform.eulerAngles = Vector3.forward * -rotationAngle;
@@ -42,7 +42,7 @@ namespace Enemies.Abilities
             this.tank = tank;
             this.enemy = enemy;
             Speed = enemy.Modules.GetConcrete<MovementModule, IModule>().Speed.GetModifiedValue();
-            rigidbody = enemy.Rigidbody;
+            rigidBody = enemy.RigidBody;
             enemy.FixedUpdatableAbilities.Add(this);
             IsActive = true;
         }
