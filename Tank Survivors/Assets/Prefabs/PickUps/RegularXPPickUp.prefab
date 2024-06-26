@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7653998179898489512, guid: d66ad7634424c344885849c5d4014d69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d66ad7634424c344885849c5d4014d69, type: 3}
   m_Color: {r: 0.8312953, g: 0.8679245, b: 0.118725546, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,13 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6211abb5ffc564aa11f646b5d9f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABCgAAAFIAZQBnAHUAbABhAHIAIABYAFAA
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   experienceAmount: 20
+  pickupName: RegularXP

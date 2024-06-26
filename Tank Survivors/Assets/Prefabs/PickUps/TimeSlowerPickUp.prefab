@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6321663880512065238, guid: 8c4f99271cfef51488ab8aa9a1c8d4e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c4f99271cfef51488ab8aa9a1c8d4e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.54, y: 0.64}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -134,15 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3917f497cc68f64a99c64c0005a48ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: JwEKAAAAUABpAGMAawB1AHAATgBhAG0AZQABCwAAAFQAaQBtAGUAIABTAGwAbwB3AGUAcgA=
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   time: 10
   timeSlowerPercentage: 0.2
   spriteRenderer: {fileID: 337425409110343240}
+  pickupName: TimeSlower

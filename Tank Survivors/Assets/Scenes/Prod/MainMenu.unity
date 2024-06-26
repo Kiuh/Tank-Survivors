@@ -650,7 +650,7 @@ Camera:
   m_GameObject: {fileID: 789981204}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -685,11 +685,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &789981207
@@ -1129,7 +1129,7 @@ Canvas:
   m_GameObject: {fileID: 1468040650}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 789981206}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1703,15 +1703,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 552.447
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1115.2115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.358548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4321513271608189086, guid: 57943b9cb7d7740408976ec87839675e, type: 3}
       propertyPath: m_LocalRotation.w
