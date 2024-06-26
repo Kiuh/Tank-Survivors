@@ -23,22 +23,64 @@ MonoBehaviour:
       data:
         EnemyPrefab: {fileID: 3017579110327134564, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
         baseModules:
-        - rid: 3201943389564829747
-        - rid: 3201943389564829748
-        modules: []
+        - rid: 3201943389564829768
+        - rid: 3201943389564829769
+        - rid: 3201943389564829770
+        - rid: 3201943389564829771
+        modules:
+        - rid: 3201943389564829772
+        - rid: 3201943389564829773
+        - rid: 3201943389564829774
+        - rid: 3201943389564829775
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
+        progressorTimer: 10.37963
         spawnInterval: 4
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        timer: 0
-    - rid: 3201943389564829747
+        timer: -10.37963
+    - rid: 3201943389564829768
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829769
+      type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        radius:
+          sourceValue: 1
+          cachedValue: 0
+    - rid: 3201943389564829770
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
           cachedValue: 0
-    - rid: 3201943389564829748
+    - rid: 3201943389564829771
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829772
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829773
+      type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        radius:
+          sourceValue: 1
+          cachedValue: 0
+    - rid: 3201943389564829774
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 5
+          cachedValue: 0
+    - rid: 3201943389564829775
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
