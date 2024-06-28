@@ -23,9 +23,68 @@ MonoBehaviour:
       type: {class: Minigun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
         upgradeName: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
-        currentLevel: 0
-        maxLevel: 0
-        leveledUpgrades: []
+        currentLevel: 7
+        maxLevel: 20
+        leveledUpgrades:
+        - upgradingLevel: 0
+          description: "+1 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149544
+        - upgradingLevel: 0
+          description: "+2 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u043B\u0451\u0442\u0430
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149543
+        - upgradingLevel: 1
+          description: "+1 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149545
+        - upgradingLevel: 1
+          description: "+10% \u0448\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149546
+        - upgradingLevel: 2
+          description: "+5 \u0443\u0433\u043E\u043B \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades: []
+        - upgradingLevel: 2
+          description: "+2 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u0432\u043E\u0440\u043E\u0442\u0430
+            \u0431\u0430\u0448\u043D\u0438"
+          moduleUpgrades:
+          - rid: 3201943433014149547
+        - upgradingLevel: 3
+          description: "+10% \u0448\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149548
+        - upgradingLevel: 3
+          description: "+20% \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+            \u0443\u0440\u043E\u043D"
+          moduleUpgrades:
+          - rid: 3201943433014149549
+        - upgradingLevel: 4
+          description: "-0,05 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430
+            \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u044B"
+          moduleUpgrades:
+          - rid: 3201943433014149550
+        - upgradingLevel: 4
+          description: "+1 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u043B\u0451\u0442\u0430
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149551
+        - upgradingLevel: 5
+          description: "+1 \u0441\u043D\u0430\u0440\u044F\u0434 \u0437\u0430 \u0432\u044B\u0441\u0442\u0440\u0435\u043B"
+          moduleUpgrades:
+          - rid: 3201943433014149552
+        - upgradingLevel: 5
+          description: "+5 \u0443\u0433\u043E\u043B \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F "
+          moduleUpgrades:
+          - rid: 3201943433014149553
+        - upgradingLevel: 6
+          description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+            \u0443\u0433\u043E\u043B \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430 \u0432 1.5 \u0440\u0430\u0437\u0430."
+          moduleUpgrades:
+          - rid: 3201943433014149554
         levelUpUpgrades: []
         modules:
         - rid: 2815594792133853284
@@ -60,7 +119,7 @@ MonoBehaviour:
           sourceValue:
             value: 10
           cachedValue:
-            value: 10
+            value: 20
     - rid: 2815594792133853287
       type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -68,13 +127,13 @@ MonoBehaviour:
           sourceValue:
             value: 100
           cachedValue:
-            value: 100
+            value: 120
     - rid: 2815594792133853288
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
           sourceValue: 0.2
-          cachedValue: 0.2
+          cachedValue: 0.15
     - rid: 2815594792133853289
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -94,19 +153,19 @@ MonoBehaviour:
       data:
         projectileSize:
           sourceValue: 1
-          cachedValue: 0.1
+          cachedValue: 1
     - rid: 2815594792133853292
       type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSpeed:
           sourceValue: 10
-          cachedValue: 10
+          cachedValue: 12
     - rid: 2815594792133853293
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectilesPerShoot:
           sourceValue: 5
-          cachedValue: 5
+          cachedValue: 6
     - rid: 2815594792133853294
       type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -125,10 +184,85 @@ MonoBehaviour:
       data:
         spreadAngle:
           sourceValue: 20
-          cachedValue: 20
+          cachedValue: 30
     - rid: 2815594792133853296
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
           sourceValue: 10
-          cachedValue: 10
+          cachedValue: 12
+    - rid: 3201943433014149543
+      type: {class: ProjectileSpeed, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 2
+        ModificationPriority: 1
+    - rid: 3201943433014149544
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149545
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149546
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 10
+        ModificationPriority: 1
+    - rid: 3201943433014149547
+      type: {class: TowerRotation, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 2
+        ModificationPriority: 1
+    - rid: 3201943433014149548
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 10
+        ModificationPriority: 1
+    - rid: 3201943433014149549
+      type: {class: CriticalMultiplier, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 20
+        ModificationPriority: 1
+    - rid: 3201943433014149550
+      type: {class: FireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.05
+        ModificationPriority: 1
+    - rid: 3201943433014149551
+      type: {class: ProjectileSpeed, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149552
+      type: {class: ProjectilesPerShoot, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149553
+      type: {class: ProjectileSpreadAngle, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943433014149554
+      type: {class: ProjectileSpreadAngle, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 2
+        OperationValue: 1.5
+        ModificationPriority: 2

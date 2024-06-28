@@ -114,11 +114,47 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   ownCollider: {fileID: 0}
   health: 0
-  abilities: []
-  modules: []
+  abilities:
+  - rid: 3201943433014149423
+  - rid: 3201943433014149424
+  modules:
+  - rid: 3201943433014149425
+  - rid: 3201943433014149426
+  - rid: 3201943433014149427
+  - rid: 3201943433014149428
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943433014149423
+      type: {class: CloseRangeAttack, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943433014149424
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943433014149425
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 0.001
+          cachedValue: 0
+    - rid: 3201943433014149426
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 3201943433014149427
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 0
+          cachedValue: 0
+    - rid: 3201943433014149428
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 0
+          cachedValue: 0
 --- !u!1 &2664392056306920793
 GameObject:
   m_ObjectHideFlags: 0
