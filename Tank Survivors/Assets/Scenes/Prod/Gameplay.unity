@@ -3734,7 +3734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2870356f72902c438395745f60f9760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 30
+  detectionRadius: 40
   enemyGenerator: {fileID: 1853201206}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3762,3 +3762,9 @@ SceneRoots:
   - {fileID: 306721093}
   - {fileID: 921535222}
   - {fileID: 1287265759}
+  - {fileID: 2069438586}
+  - {fileID: 378799599}
+  - {fileID: 1328765103}
+  - {fileID: 429819840}
+  - {fileID: 540210820}
+  - {fileID: 788199838}

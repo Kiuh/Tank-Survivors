@@ -23,17 +23,26 @@ MonoBehaviour:
       type: {class: BasicGun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
         upgradeName: Basic Gun
-        currentLevel: 0
-        maxLevel: 2
-        leveledUpgrades:
-        - upgradingLevel: 0
-          description: HAHA 1
-          moduleUpgrades:
-          - rid: 2815594792133853204
+        currentLevel: 1
+        maxLevel: 0
+        leveledUpgrades: []
         levelUpUpgrades:
-        - levelForUpgrade: 0
-          description: 
-          moduleUpgrades: []
+        - levelForUpgrade: 2
+          description: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943431452033154
+        - levelForUpgrade: 2
+          description: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
+          moduleUpgrades:
+          - rid: 3201943431452033293
+        - levelForUpgrade: 2
+          description: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
+          moduleUpgrades:
+          - rid: 3201943431452033294
+        - levelForUpgrade: 2
+          description: "\u0420\u0435\u043B\u044C\u0441\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943431452033295
         modules:
         - rid: 2815594792133853205
         - rid: 2815594792133853206
@@ -48,24 +57,18 @@ MonoBehaviour:
         - rid: 2815594792133853215
         - rid: 2815594792133853216
         - rid: 2815594792133853217
-    - rid: 2815594792133853204
-      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
-      data:
-        MathOperation: 0
-        OperationValue: 10
-        ModificationPriority: 1
     - rid: 2815594792133853205
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-          cachedValue: 0
+          cachedValue: 5
     - rid: 2815594792133853206
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
           sourceValue: 1
-          cachedValue: 0
+          cachedValue: 1
     - rid: 2815594792133853207
       type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -86,8 +89,8 @@ MonoBehaviour:
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
-          sourceValue: 20
-          cachedValue: 0
+          sourceValue: 40
+          cachedValue: 30
     - rid: 2815594792133853210
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -107,19 +110,19 @@ MonoBehaviour:
       data:
         projectileSize:
           sourceValue: 1
-          cachedValue: 0
+          cachedValue: 1
     - rid: 2815594792133853213
       type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSpeed:
-          sourceValue: 1
-          cachedValue: 0
+          sourceValue: 10
+          cachedValue: 10
     - rid: 2815594792133853214
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectilesPerShoot:
           sourceValue: 1
-          cachedValue: 0
+          cachedValue: 1
     - rid: 2815594792133853215
       type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -143,5 +146,21 @@ MonoBehaviour:
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
-          sourceValue: 4
-          cachedValue: 0
+          sourceValue: 10
+          cachedValue: 10
+    - rid: 3201943431452033154
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 0050c64f236a50445a55ec59cd5f62ba, type: 2}
+    - rid: 3201943431452033293
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 9acfea7218651dc43804181261e4b4c8, type: 2}
+    - rid: 3201943431452033294
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 8918dc45c35288c4b95359b4677b6723, type: 2}
+    - rid: 3201943431452033295
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: a019c0425566f1b48bcd8c8076605150, type: 2}

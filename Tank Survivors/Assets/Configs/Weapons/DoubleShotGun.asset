@@ -22,7 +22,7 @@ MonoBehaviour:
     - rid: 2815594792133853321
       type: {class: DoubleShotGun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
-        upgradeName: 
+        upgradeName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         currentLevel: 0
         maxLevel: 0
         leveledUpgrades: []
@@ -47,20 +47,20 @@ MonoBehaviour:
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 0
+          sourceValue: 20
           cachedValue: 0
     - rid: 2815594792133853323
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 1
+          cachedValue: 1
     - rid: 2815594792133853324
       type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalChance:
           sourceValue:
-            value: 0
+            value: 10
           cachedValue:
             value: 0
     - rid: 2815594792133853325
@@ -68,14 +68,14 @@ MonoBehaviour:
       data:
         criticalMultiplier:
           sourceValue:
-            value: 0
+            value: 100
           cachedValue:
             value: 0
     - rid: 2815594792133853326
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
-          sourceValue: 0
+          sourceValue: 30
           cachedValue: 0
     - rid: 2815594792133853327
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
@@ -88,33 +88,33 @@ MonoBehaviour:
       data:
         projectilePrefab:
           mode: 0
-          unityReference: {fileID: 0}
+          unityReference: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
           rawReference:
             rid: -2
     - rid: 2815594792133853329
       type: {class: ProjectileSizeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSize:
-          sourceValue: 0
+          sourceValue: 1
           cachedValue: 0
     - rid: 2815594792133853330
       type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSpeed:
-          sourceValue: 0
+          sourceValue: 8
           cachedValue: 0
     - rid: 2815594792133853331
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectilesPerShoot:
-          sourceValue: 0
+          sourceValue: 2
           cachedValue: 0
     - rid: 2815594792133853332
       type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         towerPrefab:
           mode: 0
-          unityReference: {fileID: 0}
+          unityReference: {fileID: 4117414406607137283, guid: 3f50c9d7616495b41bd87b72e00e2c64, type: 3}
           rawReference:
             rid: -2
         tower:
@@ -126,23 +126,23 @@ MonoBehaviour:
       type: {class: ProjectileSpreadAngleModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         spreadAngle:
-          sourceValue: 0
+          sourceValue: 3
           cachedValue: 0
     - rid: 2815594792133853334
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 14
+          cachedValue: 14
     - rid: 2815594792133853335
       type: {class: MultiCannonFireRateModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
       data:
         percent:
           sourceValue:
-            value: 0
+            value: 130
           cachedValue:
-            value: 0
+            value: 130
     - rid: 2815594792133853336
       type: {class: CannonModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
       data:
-        cannonPrefab: {fileID: 0}
+        cannonPrefab: {fileID: 5819625693827909135, guid: 5ca79be905a2d564b8efedfcde088751, type: 3}

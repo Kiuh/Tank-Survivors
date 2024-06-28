@@ -25,3 +25,27 @@ MonoBehaviour:
           name: Health
         Percentage:
           value: 50
+  - SelectableEnemyName:
+      name: Robot
+    PickupGenerationConfig:
+      pickupNamePercentages:
+      - SelectablePickupName:
+          name: BigXP
+        Percentage:
+          value: 100
+      - SelectablePickupName:
+          name: RegularXP
+        Percentage:
+          value: 20
+  - SelectableEnemyName:
+      name: soldier
+    PickupGenerationConfig:
+      pickupNamePercentages:
+      - SelectablePickupName:
+          name: BigXP
+        Percentage:
+          value: 20
+      - SelectablePickupName:
+          name: RegularXP
+        Percentage:
+          value: 100

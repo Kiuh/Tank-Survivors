@@ -194,12 +194,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b1bc7ed0dd5a4ca97362cdf6e85bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  rigidBody: {fileID: 0}
-  ownCollider: {fileID: 0}
+  enemyName: Robot
+  rigidBody: {fileID: 1003298091916130801}
+  ownCollider: {fileID: 7105571496359225119}
   health: 0
-  abilities: []
-  modules: []
+  abilities:
+  - rid: 3201943431452033108
+  - rid: 3201943431452033109
+  modules:
+  - rid: 3201943431452033110
+  - rid: 3201943431452033111
+  - rid: 3201943431452033112
+  - rid: 3201943431452033113
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943431452033108
+      type: {class: CloseRangeAttack, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943431452033109
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943431452033110
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 2
+          cachedValue: 0
+    - rid: 3201943431452033111
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 2
+          cachedValue: 0
+    - rid: 3201943431452033112
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 20
+          cachedValue: 0
+    - rid: 3201943431452033113
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 10
+          cachedValue: 0

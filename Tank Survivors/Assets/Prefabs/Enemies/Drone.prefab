@@ -307,7 +307,7 @@ MonoBehaviour:
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
-          sourceValue: 5
+          sourceValue: 3.5
           cachedValue: 0
     - rid: 3201943389564829765
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}

@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6211abb5ffc564aa11f646b5d9f536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceAmount: 20
-  effectText: +20 EXP
+  experienceAmount: 10
+  effectText: +10 EXP
   effectColor: {r: 0.7058824, g: 0.7568628, b: 0, a: 1}
   grabbed: 0
   pickupName: RegularXP

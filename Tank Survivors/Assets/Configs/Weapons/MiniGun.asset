@@ -22,7 +22,7 @@ MonoBehaviour:
     - rid: 2815594792133853283
       type: {class: Minigun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
-        upgradeName: 
+        upgradeName: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
         currentLevel: 0
         maxLevel: 0
         leveledUpgrades: []
@@ -45,36 +45,36 @@ MonoBehaviour:
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 5
+          cachedValue: 5
     - rid: 2815594792133853285
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 30
+          cachedValue: 30
     - rid: 2815594792133853286
       type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalChance:
           sourceValue:
-            value: 0
+            value: 10
           cachedValue:
-            value: 0
+            value: 10
     - rid: 2815594792133853287
       type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalMultiplier:
           sourceValue:
-            value: 0
+            value: 100
           cachedValue:
-            value: 0
+            value: 100
     - rid: 2815594792133853288
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 0.2
+          cachedValue: 0.2
     - rid: 2815594792133853289
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -86,33 +86,33 @@ MonoBehaviour:
       data:
         projectilePrefab:
           mode: 0
-          unityReference: {fileID: 0}
+          unityReference: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
           rawReference:
             rid: -2
     - rid: 2815594792133853291
       type: {class: ProjectileSizeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSize:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 1
+          cachedValue: 0.1
     - rid: 2815594792133853292
       type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSpeed:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 10
+          cachedValue: 10
     - rid: 2815594792133853293
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectilesPerShoot:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 5
+          cachedValue: 5
     - rid: 2815594792133853294
       type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         towerPrefab:
           mode: 0
-          unityReference: {fileID: 0}
+          unityReference: {fileID: 4838768368387434412, guid: f681ec10960e20f459ee358988617720, type: 3}
           rawReference:
             rid: -2
         tower:
@@ -124,11 +124,11 @@ MonoBehaviour:
       type: {class: ProjectileSpreadAngleModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         spreadAngle:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 20
+          cachedValue: 20
     - rid: 2815594792133853296
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
-          sourceValue: 0
-          cachedValue: 0
+          sourceValue: 10
+          cachedValue: 10
