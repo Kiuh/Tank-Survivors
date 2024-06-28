@@ -554,12 +554,12 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
-    CHOOSE_LOADING_TYPE: 2
+    CHOOSE_LOADING_TYPE: 1
     CONFIGURE_SHADOWS_AROUND_CANVAS: 
     CONNECT_PLUGIN: YG1.6.2
-    CUSTOMIZE_BARS_BACKGROUND: backgroundColor = "#000000"
-    CUSTOMIZE_LOADING_SCREEN_BACKGROUND: 
-    CUSTOMIZE_LOGO: 
+    CUSTOMIZE_BARS_BACKGROUND: 
+    CUSTOMIZE_LOADING_SCREEN_BACKGROUND: backgroundImage = "url('background.png')"
+    CUSTOMIZE_LOGO: backgroundImage = "url('logo.png')"
     CUSTOM_EVENT_IN_CSS: 
     CUSTOM_EVENT_IN_HTML: 
     CUSTOM_EVENT_IN_JS: 
