@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2820607764363981495}
   - component: {fileID: 2232234526268172053}
   - component: {fileID: 632944525156465173}
+  - component: {fileID: -8015028117318915373}
   m_Layer: 0
   m_Name: RegularXPPickUp
   m_TagString: Untagged
@@ -140,3 +141,21 @@ MonoBehaviour:
   grabbed: 0
   pickupName: RegularXP
   floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
+  tank: {fileID: 0}
+  followSpeed: 5
+--- !u!114 &-8015028117318915373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816240034858184738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94ad4d533743c94db2c7d1c902b9e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.9
+  maxScale: 1.1
+  interval: 2
+  intervalBias: 0

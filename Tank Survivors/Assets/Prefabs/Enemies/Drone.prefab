@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8524526455949143187}
   - component: {fileID: 4060764603155430094}
+  - component: {fileID: 7714262101489142385}
   m_Layer: 6
   m_Name: ExplosiveArea
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4, type: 3}
-  m_Color: {r: 0.8773585, g: 0.09518514, b: 0.09518514, a: 0.12156863}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.19607843}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7714262101489142385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064114953533674653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b425645af12b9f240a30cc9e4cdff040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstColor: {r: 1, g: 0, b: 0, a: 0}
+  secondColor: {r: 1, g: 0, b: 0, a: 0.19607843}
+  spriteRenderer: {fileID: 4060764603155430094}
+  interval: 1
 --- !u!1 &2462835308883862828
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +197,7 @@ GameObject:
   - component: {fileID: 2677439162934494719}
   - component: {fileID: 7078847720920089569}
   - component: {fileID: 2533712333556167135}
+  - component: {fileID: 8986145598681584307}
   m_Layer: 6
   m_Name: Drone
   m_TagString: Untagged
@@ -292,6 +310,7 @@ MonoBehaviour:
   - rid: 3201943389564829765
   - rid: 3201943389564829766
   - rid: 3201943389564829767
+  damageTaking: {fileID: 8986145598681584307}
   references:
     version: 2
     RefIds:
@@ -327,6 +346,22 @@ MonoBehaviour:
         damage:
           sourceValue: 5
           cachedValue: 0
+--- !u!114 &8986145598681584307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017579110327134564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b11e9ee15b557499889e770a14cf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 5223149106915701007}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTime: 0.6
 --- !u!1001 &343139905336202281
 PrefabInstance:
   m_ObjectHideFlags: 0

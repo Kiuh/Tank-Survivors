@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 271314434915194743}
   - component: {fileID: 8608169095977559028}
   - component: {fileID: 8554203772741523205}
+  - component: {fileID: 878326245856760437}
   m_Layer: 6
   m_Name: SoldierBoss
   m_TagString: Untagged
@@ -142,15 +143,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b1bc7ed0dd5a4ca97362cdf6e85bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  rigidBody: {fileID: 0}
-  ownCollider: {fileID: 0}
+  enemyName: SoldierBoss
+  rigidBody: {fileID: 8608169095977559028}
+  ownCollider: {fileID: 271314434915194743}
   health: 0
   abilities: []
   modules: []
+  damageTaking: {fileID: 878326245856760437}
   references:
     version: 2
     RefIds: []
+--- !u!114 &878326245856760437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780587233165250767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b11e9ee15b557499889e770a14cf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2222406525420335949}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTime: 0.6
 --- !u!1 &9046746254887162232
 GameObject:
   m_ObjectHideFlags: 0

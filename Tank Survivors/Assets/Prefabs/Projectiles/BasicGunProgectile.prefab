@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8283122730491187785}
   - component: {fileID: 5204512878298353357}
   - component: {fileID: 3888655954546027857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BasicGunProgectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

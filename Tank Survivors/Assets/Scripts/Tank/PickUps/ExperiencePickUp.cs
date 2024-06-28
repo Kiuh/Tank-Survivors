@@ -27,9 +27,41 @@ namespace Tank.PickUps
         [SerializeField]
         private FloatingEffect floatingEffect;
 
+        [ReadOnly]
+        [SerializeField]
+        private TankImpl tank;
+
+        [SerializeField]
+        private float followSpeed;
+
         public void Grab(TankImpl tank)
         {
             grabbed = true;
+            this.tank = tank;
+        }
+
+        private void Update()
+        {
+            if (grabbed)
+            {
+                transform.position = Vector3.Lerp(
+                    transform.position,
+                    tank.transform.position,
+                    Time.deltaTime * followSpeed
+                );
+            }
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out TankImpl tank))
+            {
+                CompleteGrab(tank);
+            }
+        }
+
+        private void CompleteGrab(TankImpl tank)
+        {
             tank.PlayerLevel.AddExperience(experienceAmount);
             FloatingEffect effect = Instantiate(
                 floatingEffect,

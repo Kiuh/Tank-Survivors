@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Common;
 using DataStructs;
+using DG.Tweening;
 using General;
 using Sirenix.OdinInspector;
+using Tank.PickUps;
 using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace Tank
 {
@@ -118,6 +121,7 @@ namespace Tank
 
         private void Awake()
         {
+            _ = profile.TryGetSettings<Vignette>(out vignette);
             tankUpgrades = gameContext.GameConfig.TankUpgradesConfig.Upgrades.ToList();
             tankUpgrades.ForEach(x => x.Initialize());
             weapons = gameContext.GameConfig.WeaponsConfig.Weapons.ToList();
@@ -159,6 +163,14 @@ namespace Tank
         public void Heal(float healAmount)
         {
             Health.Value = Mathf.Min(Health.Value + healAmount, Health.MaxValue);
+            vignetteTween?.Kill();
+            vignette.color.value = vignetteHealColor;
+            vignetteTween = DOVirtual.Float(
+                maxIntensity,
+                0,
+                vignetteDuration,
+                (x) => vignette.intensity.value = x
+            );
         }
 
         public void TakeDamage(float damageAmount)
@@ -170,14 +182,75 @@ namespace Tank
 
             if (EvadeChance.GetModifiedValue().TryChance())
             {
+                ShowEvasion();
                 return;
             }
+
             Health.Value -= damageAmount;
+            ShowDamageTaken();
             if (Health.Value <= 0)
             {
                 Health.Value = 0;
                 OnDeath?.Invoke();
             }
+        }
+
+        [SerializeField]
+        private FloatingEffect floatingEffect;
+
+        [SerializeField]
+        private string evasionText;
+
+        [SerializeField]
+        private Color evasionColor;
+
+        [SerializeField]
+        private string damageText;
+
+        [SerializeField]
+        private Color damageColor;
+
+        [SerializeField]
+        private PostProcessProfile profile;
+        private Vignette vignette;
+
+        [SerializeField]
+        private float maxIntensity;
+
+        [SerializeField]
+        private float vignetteDuration;
+
+        [SerializeField]
+        private Color vignetteDamageColor;
+
+        [SerializeField]
+        private Color vignetteHealColor;
+
+        private Tween vignetteTween;
+
+        private void ShowEvasion()
+        {
+            floatingEffect.CreateAndLaunch(transform.position, evasionText, evasionColor);
+        }
+
+        private void ShowDamageTaken()
+        {
+            vignette.intensity.value = maxIntensity;
+            vignetteTween?.Kill();
+            vignette.color.value = vignetteDamageColor;
+            vignetteTween = DOVirtual.Float(
+                maxIntensity,
+                0,
+                vignetteDuration,
+                (x) => vignette.intensity.value = x
+            );
+            floatingEffect.CreateAndLaunch(transform.position, damageText, damageColor);
+        }
+
+        private void OnDestroy()
+        {
+            vignette.intensity.value = 0;
+            vignetteTween?.Kill();
         }
     }
 }

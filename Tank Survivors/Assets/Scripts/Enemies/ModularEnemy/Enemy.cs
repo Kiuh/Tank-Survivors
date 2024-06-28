@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Common;
 using Enemies.Bosses.Abilities;
+using Enemies.ModularEnemy;
 using Sirenix.OdinInspector;
 using Tank;
 using UnityEngine;
@@ -50,6 +51,9 @@ namespace Enemies
 
         public event Action OnDeath;
 
+        [SerializeField]
+        private DamageTaking damageTaking;
+
         public void Initialize(TankImpl tank)
         {
             this.tank = tank;
@@ -95,6 +99,7 @@ namespace Enemies
             {
                 return;
             }
+            damageTaking.TakeDamage();
             health -= damageAmount;
             if (Health <= 0.0f)
             {

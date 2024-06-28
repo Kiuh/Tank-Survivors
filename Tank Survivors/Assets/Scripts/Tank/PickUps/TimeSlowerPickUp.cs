@@ -36,16 +36,17 @@ namespace Tank.PickUps
         [SerializeField]
         private FloatingEffect floatingEffect;
 
-        private void Awake()
-        {
-            grabbed = false;
-        }
+        [ReadOnly]
+        [SerializeField]
+        private TankImpl tank;
+
+        [SerializeField]
+        private float followSpeed;
 
         public void Grab(TankImpl tank)
         {
             grabbed = true;
-            _ = StartCoroutine(StartTimeSLower());
-            spriteRenderer.enabled = false;
+            this.tank = tank;
         }
 
         private IEnumerator StartTimeSLower()
@@ -60,6 +61,32 @@ namespace Tank.PickUps
             yield return new WaitForSecondsRealtime(time);
             Time.timeScale = 1.0f;
             Destroy(gameObject);
+        }
+
+        private void Update()
+        {
+            if (grabbed)
+            {
+                transform.position = Vector3.Lerp(
+                    transform.position,
+                    tank.transform.position,
+                    Time.deltaTime * followSpeed
+                );
+            }
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out TankImpl tank))
+            {
+                CompleteGrab(tank);
+            }
+        }
+
+        private void CompleteGrab(TankImpl tank)
+        {
+            _ = StartCoroutine(StartTimeSLower());
+            spriteRenderer.enabled = false;
         }
     }
 }
