@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: DoubleShotGun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
         upgradeName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
-        currentLevel: 1
+        currentLevel: 2
         maxLevel: 20
         leveledUpgrades:
         - upgradingLevel: 0
@@ -81,6 +81,14 @@ MonoBehaviour:
             \u0431\u0430\u0448\u043D\u0438"
           moduleUpgrades:
           - rid: 3201943433014149165
+        - upgradingLevel: 6
+          description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u043F\u0443\u0448\u043A\u0443
+            \u0441\u0437\u0430\u0434\u0438. \u0421\u0442\u0440\u0435\u043B\u044F\u0435\u0442
+            \u0441 \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u043E\u0439
+            \u043D\u0430 25% \u043C\u0435\u0434\u043B\u0435\u043D\u0435\u0435, \u0447\u0435\u043C
+            \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430."
+          moduleUpgrades:
+          - rid: 3201943433014149280
         - upgradingLevel: 7
           description: "x2 \u0443\u0433\u043E\u043B \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F
             \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
@@ -126,6 +134,16 @@ MonoBehaviour:
             \u0443\u0440\u043E\u043D\u0430"
           moduleUpgrades:
           - rid: 3201943433014149226
+        - upgradingLevel: 12
+          description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 2
+            \u043F\u0443\u0448\u043A\u0438 \u0441\u043B\u0435\u0432\u0430 \u0438
+            \u0441\u043F\u0440\u0430\u0432\u0430. \u0421\u0442\u0440\u0435\u043B\u044F\u044E\u0442
+            \u0441 \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u043E\u0439
+            \u043D\u0430 25% \u043C\u0435\u0434\u043B\u0435\u043D\u0435\u0435, \u0447\u0435\u043C
+            \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430."
+          moduleUpgrades:
+          - rid: 3201943433014149394
+          - rid: 3201943433014149395
         - upgradingLevel: 13
           description: "-0,2 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430
             \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u044B"
@@ -136,32 +154,67 @@ MonoBehaviour:
           moduleUpgrades:
           - rid: 3201943433014149228
         - upgradingLevel: 14
-          description: 
-          moduleUpgrades: []
-        - upgradingLevel: 14
-          description: 
-          moduleUpgrades: []
-        - upgradingLevel: 15
-          description: 
-          moduleUpgrades: []
-        - upgradingLevel: 15
-          description: 
-          moduleUpgrades: []
-        - upgradingLevel: 16
-          description: 
-          moduleUpgrades: []
-        - upgradingLevel: 16
-          description: 
-          moduleUpgrades: []
-        levelUpUpgrades:
-        - levelForUpgrade: 0
-          description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u043F\u0443\u0448\u043A\u0443
-            \u0441\u0437\u0430\u0434\u0438. \u0421\u0442\u0440\u0435\u043B\u044F\u0435\u0442
-            \u0441 \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u043E\u0439
-            \u043D\u0430 25% \u043C\u0435\u0434\u043B\u0435\u043D\u0435\u0435, \u0447\u0435\u043C
-            \u043E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430."
+          description: "+5 \u0443\u0440\u043E\u043D\u0430"
           moduleUpgrades:
-          - rid: 3201943433014149229
+          - rid: 3201943433014149266
+        - upgradingLevel: 14
+          description: "+1 \u0441\u043D\u0430\u0440\u044F\u0434 \u0437\u0430 \u0432\u044B\u0441\u0442\u0440\u0435\u043B"
+          moduleUpgrades:
+          - rid: 3201943433014149267
+        - upgradingLevel: 15
+          description: "-0.2 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430
+            \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u044B"
+          moduleUpgrades:
+          - rid: 3201943433014149268
+        - upgradingLevel: 15
+          description: "+4 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u0432\u043E\u0440\u043E\u0442\u0430
+            \u0431\u0430\u0448\u043D\u0438"
+          moduleUpgrades:
+          - rid: 3201943433014149269
+        - upgradingLevel: 16
+          description: "+6 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149270
+        - upgradingLevel: 16
+          description: "+30% \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+            \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149271
+        - upgradingLevel: 17
+          description: "+15% \u0448\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149272
+        - upgradingLevel: 17
+          description: "+5 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149273
+        - upgradingLevel: 18
+          description: "+10 \u0443\u0433\u043E\u043B \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades: []
+        - upgradingLevel: 18
+          description: "+5% \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438
+            \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438 \u0434\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0445
+            \u043F\u0443\u0448\u0435\u043A"
+          moduleUpgrades:
+          - rid: 3201943433014149274
+        - upgradingLevel: 19
+          description: "+50% \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+            \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades: []
+        - upgradingLevel: 19
+          description: "+1 \u0441\u043D\u0430\u0440\u044F\u0434 \u0437\u0430 \u0432\u044B\u0441\u0442\u0440\u0435\u043B"
+          moduleUpgrades:
+          - rid: 3201943433014149275
+        - upgradingLevel: 20
+          description: "+8 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149276
+        - upgradingLevel: 20
+          description: "+20% \u0448\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0430"
+          moduleUpgrades:
+          - rid: 3201943433014149277
+        levelUpUpgrades: []
         modules:
         - rid: 2815594792133853322
         - rid: 2815594792133853323
@@ -189,7 +242,7 @@ MonoBehaviour:
       data:
         fireRate:
           sourceValue: 1
-          cachedValue: 1
+          cachedValue: 0.9
     - rid: 2815594792133853324
       type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -205,7 +258,7 @@ MonoBehaviour:
           sourceValue:
             value: 100
           cachedValue:
-            value: 120
+            value: 150
     - rid: 2815594792133853326
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -237,7 +290,7 @@ MonoBehaviour:
       data:
         projectileSpeed:
           sourceValue: 8
-          cachedValue: 8
+          cachedValue: 18
     - rid: 2815594792133853331
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -262,13 +315,13 @@ MonoBehaviour:
       data:
         spreadAngle:
           sourceValue: 3
-          cachedValue: 3
+          cachedValue: 6
     - rid: 2815594792133853334
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
           sourceValue: 14
-          cachedValue: 14
+          cachedValue: 18
     - rid: 2815594792133853335
       type: {class: MultiCannonFireRateModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
       data:
@@ -433,8 +486,94 @@ MonoBehaviour:
         OperationValue:
           value: 15
         ModificationPriority: 1
-    - rid: 3201943433014149229
+    - rid: 3201943433014149266
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943433014149267
+      type: {class: ProjectilesPerShoot, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149268
+      type: {class: FireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.2
+        ModificationPriority: 1
+    - rid: 3201943433014149269
+      type: {class: TowerRotation, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 4
+        ModificationPriority: 1
+    - rid: 3201943433014149270
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 6
+        ModificationPriority: 1
+    - rid: 3201943433014149271
+      type: {class: CriticalMultiplier, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 30
+        ModificationPriority: 1
+    - rid: 3201943433014149272
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 15
+        ModificationPriority: 1
+    - rid: 3201943433014149273
+      type: {class: ProjectileSpeed, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943433014149274
+      type: {class: MultiCannonFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 5
+        ModificationPriority: 1
+    - rid: 3201943433014149275
+      type: {class: ProjectilesPerShoot, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943433014149276
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 8
+        ModificationPriority: 1
+    - rid: 3201943433014149277
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 20
+        ModificationPriority: 1
+    - rid: 3201943433014149280
       type: {class: AddCannonForRailGun, ns: Tank.Weapons.ModulesUpgrades.Cannon, asm: Assembly-CSharp}
       data:
-        CannonPositioner: {fileID: 0}
-        CannonPosition: 
+        CannonPositioner: {fileID: 926219194655494802, guid: 3f50c9d7616495b41bd87b72e00e2c64, type: 3}
+        CannonPosition: Bottom
+    - rid: 3201943433014149394
+      type: {class: AddCannonForRailGun, ns: Tank.Weapons.ModulesUpgrades.Cannon, asm: Assembly-CSharp}
+      data:
+        CannonPositioner: {fileID: 926219194655494802, guid: 3f50c9d7616495b41bd87b72e00e2c64, type: 3}
+        CannonPosition: Right
+    - rid: 3201943433014149395
+      type: {class: AddCannonForRailGun, ns: Tank.Weapons.ModulesUpgrades.Cannon, asm: Assembly-CSharp}
+      data:
+        CannonPositioner: {fileID: 926219194655494802, guid: 3f50c9d7616495b41bd87b72e00e2c64, type: 3}
+        CannonPosition: Left
