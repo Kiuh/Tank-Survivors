@@ -22,8 +22,8 @@ MonoBehaviour:
     - rid: 2815594792133853203
       type: {class: BasicGun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
-        upgradeName: Basic Gun
-        currentLevel: 1
+        upgradeName: "\u042D\u0432\u043E\u043B\u044E\u0446\u0438\u044F"
+        currentLevel: 0
         maxLevel: 0
         leveledUpgrades: []
         levelUpUpgrades:
