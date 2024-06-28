@@ -167,8 +167,8 @@ MonoBehaviour:
   metricaCounterID: 0
   debug: 1
   archivingBuild: 1
-  logoImageFormat: 2
-  backgroundImageFormat: 3
+  logoImageFormat: 1
+  backgroundImageFormat: 2
   pixelRatioEnable: 0
   pixelRatioValue: 1
   loadGameRun: 0
