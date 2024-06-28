@@ -21,6 +21,12 @@ namespace Tank.PickUps
         private Tween moveTween;
         private Tween fadeTween;
 
+        public void CreateAndLaunch(Vector3 position, string text, Color color)
+        {
+            FloatingEffect newInstance = Instantiate(this, position, Quaternion.identity);
+            newInstance.Launch(text, color);
+        }
+
         public void Launch(string text, Color color)
         {
             label.text = text;

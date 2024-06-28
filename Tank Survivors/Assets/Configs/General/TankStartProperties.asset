@@ -16,4 +16,16 @@ MonoBehaviour:
   speed: 4
   pickupRadius: 1
   armor: 0
+  criticalChance:
+    value: 0
+  evadeChance:
+    value: 0
+  damageModifier:
+    value: 0
+  projectileSize:
+    value: 0
+  rangeModifier:
+    value: 0
+  fireRateModifier:
+    value: 0
   levelUpChoicesCount: 3

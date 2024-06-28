@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 7495199491439213304}
   - component: {fileID: -732405105749076577}
   - component: {fileID: -2156953294769826934}
+  - component: {fileID: -3178864659789341753}
   m_Layer: 6
   m_Name: EliteSoliderBoss
   m_TagString: Untagged
@@ -142,15 +143,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b1bc7ed0dd5a4ca97362cdf6e85bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  rigidBody: {fileID: 0}
-  ownCollider: {fileID: 0}
+  enemyName: EliteSoliderBoss
+  rigidBody: {fileID: -732405105749076577}
+  ownCollider: {fileID: 7495199491439213304}
   health: 0
   abilities: []
   modules: []
+  damageTaking: {fileID: -3178864659789341753}
   references:
     version: 2
     RefIds: []
+--- !u!114 &-3178864659789341753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469695110326592881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b11e9ee15b557499889e770a14cf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6840860954600485654}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTime: 0.6
 --- !u!1 &5057526598896563348
 GameObject:
   m_ObjectHideFlags: 0

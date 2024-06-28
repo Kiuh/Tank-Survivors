@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9177086646328938006}
   - component: {fileID: 1858799368769683324}
   - component: {fileID: -5670979979076393043}
+  - component: {fileID: 1098758818836992819}
+  - component: {fileID: 261578584495863963}
   m_Layer: 6
   m_Name: Big soldier
   m_TagString: Untagged
@@ -110,51 +112,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31b1bc7ed0dd5a4ca97362cdf6e85bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
-  rigidBody: {fileID: 0}
-  ownCollider: {fileID: 0}
+  enemyName: Big Solider
+  rigidBody: {fileID: 9177086646328938006}
+  ownCollider: {fileID: 1858799368769683324}
   health: 0
-  abilities:
-  - rid: 3201943433014149423
-  - rid: 3201943433014149424
-  modules:
-  - rid: 3201943433014149425
-  - rid: 3201943433014149426
-  - rid: 3201943433014149427
-  - rid: 3201943433014149428
+  abilities: []
+  modules: []
+  damageTaking: {fileID: 1098758818836992819}
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1098758818836992819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268963177108698579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b11e9ee15b557499889e770a14cf81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 5052337540687414199}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageTime: 0.6
+--- !u!114 &261578584495863963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268963177108698579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8d6dc2f6a5a604f87de3bab84c5d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+    mode: 0
+    unityReference: {fileID: -5670979979076393043}
+    rawReference:
+      rid: -2
+  explosion: {fileID: 9086961371361567868, guid: b1e058f0e36cc6b44b4df24a0c995e54, type: 3}
+  explosionScale: {x: 0.5, y: 0.5, z: 0.5}
   references:
     version: 2
     RefIds:
-    - rid: 3201943433014149423
-      type: {class: CloseRangeAttack, ns: Enemies.Abilities, asm: Assembly-CSharp}
-      data: 
-    - rid: 3201943433014149424
-      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
-      data: 
-    - rid: 3201943433014149425
-      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        cooldown:
-          sourceValue: 0.001
-          cachedValue: 0
-    - rid: 3201943433014149426
-      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        speed:
-          sourceValue: 0
-          cachedValue: 0
-    - rid: 3201943433014149427
-      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        health:
-          sourceValue: 0
-          cachedValue: 0
-    - rid: 3201943433014149428
-      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        damage:
-          sourceValue: 0
-          cachedValue: 0
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &2664392056306920793
 GameObject:
   m_ObjectHideFlags: 0
