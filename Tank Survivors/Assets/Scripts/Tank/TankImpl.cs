@@ -118,6 +118,8 @@ namespace Tank
         public IEnumerable<IWeapon> Weapons => weapons;
 
         public event Action OnDeath;
+        private bool isDead = false;
+        public bool IsDead => isDead;
 
         private void Awake()
         {
@@ -132,6 +134,11 @@ namespace Tank
 
         private void Update()
         {
+            if (isDead)
+            {
+                return;
+            }
+
             foreach (IWeapon weapon in weapons)
             {
                 weapon.ProceedAttack();
@@ -162,6 +169,11 @@ namespace Tank
 
         public void Heal(float healAmount)
         {
+            if (isDead)
+            {
+                return;
+            }
+
             Health.Value = Mathf.Min(Health.Value + healAmount, Health.MaxValue);
             vignetteTween?.Kill();
             vignette.color.value = vignetteHealColor;
@@ -175,7 +187,7 @@ namespace Tank
 
         public void TakeDamage(float damageAmount)
         {
-            if (Health.Value <= 0)
+            if (isDead)
             {
                 return;
             }
@@ -191,8 +203,51 @@ namespace Tank
             if (Health.Value <= 0)
             {
                 Health.Value = 0;
-                OnDeath?.Invoke();
+                isDead = true;
+                DeathExplode();
             }
+        }
+
+        [AssetSelector]
+        [SerializeField]
+        private ParticleSystem tankExplosion;
+
+        [SerializeField]
+        private Color darkColor;
+
+        private Tween deathDelayTween;
+
+        public void RecoverDeathExplode()
+        {
+            isDead = false;
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.material.color = Color.white;
+            }
+        }
+
+        private void DeathExplode()
+        {
+            ParticleSystem instance = Instantiate(
+                tankExplosion,
+                transform.position,
+                Quaternion.identity
+            );
+            foreach (SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sr.material.color = darkColor;
+            }
+            instance.Play();
+            float delay = instance.main.duration * instance.main.startLifetimeMultiplier;
+            deathDelayTween = DOVirtual.DelayedCall(
+                delay,
+                () =>
+                {
+                    Destroy(instance.gameObject);
+                    OnDeath?.Invoke();
+                },
+                false
+            );
         }
 
         [SerializeField]
@@ -251,6 +306,7 @@ namespace Tank
         {
             vignette.intensity.value = 0;
             vignetteTween?.Kill();
+            deathDelayTween?.Kill();
         }
     }
 }

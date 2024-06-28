@@ -1,7 +1,9 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-[CustomEditor(typeof(joystick.FloatingJoystick))]
+[CustomEditor(typeof(FloatingJoystick))]
 public class FloatingJoystickEditor : JoystickEditor
 {
     public override void OnInspectorGUI()

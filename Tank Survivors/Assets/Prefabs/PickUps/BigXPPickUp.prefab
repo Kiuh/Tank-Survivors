@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceAmount: 20
-  effectText: +20 EXP
+  effectText: "+20 \u041E\u043F\u044B\u0442\u0430"
   effectColor: {r: 0.77647066, g: 0.41960788, b: 1, a: 1}
   grabbed: 0
   pickupName: BigXP

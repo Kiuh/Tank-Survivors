@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 5
-  effectText: +5 HP
+  effectText: "+5 \u0416\u0438\u0437\u043D\u0438"
   effectColor: {r: 0.44705886, g: 0.90196085, b: 0.37647063, a: 1}
   grabbed: 0
   pickupName: Health

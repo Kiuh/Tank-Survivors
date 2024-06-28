@@ -57,12 +57,10 @@ namespace Panels
         [ReadOnly]
         [SerializeField]
         private List<Vector3> path;
-        private RectTransform rectTransform;
 
         private void Start()
         {
-            rectTransform = GetComponent<RectTransform>();
-            startPosition = rectTransform.localPosition;
+            startPosition = transform.localPosition;
             duration = 0;
             path.Clear();
             for (int i = 0; i < 50; i++)
@@ -78,13 +76,9 @@ namespace Panels
 
         private void Float()
         {
-            moving = rectTransform.DOLocalPath(
-                path.ToArray(),
-                duration,
-                PathType.CubicBezier,
-                PathMode.Full3D
-            );
-            _ = moving.onComplete += Float;
+            moving = transform
+                .DOLocalPath(path.ToArray(), duration, PathType.CubicBezier, PathMode.Full3D)
+                .OnComplete(Float);
         }
 
         private void OnDestroy()

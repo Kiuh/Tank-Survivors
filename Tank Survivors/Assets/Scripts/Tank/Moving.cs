@@ -38,6 +38,11 @@ namespace Tank
 
         public void FixedUpdate()
         {
+            if (tank.IsDead)
+            {
+                return;
+            }
+
             Move(tank.Speed.GetModifiedValue());
         }
 
@@ -63,6 +68,11 @@ namespace Tank
 
         private void Update()
         {
+            if (tank.IsDead)
+            {
+                return;
+            }
+
             Vector3 newAimPosition = tankRigidBody.position + (movementDirection * aimModifier);
             aim.position = Vector3.Lerp(
                 aim.position,

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelsConfig
   m_EditorClassIdentifier: 
   LevelInfos:
-  - Name: Test
+  - Name: 1
     Progress: 0
     Enemies: {fileID: 11400000, guid: 553fb1ba51f47ae46b6ef60f026dc670, type: 2}

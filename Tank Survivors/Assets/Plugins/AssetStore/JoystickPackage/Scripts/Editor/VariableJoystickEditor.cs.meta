@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 107631
   packageName: Joystick Pack
   packageVersion: 2.1
-  assetPath: Assets/Joystick Pack/Scripts/Editor/VariableJoystickEditor.cs
+  assetPath: Assets/Plugins/AssetStore/JoystickPackage/Scripts/Editor/VariableJoystickEditor.cs
   uploadId: 301683

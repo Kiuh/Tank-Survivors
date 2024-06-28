@@ -40,6 +40,7 @@ namespace General
 
         private void ApplySecondLife()
         {
+            tank.RecoverDeathExplode();
             tank.Heal(tank.Health.MaxValue / 2);
 
             IEnumerable<IEnemy> enemies = tank

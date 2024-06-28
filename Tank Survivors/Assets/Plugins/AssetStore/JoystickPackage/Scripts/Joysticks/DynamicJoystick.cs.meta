@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 107631
   packageName: Joystick Pack
   packageVersion: 2.1
-  assetPath: Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs
+  assetPath: Assets/Plugins/AssetStore/JoystickPackage/Scripts/Joysticks/DynamicJoystick.cs
   uploadId: 301683

@@ -1,7 +1,8 @@
-﻿namespace joystick
-{
-    public class FixedJoystick : Joystick
-    {
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-    }
+public class FixedJoystick : Joystick
+{
+
 }

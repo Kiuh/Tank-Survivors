@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   timeSlowerPercentage: 0.2
-  effectText: Time Slow...
+  effectText: "\u0421\u0422\u041E\u041F \u0412\u0420\u0415\u041C\u042F"
   effectColor: {r: 0.45882356, g: 0.32941177, b: 0.30980393, a: 1}
   spriteRenderer: {fileID: 337425409110343240}
   grabbed: 0

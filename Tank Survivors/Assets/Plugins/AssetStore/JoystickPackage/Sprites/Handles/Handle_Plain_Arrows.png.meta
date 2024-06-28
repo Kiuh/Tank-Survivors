@@ -5,7 +5,7 @@ AssetOrigin:
   productId: 107631
   packageName: Joystick Pack
   packageVersion: 2.1
-  assetPath: Assets/Joystick Pack/Sprites/Handles/Handle_Plain_Arrows.png
+  assetPath: Assets/Plugins/AssetStore/JoystickPackage/Sprites/Handles/Handle_Plain_Arrows.png
   uploadId: 301683
 TextureImporter:
   internalIDToNameTable: []

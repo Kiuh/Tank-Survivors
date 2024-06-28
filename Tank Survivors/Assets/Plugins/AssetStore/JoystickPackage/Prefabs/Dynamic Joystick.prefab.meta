@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 107631
   packageName: Joystick Pack
   packageVersion: 2.1
-  assetPath: Assets/Joystick Pack/Prefabs/Dynamic Joystick.prefab
+  assetPath: Assets/Plugins/AssetStore/JoystickPackage/Prefabs/Dynamic Joystick.prefab
   uploadId: 301683
