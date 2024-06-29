@@ -14,7 +14,7 @@ namespace Tank.Weapons.Projectiles
         [SerializeField]
         private LineRenderer lineRenderer;
 
-        private float damage;
+        private Damage damage;
 
         private float duration = 1f;
         private float timeRemaining;
@@ -32,7 +32,7 @@ namespace Tank.Weapons.Projectiles
                 .GetModule<FireRangeModule>()
                 .FireRange.GetPercentagesValue(tank.RangeModifier);
 
-            float damage = weapon.GetModifiedDamage(
+            Damage damage = weapon.GetModifiedDamage(
                 weapon.GetModule<Modules.DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
                 weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -67,7 +67,7 @@ namespace Tank.Weapons.Projectiles
         }
 
         private void InitializeInternal(
-            float damage,
+            Damage damage,
             float duration,
             float shotCooldown,
             Vector3 startPoint,

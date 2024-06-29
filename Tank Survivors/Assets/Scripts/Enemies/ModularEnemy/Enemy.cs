@@ -5,6 +5,8 @@ using Enemies.Bosses.Abilities;
 using Enemies.ModularEnemy;
 using Sirenix.OdinInspector;
 using Tank;
+using Tank.PickUps;
+using Tank.Weapons;
 using UnityEngine;
 
 namespace Enemies
@@ -93,14 +95,22 @@ namespace Enemies
             );
         }
 
-        public void TakeDamage(float damageAmount)
+        [AssetList]
+        [SerializeField]
+        private FloatingEffect floatingEffect;
+
+        public void TakeDamage(Damage damage)
         {
             if (Health <= 0)
             {
                 return;
             }
             damageTaking.TakeDamage();
-            health -= damageAmount;
+            if (damage.IsCritical)
+            {
+                floatingEffect.CreateAndLaunch(transform.position);
+            }
+            health -= damage.Amount;
             if (Health <= 0.0f)
             {
                 OnDeath?.Invoke();

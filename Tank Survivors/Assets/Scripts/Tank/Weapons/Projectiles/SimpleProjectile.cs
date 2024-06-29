@@ -6,7 +6,7 @@ namespace Tank.Weapons.Projectiles
 {
     public class SimpleProjectile : MonoBehaviour, IProjectile
     {
-        private float damage;
+        private Damage damage;
         private float speed;
         private float fireRange;
         private int penetration;
@@ -43,7 +43,7 @@ namespace Tank.Weapons.Projectiles
 
         public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
-            float damage = weapon.GetModifiedDamage(
+            Damage damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
                 weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -72,7 +72,7 @@ namespace Tank.Weapons.Projectiles
         }
 
         private void InitializeInternal(
-            float damage,
+            Damage damage,
             float speed,
             float size,
             float fireRange,

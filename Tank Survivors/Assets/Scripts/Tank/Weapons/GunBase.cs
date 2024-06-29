@@ -11,6 +11,18 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
+    public struct Damage
+    {
+        public float Amount;
+        public bool IsCritical;
+
+        public Damage(float amount)
+        {
+            Amount = amount;
+            IsCritical = false;
+        }
+    }
+
     public abstract class GunBase : IWeapon
     {
         [Title("@GetType()")]
@@ -121,13 +133,15 @@ namespace Tank.Weapons
             return rotation * direction;
         }
 
-        public float GetModifiedDamage(
+        public Damage GetModifiedDamage(
             ModifiableValue<float> damage,
             ModifiableValue<Percentage> criticalChance,
             ModifiableValue<Percentage> criticalMultiplier,
             TankImpl tank
         )
         {
+            Damage outcomeDamage = new() { IsCritical = false };
+
             ModifiableValue<float> damageModifiableValue = damage.GetPercentagesModifiableValue(
                 tank.DamageModifier
             );
@@ -137,12 +151,17 @@ namespace Tank.Weapons
 
             if (wholeChance.TryChance())
             {
-                return damageModifiableValue.GetPercentagesValue(criticalMultiplier);
+                outcomeDamage.Amount = damageModifiableValue.GetPercentagesValue(
+                    criticalMultiplier
+                );
+                outcomeDamage.IsCritical = true;
             }
             else
             {
-                return damageModifiableValue.GetModifiedValue();
+                outcomeDamage.Amount = damageModifiableValue.GetModifiedValue();
             }
+
+            return outcomeDamage;
         }
 
         protected ITower CreateTower(Transform transform)

@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using General;
 using Sirenix.OdinInspector;
+using Tank;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,10 @@ namespace Panels.Pause
         [SerializeField]
         private Image lerpImage;
 
+        [RequiredIn(PrefabKind.PrefabInstanceAndNonPrefabInstance)]
+        [SerializeField]
+        private TankImpl tankImpl;
+
         public void HidePause()
         {
             view.HidePausePanel();
@@ -35,6 +40,7 @@ namespace Panels.Pause
         public void ShowPause()
         {
             view.ShowPausePanel();
+            tankImpl.StopScreenEffects();
         }
 
         private Tween delayTween;

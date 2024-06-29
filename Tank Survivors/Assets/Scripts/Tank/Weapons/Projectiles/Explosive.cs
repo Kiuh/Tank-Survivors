@@ -13,7 +13,7 @@ namespace Tank.Weapons.Projectiles
         private ParticleSystem fireParticle;
 
         private GameObject projectile;
-        private float explosionDamage;
+        private Damage explosionDamage;
         private float damageRadius;
 
         private FireParameters fireParameters;
@@ -23,7 +23,7 @@ namespace Tank.Weapons.Projectiles
             ParticleSystem explosionParticle,
             ParticleSystem fireParticle,
             GameObject projectile,
-            float explosionDamage,
+            Damage explosionDamage,
             float damageRadius,
             FireParameters fireParameters
         )
@@ -88,7 +88,7 @@ namespace Tank.Weapons.Projectiles
             DealDamage(fireParameters.Damage);
         }
 
-        private void DealDamage(float damage)
+        private void DealDamage(Damage damage)
         {
             Collider2D[] collisions = Physics2D.OverlapCircleAll(
                 projectile.transform.position,

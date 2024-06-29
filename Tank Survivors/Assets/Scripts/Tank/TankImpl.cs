@@ -302,6 +302,11 @@ namespace Tank
             floatingEffect.CreateAndLaunch(transform.position, damageText, damageColor);
         }
 
+        public void StopScreenEffects()
+        {
+            vignetteTween?.Kill();
+        }
+
         private void OnDestroy()
         {
             vignette.intensity.value = 0;
