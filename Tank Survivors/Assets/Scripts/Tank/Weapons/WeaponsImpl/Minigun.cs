@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Panels.Pause;
 using Tank.Towers;
 using Tank.Weapons.Modules;
 
@@ -57,6 +58,17 @@ namespace Tank.Weapons
                 new ProjectileSpreadAngleModule(),
                 new TowerRotationModule(),
             };
+        }
+
+        public override StatBlockData GetStatBlockData()
+        {
+            StatBlockData statBlockData =
+                new()
+                {
+                    StatName = "Миниган",
+                    StatsData = new() { }
+                };
+            return statBlockData;
         }
     }
 }

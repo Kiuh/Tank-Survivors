@@ -71,6 +71,8 @@ namespace Common
         [SerializeField]
         private T cachedValue;
 
+        public T Value => GetModifiedValue();
+
         public T GetModifiedValue()
         {
             if (!isDirty && notFirstCalculate)

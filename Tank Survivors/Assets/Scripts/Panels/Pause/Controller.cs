@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Linq;
+using DG.Tweening;
 using General;
 using Sirenix.OdinInspector;
 using Tank;
@@ -32,6 +33,14 @@ namespace Panels.Pause
         [SerializeField]
         private TankImpl tankImpl;
 
+        [Required]
+        [SerializeField]
+        private StatGrid attributesStatGrid;
+
+        [Required]
+        [SerializeField]
+        private StatGrid weaponStatGrid;
+
         public void HidePause()
         {
             view.HidePausePanel();
@@ -41,6 +50,9 @@ namespace Panels.Pause
         {
             view.ShowPausePanel();
             tankImpl.StopScreenEffects();
+            attributesStatGrid.FillWithData(tankImpl.GetStatBlockData());
+            weaponStatGrid.FillWithData(tankImpl.Weapons.First().GetStatBlockData());
+            (transform as RectTransform).ForceUpdateRectTransforms();
         }
 
         private Tween delayTween;

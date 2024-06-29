@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Panels.Pause;
 using Tank.UpgradablePiece;
 using Tank.Weapons.Modules;
 
@@ -13,5 +14,6 @@ namespace Tank.Weapons
         public abstract void CreateGun();
         public abstract void DestroyGun();
         public abstract void SwapWeapon(IWeapon newWeapon);
+        public abstract StatBlockData GetStatBlockData();
     }
 }

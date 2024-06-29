@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Common;
 using DataStructs;
+using Panels.Pause;
 using Sirenix.OdinInspector;
 using Tank.Towers;
 using Tank.UpgradablePiece;
@@ -89,6 +90,7 @@ namespace Tank.Weapons
         public abstract void CreateGun();
         public abstract void DestroyGun();
         public abstract void SwapWeapon(IWeapon newWeapon);
+        public abstract StatBlockData GetStatBlockData();
 
         protected abstract List<IWeaponModule> GetBaseModules();
 

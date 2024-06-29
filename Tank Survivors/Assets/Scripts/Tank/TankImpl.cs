@@ -5,6 +5,7 @@ using Common;
 using DataStructs;
 using DG.Tweening;
 using General;
+using Panels.Pause;
 using Sirenix.OdinInspector;
 using Tank.PickUps;
 using Tank.UpgradablePiece;
@@ -317,6 +318,27 @@ namespace Tank
             vignette.intensity.value = 0;
             vignetteTween?.Kill();
             deathDelayTween?.Kill();
+        }
+
+        public StatBlockData GetStatBlockData()
+        {
+            StatBlockData statBlockData =
+                new()
+                {
+                    StatName = "Атрибуты",
+                    StatsData = new()
+                    {
+                        new StatData() { Name = "ОЗ", Value = $"{Health.Value}/{Health.MaxValue}" },
+                        new StatData() { Name = "Скорость", Value = $"{Speed.Value:0.0}" },
+                        new StatData()
+                        {
+                            Name = "Уворот",
+                            Value = $"{EvadeChance.Value.Value:0.0}%"
+                        },
+                        new StatData() { Name = "Подбор", Value = $"{PickupRadius.Value:0.0}" },
+                    }
+                };
+            return statBlockData;
         }
     }
 }

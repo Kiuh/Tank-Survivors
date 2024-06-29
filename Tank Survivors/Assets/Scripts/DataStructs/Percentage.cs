@@ -13,10 +13,10 @@ namespace DataStructs
         [LabelText("Percentages")]
         [Unit(Units.Percent)]
         private float value;
-        private float Value
+        public float Value
         {
             get => value;
-            set => this.value = value;
+            private set => this.value = value;
         }
         public float NormalizedValue => Value / 100;
 
