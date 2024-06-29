@@ -2979,10 +2979,11 @@ MonoBehaviour:
   weapons: []
   tankExplosion: {fileID: 9086961371361567868, guid: 6de52508b60bcdb488c440a988be6d33, type: 3}
   darkColor: {r: 0, g: 0, b: 0, a: 1}
-  floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
+  floatingEffect: {fileID: 5479560840813253952, guid: f7efecf910c830a45abb52ace40e5e57, type: 3}
   evasionText: "\u041F\u0440\u043E\u043C\u0430\u0445"
   evasionColor: {r: 0.100332186, g: 0.100332186, b: 0.8396226, a: 1}
-  damageText: "\u0423\u0440\u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0435\u043D"
+  damageText: "\u0423\u0440\u043E\u043D \u043F\u043E\u043B\u0443\u0447\u0435\u043D
+    - "
   damageColor: {r: 0.764151, g: 0.06968665, b: 0.06968665, a: 1}
   profile: {fileID: 11400000, guid: e13bc8ce807299d4b839a98198f474dd, type: 2}
   maxIntensity: 0.4

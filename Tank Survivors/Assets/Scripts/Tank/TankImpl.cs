@@ -199,7 +199,7 @@ namespace Tank
             }
 
             Health.Value -= damageAmount;
-            ShowDamageTaken();
+            ShowDamageTaken(damageAmount);
             if (Health.Value <= 0)
             {
                 Health.Value = 0;
@@ -250,6 +250,7 @@ namespace Tank
             );
         }
 
+        [AssetList]
         [SerializeField]
         private FloatingEffect floatingEffect;
 
@@ -288,7 +289,7 @@ namespace Tank
             floatingEffect.CreateAndLaunch(transform.position, evasionText, evasionColor);
         }
 
-        private void ShowDamageTaken()
+        private void ShowDamageTaken(float damage)
         {
             vignette.intensity.value = maxIntensity;
             vignetteTween?.Kill();
@@ -299,7 +300,11 @@ namespace Tank
                 vignetteDuration,
                 (x) => vignette.intensity.value = x
             );
-            floatingEffect.CreateAndLaunch(transform.position, damageText, damageColor);
+            floatingEffect.CreateAndLaunch(
+                transform.position,
+                damageText + damage.ToString(),
+                damageColor
+            );
         }
 
         public void StopScreenEffects()

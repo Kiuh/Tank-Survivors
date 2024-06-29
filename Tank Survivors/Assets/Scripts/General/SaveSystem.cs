@@ -1,31 +1,47 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
 using UnityEngine;
+using YG;
 
 public class SaveSystem : MonoBehaviour
 {
     public static void SaveData(Levels levels)
     {
-        //List<int> progresses = GetProgresses(levels.LevelInfos);
-
-        //YandexGame.savesData.LevelProgresses = progresses;
-        //YandexGame.SaveProgress();
+        List<LevelData> oldData = YandexGame.savesData.LevelsData;
+        List<LevelData> newData = new();
+        foreach (LevelInfo levelInfo in levels.LevelInfos)
+        {
+            LevelData oldLevelInfo = oldData.FirstOrDefault(x => x.LevelName == levelInfo.Name);
+            string levelName = levelInfo.Name;
+            int stars;
+            if (oldLevelInfo != null)
+            {
+                stars = Math.Max(oldLevelInfo.Stars, levelInfo.Progress);
+            }
+            else
+            {
+                stars = levelInfo.Progress;
+            }
+            newData.Add(new LevelData() { LevelName = levelName, Stars = stars });
+        }
+        YandexGame.savesData.LevelsData = newData;
+        YandexGame.SaveProgress();
     }
 
     public static void LoadData(Levels levels)
     {
-        //YandexGame.LoadProgress();
-        //List<int> progresses = YandexGame.savesData.LevelProgresses;
+        YandexGame.LoadProgress();
+        List<LevelData> levelsData = YandexGame.savesData.LevelsData;
 
-        //for (int i = 0; i < progresses.Count; i++)
+        foreach (LevelInfo level in levels.LevelInfos)
         {
-            //levels.LevelInfos[i].Progress = progresses[i];
+            LevelData levelData = levelsData.FirstOrDefault(x => x.LevelName == level.Name);
+            if (levelData != null)
+            {
+                level.Progress = levelData.Stars;
+            }
         }
-    }
-
-    private static List<int> GetProgresses(List<LevelInfo> levelInfos)
-    {
-        return levelInfos.Select(x => x.Progress).ToList();
     }
 }
