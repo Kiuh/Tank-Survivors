@@ -24,7 +24,7 @@ MonoBehaviour:
       data:
         upgradeName: "\u0420\u0435\u043B\u044C\u0441\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         currentLevel: 0
-        maxLevel: 20
+        maxLevel: 19
         leveledUpgrades:
         - upgradingLevel: 0
           description: "+2 \u0443\u0440\u043E\u043D \\ +0.2 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430

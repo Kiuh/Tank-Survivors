@@ -24,8 +24,211 @@ MonoBehaviour:
       data:
         upgradeName: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
         currentLevel: 0
-        maxLevel: 0
-        leveledUpgrades: []
+        maxLevel: 20
+        leveledUpgrades:
+        - upgradingLevel: 0
+          description: "+5 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003584
+        - upgradingLevel: 0
+          description: "+1 \u0441\u043D\u0430\u0440\u044F\u0434 \u0437\u0430 \u0432\u044B\u0441\u0442\u0440\u0435\u043B
+            \\ +2 \u0441\u043A\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u043B\u0451\u0442\u0430
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430 \\ +10 \u0443\u0433\u043E\u043B
+            \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003585
+          - rid: 3201943460744003586
+          - rid: 3201943460744003587
+        - upgradingLevel: 1
+          description: "-0.2 \u0441\u0435\u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+            \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438"
+          moduleUpgrades:
+          - rid: 3201943460744003592
+        - upgradingLevel: 1
+          description: "+5 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u0432\u043E\u0440\u043E\u0442\u0430
+            \u0431\u0430\u0448\u043D\u0438 \\ +0.5 \u0440\u0430\u0434\u0438\u0443\u0441
+            \u0432\u0437\u0440\u044B\u0432\u0430 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003593
+          - rid: 3201943460744003594
+        - upgradingLevel: 2
+          description: "+1 \u0441\u043D\u0430\u0440\u044F\u0434 \u0437\u0430 \u0432\u044B\u0441\u0442\u0440\u0435\u043B
+            \\ +2 \u0441\u043A\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u043B\u0451\u0442\u0430
+            \u0441\u043D\u0430\u0440\u044F\u0434\u0430 \\ +10 \u0443\u0433\u043E\u043B
+            \u043E\u0442\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003588
+          - rid: 3201943460744003589
+          - rid: 3201943460744003590
+        - upgradingLevel: 2
+          description: "+5 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003591
+        - upgradingLevel: 3
+          description: "-0.2 \u0441\u0435\u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+            \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438"
+          moduleUpgrades:
+          - rid: 3201943460744003597
+        - upgradingLevel: 3
+          description: "+5 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u043E\u0432\u043E\u0440\u043E\u0442\u0430
+            \u0431\u0430\u0448\u043D\u0438 \\ +0.5 \u0440\u0430\u0434\u0438\u0443\u0441
+            \u0432\u0437\u0440\u044B\u0432\u0430 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003595
+          - rid: 3201943460744003596
+        - upgradingLevel: 4
+          description: "-0.2 \u0441\u0435\u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+            \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438"
+          moduleUpgrades:
+          - rid: 3201943460744003599
+        - upgradingLevel: 4
+          description: "+20% \u043A\u0440\u0438\u0442 \u0448\u0430\u043D\u0441"
+          moduleUpgrades:
+          - rid: 3201943460744003600
+        - upgradingLevel: 5
+          description: "+20% \u043A\u0440\u0438\u0442 \u0448\u0430\u043D\u0441"
+          moduleUpgrades:
+          - rid: 3201943460744003601
+        - upgradingLevel: 5
+          description: "+5 \u0443\u0440\u043E\u043D\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003602
+        - upgradingLevel: 6
+          description: "\u0422\u0430\u043D\u043A \u043D\u0430\u0447\u0438\u043D\u0430\u0435\u0442
+            \u0432\u0437\u0440\u044B\u0432\u0430\u0442\u044C\u0441\u044F \u0438 \u043D\u0430\u043D\u043E\u0441\u0438\u0442\u044C
+            \u0443\u0440\u043E\u043D \u0432\u043E\u043A\u0440\u0443\u0433 \u0441\u0435\u0431\u044F."
+          moduleUpgrades:
+          - rid: 3201943460744003603
+          - rid: 3201943460744003604
+          - rid: 3201943460744003606
+          - rid: 3201943460744003607
+        - upgradingLevel: 7
+          description: "+7 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003609
+        - upgradingLevel: 7
+          description: "-1 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u044F\u0440\u044F\u0434\u043A\u0438
+            \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003610
+        - upgradingLevel: 8
+          description: "+1 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+            \u0432\u0437\u0440\u044B\u0432\u043E\u0432"
+          moduleUpgrades:
+          - rid: 3201943460744003614
+        - upgradingLevel: 8
+          description: "+1 \u0440\u0430\u0434\u0438\u0443\u0441 \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003616
+        - upgradingLevel: 9
+          description: "-1 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u044F\u0440\u044F\u0434\u043A\u0438
+            \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003612
+        - upgradingLevel: 9
+          description: "+7 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003618
+        - upgradingLevel: 10
+          description: "+1 \u0440\u0430\u0434\u0438\u0443\u0441 \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003617
+        - upgradingLevel: 11
+          description: "+7 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003611
+        - upgradingLevel: 11
+          description: "-1 \u0441\u0435\u043A \u043F\u0435\u0440\u0435\u0437\u044F\u0440\u044F\u0434\u043A\u0438
+            \u0432\u0437\u0440\u044B\u0432\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003619
+        - upgradingLevel: 12
+          description: "\u0412\u0437\u0440\u044B\u0432\u044B \u043E\u0442 \u0442\u0430\u043D\u043A\u0430
+            \u0438 \u0441\u043D\u0430\u0440\u044F\u0434\u043E\u0432 \u043D\u0430\u0447\u0438\u043D\u0430\u044E\u0442
+            \u0433\u043E\u0440\u0435\u0442\u044C, \u043D\u0430\u043D\u043E\u0441\u044F
+            \u043F\u0435\u0440\u0435\u043E\u0434\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+            \u0443\u0440\u043E\u043D."
+          moduleUpgrades:
+          - rid: 3201943460744003620
+          - rid: 3201943460744003621
+          - rid: 3201943460744003622
+          - rid: 3201943460744003623
+          - rid: 3201943460744003625
+        - upgradingLevel: 13
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u0432\u043E\u043A\u0440\u0443\u0433 \u0442\u0430\u043D\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003626
+        - upgradingLevel: 13
+          description: "+3 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+          moduleUpgrades:
+          - rid: 3201943460744003635
+        - upgradingLevel: 14
+          description: "-0.1 \u0441\u0435\u043A \u0434\u043B\u044F \u0442\u0438\u043A\u0430
+            \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u0451\u043C"
+          moduleUpgrades:
+          - rid: 3201943460744003636
+        - upgradingLevel: 14
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u043C\u0435\u0441\u0442\u0430 \u0432\u0437\u0440\u044B\u0432\u0430 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003637
+        - upgradingLevel: 15
+          description: "+3 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+          moduleUpgrades:
+          - rid: 3201943460744003629
+        - upgradingLevel: 15
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u0432\u043E\u043A\u0440\u0443\u0433 \u0442\u0430\u043D\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003628
+        - upgradingLevel: 16
+          description: "-0.1 \u0441\u0435\u043A \u0434\u043B\u044F \u0442\u0438\u043A\u0430
+            \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u0451\u043C"
+          moduleUpgrades:
+          - rid: 3201943460744003638
+        - upgradingLevel: 16
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u043C\u0435\u0441\u0442\u0430 \u0432\u0437\u0440\u044B\u0432\u0430 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003639
+        - upgradingLevel: 16
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u043C\u0435\u0441\u0442\u0430 \u0432\u0437\u0440\u044B\u0432\u0430 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003641
+        - upgradingLevel: 17
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u0432\u043E\u043A\u0440\u0443\u0433 \u0442\u0430\u043D\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003631
+        - upgradingLevel: 18
+          description: "-0.1 \u0441\u0435\u043A \u0434\u043B\u044F \u0442\u0438\u043A\u0430
+            \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u0451\u043C"
+          moduleUpgrades:
+          - rid: 3201943460744003643
+        - upgradingLevel: 18
+          description: "+3 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+          moduleUpgrades:
+          - rid: 3201943460744003630
+        - upgradingLevel: 19
+          description: "+1 \u0441\u0435\u043A \u0433\u043E\u0440\u0435\u043D\u0438\u044F
+            \u0432\u043E\u043A\u0440\u0443\u0433 \u0442\u0430\u043D\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943460744003632
+        - upgradingLevel: 19
+          description: "+3 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+          moduleUpgrades:
+          - rid: 3201943460744003633
+        - upgradingLevel: 20
+          description: "-0.1 \u0441\u0435\u043A \u0434\u043B\u044F \u0442\u0438\u043A\u0430
+            \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u0451\u043C"
+          moduleUpgrades:
+          - rid: 3201943460744003640
+        - upgradingLevel: 20
+          description: "+3 \u0443\u0440\u043E\u043D\u0430 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+          moduleUpgrades:
+          - rid: 3201943460744003642
         levelUpUpgrades: []
         modules:
         - rid: 2815594792133853298
@@ -150,31 +353,31 @@ MonoBehaviour:
       type: {class: DamageModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 20
+          sourceValue: 0
           cachedValue: 20
     - rid: 2815594792133853313
       type: {class: FireRateModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
       data:
         fireRate:
-          sourceValue: 5
+          sourceValue: 0
           cachedValue: 5
     - rid: 2815594792133853314
       type: {class: SelfExplosionCountModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
       data:
         count:
-          sourceValue: 1
+          sourceValue: 0
           cachedValue: 1
     - rid: 2815594792133853315
       type: {class: RadiusModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
       data:
         radius:
-          sourceValue: 3
+          sourceValue: 0
           cachedValue: 3
     - rid: 2815594792133853316
       type: {class: HitMarkTimerModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
       data:
         time:
-          sourceValue: 0.5
+          sourceValue: 0
           cachedValue: 0.5
     - rid: 2815594792133853317
       type: {class: FireTimerModule, ns: Tank.Weapons.Modules.SelfExplosion, asm: Assembly-CSharp}
@@ -186,17 +389,331 @@ MonoBehaviour:
       type: {class: FireDamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 5
+          sourceValue: 0
           cachedValue: 5
     - rid: 2815594792133853319
       type: {class: FireFireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
-          sourceValue: 0.1
+          sourceValue: 0
           cachedValue: 0.1
     - rid: 2815594792133853320
       type: {class: ProjectileFireTimerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         time:
-          sourceValue: 2
+          sourceValue: 0
           cachedValue: 2
+    - rid: 3201943460744003584
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003585
+      type: {class: ProjectilesPerShoot, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003586
+      type: {class: ProjectileSpeed, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 2
+        ModificationPriority: 1
+    - rid: 3201943460744003587
+      type: {class: ProjectileSpreadAngle, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943460744003588
+      type: {class: ProjectilesPerShoot, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003589
+      type: {class: ProjectileSpeed, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 2
+        ModificationPriority: 1
+    - rid: 3201943460744003590
+      type: {class: ProjectileSpreadAngle, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 10
+        ModificationPriority: 1
+    - rid: 3201943460744003591
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003592
+      type: {class: FireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.2
+        ModificationPriority: 1
+    - rid: 3201943460744003593
+      type: {class: TowerRotation, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003594
+      type: {class: ProjectileDamageRadius, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 0.5
+        ModificationPriority: 1
+    - rid: 3201943460744003595
+      type: {class: TowerRotation, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003596
+      type: {class: ProjectileDamageRadius, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 0.5
+        ModificationPriority: 1
+    - rid: 3201943460744003597
+      type: {class: FireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.2
+        ModificationPriority: 1
+    - rid: 3201943460744003599
+      type: {class: FireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.2
+        ModificationPriority: 1
+    - rid: 3201943460744003600
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 20
+        ModificationPriority: 1
+    - rid: 3201943460744003601
+      type: {class: CriticalChance, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue:
+          value: 20
+        ModificationPriority: 1
+    - rid: 3201943460744003602
+      type: {class: Damage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003603
+      type: {class: SelfExplosionCount, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003604
+      type: {class: SelfExplosionDamage, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 20
+        ModificationPriority: 1
+    - rid: 3201943460744003606
+      type: {class: SelfExplosionFireRate, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003607
+      type: {class: SelfExplosionRadius, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003609
+      type: {class: SelfExplosionDamage, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 7
+        ModificationPriority: 1
+    - rid: 3201943460744003610
+      type: {class: SelfExplosionFireRate, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003611
+      type: {class: SelfExplosionDamage, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 7
+        ModificationPriority: 1
+    - rid: 3201943460744003612
+      type: {class: SelfExplosionFireRate, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003614
+      type: {class: SelfExplosionCount, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003616
+      type: {class: SelfExplosionRadius, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003617
+      type: {class: SelfExplosionRadius, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003618
+      type: {class: SelfExplosionDamage, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 7
+        ModificationPriority: 1
+    - rid: 3201943460744003619
+      type: {class: SelfExplosionFireRate, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003620
+      type: {class: SelfExplosionHitMarkTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 0.5
+        ModificationPriority: 1
+    - rid: 3201943460744003621
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003622
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 5
+        ModificationPriority: 1
+    - rid: 3201943460744003623
+      type: {class: FireFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 0.3
+        ModificationPriority: 1
+    - rid: 3201943460744003625
+      type: {class: ProjectileFireTimer, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003626
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003628
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003629
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003630
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003631
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003632
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003633
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003635
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003636
+      type: {class: FireFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.1
+        ModificationPriority: 1
+    - rid: 3201943460744003637
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003638
+      type: {class: FireFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.1
+        ModificationPriority: 1
+    - rid: 3201943460744003639
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003640
+      type: {class: FireFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.1
+        ModificationPriority: 1
+    - rid: 3201943460744003641
+      type: {class: SelfExplosionFireTimer, ns: Tank.Weapons.ModulesUpgrades.SelfExplosion, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 1
+        ModificationPriority: 1
+    - rid: 3201943460744003642
+      type: {class: FireDamage, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 0
+        OperationValue: 3
+        ModificationPriority: 1
+    - rid: 3201943460744003643
+      type: {class: FireFireRate, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        MathOperation: 1
+        OperationValue: 0.1
+        ModificationPriority: 1
