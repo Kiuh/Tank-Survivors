@@ -311,6 +311,7 @@ MonoBehaviour:
   - rid: 3201943389564829766
   - rid: 3201943389564829767
   damageTaking: {fileID: 8986145598681584307}
+  floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
     version: 2
     RefIds:

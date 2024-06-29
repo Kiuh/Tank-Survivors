@@ -21,6 +21,12 @@ namespace Tank.PickUps
         private Tween moveTween;
         private Tween fadeTween;
 
+        public void CreateAndLaunch(Vector3 position)
+        {
+            FloatingEffect newInstance = Instantiate(this, position, Quaternion.identity);
+            newInstance.Launch();
+        }
+
         public void CreateAndLaunch(Vector3 position, string text, Color color)
         {
             FloatingEffect newInstance = Instantiate(this, position, Quaternion.identity);
@@ -31,6 +37,11 @@ namespace Tank.PickUps
         {
             label.text = text;
             label.color = color;
+            Launch();
+        }
+
+        private void Launch()
+        {
             moveTween = transform.DOLocalMoveY(transform.position.y + length, duration);
             fadeTween = label.DOFade(0, duration).OnComplete(() => Destroy(gameObject));
         }

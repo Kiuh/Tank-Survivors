@@ -3,7 +3,9 @@ using System.Linq;
 using Enemies;
 using Sirenix.OdinInspector;
 using Tank;
+using Tank.Weapons;
 using UnityEngine;
+using YG;
 
 namespace General
 {
@@ -22,10 +24,15 @@ namespace General
         [SerializeField]
         private Panels.Death.Controller controller;
 
-        [Button]
-        public void Rewarded(Reward id)
+        private void Awake()
         {
-            Reward reward = id;
+            YandexGame.RewardVideoEvent += Rewarded;
+        }
+
+        [Button]
+        public void Rewarded(int id)
+        {
+            Reward reward = (Reward)id;
 
             switch (reward)
             {
@@ -49,7 +56,7 @@ namespace General
                 .Where(x => x != null);
             foreach (IEnemy enemy in enemies)
             {
-                enemy.TakeDamage(float.MaxValue);
+                enemy.TakeDamage(new Damage(float.MaxValue));
             }
 
             controller.HideSecondLifeButton();

@@ -1,11 +1,12 @@
 using Common;
 using Sirenix.OdinInspector;
+using Tank.Weapons;
 using Tank.Weapons.Modules;
 using UnityEngine;
 
 public struct FireParameters
 {
-    public float Damage;
+    public Damage Damage;
     public float Time;
     public float FireRate;
 }
@@ -41,11 +42,13 @@ namespace Tank.Weapons.Projectiles
             transform.SetPositionAndRotation(shotPoint, Quaternion.identity);
 
             InitializeInternal(
-                damage,
+                new Damage(damage),
                 weapon.GetModule<Modules.SelfExplosion.RadiusModule>().Radius.GetModifiedValue(),
                 new FireParameters()
                 {
-                    Damage = weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                    Damage = new Damage(
+                        weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue()
+                    ),
                     Time = weapon
                         .GetModule<Modules.SelfExplosion.FireTimerModule>()
                         .Time.GetModifiedValue(),
@@ -79,7 +82,7 @@ namespace Tank.Weapons.Projectiles
         }
 
         private void InitializeInternal(
-            float explosionDamage,
+            Damage explosionDamage,
             float damageRadius,
             FireParameters fireParameters
         )

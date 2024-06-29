@@ -21,7 +21,7 @@ namespace Panels.Death
         [SerializeField]
         private View view;
 
-        public UnityEvent<Reward> OnUseSecondLife;
+        public UnityEvent<int> OnUseSecondLife;
 
         private void Awake()
         {
@@ -47,7 +47,7 @@ namespace Panels.Death
 
         public void UseSecondLifeBonus()
         {
-            OnUseSecondLife?.Invoke(Reward.SecondLife);
+            OnUseSecondLife?.Invoke((int)Reward.SecondLife);
         }
 
         public void RepeatGame()

@@ -52,6 +52,7 @@ namespace Panels.LevelUp
         public void LevelUpRelease()
         {
             Time.timeScale = 0.0f;
+            tank.StopScreenEffects();
             if (!levelUpPanel.activeSelf)
             {
                 levelUpPanel.SetActive(true);

@@ -150,6 +150,7 @@ MonoBehaviour:
   abilities: []
   modules: []
   damageTaking: {fileID: 878326245856760437}
+  floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
     version: 2
     RefIds: []

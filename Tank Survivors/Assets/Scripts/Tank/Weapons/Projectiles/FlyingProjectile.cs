@@ -41,7 +41,7 @@ namespace Tank.Weapons.Projectiles
 
         public void Initialize(GunBase weapon, TankImpl tank, Vector3 shotPoint, Vector3 direction)
         {
-            float damage = weapon.GetModifiedDamage(
+            Damage damage = weapon.GetModifiedDamage(
                 weapon.GetModule<DamageModule>().Damage,
                 weapon.GetModule<CriticalChanceModule>().CriticalChance,
                 weapon.GetModule<CriticalMultiplierModule>().CriticalMultiplier,
@@ -74,7 +74,7 @@ namespace Tank.Weapons.Projectiles
         }
 
         private void InitializeInternal(
-            float explosionDamage,
+            Damage explosionDamage,
             float speed,
             float size,
             float damageRadius,
@@ -158,7 +158,7 @@ namespace Tank.Weapons.Projectiles
         {
             return new FireParameters()
             {
-                Damage = weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue(),
+                Damage = new Damage(weapon.GetModule<FireDamageModule>().Damage.GetModifiedValue()),
                 Time = weapon.GetModule<ProjectileFireTimerModule>().Time.GetModifiedValue(),
                 FireRate = weapon
                     .GetModule<FireFireRateModule>()

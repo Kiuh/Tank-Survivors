@@ -30,7 +30,7 @@ MonoBehaviour:
   durationOfAdSimulation: 0.5
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
-  saveCloud: 0
+  saveCloud: 1
   flush: 0
   localSaveSync: 1
   saveCloudInterval: 5
@@ -165,7 +165,7 @@ MonoBehaviour:
   purshasesSimulation: []
   metricaEnable: 0
   metricaCounterID: 0
-  debug: 1
+  debug: 0
   archivingBuild: 1
   logoImageFormat: 1
   backgroundImageFormat: 2
