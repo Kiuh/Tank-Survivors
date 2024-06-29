@@ -1,12 +1,12 @@
 {
-  "idSave": 6,
-  "isFirstSession": false,
-  "language": "ru",
-  "promptDone": false,
-  "LevelsData": [
-    {
-      "LevelName": "1",
-      "Stars": 0
-    }
-  ]
+    "idSave": 19,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "LevelsData": [
+        {
+            "LevelName": "1",
+            "Stars": 0
+        }
+    ]
 }

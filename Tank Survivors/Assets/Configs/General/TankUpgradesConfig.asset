@@ -99,7 +99,7 @@ MonoBehaviour:
       propertyUpgrades:
       - rid: 3201943389564829733
   - upgradeName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
-    currentLevel: 0
+    currentLevel: 1
     maxLevel: 4
     upgradeList:
     - upgradingLevel: 0
@@ -122,8 +122,9 @@ MonoBehaviour:
       description: +1
       propertyUpgrades:
       - rid: 3201943389564829738
-  - upgradeName: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0431\u043E\u0440\u0430"
-    currentLevel: 1
+  - upgradeName: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0441\u0431\u043E\u0440\u0430
+      \u0434\u0440\u043E\u043F\u0430"
+    currentLevel: 0
     maxLevel: 1
     upgradeList:
     - upgradingLevel: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
       description: +1
       propertyUpgrades:
       - rid: 3201943389564829740
-  - upgradeName: "\u0428\u0430\u043D\u0441 \u0443\u0440\u043E\u0432\u043E\u0442\u0430"
+  - upgradeName: "\u0428\u0430\u043D\u0441 \u0443\u0432\u043E\u0440\u043E\u0442\u0430"
     currentLevel: 0
     maxLevel: 6
     upgradeList:
@@ -166,7 +167,7 @@ MonoBehaviour:
       description: +15%
       propertyUpgrades:
       - rid: 3201943389564829866
-  - upgradeName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0437\u0430\u044F\u0434\u043A\u0438"
+  - upgradeName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0438"
     currentLevel: 0
     maxLevel: 7
     upgradeList:

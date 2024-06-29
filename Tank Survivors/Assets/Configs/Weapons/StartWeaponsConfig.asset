@@ -61,7 +61,7 @@ MonoBehaviour:
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 5
+          sourceValue: 10
           cachedValue: 5
     - rid: 2815594792133853206
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
@@ -90,7 +90,7 @@ MonoBehaviour:
       data:
         fireRange:
           sourceValue: 40
-          cachedValue: 30
+          cachedValue: 40
     - rid: 2815594792133853210
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
