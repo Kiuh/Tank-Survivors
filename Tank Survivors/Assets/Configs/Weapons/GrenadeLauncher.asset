@@ -254,15 +254,15 @@ MonoBehaviour:
         - rid: 2815594792133853318
         - rid: 2815594792133853319
         - rid: 2815594792133853320
-        weaponName: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0435\u0442"
+        weaponName: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
         weaponViewTable:
-        - Show: 0
+        - Show: 1
           ModuleName: DamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalChanceModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalMultiplierModule
         - Show: 0
           ModuleName: ProjectileModule
@@ -270,35 +270,35 @@ MonoBehaviour:
           ModuleName: FireRangeModule
         - Show: 0
           ModuleName: ProjectileSizeModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectileSpeedModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectilesPerShootModule
         - Show: 0
           ModuleName: TowerModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectileDamageRadiusModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectileSpreadAngleModule
-        - Show: 0
+        - Show: 1
           ModuleName: TowerRotationModule
         - Show: 0
           ModuleName: ProjectileModule
-        - Show: 0
+        - Show: 1
           ModuleName: DamageModule
         - Show: 0
           ModuleName: FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: SelfExplosionCountModule
         - Show: 0
           ModuleName: RadiusModule
         - Show: 0
           ModuleName: HitMarkTimerModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireTimerModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireDamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireFireRateModule
         - Show: 0
           ModuleName: ProjectileFireTimerModule

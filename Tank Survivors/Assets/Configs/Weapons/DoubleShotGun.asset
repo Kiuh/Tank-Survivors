@@ -231,33 +231,33 @@ MonoBehaviour:
         - rid: 2815594792133853334
         - rid: 2815594792133853335
         - rid: 2815594792133853336
-        weaponName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
+        weaponName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
-        - Show: 0
+        - Show: 1
           ModuleName: DamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalChanceModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalMultiplierModule
         - Show: 0
           ModuleName: FireRangeModule
-        - Show: 0
+        - Show: 1
           ModuleName: PenetrationModule
         - Show: 0
           ModuleName: ProjectileModule
         - Show: 0
           ModuleName: ProjectileSizeModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectileSpeedModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectilesPerShootModule
         - Show: 0
           ModuleName: TowerModule
-        - Show: 0
+        - Show: 1
           ModuleName: ProjectileSpreadAngleModule
-        - Show: 0
+        - Show: 1
           ModuleName: TowerRotationModule
         - Show: 0
           ModuleName: MultiCannonFireRateModule

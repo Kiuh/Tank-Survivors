@@ -18,9 +18,9 @@ MonoBehaviour:
     ModuleViewValueFormat: '{0:0.0}'
   - ModuleName: DamageModule
     ModuleViewName: "\u0423\u0440\u043E\u043D"
-    ModuleViewValueFormat: '{0:0.0}'
+    ModuleViewValueFormat: '{0:0}'
   - ModuleName: FireRateModule
-    ModuleViewName: "\u041F\u0435\u0440\u0435\u0437\u0430\u0440\u044F\u0434\u043A\u0430"
+    ModuleViewName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438"
     ModuleViewValueFormat: '{0:0.0}'
   - ModuleName: CriticalChanceModule
     ModuleViewName: "\u041A\u0440\u0438\u0442 \u0448\u0430\u043D\u0441"
@@ -28,3 +28,46 @@ MonoBehaviour:
   - ModuleName: CriticalMultiplierModule
     ModuleViewName: "\u041A\u0440\u0438\u0442 \u0443\u0440\u043E\u043D"
     ModuleViewValueFormat: '{0:0}'
+  - ModuleName: PenetrationModule
+    ModuleViewName: "\u041F\u0440\u043E\u0431\u0438\u0432\u0430\u043D\u0438\u0435"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: ProjectilesPerShootModule
+    ModuleViewName: "\u0421\u043D\u0430\u0440\u044F\u0434\u044B"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: ProjectileSpeedModule
+    ModuleViewName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: RayDurationModule
+    ModuleViewName: "\u0414\u043B\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+      \u043B\u0443\u0447\u0430"
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: RayFireRateModule
+    ModuleViewName: "\u0422\u0438\u043A \u0443\u0440\u043E\u043D\u0430 \u043B\u0443\u0447\u0430 "
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: ProjectileSpreadAngleModule
+    ModuleViewName: "\u0420\u0430\u0437\u043B\u0451\u0442 \u0441\u043D\u0430\u0440\u044F\u0434\u043E\u0432"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: TowerRotationModule
+    ModuleViewName: "\u041F\u043E\u0432\u043E\u0440\u043E\u0442 \u0431\u0430\u0448\u043D\u0438"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: FireDamageModule
+    ModuleViewName: "\u0423\u0440\u043E\u043D \u043E\u0433\u043D\u044F"
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: FireFireRateModule
+    ModuleViewName: "\u0422\u0438\u043A \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u044F "
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: SelfExplosionCountModule
+    ModuleViewName: "\u0421\u0430\u043C\u043E\u0432\u0437\u0440\u044B\u0432"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: ProjectileSizeModule
+    ModuleViewName: "\u0420\u0430\u0437\u043C\u0435\u0440 \u043F\u0443\u043B\u0438"
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: ProjectileDamageRadiusModule
+    ModuleViewName: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0432\u0437\u0440\u044B\u0432\u0430"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: DamageModule
+    ModuleViewName: "\u0423\u0440\u043E\u043D \u0432\u0437\u0440\u044B\u0432"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: FireTimerModule
+    ModuleViewName: "\u0412\u0440\u0435\u043C\u044F \u0433\u043E\u0440\u0435\u043D\u0438\u044F "
+    ModuleViewValueFormat: '{0:0.0}'

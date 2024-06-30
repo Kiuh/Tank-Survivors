@@ -2973,12 +2973,12 @@ MonoBehaviour:
   vignetteDuration: 1
   vignetteDamageColor: {r: 0.8207547, g: 0, b: 0, a: 0.78431374}
   vignetteHealColor: {r: 0, g: 0.8018868, b: 0, a: 0.78431374}
-  attributesTitle: "\u0410\u0442\u0442\u0440\u0438\u0431\u0443\u0442\u044B"
+  attributesTitle: "\u0410\u0442\u0440\u0438\u0431\u0443\u0442\u044B"
   healthTitle: "\u041E\u0417"
   speedTitle: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
-  evadeTitle: "\u0423\u0432\u043E\u0440\u043E\u0442"
+  evadeTitle: "\u0428\u0430\u043D\u0441 \u0443\u0432\u043E\u0440\u043E\u0442\u0430"
   pickupRadiusTitle: "\u0420\u0430\u0434\u0438\u0443\u0441 \u043F\u043E\u0434\u0431\u043E\u0440\u0430"
-  playerLevelTitle: "\u041A\u0440\u043E\u0432\u0435\u043D\u044C"
+  playerLevelTitle: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
   references:
     version: 2
     RefIds: []

@@ -233,8 +233,34 @@ MonoBehaviour:
         - rid: 2815594792133853280
         - rid: 2815594792133853281
         - rid: 2815594792133853282
-        weaponName: "\u0420\u0435\u043B\u044C\u0441\u0430"
-        weaponViewTable: []
+        weaponName: "\u0420\u0435\u043B\u044C\u0441\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+        weaponViewTable:
+        - Show: 1
+          ModuleName: DamageModule
+        - Show: 1
+          ModuleName: FireRateModule
+        - Show: 1
+          ModuleName: CriticalChanceModule
+        - Show: 1
+          ModuleName: CriticalMultiplierModule
+        - Show: 0
+          ModuleName: FireRangeModule
+        - Show: 0
+          ModuleName: ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: ProjectileModule
+        - Show: 1
+          ModuleName: RayDurationModule
+        - Show: 1
+          ModuleName: RayFireRateModule
+        - Show: 0
+          ModuleName: TowerModule
+        - Show: 1
+          ModuleName: TowerRotationModule
+        - Show: 0
+          ModuleName: CannonModule
+        - Show: 0
+          ModuleName: MultiCannonFireRateModule
     - rid: 2815594792133853270
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
