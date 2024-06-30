@@ -310,6 +310,7 @@ namespace Tank
 
         public void StopScreenEffects()
         {
+            vignette.intensity.value = 0;
             vignetteTween?.Kill();
         }
 

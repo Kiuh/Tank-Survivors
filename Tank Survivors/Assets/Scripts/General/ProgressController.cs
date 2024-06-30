@@ -55,9 +55,8 @@ namespace General
         private void OnBossDead()
         {
             progress++;
-            levels
-                .LevelInfos.Find(x => x.Name.Equals(gameContext.DataTransfer.LevelInfo.Name))
-                .Progress = Progress;
+            string neededLevel = gameContext.DataTransfer.LevelInfo.Name;
+            levels.LevelInfos.Find(x => x.Name == neededLevel).Progress = Progress;
 
             if (Progress == BossCount)
             {

@@ -17,7 +17,7 @@ namespace Tank
 
         public IEnumerable<Transform> GetAllEnemies()
         {
-            return enemyGenerator.Enemies;
+            return enemyGenerator.Enemies.Concat(enemyGenerator.Bosses);
         }
 
         private void OnDrawGizmos()
