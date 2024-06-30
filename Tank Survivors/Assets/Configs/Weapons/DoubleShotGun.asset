@@ -233,31 +233,31 @@ MonoBehaviour:
         - rid: 2815594792133853336
         weaponName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.DamageModule
-        - Show: 0
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.FireRateModule
         - Show: 0
-          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
-        - Show: 0
-          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
-        - Show: 0
           ModuleName: Tank.Weapons.Modules.FireRangeModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.PenetrationModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.ProjectileModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.TowerModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.TowerRotationModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.Cannon.MultiCannonFireRateModule

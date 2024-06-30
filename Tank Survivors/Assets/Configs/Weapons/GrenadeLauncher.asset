@@ -256,13 +256,13 @@ MonoBehaviour:
         - rid: 2815594792133853320
         weaponName: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
         weaponViewTable:
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.DamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.CriticalChanceModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.ProjectileModule
@@ -270,35 +270,35 @@ MonoBehaviour:
           ModuleName: Tank.Weapons.Modules.FireRangeModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.TowerModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectileDamageRadiusModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.TowerRotationModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.SelfExplosion.ProjectileModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.SelfExplosion.DamageModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.SelfExplosion.FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.SelfExplosion.SelfExplosionCountModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.SelfExplosion.RadiusModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.SelfExplosion.HitMarkTimerModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.SelfExplosion.FireTimerModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.FireDamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.FireFireRateModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.ProjectileFireTimerModule
