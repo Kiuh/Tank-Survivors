@@ -320,23 +320,59 @@ namespace Tank
             deathDelayTween?.Kill();
         }
 
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string attributesTitle;
+
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string healthTitle;
+
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string speedTitle;
+
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string evadeTitle;
+
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string pickupRadiusTitle;
+
+        [FoldoutGroup("Tank Attributes")]
+        [SerializeField]
+        private string playerLevelTitle;
+
         public StatBlockData GetStatBlockData()
         {
             StatBlockData statBlockData =
                 new()
                 {
-                    StatName = "Атрибуты",
+                    StatName = attributesTitle,
                     StatsData = new()
                     {
-                        new StatData() { Name = "ОЗ", Value = $"{Health.Value}/{Health.MaxValue}" },
-                        new StatData() { Name = "Скорость", Value = $"{Speed.Value:0.0}" },
                         new StatData()
                         {
-                            Name = "Уворот",
+                            Name = healthTitle,
+                            Value = $"{Health.Value}/{Health.MaxValue}"
+                        },
+                        new StatData() { Name = speedTitle, Value = $"{Speed.Value:0.0}" },
+                        new StatData()
+                        {
+                            Name = evadeTitle,
                             Value = $"{EvadeChance.Value.Value:0.0}%"
                         },
-                        new StatData() { Name = "Подбор", Value = $"{PickupRadius.Value:0.0}" },
-                        new StatData() { Name = "Уровень", Value = $"{PlayerLevel.CurrentLevel}" },
+                        new StatData()
+                        {
+                            Name = pickupRadiusTitle,
+                            Value = $"{PickupRadius.Value:0.0}"
+                        },
+                        new StatData()
+                        {
+                            Name = playerLevelTitle,
+                            Value = $"{PlayerLevel.CurrentLevel}"
+                        },
                     }
                 };
             return statBlockData;

@@ -13,9 +13,14 @@ namespace Tank
         [SerializeField]
         private float fadeDuration;
 
+        private float startAlfa;
         private Tween fadeTween;
-
         private IPool<Track> pool;
+
+        private void Start()
+        {
+            startAlfa = spriteRenderer.material.color.a;
+        }
 
         public void Fade()
         {
@@ -27,7 +32,11 @@ namespace Tank
             this.pool = pool;
         }
 
-        public void OnRelease() { }
+        public void OnRelease()
+        {
+            Color color = spriteRenderer.material.color;
+            spriteRenderer.material.color = new Color(color.r, color.g, color.b, startAlfa);
+        }
 
         public void Release()
         {

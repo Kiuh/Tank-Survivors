@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3891153949491379319}
   fadeDuration: 3
+  startAlfa: 100

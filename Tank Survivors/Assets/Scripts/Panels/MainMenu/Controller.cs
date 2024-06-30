@@ -8,7 +8,7 @@ namespace Panels.MainMenu
     {
         private void Start()
         {
-            // YandexGame.FullscreenShow();
+            Application.targetFrameRate = 60;
         }
 
         public void Play()
