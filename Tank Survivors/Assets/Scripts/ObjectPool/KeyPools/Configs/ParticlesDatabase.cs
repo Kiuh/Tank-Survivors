@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Module.ObjectPool.KeyPools
 {
     [CreateAssetMenu(fileName = "ParticlesDatabase", menuName = "Dictionaries/Particles")]
-    public class ParticlesDatabase : SerializedScriptableObject
+    public class ParticlesDatabase : ScriptableObject
     {
         [SerializeField]
         private Dictionary<string, PoolObject<PooledParticle>> particles;
