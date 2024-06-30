@@ -14,10 +14,12 @@ namespace Enemies.Abilities
     public class Shooting : IAbility
     {
         [Required]
+        [ChildGameObjectsOnly]
         [SerializeField]
         private Transform shootingPoint;
 
         [Required]
+        [AssetSelector]
         [SerializeField]
         private Projectile projectile;
 
