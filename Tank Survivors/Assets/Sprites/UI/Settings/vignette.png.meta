@@ -62,7 +62,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -81,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -171,9 +171,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1118
-        width: 81
-        height: 113
+        y: 1116
+        width: 79
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: "\u0420\u0430\u043C\u043E\u0447\u043D\u044B\u0439 \u0443\u0437\u043E\u0440_1"
       rect:
         serializedVersion: 2
-        x: 936
-        y: 1123
-        width: 80
-        height: 108
+        x: 922
+        y: 1121
+        width: 78
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: "\u0420\u0430\u043C\u043E\u0447\u043D\u044B\u0439 \u0443\u0437\u043E\u0440_2"
       rect:
         serializedVersion: 2
-        x: 24
+        x: 23
         y: 0
-        width: 163
-        height: 95
+        width: 161
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,10 +233,10 @@ TextureImporter:
       name: "\u0420\u0430\u043C\u043E\u0447\u043D\u044B\u0439 \u0443\u0437\u043E\u0440_3"
       rect:
         serializedVersion: 2
-        x: 795
+        x: 783
         y: 0
-        width: 208
-        height: 88
+        width: 204
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -19,6 +19,8 @@ namespace YG
         public bool promptDone;
 
         public List<LevelData> LevelsData = new();
+        public bool IsSoundsOn = true;
+        public bool IsMusicOn = true;
 
         public SavesYG() { }
     }
