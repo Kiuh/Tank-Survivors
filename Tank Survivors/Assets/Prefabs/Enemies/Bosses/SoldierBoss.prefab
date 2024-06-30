@@ -150,6 +150,7 @@ MonoBehaviour:
   abilities:
   - rid: 3201943482623066123
   - rid: 3201943482623066125
+  - rid: 3201943483000815616
   modules:
   - rid: 3201943482623066133
   - rid: 3201943482623066134
@@ -210,6 +211,11 @@ MonoBehaviour:
       data:
         damage:
           sourceValue: 50
+    - rid: 3201943483000815616
+      type: {class: Shooting, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data:
+        shootingPoint: {fileID: 2197304665555860166}
+        projectile: {fileID: 8992002968719893177, guid: b285c0480bbe4484cbdda46f2f35eddb, type: 3}
 --- !u!114 &878326245856760437
 MonoBehaviour:
   m_ObjectHideFlags: 0
