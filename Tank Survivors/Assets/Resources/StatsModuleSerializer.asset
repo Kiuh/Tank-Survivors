@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758204deb3e66ea4a9658b2b1a44fdc8, type: 3}
+  m_Name: StatsModuleSerializer
+  m_EditorClassIdentifier: 
+  moduleViews:
+  - ModuleName: FireRangeModule
+    ModuleViewName: "\u0414\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
+    ModuleViewValueFormat: '{0:0.0}'

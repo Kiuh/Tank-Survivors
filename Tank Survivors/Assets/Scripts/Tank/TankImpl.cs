@@ -336,6 +336,7 @@ namespace Tank
                             Value = $"{EvadeChance.Value.Value:0.0}%"
                         },
                         new StatData() { Name = "Подбор", Value = $"{PickupRadius.Value:0.0}" },
+                        new StatData() { Name = "Уровень", Value = $"{PlayerLevel.CurrentLevel}" },
                     }
                 };
             return statBlockData;

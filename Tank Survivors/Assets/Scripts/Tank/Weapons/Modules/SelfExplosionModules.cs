@@ -12,6 +12,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Fire Time")]
         private ModifiableValue<float> time;
         public ModifiableValue<float> Time => time;
+
+        public object[] Values => new object[] { Time.Value };
     }
 
     public class ProjectileModule : IWeaponModule
@@ -22,6 +24,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Prefab")]
         private SelfExplosionProjectile projectilePrefab;
         public SelfExplosionProjectile ProjectilePrefab => projectilePrefab;
+
+        public object[] Values => new object[] { ProjectilePrefab.gameObject.name };
     }
 
     public class SelfExplosionCountModule : IWeaponModule
@@ -31,6 +35,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Count")]
         private ModifiableValue<int> count;
         public ModifiableValue<int> Count => count;
+
+        public object[] Values => new object[] { Count.Value };
     }
 
     public class FireRateModule : IWeaponModule
@@ -40,6 +46,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion FireRate")]
         private ModifiableValue<float> fireRate;
         public ModifiableValue<float> FireRate => fireRate;
+
+        public object[] Values => new object[] { FireRate.Value };
     }
 
     public class RadiusModule : IWeaponModule
@@ -49,6 +57,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Radius")]
         private ModifiableValue<float> radius;
         public ModifiableValue<float> Radius => radius;
+
+        public object[] Values => new object[] { Radius.Value };
     }
 
     public class DamageModule : IWeaponModule
@@ -58,6 +68,8 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Damage")]
         private ModifiableValue<float> damage;
         public ModifiableValue<float> Damage => damage;
+
+        public object[] Values => new object[] { Damage.Value };
     }
 
     public class HitMarkTimerModule : IWeaponModule
@@ -67,5 +79,7 @@ namespace Tank.Weapons.Modules.SelfExplosion
         [FoldoutGroup("Explosion Hit Mark Timer")]
         private ModifiableValue<float> time;
         public ModifiableValue<float> Time => time;
+
+        public object[] Values => new object[] { Time.Value };
     }
 }

@@ -66,9 +66,6 @@ namespace Common
 
         private bool isDirty = true;
         private bool notFirstCalculate = false;
-
-        [ReadOnly]
-        [SerializeField]
         private T cachedValue;
 
         public T Value => GetModifiedValue();

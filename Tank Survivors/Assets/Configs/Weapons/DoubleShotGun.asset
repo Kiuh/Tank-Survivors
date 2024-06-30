@@ -231,46 +231,70 @@ MonoBehaviour:
         - rid: 2815594792133853334
         - rid: 2815594792133853335
         - rid: 2815594792133853336
+        weaponName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
+        weaponViewTable:
+        - Show: 0
+          ModuleName: DamageModule
+        - Show: 0
+          ModuleName: FireRateModule
+        - Show: 0
+          ModuleName: CriticalChanceModule
+        - Show: 0
+          ModuleName: CriticalMultiplierModule
+        - Show: 0
+          ModuleName: FireRangeModule
+        - Show: 0
+          ModuleName: PenetrationModule
+        - Show: 0
+          ModuleName: ProjectileModule
+        - Show: 0
+          ModuleName: ProjectileSizeModule
+        - Show: 0
+          ModuleName: ProjectileSpeedModule
+        - Show: 0
+          ModuleName: ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: TowerModule
+        - Show: 0
+          ModuleName: ProjectileSpreadAngleModule
+        - Show: 0
+          ModuleName: TowerRotationModule
+        - Show: 0
+          ModuleName: MultiCannonFireRateModule
+        - Show: 0
+          ModuleName: CannonModule
     - rid: 2815594792133853322
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-          cachedValue: 13
     - rid: 2815594792133853323
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRate:
           sourceValue: 1
-          cachedValue: 0.9
     - rid: 2815594792133853324
       type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalChance:
           sourceValue:
             value: 10
-          cachedValue:
-            value: 15
     - rid: 2815594792133853325
       type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalMultiplier:
           sourceValue:
             value: 100
-          cachedValue:
-            value: 150
     - rid: 2815594792133853326
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
           sourceValue: 30
-          cachedValue: 30
     - rid: 2815594792133853327
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         penetration:
           sourceValue: 0
-          cachedValue: 0
     - rid: 2815594792133853328
       type: {class: ProjectileModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -284,19 +308,16 @@ MonoBehaviour:
       data:
         projectileSize:
           sourceValue: 1
-          cachedValue: 1
     - rid: 2815594792133853330
       type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectileSpeed:
           sourceValue: 8
-          cachedValue: 18
     - rid: 2815594792133853331
       type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         projectilesPerShoot:
           sourceValue: 2
-          cachedValue: 3
     - rid: 2815594792133853332
       type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
@@ -315,20 +336,16 @@ MonoBehaviour:
       data:
         spreadAngle:
           sourceValue: 3
-          cachedValue: 6
     - rid: 2815594792133853334
       type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         rotationSpeed:
           sourceValue: 14
-          cachedValue: 18
     - rid: 2815594792133853335
       type: {class: MultiCannonFireRateModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}
       data:
         percent:
           sourceValue:
-            value: 130
-          cachedValue:
             value: 130
     - rid: 2815594792133853336
       type: {class: CannonModule, ns: Tank.Weapons.Modules.Cannon, asm: Assembly-CSharp}

@@ -13,6 +13,8 @@ namespace Tank.Weapons.Modules.Cannon
         [FoldoutGroup("Cannon Prefab")]
         private Towers.Cannon.Cannon cannonPrefab;
         public Towers.Cannon.Cannon CannonPrefab => cannonPrefab;
+
+        public object[] Values => new object[] { CannonPrefab.gameObject.name };
     }
 
     public class MultiCannonFireRateModule : IWeaponModule
@@ -22,5 +24,7 @@ namespace Tank.Weapons.Modules.Cannon
         [FoldoutGroup("Cannons Fire Rate Percent")]
         private ModifiableValue<Percentage> percent;
         public ModifiableValue<Percentage> Percent => percent;
+
+        public object[] Values => new object[] { Percent.Value.Value };
     }
 }

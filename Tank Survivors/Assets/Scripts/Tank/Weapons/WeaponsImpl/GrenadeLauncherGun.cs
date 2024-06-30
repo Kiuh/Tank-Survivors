@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Panels.Pause;
 using Tank.Towers;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Projectiles;
@@ -96,17 +95,6 @@ namespace Tank.Weapons
                 projectile.Initialize(this, Tank, Tank.transform.position, Vector3.zero);
                 projectile.Shoot();
             }
-        }
-
-        public override StatBlockData GetStatBlockData()
-        {
-            StatBlockData statBlockData =
-                new()
-                {
-                    StatName = "Гранатомет",
-                    StatsData = new() { }
-                };
-            return statBlockData;
         }
     }
 }

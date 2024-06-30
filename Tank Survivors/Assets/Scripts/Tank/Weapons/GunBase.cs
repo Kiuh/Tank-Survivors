@@ -12,6 +12,16 @@ using UnityEngine;
 
 namespace Tank.Weapons
 {
+    [Serializable]
+    public struct NamedModuleSwitch
+    {
+        public bool Show;
+
+        [ReadOnly]
+        public string ModuleName;
+    }
+
+    [Serializable]
     public struct Damage
     {
         public float Amount;
@@ -61,7 +71,7 @@ namespace Tank.Weapons
         protected TankImpl Tank;
         protected EnemyFinder EnemyFinder;
 
-        private Dictionary<Type, IWeaponModule> cachedModules = new();
+        private Dictionary<Type, IWeaponModule> cachedModules;
 
         public T GetModule<T>()
             where T : class, IWeaponModule
@@ -90,7 +100,6 @@ namespace Tank.Weapons
         public abstract void CreateGun();
         public abstract void DestroyGun();
         public abstract void SwapWeapon(IWeapon newWeapon);
-        public abstract StatBlockData GetStatBlockData();
 
         protected abstract List<IWeaponModule> GetBaseModules();
 
@@ -185,6 +194,38 @@ namespace Tank.Weapons
         protected void DestroyTower(ITower tower)
         {
             tower.DestroyYourself();
+        }
+
+        [FoldoutGroup("Stats View Info")]
+        [SerializeField]
+        private string weaponName;
+
+        [FoldoutGroup("Stats View Info")]
+        [SerializeField]
+        private List<NamedModuleSwitch> weaponViewTable = new();
+
+        [Button]
+        [FoldoutGroup("Stats View Info")]
+        private void FillStatsViewTable()
+        {
+            weaponViewTable.Clear();
+            foreach (IWeaponModule module in Modules)
+            {
+                weaponViewTable.Add(new NamedModuleSwitch() { ModuleName = module.GetType().Name });
+            }
+        }
+
+        public StatBlockData GetStatBlockData()
+        {
+            return new StatBlockData()
+            {
+                StatName = weaponName,
+                StatsData = weaponViewTable
+                    .Where(x => x.Show)
+                    .Select(x => Modules.Find(y => y.GetType().Name == x.ModuleName))
+                    .Select(x => StatsModuleSerializer.Instance.GetStatData(x))
+                    .ToList()
+            };
         }
     }
 }

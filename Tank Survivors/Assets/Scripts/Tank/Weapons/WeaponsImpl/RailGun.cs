@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Panels.Pause;
 using Tank.Towers;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Modules.Cannon;
@@ -63,17 +62,6 @@ namespace Tank.Weapons
                 new CannonModule(),
                 new MultiCannonFireRateModule(),
             };
-        }
-
-        public override StatBlockData GetStatBlockData()
-        {
-            StatBlockData statBlockData =
-                new()
-                {
-                    StatName = "Рельса",
-                    StatsData = new() { }
-                };
-            return statBlockData;
         }
     }
 }
