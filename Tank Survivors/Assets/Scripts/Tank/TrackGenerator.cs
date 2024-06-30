@@ -26,7 +26,7 @@ namespace Tank
 
         private void Start()
         {
-            trackPool = new MonoBehObjectPool<Track>(track, 10, tracksRoot);
+            trackPool = new MonoBehObjectPool<Track>(track, 0, tracksRoot);
             CreateTracks();
         }
 
