@@ -61,11 +61,11 @@ MonoBehaviour:
         weaponViewTable:
         - Show: 1
           ModuleName: Tank.Weapons.Modules.DamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.CriticalChanceModule
-        - Show: 0
+        - Show: 1
           ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
         - Show: 0
           ModuleName: Tank.Weapons.Modules.FireRangeModule
