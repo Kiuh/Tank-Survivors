@@ -25,7 +25,7 @@ namespace Common
                     .Where(type =>
                         typeof(IWeaponModule).IsAssignableFrom(type) && !type.IsInterface
                     )
-                    .Select(x => x.Name);
+                    .Select(x => x.FullName);
 
             [ValueDropdown("@AllWeaponsModules")]
             public string ModuleName;

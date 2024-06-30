@@ -233,36 +233,36 @@ MonoBehaviour:
         - rid: 2815594792133853336
         weaponName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
-        - Show: 1
-          ModuleName: DamageModule
-        - Show: 1
-          ModuleName: FireRateModule
-        - Show: 1
-          ModuleName: CriticalChanceModule
-        - Show: 1
-          ModuleName: CriticalMultiplierModule
         - Show: 0
-          ModuleName: FireRangeModule
-        - Show: 1
-          ModuleName: PenetrationModule
+          ModuleName: Tank.Weapons.Modules.DamageModule
         - Show: 0
-          ModuleName: ProjectileModule
+          ModuleName: Tank.Weapons.Modules.FireRateModule
         - Show: 0
-          ModuleName: ProjectileSizeModule
-        - Show: 1
-          ModuleName: ProjectileSpeedModule
-        - Show: 1
-          ModuleName: ProjectilesPerShootModule
+          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
         - Show: 0
-          ModuleName: TowerModule
-        - Show: 1
-          ModuleName: ProjectileSpreadAngleModule
-        - Show: 1
-          ModuleName: TowerRotationModule
+          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
         - Show: 0
-          ModuleName: MultiCannonFireRateModule
+          ModuleName: Tank.Weapons.Modules.FireRangeModule
         - Show: 0
-          ModuleName: CannonModule
+          ModuleName: Tank.Weapons.Modules.PenetrationModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerRotationModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.Cannon.MultiCannonFireRateModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.Cannon.CannonModule
     - rid: 2815594792133853322
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:

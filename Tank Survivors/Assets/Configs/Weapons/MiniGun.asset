@@ -228,32 +228,32 @@ MonoBehaviour:
         - rid: 2815594792133853296
         weaponName: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
         weaponViewTable:
-        - Show: 1
-          ModuleName: DamageModule
-        - Show: 1
-          ModuleName: FireRateModule
         - Show: 0
-          ModuleName: FireRangeModule
-        - Show: 1
-          ModuleName: CriticalChanceModule
-        - Show: 1
-          ModuleName: CriticalMultiplierModule
-        - Show: 1
-          ModuleName: PenetrationModule
+          ModuleName: Tank.Weapons.Modules.DamageModule
         - Show: 0
-          ModuleName: ProjectileModule
-        - Show: 1
-          ModuleName: ProjectileSizeModule
-        - Show: 1
-          ModuleName: ProjectileSpeedModule
-        - Show: 1
-          ModuleName: ProjectilesPerShootModule
+          ModuleName: Tank.Weapons.Modules.FireRangeModule
         - Show: 0
-          ModuleName: TowerModule
-        - Show: 1
-          ModuleName: ProjectileSpreadAngleModule
-        - Show: 1
-          ModuleName: TowerRotationModule
+          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.FireRateModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.PenetrationModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerRotationModule
     - rid: 2815594792133853284
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:

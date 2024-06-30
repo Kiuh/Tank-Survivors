@@ -211,7 +211,9 @@ namespace Tank.Weapons
             weaponViewTable.Clear();
             foreach (IWeaponModule module in Modules)
             {
-                weaponViewTable.Add(new NamedModuleSwitch() { ModuleName = module.GetType().Name });
+                weaponViewTable.Add(
+                    new NamedModuleSwitch() { ModuleName = module.GetType().FullName }
+                );
             }
         }
 
@@ -222,7 +224,7 @@ namespace Tank.Weapons
                 StatName = weaponName,
                 StatsData = weaponViewTable
                     .Where(x => x.Show)
-                    .Select(x => Modules.Find(y => y.GetType().Name == x.ModuleName))
+                    .Select(x => Modules.Find(y => y.GetType().FullName == x.ModuleName))
                     .Select(x => StatsModuleSerializer.Instance.GetStatData(x))
                     .ToList()
             };

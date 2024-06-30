@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: StatsModuleSerializer
   m_EditorClassIdentifier: 
   moduleViews:
-  - ModuleName: FireRangeModule
+  - ModuleName: Tank.Weapons.Modules.FireRangeModule
     ModuleViewName: "\u0414\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
     ModuleViewValueFormat: '{0:0.0}'
-  - ModuleName: DamageModule
+  - ModuleName: Tank.Weapons.Modules.DamageModule
     ModuleViewName: "\u0423\u0440\u043E\u043D"
     ModuleViewValueFormat: '{0:0}'
   - ModuleName: FireRateModule

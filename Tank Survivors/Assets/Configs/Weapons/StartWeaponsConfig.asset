@@ -60,31 +60,31 @@ MonoBehaviour:
         weaponName: "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
         - Show: 1
-          ModuleName: DamageModule
-        - Show: 1
-          ModuleName: FireRateModule
-        - Show: 1
-          ModuleName: CriticalChanceModule
-        - Show: 1
-          ModuleName: CriticalMultiplierModule
+          ModuleName: Tank.Weapons.Modules.DamageModule
         - Show: 0
-          ModuleName: FireRangeModule
+          ModuleName: Tank.Weapons.Modules.FireRateModule
         - Show: 0
-          ModuleName: PenetrationModule
+          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
         - Show: 0
-          ModuleName: ProjectileModule
+          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
         - Show: 0
-          ModuleName: ProjectileSizeModule
+          ModuleName: Tank.Weapons.Modules.FireRangeModule
         - Show: 0
-          ModuleName: ProjectileSpeedModule
+          ModuleName: Tank.Weapons.Modules.PenetrationModule
         - Show: 0
-          ModuleName: ProjectilesPerShootModule
+          ModuleName: Tank.Weapons.Modules.ProjectileModule
         - Show: 0
-          ModuleName: TowerModule
+          ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
         - Show: 0
-          ModuleName: ProjectileSpreadAngleModule
-        - Show: 1
-          ModuleName: TowerRotationModule
+          ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerRotationModule
     - rid: 2815594792133853205
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
