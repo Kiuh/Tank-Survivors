@@ -16,7 +16,10 @@ MonoBehaviour:
   - rid: 3201943389564829697
   - rid: 3201943431452033094
   - rid: 3201943431452033107
-  bossProducers: []
+  bossProducers:
+  - rid: 3201943482623066112
+  - rid: 3201943482623066113
+  - rid: 3201943482623066114
   references:
     version: 2
     RefIds:
@@ -45,49 +48,41 @@ MonoBehaviour:
       data:
         speed:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943389564829769
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-          cachedValue: 0
     - rid: 3201943389564829770
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943389564829771
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943431452033090
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943431452033091
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-          cachedValue: 0
     - rid: 3201943431452033092
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943431452033093
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943431452033094
       type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
       data:
@@ -109,25 +104,21 @@ MonoBehaviour:
       data:
         speed:
           sourceValue: 3
-          cachedValue: 0
     - rid: 3201943431452033104
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-          cachedValue: 0
     - rid: 3201943431452033105
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 10
-          cachedValue: 0
     - rid: 3201943431452033106
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-          cachedValue: 0
     - rid: 3201943431452033107
       type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
       data:
@@ -149,22 +140,45 @@ MonoBehaviour:
       data:
         cooldown:
           sourceValue: 2
-          cachedValue: 0
     - rid: 3201943431452033115
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 3
-          cachedValue: 0
     - rid: 3201943431452033116
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-          cachedValue: 0
     - rid: 3201943431452033117
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-          cachedValue: 0
+    - rid: 3201943482623066112
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 473315305190883074, guid: ddefc7b26b2c8e249b8523397c14ae71, type: 3}
+        baseModules: []
+        modules: []
+        startTime: 5
+        preset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 3201943482623066113
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 7780587233165250767, guid: 0234dc0ad4ee79946b7079ef94396fe3, type: 3}
+        baseModules: []
+        modules: []
+        startTime: 10
+        preset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 3201943482623066114
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 2469695110326592881, guid: a2ce2680d6ea87a438b76a935f240c85, type: 3}
+        baseModules: []
+        modules: []
+        startTime: 15
+        preset: 0
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}

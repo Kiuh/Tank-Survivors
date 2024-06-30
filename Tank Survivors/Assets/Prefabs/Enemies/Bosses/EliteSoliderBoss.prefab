@@ -147,13 +147,31 @@ MonoBehaviour:
   rigidBody: {fileID: -732405105749076577}
   ownCollider: {fileID: 7495199491439213304}
   health: 0
-  abilities: []
+  abilities:
+  - rid: 3201943482623066140
+  - rid: 3201943482623066141
+  - rid: 3201943482623066142
+  - rid: 3201943482623066143
   modules: []
   damageTaking: {fileID: -3178864659789341753}
   floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943482623066140
+      type: {class: Dash, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066141
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066142
+      type: {class: Shooting, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data:
+        shootingPoint: {fileID: 0}
+        projectile: {fileID: 0}
+    - rid: 3201943482623066143
+      type: {class: Rage, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
 --- !u!114 &-3178864659789341753
 MonoBehaviour:
   m_ObjectHideFlags: 0

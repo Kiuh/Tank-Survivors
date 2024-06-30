@@ -147,13 +147,69 @@ MonoBehaviour:
   rigidBody: {fileID: 8608169095977559028}
   ownCollider: {fileID: 271314434915194743}
   health: 0
-  abilities: []
-  modules: []
+  abilities:
+  - rid: 3201943482623066123
+  - rid: 3201943482623066125
+  modules:
+  - rid: 3201943482623066133
+  - rid: 3201943482623066134
+  - rid: 3201943482623066135
+  - rid: 3201943482623066136
+  - rid: 3201943482623066137
+  - rid: 3201943482623066138
+  - rid: 3201943482623066139
   damageTaking: {fileID: 878326245856760437}
   floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943482623066123
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066125
+      type: {class: Rage, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066133
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 6
+    - rid: 3201943482623066134
+      type: {class: ShootingRangeModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        shootingRange:
+          sourceValue: 15
+    - rid: 3201943482623066135
+      type: {class: ShootingRateModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        shootCooldown:
+          sourceValue: 2
+    - rid: 3201943482623066136
+      type: {class: ProjectileSpeedModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        projectileSpeed:
+          sourceValue: 7
+    - rid: 3201943482623066137
+      type: {class: RageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        ScaleList:
+        - enemyHealthPercentage: 0.8
+          cooldownPercentage: 0.2
+        - enemyHealthPercentage: 0.5
+          cooldownPercentage: 0.5
+        - enemyHealthPercentage: 0.2
+          cooldownPercentage: 0.8
+        MinimumCooldown: 0.3
+    - rid: 3201943482623066138
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 3000
+    - rid: 3201943482623066139
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 50
 --- !u!114 &878326245856760437
 MonoBehaviour:
   m_ObjectHideFlags: 0
