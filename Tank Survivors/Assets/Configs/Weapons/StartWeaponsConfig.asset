@@ -59,13 +59,13 @@ MonoBehaviour:
         - rid: 2815594792133853217
         weaponName: "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
-        - Show: 0
+        - Show: 1
           ModuleName: DamageModule
-        - Show: 0
+        - Show: 1
           ModuleName: FireRateModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalChanceModule
-        - Show: 0
+        - Show: 1
           ModuleName: CriticalMultiplierModule
         - Show: 0
           ModuleName: FireRangeModule
@@ -83,7 +83,7 @@ MonoBehaviour:
           ModuleName: TowerModule
         - Show: 0
           ModuleName: ProjectileSpreadAngleModule
-        - Show: 0
+        - Show: 1
           ModuleName: TowerRotationModule
     - rid: 2815594792133853205
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
@@ -100,13 +100,13 @@ MonoBehaviour:
       data:
         criticalChance:
           sourceValue:
-            value: 0
+            value: 10
     - rid: 2815594792133853208
       type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         criticalMultiplier:
           sourceValue:
-            value: 0
+            value: 100
     - rid: 2815594792133853209
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
