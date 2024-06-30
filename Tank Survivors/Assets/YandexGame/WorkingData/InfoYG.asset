@@ -41,7 +41,7 @@ MonoBehaviour:
   leaderboardEnable: 0
   saveScoreAnonymousPlayers: 1
   leaderboardSimulation: []
-  LocalizationEnable: 0
+  LocalizationEnable: 1
   callingLanguageCheck: 1
   translateMethod: 0
   domainAutoLocalization: com

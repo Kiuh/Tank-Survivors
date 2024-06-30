@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Runtime.InteropServices;
-using UnityEngine.Events;
 using System;
+using System.Runtime.InteropServices;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using YG.Utils.LB;
 
@@ -12,41 +12,53 @@ namespace YG
     public partial class YandexGame : MonoBehaviour
     {
         public InfoYG infoYG;
-        [Tooltip("Объект YandexGame не будет удаляться при смене сцены. При выборе опции singleton, объект YandexGame необходимо поместить только на одну сцену, которая первая загружается при запуске игры.")]
+
+        [Tooltip(
+            "Объект YandexGame не будет удаляться при смене сцены. При выборе опции singleton, объект YandexGame необходимо поместить только на одну сцену, которая первая загружается при запуске игры."
+        )]
         public bool singleton;
+
         [Space(10)]
         public UnityEvent ResolvedAuthorization;
         public UnityEvent RejectedAuthorization;
+
         [Space(30)]
         public UnityEvent OpenFullscreenAd;
         public UnityEvent CloseFullscreenAd;
         public UnityEvent ErrorFullscreenAd;
+
         [Space(30)]
         public UnityEvent OpenVideoAd;
         public UnityEvent CloseVideoAd;
         public UnityEvent RewardVideoAd;
         public UnityEvent ErrorVideoAd;
+
         [Space(30)]
         public UnityEvent PurchaseSuccess;
         public UnityEvent PurchaseFailed;
+
         [Space(30)]
         public UnityEvent PromptDo;
         public UnityEvent PromptFail;
         public UnityEvent ReviewDo;
 
         #region Data Fields
-        public static bool auth { get => _auth; }
-        public static bool SDKEnabled { get => _SDKEnabled; }
-        public static bool initializedLB { get => _initializedLB; }
+        public static bool auth => _auth;
+        public static bool SDKEnabled => _SDKEnabled;
+        public static bool initializedLB => _initializedLB;
 
         public static bool nowAdsShow
         {
             get
             {
                 if (nowFullAd || nowVideoAd)
+                {
                     return true;
+                }
                 else
+                {
                     return false;
+                }
             }
         }
 
@@ -65,12 +77,17 @@ namespace YG
         private void OnEnable()
         {
             if (singleton)
+            {
                 SceneManager.sceneLoaded += OnSceneLoaded;
+            }
         }
+
         private void OnDisable()
         {
             if (singleton)
+            {
                 SceneManager.sceneLoaded -= OnSceneLoaded;
+            }
         }
 
         private void Awake()
@@ -109,7 +126,9 @@ namespace YG
         private void Start()
         {
             if (infoYG.AdWhenLoadingScene)
+            {
                 FullscreenShow();
+            }
 
             if (!_SDKEnabled)
             {
@@ -132,25 +151,34 @@ namespace YG
             }
         }
 
-        static void Message(string message)
+        private static void Message(string message)
         {
             if (Instance.infoYG.debug)
+            {
                 Debug.Log(message);
+            }
         }
 
         public static void GetDataInvoke()
         {
             if (_SDKEnabled)
+            {
                 GetDataEvent?.Invoke();
+            }
         }
 
         private static bool firstSceneLoad = true;
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             if (firstSceneLoad)
+            {
                 firstSceneLoad = false;
+            }
             else if (infoYG.AdWhenLoadingScene)
+            {
                 _FullscreenShow();
+            }
         }
 
         #region For ECS
@@ -191,8 +219,6 @@ namespace YG
 
         #endregion Methods
 
-
-
         // Sending messages
 
         #region Init Leaderboard
@@ -230,19 +256,25 @@ namespace YG
             }
             else
             {
-                Message($"До запроса к показу рекламы в середине игры {(infoYG.fullscreenAdInterval - timerShowAd).ToString("00.0")} сек.");
+                Message(
+                    $"До запроса к показу рекламы в середине игры {infoYG.fullscreenAdInterval - timerShowAd:00.0} сек."
+                );
             }
         }
 
-        public static void FullscreenShow() => Instance._FullscreenShow();
+        public static void FullscreenShow()
+        {
+            Instance._FullscreenShow();
+        }
 
 #if UNITY_EDITOR
         private void FullAdInEditor()
         {
-            GameObject obj = new GameObject { name = "TestFullAd" };
+            GameObject obj = new() { name = "TestFullAd" };
             DontDestroyOnLoad(obj);
-            Insides.CallingAnEvent call = obj.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
-            call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation));
+            Insides.CallingAnEvent call =
+                obj.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
+            _ = call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation));
         }
 #endif
         #endregion Fullscren Ad Show
@@ -266,15 +298,19 @@ namespace YG
             }
         }
 
-        public static void RewVideoShow(int id) => Instance._RewardedShow(id);
+        public static void RewVideoShow(int id)
+        {
+            Instance._RewardedShow(id);
+        }
 
 #if UNITY_EDITOR
         private void AdRewardInEditor(int id)
         {
-            GameObject obj = new GameObject { name = "TestVideoAd" };
+            GameObject obj = new() { name = "TestVideoAd" };
             DontDestroyOnLoad(obj);
-            Insides.CallingAnEvent call = obj.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
-            call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation, id));
+            Insides.CallingAnEvent call =
+                obj.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
+            _ = call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation, id));
         }
 #endif
         #endregion Rewarded Video Show
@@ -291,7 +327,11 @@ namespace YG
             }
             catch (Exception error)
             {
-                Debug.LogError("The first method of following the link failed! Error:\n" + error + "\nInstead of the first method, let's try to call the second method 'Application.OpenURL'");
+                Debug.LogError(
+                    "The first method of following the link failed! Error:\n"
+                        + error
+                        + "\nInstead of the first method, let's try to call the second method 'Application.OpenURL'"
+                );
                 Application.OpenURL(url);
             }
         }
@@ -305,7 +345,8 @@ namespace YG
             {
                 OnURL(url);
             }
-            else Debug.LogError("OnURL_Yandex_DefineDomain: Domain not defined!");
+            else
+                Debug.LogError("OnURL_Yandex_DefineDomain: Domain not defined!");
 #else
             Application.OpenURL(url);
 #endif
@@ -330,9 +371,10 @@ namespace YG
         {
             if (Instance.infoYG.leaderboardEnable && auth)
             {
-                if (Instance.infoYG.saveScoreAnonymousPlayers == false &&
-                    playerName == "anonymous")
+                if (Instance.infoYG.saveScoreAnonymousPlayers == false && playerName == "anonymous")
+                {
                     return;
+                }
 
 #if !UNITY_EDITOR
                 Message("New Liderboard Record: " + score);
@@ -347,9 +389,10 @@ namespace YG
         {
             if (Instance.infoYG.leaderboardEnable && auth)
             {
-                if (Instance.infoYG.saveScoreAnonymousPlayers == false &&
-                    playerName == "anonymous")
+                if (Instance.infoYG.saveScoreAnonymousPlayers == false && playerName == "anonymous")
+                {
                     return;
+                }
 
                 int result;
                 int indexComma = secondsScore.ToString().IndexOf(",");
@@ -361,16 +404,26 @@ namespace YG
                 }
                 else if (indexComma <= 0)
                 {
-                    result = (int)(secondsScore);
+                    result = (int)secondsScore;
                 }
                 else
                 {
                     string rec = secondsScore.ToString();
                     string sec = rec.Remove(indexComma);
                     string milSec = rec.Remove(0, indexComma + 1);
-                    if (milSec.Length > 3) milSec = milSec.Remove(3);
-                    else if (milSec.Length == 2) milSec += "0";
-                    else if (milSec.Length == 1) milSec += "00";
+                    if (milSec.Length > 3)
+                    {
+                        milSec = milSec.Remove(3);
+                    }
+                    else if (milSec.Length == 2)
+                    {
+                        milSec += "0";
+                    }
+                    else if (milSec.Length == 1)
+                    {
+                        milSec += "00";
+                    }
+
                     rec = sec + milSec;
                     result = int.Parse(rec);
                 }
@@ -380,25 +433,35 @@ namespace YG
         }
 
         [DllImport("__Internal")]
-        private static extern void GetLeaderboardScores(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround, string photoSizeLB, bool auth);
+        private static extern void GetLeaderboardScores(
+            string nameLB,
+            int maxQuantityPlayers,
+            int quantityTop,
+            int quantityAround,
+            string photoSizeLB,
+            bool auth
+        );
 
-        public static void GetLeaderboard(string nameLB, int maxQuantityPlayers, int quantityTop, int quantityAround, string photoSizeLB)
+        public static void GetLeaderboard(
+            string nameLB,
+            int maxQuantityPlayers,
+            int quantityTop,
+            int quantityAround,
+            string photoSizeLB
+        )
         {
             void NoData()
             {
-                LBData lb = new LBData()
-                {
-                    technoName = nameLB,
-                    entries = "no data",
-                    players = new LBPlayerData[1]
+                LBData lb =
+                    new()
                     {
-                        new LBPlayerData()
+                        technoName = nameLB,
+                        entries = "no data",
+                        players = new LBPlayerData[1]
                         {
-                            name = "no data",
-                            photo = null
+                            new() { name = "no data", photo = null }
                         }
-                    }
-                };
+                    };
                 onGetLeaderboard?.Invoke(lb);
             }
 
@@ -406,7 +469,14 @@ namespace YG
             if (Instance.infoYG.leaderboardEnable)
             {
                 Message("Get Leaderboard");
-                GetLeaderboardScores(nameLB, maxQuantityPlayers, quantityTop, quantityAround, photoSizeLB, _auth);
+                GetLeaderboardScores(
+                    nameLB,
+                    maxQuantityPlayers,
+                    quantityTop,
+                    quantityAround,
+                    photoSizeLB,
+                    _auth
+                );
             }
             else
             {
@@ -429,9 +499,13 @@ namespace YG
                 }
 
                 if (indexLB >= 0)
+                {
                     onGetLeaderboard?.Invoke(lb[indexLB]);
+                }
                 else
+                {
                     NoData();
+                }
             }
             else
             {
@@ -451,10 +525,13 @@ namespace YG
 #if !UNITY_EDITOR
             if (authDialog)
             {
-                if (_auth) ReviewInternal();
-                else _OpenAuthDialog();
+                if (_auth)
+                    ReviewInternal();
+                else
+                    _OpenAuthDialog();
             }
-            else ReviewInternal();
+            else
+                ReviewInternal();
 #else
             ReviewSent("true");
 #endif
@@ -483,7 +560,11 @@ namespace YG
             PromptSuccessEvent?.Invoke();
 #endif
         }
-        public void _PromptShow() => PromptShow();
+
+        public void _PromptShow()
+        {
+            PromptShow();
+        }
         #endregion Prompt
 
         #region Sticky Ad
@@ -492,21 +573,30 @@ namespace YG
 
         public static void StickyAdActivity(bool activity)
         {
-            if (activity) Message("Sticky Ad Show");
-            else Message("Sticky Ad Hide");
+            if (activity)
+            {
+                Message("Sticky Ad Show");
+            }
+            else
+            {
+                Message("Sticky Ad Hide");
+            }
 #if !UNITY_EDITOR
             StickyAdActivityInternal(activity);
 #endif
         }
 
-        public void _StickyAdActivity(bool activity) => StickyAdActivity(activity);
+        public void _StickyAdActivity(bool activity)
+        {
+            StickyAdActivity(activity);
+        }
         #endregion Sticky Ad
-
 
         // Receiving messages
 
         #region Fullscren Ad
         public static Action OpenFullAdEvent;
+
         public void OpenFullAd()
         {
             OpenFullscreenAd.Invoke();
@@ -515,6 +605,7 @@ namespace YG
         }
 
         public static Action CloseFullAdEvent;
+
         public void CloseFullAd(string wasShown)
         {
             nowFullAd = false;
@@ -533,11 +624,19 @@ namespace YG
                     Message("Реклама не была показана. Ждём следующего запроса.");
                     ResetTimerFullAd();
                 }
-                else Message("Реклама не была показана. Следующий запрос через: " + infoYG.fullscreenAdInterval);
+                else
+                    Message(
+                        "Реклама не была показана. Следующий запрос через: "
+                            + infoYG.fullscreenAdInterval
+                    );
             }
 #endif
         }
-        public void CloseFullAd() => CloseFullAd("true");
+
+        public void CloseFullAd()
+        {
+            CloseFullAd("true");
+        }
 
         public void ResetTimerFullAd()
         {
@@ -545,6 +644,7 @@ namespace YG
         }
 
         public static Action ErrorFullAdEvent;
+
         public void ErrorFullAd()
         {
             ErrorFullscreenAd.Invoke();
@@ -556,6 +656,7 @@ namespace YG
         private float timeOnOpenRewardedAds;
 
         public static Action OpenVideoEvent;
+
         public void OpenVideo()
         {
             OpenVideoEvent?.Invoke();
@@ -565,6 +666,7 @@ namespace YG
         }
 
         public static Action CloseVideoEvent;
+
         public void CloseVideo()
         {
             nowVideoAd = false;
@@ -586,7 +688,14 @@ namespace YG
         }
 
         public static Action<int> RewardVideoEvent;
-        private enum RewardAdResult { None, Success, Error };
+
+        private enum RewardAdResult
+        {
+            None,
+            Success,
+            Error
+        };
+
         private static RewardAdResult rewardAdResult = RewardAdResult.None;
         private static int lastRewardAdID;
 
@@ -595,9 +704,13 @@ namespace YG
             lastRewardAdID = id;
 #if UNITY_EDITOR
             if (Instance.infoYG.testErrorOfRewardedAdsInEditor)
+            {
                 timeOnOpenRewardedAds += Time.realtimeSinceStartup + 1;
+            }
             else
+            {
                 timeOnOpenRewardedAds = 0;
+            }
 #endif
             rewardAdResult = RewardAdResult.None;
 
@@ -616,13 +729,18 @@ namespace YG
             else
             {
                 if (Instance.infoYG.rewardedAfterClosing)
+                {
                     rewardAdResult = RewardAdResult.Error;
+                }
                 else
+                {
                     ErrorVideo();
+                }
             }
         }
 
         public static Action ErrorVideoEvent;
+
         public void ErrorVideo()
         {
             ErrorVideoAd.Invoke();
@@ -637,26 +755,29 @@ namespace YG
         {
             JsonLB jsonLB = JsonUtility.FromJson<JsonLB>(data);
 
-            LBData lbData = new LBData()
-            {
-                technoName = jsonLB.technoName,
-                isDefault = jsonLB.isDefault,
-                isInvertSortOrder = jsonLB.isInvertSortOrder,
-                decimalOffset = jsonLB.decimalOffset,
-                type = jsonLB.type,
-                entries = jsonLB.entries,
-                players = new LBPlayerData[jsonLB.names.Length],
-                thisPlayer = null
-            };
+            LBData lbData =
+                new()
+                {
+                    technoName = jsonLB.technoName,
+                    isDefault = jsonLB.isDefault,
+                    isInvertSortOrder = jsonLB.isInvertSortOrder,
+                    decimalOffset = jsonLB.decimalOffset,
+                    type = jsonLB.type,
+                    entries = jsonLB.entries,
+                    players = new LBPlayerData[jsonLB.names.Length],
+                    thisPlayer = null
+                };
 
             for (int i = 0; i < jsonLB.names.Length; i++)
             {
-                lbData.players[i] = new LBPlayerData();
-                lbData.players[i].name = jsonLB.names[i];
-                lbData.players[i].rank = jsonLB.ranks[i];
-                lbData.players[i].score = jsonLB.scores[i];
-                lbData.players[i].photo = jsonLB.photos[i];
-                lbData.players[i].uniqueID = jsonLB.uniqueIDs[i];
+                lbData.players[i] = new LBPlayerData
+                {
+                    name = jsonLB.names[i],
+                    rank = jsonLB.ranks[i],
+                    score = jsonLB.scores[i],
+                    photo = jsonLB.photos[i],
+                    uniqueID = jsonLB.uniqueIDs[i]
+                };
 
                 if (jsonLB.uniqueIDs[i] == playerId)
                 {
@@ -673,10 +794,7 @@ namespace YG
 
         public void InitializedLB()
         {
-            LBData lb = new LBData()
-            {
-                entries = "initialized"
-            };
+            LBData lb = new() { entries = "initialized" };
             onGetLeaderboard?.Invoke(lb);
             _initializedLB = true;
         }
@@ -684,19 +802,24 @@ namespace YG
 
         #region Review
         public static Action<bool> ReviewSentEvent;
+
         public void ReviewSent(string feedbackSent)
         {
             EnvironmentData.reviewCanShow = false;
 
             bool sent = feedbackSent == "true" ? true : false;
             ReviewSentEvent?.Invoke(sent);
-            if (sent) ReviewDo?.Invoke();
+            if (sent)
+            {
+                ReviewDo?.Invoke();
+            }
         }
         #endregion Review
 
         #region Prompt
         public static Action PromptSuccessEvent;
         public static Action PromptFailEvent;
+
         public void OnPromptSuccess()
         {
             savesData.promptDone = true;
@@ -714,7 +837,6 @@ namespace YG
             EnvironmentData.promptCanShow = false;
         }
         #endregion Prompt
-
 
         // The rest
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DG.Tweening;
+using Module.ObjectPool;
 using UnityEngine;
 
 namespace Tank
@@ -21,8 +22,11 @@ namespace Tank
 
         private Tween delayTween;
 
+        private MonoBehObjectPool<Track> trackPool;
+
         private void Start()
         {
+            trackPool = new MonoBehObjectPool<Track>(track, 10, tracksRoot);
             CreateTracks();
         }
 
@@ -30,7 +34,8 @@ namespace Tank
         {
             foreach (Transform dot in dots)
             {
-                Track newTrack = Instantiate(track, dot.position, dot.rotation, tracksRoot);
+                Track newTrack = trackPool.Get();
+                newTrack.transform.SetPositionAndRotation(dot.position, dot.rotation);
                 newTrack.Fade();
             }
             delayTween = DOVirtual.DelayedCall(interval, CreateTracks, false);

@@ -57,7 +57,7 @@ MonoBehaviour:
         - rid: 2815594792133853215
         - rid: 2815594792133853216
         - rid: 2815594792133853217
-        weaponName: Start Weapon
+        weaponName: "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
         weaponViewTable:
         - Show: 0
           ModuleName: DamageModule
@@ -67,7 +67,7 @@ MonoBehaviour:
           ModuleName: CriticalChanceModule
         - Show: 0
           ModuleName: CriticalMultiplierModule
-        - Show: 1
+        - Show: 0
           ModuleName: FireRangeModule
         - Show: 0
           ModuleName: PenetrationModule
