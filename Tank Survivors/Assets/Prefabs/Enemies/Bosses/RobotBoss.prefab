@@ -115,13 +115,60 @@ MonoBehaviour:
   rigidBody: {fileID: -6254359541645103993}
   ownCollider: {fileID: -7193865994343920657}
   health: 0
-  abilities: []
-  modules: []
+  abilities:
+  - rid: 3201943482623066115
+  - rid: 3201943482623066116
+  - rid: 3201943482623066117
+  modules:
+  - rid: 3201943482623066118
+  - rid: 3201943482623066119
+  - rid: 3201943482623066120
+  - rid: 3201943482623066121
+  - rid: 3201943482623066122
   damageTaking: {fileID: 19069528266704680}
   floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3201943482623066115
+      type: {class: CloseRangeAttack, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066116
+      type: {class: Dash, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066117
+      type: {class: Movement, ns: Enemies.Abilities, asm: Assembly-CSharp}
+      data: 
+    - rid: 3201943482623066118
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 1
+    - rid: 3201943482623066119
+      type: {class: DashModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        aimTime: 3
+        slowPercent: 0.5
+        dashSpeedMultiplier: 2
+        circleZone:
+          min: 0
+          max: 3
+        coolDown: 10
+    - rid: 3201943482623066120
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 6
+    - rid: 3201943482623066121
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 1000
+    - rid: 3201943482623066122
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 30
 --- !u!114 &19069528266704680
 MonoBehaviour:
   m_ObjectHideFlags: 0
