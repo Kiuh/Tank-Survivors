@@ -50,7 +50,7 @@ namespace Common
         {
             StatData data = new() { Name = "Unknown name", Value = "No Value" };
             ModuleView moduleView = moduleViews.FirstOrDefault(x =>
-                x.ModuleName == weaponModule.GetType().Name
+                x.ModuleName == weaponModule.GetType().FullName
             );
             if (moduleView != null)
             {
