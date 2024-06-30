@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
-  m_Name: Enemies
+  m_Name: 1 Level Enemies
   m_EditorClassIdentifier: 
   enemyProducers:
   - rid: 3201943389564829697
