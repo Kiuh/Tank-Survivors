@@ -101,12 +101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healAmount: 5
   effectText: "+5 \u0416\u0438\u0437\u043D\u0438"
-  effectColor: {r: 0.44705886, g: 0.90196085, b: 0.37647063, a: 1}
+  effectColor: {r: 0.45882353, g: 0.32941177, b: 0.30980393, a: 1}
   grabbed: 0
   pickupName: Health
   floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
   tank: {fileID: 0}
   followSpeed: 5
+  timeToSelfDestroy: 120
 --- !u!61 &7647850923129408509
 BoxCollider2D:
   m_ObjectHideFlags: 0

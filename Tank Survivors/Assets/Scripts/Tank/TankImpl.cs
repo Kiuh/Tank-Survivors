@@ -303,7 +303,7 @@ namespace Tank
             );
             floatingEffect.CreateAndLaunch(
                 transform.position,
-                damageText + damage.ToString(),
+                damageText + damage.ToString("0.0"),
                 damageColor
             );
         }

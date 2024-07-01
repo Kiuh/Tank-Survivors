@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -33,6 +34,24 @@ namespace Tank.PickUps
 
         [SerializeField]
         private float followSpeed;
+
+        [SerializeField]
+        private float timeToSelfDestroy;
+        private Tween selfDestroyTween;
+
+        private void Start()
+        {
+            selfDestroyTween = DOVirtual.DelayedCall(
+                timeToSelfDestroy,
+                () => Destroy(gameObject),
+                false
+            );
+        }
+
+        private void OnDestroy()
+        {
+            selfDestroyTween?.Kill();
+        }
 
         public void Grab(TankImpl tank)
         {

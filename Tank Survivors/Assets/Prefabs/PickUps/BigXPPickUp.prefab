@@ -143,6 +143,7 @@ MonoBehaviour:
   floatingEffect: {fileID: 5479560840813253952, guid: dc1f29eb34e795e48a67292856e8d27e, type: 3}
   tank: {fileID: 0}
   followSpeed: 5
+  timeToSelfDestroy: 120
 --- !u!114 &5221513550517865806
 MonoBehaviour:
   m_ObjectHideFlags: 0
