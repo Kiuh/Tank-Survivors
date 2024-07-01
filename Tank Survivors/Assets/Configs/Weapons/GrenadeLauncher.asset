@@ -336,7 +336,7 @@ MonoBehaviour:
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
-          sourceValue: 20
+          sourceValue: 10
     - rid: 2815594792133853304
       type: {class: ProjectileSizeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:

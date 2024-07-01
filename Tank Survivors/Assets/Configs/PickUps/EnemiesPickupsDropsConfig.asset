@@ -36,7 +36,7 @@ MonoBehaviour:
       - SelectablePickupName:
           name: RegularXP
         Percentage:
-          value: 20
+          value: 50
   - SelectableEnemyName:
       name: soldier
     PickupGenerationConfig:
@@ -44,7 +44,7 @@ MonoBehaviour:
       - SelectablePickupName:
           name: BigXP
         Percentage:
-          value: 20
+          value: 50
       - SelectablePickupName:
           name: RegularXP
         Percentage:

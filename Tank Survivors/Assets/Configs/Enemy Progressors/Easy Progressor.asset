@@ -30,7 +30,7 @@ MonoBehaviour:
     - rid: 6135826874140197021
       type: {class: MovementUpgrade, ns: Enemies, asm: Assembly-CSharp}
       data:
-        present: 4
+        present: 2
         operation: 0
     - rid: 6135826874140197022
       type: {class: DamageUpgrade, ns: Enemies, asm: Assembly-CSharp}

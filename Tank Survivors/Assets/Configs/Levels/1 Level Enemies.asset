@@ -28,9 +28,7 @@ MonoBehaviour:
   - rid: 6135826874140196952
   - rid: 6135826874140196953
   - rid: 6135826874140196995
-  - rid: 6135826874140197000
   - rid: 6135826874140197005
-  - rid: 6135826874140197010
   - rid: 6135826874140197015
   bossProducers:
   - rid: 3201943482623066112
@@ -167,16 +165,16 @@ MonoBehaviour:
         - rid: 6135826874140197504
         - rid: 6135826874140197505
         modules:
-        - rid: 6135826874140197664
-        - rid: 6135826874140197665
-        - rid: 6135826874140197666
-        - rid: 6135826874140197667
+        - rid: 6135826876929147068
+        - rid: 6135826876929147069
+        - rid: 6135826876929147070
+        - rid: 6135826876929147071
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 5.2302127
+        progressorTimer: 9.579834
         spawnInterval: 4
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        timer: 0.4999184
+        timer: 1.5498695
     - rid: 3201943431452033094
       type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
       data:
@@ -187,16 +185,16 @@ MonoBehaviour:
         - rid: 6135826874140197500
         - rid: 6135826874140197501
         modules:
-        - rid: 6135826874140197668
-        - rid: 6135826874140197669
-        - rid: 6135826874140197670
-        - rid: 6135826874140197671
+        - rid: 6135826876929147072
+        - rid: 6135826876929147073
+        - rid: 6135826876929147074
+        - rid: 6135826876929147075
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 8.749139
+        progressorTimer: 3.0987573
         spawnInterval: 2
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        timer: 1.9500093
+        timer: 0.5499907
     - rid: 3201943431452033107
       type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
       data:
@@ -207,16 +205,16 @@ MonoBehaviour:
         - rid: 3201943431452033116
         - rid: 3201943431452033117
         modules:
-        - rid: 6135826874140197672
-        - rid: 6135826874140197673
-        - rid: 6135826874140197674
-        - rid: 6135826874140197675
+        - rid: 6135826876929147076
+        - rid: 6135826876929147077
+        - rid: 6135826876929147078
+        - rid: 6135826876929147079
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 8.748643
+        progressorTimer: 13.098214
         spawnInterval: 10
         radiusPreset: 2
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        timer: 7.9670143
+        timer: 4.1680846
     - rid: 3201943431452033114
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
@@ -248,11 +246,11 @@ MonoBehaviour:
         - rid: 2815594889435414559
         - rid: 2815594889435414560
         modules:
-        - rid: 6135826874140197740
+        - rid: 6135826876929147144
         - rid: 2815594889435414553
-        - rid: 6135826874140197741
-        - rid: 6135826874140197742
-        - rid: 6135826874140197743
+        - rid: 6135826876929147145
+        - rid: 6135826876929147146
+        - rid: 6135826876929147147
         startTime: 5
         preset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -269,13 +267,13 @@ MonoBehaviour:
         - rid: 2815594889435414587
         - rid: 2815594889435414588
         modules:
-        - rid: 6135826874140197744
-        - rid: 6135826874140197745
-        - rid: 6135826874140197746
-        - rid: 6135826874140197747
-        - rid: 6135826874140197748
-        - rid: 6135826874140197749
-        - rid: 6135826874140197750
+        - rid: 6135826876929147148
+        - rid: 6135826876929147149
+        - rid: 6135826876929147150
+        - rid: 6135826876929147151
+        - rid: 6135826876929147152
+        - rid: 6135826876929147153
+        - rid: 6135826876929147154
         startTime: 10
         preset: 0
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -294,13 +292,13 @@ MonoBehaviour:
         - rid: 2815594889435414596
         modules:
         - rid: 2815594889435414589
-        - rid: 6135826874140197751
-        - rid: 6135826874140197752
-        - rid: 6135826874140197753
-        - rid: 6135826874140197754
-        - rid: 6135826874140197755
-        - rid: 6135826874140197756
-        - rid: 6135826874140197757
+        - rid: 6135826876929147155
+        - rid: 6135826876929147156
+        - rid: 6135826876929147157
+        - rid: 6135826876929147158
+        - rid: 6135826876929147159
+        - rid: 6135826876929147160
+        - rid: 6135826876929147161
         startTime: 15
         preset: 0
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -314,12 +312,12 @@ MonoBehaviour:
         - rid: 6135826874140197508
         - rid: 6135826874140197509
         modules:
-        - rid: 6135826874140197676
-        - rid: 6135826874140197677
-        - rid: 6135826874140197678
-        - rid: 6135826874140197679
+        - rid: 6135826876929147080
+        - rid: 6135826876929147081
+        - rid: 6135826876929147082
+        - rid: 6135826876929147083
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 10.035475
+        progressorTimer: 4.356321
         spawnInterval: 4
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -335,12 +333,12 @@ MonoBehaviour:
         - rid: 6135826874140197524
         - rid: 6135826874140197525
         modules:
-        - rid: 6135826874140197692
-        - rid: 6135826874140197693
-        - rid: 6135826874140197694
-        - rid: 6135826874140197695
+        - rid: 6135826876929147096
+        - rid: 6135826876929147097
+        - rid: 6135826876929147098
+        - rid: 6135826876929147099
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 9.999791
+        progressorTimer: 9.986456
         spawnInterval: 3
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -356,12 +354,12 @@ MonoBehaviour:
         - rid: 6135826874140197512
         - rid: 6135826874140197513
         modules:
-        - rid: 6135826874140197680
-        - rid: 6135826874140197681
-        - rid: 6135826874140197682
-        - rid: 6135826874140197683
+        - rid: 6135826876929147084
+        - rid: 6135826876929147085
+        - rid: 6135826876929147086
+        - rid: 6135826876929147087
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
+        progressorTimer: 2.316852
         spawnInterval: 4
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -377,10 +375,10 @@ MonoBehaviour:
         - rid: 6135826874140197516
         - rid: 6135826874140197517
         modules:
-        - rid: 6135826874140197684
-        - rid: 6135826874140197685
-        - rid: 6135826874140197686
-        - rid: 6135826874140197687
+        - rid: 6135826876929147088
+        - rid: 6135826876929147089
+        - rid: 6135826876929147090
+        - rid: 6135826876929147091
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 4
@@ -398,12 +396,12 @@ MonoBehaviour:
         - rid: 6135826874140197528
         - rid: 6135826874140197529
         modules:
-        - rid: 6135826874140197696
-        - rid: 6135826874140197697
-        - rid: 6135826874140197698
-        - rid: 6135826874140197699
+        - rid: 6135826876929147100
+        - rid: 6135826876929147101
+        - rid: 6135826876929147102
+        - rid: 6135826876929147103
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
+        progressorTimer: 10.000601
         spawnInterval: 3
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -419,12 +417,12 @@ MonoBehaviour:
         - rid: 6135826874140197532
         - rid: 6135826874140197533
         modules:
-        - rid: 6135826874140197700
-        - rid: 6135826874140197701
-        - rid: 6135826874140197702
-        - rid: 6135826874140197703
+        - rid: 6135826876929147104
+        - rid: 6135826876929147105
+        - rid: 6135826876929147106
+        - rid: 6135826876929147107
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
+        progressorTimer: 4.333948
         spawnInterval: 3
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -440,10 +438,10 @@ MonoBehaviour:
         - rid: 6135826874140197536
         - rid: 6135826874140197537
         modules:
-        - rid: 6135826874140197704
-        - rid: 6135826874140197705
-        - rid: 6135826874140197706
-        - rid: 6135826874140197707
+        - rid: 6135826876929147108
+        - rid: 6135826876929147109
+        - rid: 6135826876929147110
+        - rid: 6135826876929147111
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 3
@@ -461,10 +459,10 @@ MonoBehaviour:
         - rid: 6135826874140197540
         - rid: 6135826874140197541
         modules:
-        - rid: 6135826874140197708
-        - rid: 6135826874140197709
-        - rid: 6135826874140197710
-        - rid: 6135826874140197711
+        - rid: 6135826876929147112
+        - rid: 6135826876929147113
+        - rid: 6135826876929147114
+        - rid: 6135826876929147115
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 3
@@ -482,10 +480,10 @@ MonoBehaviour:
         - rid: 6135826874140197544
         - rid: 6135826874140197545
         modules:
-        - rid: 6135826874140197712
-        - rid: 6135826874140197713
-        - rid: 6135826874140197714
-        - rid: 6135826874140197715
+        - rid: 6135826876929147116
+        - rid: 6135826876929147117
+        - rid: 6135826876929147118
+        - rid: 6135826876929147119
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 3
@@ -503,12 +501,12 @@ MonoBehaviour:
         - rid: 6135826874140197548
         - rid: 6135826874140197549
         modules:
-        - rid: 6135826874140197716
-        - rid: 6135826874140197717
-        - rid: 6135826874140197718
-        - rid: 6135826874140197719
+        - rid: 6135826876929147120
+        - rid: 6135826876929147121
+        - rid: 6135826876929147122
+        - rid: 6135826876929147123
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 10.036047
+        progressorTimer: 4.3576946
         spawnInterval: 3
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
@@ -524,10 +522,10 @@ MonoBehaviour:
         - rid: 6135826874140197520
         - rid: 6135826874140197521
         modules:
-        - rid: 6135826874140197688
-        - rid: 6135826874140197689
-        - rid: 6135826874140197690
-        - rid: 6135826874140197691
+        - rid: 6135826876929147092
+        - rid: 6135826876929147093
+        - rid: 6135826876929147094
+        - rid: 6135826876929147095
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 4
@@ -545,37 +543,16 @@ MonoBehaviour:
         - rid: 6135826874140197552
         - rid: 6135826874140197553
         modules:
-        - rid: 6135826874140197720
-        - rid: 6135826874140197721
-        - rid: 6135826874140197722
-        - rid: 6135826874140197723
+        - rid: 6135826876929147124
+        - rid: 6135826876929147125
+        - rid: 6135826876929147126
+        - rid: 6135826876929147127
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
+        progressorTimer: 4.333828
         spawnInterval: 8
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
         startTime: 210
-        endTime: 2000
-    - rid: 6135826874140197000
-      type: {class: DefaultEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
-      data:
-        EnemyPrefab: {fileID: 7993388808786971018, guid: 641081256b9441043abffb83714bf3ca, type: 3}
-        baseModules:
-        - rid: 6135826874140197554
-        - rid: 6135826874140197555
-        - rid: 6135826874140197556
-        - rid: 6135826874140197557
-        modules:
-        - rid: 6135826874140197724
-        - rid: 6135826874140197725
-        - rid: 6135826874140197726
-        - rid: 6135826874140197727
-        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
-        spawnInterval: 6
-        radiusPreset: 1
-        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        startTime: 330
         endTime: 2000
     - rid: 6135826874140197005
       type: {class: DefaultEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
@@ -587,37 +564,16 @@ MonoBehaviour:
         - rid: 6135826874140197560
         - rid: 6135826874140197561
         modules:
-        - rid: 6135826874140197728
-        - rid: 6135826874140197729
-        - rid: 6135826874140197730
-        - rid: 6135826874140197731
+        - rid: 6135826876929147132
+        - rid: 6135826876929147133
+        - rid: 6135826876929147134
+        - rid: 6135826876929147135
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 6
         radiusPreset: 1
         radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
         startTime: 510
-        endTime: 2000
-    - rid: 6135826874140197010
-      type: {class: DefaultEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
-      data:
-        EnemyPrefab: {fileID: 7993388808786971018, guid: 641081256b9441043abffb83714bf3ca, type: 3}
-        baseModules:
-        - rid: 6135826874140197562
-        - rid: 6135826874140197563
-        - rid: 6135826874140197564
-        - rid: 6135826874140197565
-        modules:
-        - rid: 6135826874140197732
-        - rid: 6135826874140197733
-        - rid: 6135826874140197734
-        - rid: 6135826874140197735
-        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
-        progressorTimer: 0
-        spawnInterval: 6
-        radiusPreset: 1
-        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
-        startTime: 690
         endTime: 2000
     - rid: 6135826874140197015
       type: {class: DefaultEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
@@ -629,10 +585,10 @@ MonoBehaviour:
         - rid: 6135826874140197568
         - rid: 6135826874140197569
         modules:
-        - rid: 6135826874140197736
-        - rid: 6135826874140197737
-        - rid: 6135826874140197738
-        - rid: 6135826874140197739
+        - rid: 6135826876929147140
+        - rid: 6135826876929147141
+        - rid: 6135826876929147142
+        - rid: 6135826876929147143
         progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
         progressorTimer: 0
         spawnInterval: 6
@@ -920,26 +876,6 @@ MonoBehaviour:
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197554
-      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        cooldown:
-          sourceValue: 2
-    - rid: 6135826874140197555
-      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        speed:
-          sourceValue: 2
-    - rid: 6135826874140197556
-      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        health:
-          sourceValue: 20
-    - rid: 6135826874140197557
-      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        damage:
-          sourceValue: 10
     - rid: 6135826874140197558
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
@@ -956,26 +892,6 @@ MonoBehaviour:
         health:
           sourceValue: 20
     - rid: 6135826874140197561
-      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        damage:
-          sourceValue: 10
-    - rid: 6135826874140197562
-      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        cooldown:
-          sourceValue: 2
-    - rid: 6135826874140197563
-      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        speed:
-          sourceValue: 2
-    - rid: 6135826874140197564
-      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        health:
-          sourceValue: 20
-    - rid: 6135826874140197565
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
@@ -1000,427 +916,387 @@ MonoBehaviour:
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197664
+    - rid: 6135826876929147068
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.7
-    - rid: 6135826874140197665
+    - rid: 6135826876929147069
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-    - rid: 6135826874140197666
+    - rid: 6135826876929147070
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-    - rid: 6135826874140197667
+    - rid: 6135826876929147071
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-    - rid: 6135826874140197668
+    - rid: 6135826876929147072
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197669
+    - rid: 6135826876929147073
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197670
+    - rid: 6135826876929147074
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197671
+    - rid: 6135826876929147075
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197672
+    - rid: 6135826876929147076
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 2
-    - rid: 6135826874140197673
+    - rid: 6135826876929147077
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 3
-    - rid: 6135826874140197674
+    - rid: 6135826876929147078
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-    - rid: 6135826874140197675
+    - rid: 6135826876929147079
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197676
+    - rid: 6135826876929147080
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.7
-    - rid: 6135826874140197677
+    - rid: 6135826876929147081
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-    - rid: 6135826874140197678
+    - rid: 6135826876929147082
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-    - rid: 6135826874140197679
+    - rid: 6135826876929147083
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-    - rid: 6135826874140197680
+    - rid: 6135826876929147084
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.7
-    - rid: 6135826874140197681
+    - rid: 6135826876929147085
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-    - rid: 6135826874140197682
+    - rid: 6135826876929147086
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-    - rid: 6135826874140197683
+    - rid: 6135826876929147087
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-    - rid: 6135826874140197684
+    - rid: 6135826876929147088
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.7
-    - rid: 6135826874140197685
+    - rid: 6135826876929147089
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-    - rid: 6135826874140197686
+    - rid: 6135826876929147090
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-    - rid: 6135826874140197687
+    - rid: 6135826876929147091
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-    - rid: 6135826874140197688
+    - rid: 6135826876929147092
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.7
-    - rid: 6135826874140197689
+    - rid: 6135826876929147093
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-    - rid: 6135826874140197690
+    - rid: 6135826876929147094
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-    - rid: 6135826874140197691
+    - rid: 6135826876929147095
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-    - rid: 6135826874140197692
+    - rid: 6135826876929147096
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197693
+    - rid: 6135826876929147097
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197694
+    - rid: 6135826876929147098
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197695
+    - rid: 6135826876929147099
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197696
+    - rid: 6135826876929147100
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197697
+    - rid: 6135826876929147101
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197698
+    - rid: 6135826876929147102
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197699
+    - rid: 6135826876929147103
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197700
+    - rid: 6135826876929147104
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197701
+    - rid: 6135826876929147105
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197702
+    - rid: 6135826876929147106
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197703
+    - rid: 6135826876929147107
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197704
+    - rid: 6135826876929147108
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197705
+    - rid: 6135826876929147109
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197706
+    - rid: 6135826876929147110
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197707
+    - rid: 6135826876929147111
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197708
+    - rid: 6135826876929147112
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197709
+    - rid: 6135826876929147113
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197710
+    - rid: 6135826876929147114
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197711
+    - rid: 6135826876929147115
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197712
+    - rid: 6135826876929147116
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2.5
-    - rid: 6135826874140197713
+    - rid: 6135826876929147117
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197714
+    - rid: 6135826876929147118
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 6
-    - rid: 6135826874140197715
+    - rid: 6135826876929147119
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-    - rid: 6135826874140197716
+    - rid: 6135826876929147120
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 2
-    - rid: 6135826874140197717
+    - rid: 6135826876929147121
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2
-    - rid: 6135826874140197718
+    - rid: 6135826876929147122
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-    - rid: 6135826874140197719
+    - rid: 6135826876929147123
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197720
+    - rid: 6135826876929147124
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 2
-    - rid: 6135826874140197721
+    - rid: 6135826876929147125
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2
-    - rid: 6135826874140197722
+    - rid: 6135826876929147126
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-    - rid: 6135826874140197723
+    - rid: 6135826876929147127
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197724
+    - rid: 6135826876929147132
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 2
-    - rid: 6135826874140197725
+    - rid: 6135826876929147133
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2
-    - rid: 6135826874140197726
+    - rid: 6135826876929147134
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-    - rid: 6135826874140197727
+    - rid: 6135826876929147135
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197728
+    - rid: 6135826876929147140
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 2
-    - rid: 6135826874140197729
+    - rid: 6135826876929147141
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 2
-    - rid: 6135826874140197730
+    - rid: 6135826876929147142
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 20
-    - rid: 6135826874140197731
+    - rid: 6135826876929147143
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 10
-    - rid: 6135826874140197732
-      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        cooldown:
-          sourceValue: 2
-    - rid: 6135826874140197733
-      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        speed:
-          sourceValue: 2
-    - rid: 6135826874140197734
-      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        health:
-          sourceValue: 20
-    - rid: 6135826874140197735
-      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        damage:
-          sourceValue: 10
-    - rid: 6135826874140197736
-      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        cooldown:
-          sourceValue: 2
-    - rid: 6135826874140197737
-      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        speed:
-          sourceValue: 2
-    - rid: 6135826874140197738
-      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        health:
-          sourceValue: 20
-    - rid: 6135826874140197739
-      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
-      data:
-        damage:
-          sourceValue: 10
-    - rid: 6135826874140197740
+    - rid: 6135826876929147144
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-    - rid: 6135826874140197741
+    - rid: 6135826876929147145
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 6
-    - rid: 6135826874140197742
+    - rid: 6135826876929147146
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 1000
-    - rid: 6135826874140197743
+    - rid: 6135826876929147147
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 30
-    - rid: 6135826874140197744
+    - rid: 6135826876929147148
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 6
-    - rid: 6135826874140197745
+    - rid: 6135826876929147149
       type: {class: ShootingRangeModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         shootingRange:
           sourceValue: 15
-    - rid: 6135826874140197746
+    - rid: 6135826876929147150
       type: {class: ShootingRateModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         shootCooldown:
           sourceValue: 2
-    - rid: 6135826874140197747
+    - rid: 6135826876929147151
       type: {class: ProjectileSpeedModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         projectileSpeed:
           sourceValue: 7
-    - rid: 6135826874140197748
+    - rid: 6135826876929147152
       type: {class: RageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         ScaleList:
@@ -1431,49 +1307,49 @@ MonoBehaviour:
         - enemyHealthPercentage: 0.8
           cooldownPercentage: 0.2
         MinimumCooldown: 0.3
-    - rid: 6135826874140197749
+    - rid: 6135826876929147153
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 3000
-    - rid: 6135826874140197750
+    - rid: 6135826876929147154
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 50
-    - rid: 6135826874140197751
+    - rid: 6135826876929147155
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
           sourceValue: 7
-    - rid: 6135826874140197752
+    - rid: 6135826876929147156
       type: {class: ShootingRangeModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         shootingRange:
           sourceValue: 20
-    - rid: 6135826874140197753
+    - rid: 6135826876929147157
       type: {class: ShootingRateModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         shootCooldown:
           sourceValue: 1
-    - rid: 6135826874140197754
+    - rid: 6135826876929147158
       type: {class: ProjectileSpeedModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         projectileSpeed:
           sourceValue: 10
-    - rid: 6135826874140197755
+    - rid: 6135826876929147159
       type: {class: RageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         ScaleList:
         - enemyHealthPercentage: 0.5
           cooldownPercentage: 0.4
         MinimumCooldown: 0.3
-    - rid: 6135826874140197756
+    - rid: 6135826876929147160
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5000
-    - rid: 6135826874140197757
+    - rid: 6135826876929147161
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:

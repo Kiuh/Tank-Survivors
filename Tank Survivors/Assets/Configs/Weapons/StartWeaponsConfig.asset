@@ -111,7 +111,7 @@ MonoBehaviour:
       type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         fireRange:
-          sourceValue: 40
+          sourceValue: 20
     - rid: 2815594792133853210
       type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
