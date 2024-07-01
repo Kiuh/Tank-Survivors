@@ -27,19 +27,19 @@ MonoBehaviour:
         maxLevel: 0
         leveledUpgrades: []
         levelUpUpgrades:
-        - levelForUpgrade: 2
+        - levelForUpgrade: 6
           description: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
           moduleUpgrades:
           - rid: 3201943431452033154
-        - levelForUpgrade: 2
+        - levelForUpgrade: 6
           description: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
           moduleUpgrades:
           - rid: 3201943431452033293
-        - levelForUpgrade: 2
+        - levelForUpgrade: 6
           description: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
           moduleUpgrades:
           - rid: 3201943431452033294
-        - levelForUpgrade: 2
+        - levelForUpgrade: 6
           description: "\u0420\u0435\u043B\u044C\u0441\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
           moduleUpgrades:
           - rid: 3201943431452033295

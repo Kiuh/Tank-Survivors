@@ -327,26 +327,22 @@ MonoBehaviour:
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
-          sourceValue: 3.5
-          cachedValue: 0
+          sourceValue: 2.7
     - rid: 3201943389564829765
       type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         radius:
           sourceValue: 1
-          cachedValue: 0
     - rid: 3201943389564829766
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
           sourceValue: 5
-          cachedValue: 0
     - rid: 3201943389564829767
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 5
-          cachedValue: 0
 --- !u!114 &8986145598681584307
 MonoBehaviour:
   m_ObjectHideFlags: 0

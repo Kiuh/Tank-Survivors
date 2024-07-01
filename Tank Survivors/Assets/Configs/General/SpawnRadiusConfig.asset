@@ -16,12 +16,12 @@ MonoBehaviour:
   - Preset: 0
     CircleZone:
       min: 5
-      max: 10
+      max: 15
   - Preset: 1
     CircleZone:
-      min: 11
-      max: 15
+      min: 15
+      max: 25
   - Preset: 2
     CircleZone:
-      min: 16
-      max: 25
+      min: 25
+      max: 30

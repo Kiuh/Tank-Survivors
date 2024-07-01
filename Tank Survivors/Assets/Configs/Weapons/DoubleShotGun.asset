@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: DoubleShotGun, ns: Tank.Weapons, asm: Assembly-CSharp}
       data:
         upgradeName: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
-        currentLevel: 2
+        currentLevel: 0
         maxLevel: 20
         leveledUpgrades:
         - upgradingLevel: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
       type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:
         damage:
-          sourceValue: 10
+          sourceValue: 12
     - rid: 2815594792133853323
       type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
       data:

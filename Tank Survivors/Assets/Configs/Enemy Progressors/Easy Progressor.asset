@@ -12,12 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f297e0db238794a42b56068da1aa1845, type: 3}
   m_Name: Easy Progressor
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: HwERAAAASQBuAHQAZQByAHYAYQBsAEkAbgBNAGkAbgB1AHQAZQBzAKuqKj4dAQsAAABDAHUAcgByAGUAbgB0AE0AbwBkAGUAAAAAAAAAAAABAREAAABVAHAAZwByAGEAZABlAGIAbABlAE0AbwBkAHUAbABlAHMALwAAAAABVgAAAFMAeQBzAHQAZQBtAC4AQwBvAGwAbABlAGMAdABpAG8AbgBzAC4ARwBlAG4AZQByAGkAYwAuAEwAaQBzAHQAYAAxAFsAWwBFAG4AZQBtAGkAZQBzAC4ASQBNAG8AZAB1AGwAZQBVAHAAZwByAGEAZABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcABdAF0ALAAgAG0AcwBjAG8AcgBsAGkAYgAAAAAABgQAAAAAAAAAAi8BAAAAASgAAABFAG4AZQBtAGkAZQBzAC4ATQBvAHYAZQBtAGUAbgB0AFUAcABnAHIAYQBkAGUALAAgAEEAcwBzAGUAbQBiAGwAeQAtAEMAUwBoAGEAcgBwAAEAAAAdAQkAAABPAHAAZQByAGEAdABpAG8AbgAAAAAAAAAAAB8BBwAAAHAAZQByAHMAZQBuAHQAAAAAQAUCLwIAAAABJgAAAEUAbgBlAG0AaQBlAHMALgBIAGUAYQBsAHQAaABVAHAAZwByAGEAZABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcAACAAAAHQEJAAAATwBwAGUAcgBhAHQAaQBvAG4AAAAAAAAAAAAfAQcAAABwAGUAcgBzAGUAbgB0AAAAIEEFAi8DAAAAASYAAABFAG4AZQBtAGkAZQBzAC4ARABhAG0AYQBnAGUAVQBwAGcAcgBhAGQAZQAsACAAQQBzAHMAZQBtAGIAbAB5AC0AQwBTAGgAYQByAHAAAwAAAB0BCQAAAE8AcABlAHIAYQB0AGkAbwBuAAAAAAAAAAAAHwEHAAAAcABlAHIAcwBlAG4AdAAAAABBBQIvBAAAAAEoAAAARQBuAGUAbQBpAGUAcwAuAEMAbwBvAGwAZABvAHcAbgBVAHAAZwByAGEAZABlACwAIABBAHMAcwBlAG0AYgBsAHkALQBDAFMAaABhAHIAcAAEAAAAHQEJAAAATwBwAGUAcgBhAHQAaQBvAG4AAQAAAAAAAAAfAQcAAABwAGUAcgBzAGUAbgB0AAAAgD8FBwUfAQgAAABpAG4AdABlAHIAdgBhAGwAAAAgQQ==
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
+  interval: 10
+  currentMode: 0
+  upgradableModules:
+  - rid: 6135826874140197020
+  - rid: 6135826874140197021
+  - rid: 6135826874140197022
+  - rid: 6135826874140197023
+  references:
+    version: 2
+    RefIds:
+    - rid: 6135826874140197020
+      type: {class: HealthUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 10
+        operation: 0
+    - rid: 6135826874140197021
+      type: {class: MovementUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 4
+        operation: 0
+    - rid: 6135826874140197022
+      type: {class: DamageUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 5
+        operation: 0
+    - rid: 6135826874140197023
+      type: {class: FireRateUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 0.5
+        operation: 0

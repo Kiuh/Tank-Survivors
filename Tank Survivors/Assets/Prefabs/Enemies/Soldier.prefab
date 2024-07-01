@@ -115,8 +115,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 458562424852704808}
   m_Father: {fileID: 0}
@@ -223,26 +223,22 @@ MonoBehaviour:
       type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         speed:
-          sourceValue: 3
-          cachedValue: 0
+          sourceValue: 2.5
     - rid: 3201943431452033100
       type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         cooldown:
           sourceValue: 1
-          cachedValue: 0
     - rid: 3201943431452033101
       type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         health:
-          sourceValue: 10
-          cachedValue: 0
+          sourceValue: 6
     - rid: 3201943431452033102
       type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
       data:
         damage:
           sourceValue: 3
-          cachedValue: 0
 --- !u!114 &4754267536516319284
 MonoBehaviour:
   m_ObjectHideFlags: 0
