@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Audio;
 using DG.Tweening;
 using General;
 using Sirenix.OdinInspector;
@@ -48,6 +49,7 @@ namespace Panels.Pause
 
         public void ShowPause()
         {
+            SoundsManager.Instance.PauseSounds();
             view.ShowPausePanel();
             tankImpl.StopScreenEffects();
             attributesStatGrid.FillWithData(tankImpl.GetStatBlockData());
@@ -59,6 +61,7 @@ namespace Panels.Pause
 
         public void Resume()
         {
+            SoundsManager.Instance.UnPauseSounds();
             view.HidePausePanel();
 
             lerpImage.gameObject.SetActive(true);
@@ -74,19 +77,18 @@ namespace Panels.Pause
                 .OnComplete(() =>
                 {
                     globalInput.UnSetPause();
+                    HidePause();
                     lerpImage.gameObject.SetActive(false);
                 });
         }
 
         public void Repeat()
         {
-            globalInput.UnSetPause();
             ScenesController.Instance.LoadScene(InGameScene.GameplayScene);
         }
 
         public void Leave()
         {
-            globalInput.UnSetPause();
             ScenesController.Instance.LoadScene(InGameScene.MainScene);
         }
 

@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 3302505754199601985}
   - component: {fileID: 7661219059914489371}
   - component: {fileID: 9208286662801774954}
+  - component: {fileID: 6370255070220956631}
   m_Layer: 5
   m_Name: LevelUpPanel
   m_TagString: Untagged
@@ -269,6 +270,37 @@ MonoBehaviour:
   resumeDelay: 0.8
   startAlfa: 0.8
   lerpImage: {fileID: 6422676557423840372}
+  OnLevelUpPanelOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6370255070220956631}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6370255070220956631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5983668921239789107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: 626f2d2fc905dd24f957ba840094c08f, type: 3}
+  isStoppable: 0
+  volume: 1
 --- !u!1 &6170510641409400596
 GameObject:
   m_ObjectHideFlags: 0

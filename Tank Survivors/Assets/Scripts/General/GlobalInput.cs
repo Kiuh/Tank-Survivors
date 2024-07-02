@@ -30,7 +30,6 @@ namespace General
         public void UnSetPause()
         {
             Time.timeScale = 1.0f;
-            pauseController.HidePause();
         }
     }
 }

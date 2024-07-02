@@ -5,6 +5,7 @@ using Tank.Weapons;
 using Tank.Weapons.Modules;
 using Tank.Weapons.Projectiles;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tank.Towers
 {
@@ -111,6 +112,8 @@ namespace Tank.Towers
             weapon.GetModule<TowerModule>().RemoveTower();
         }
 
+        public UnityEvent OnTowerShoot;
+
         private void FireAllProjectiles()
         {
             int projectileCount = weapon
@@ -127,6 +130,7 @@ namespace Tank.Towers
 
                 projectile.Initialize(weapon, tank, GetShotPoint(), GetDirection());
                 projectile.Shoot();
+                OnTowerShoot?.Invoke();
             }
         }
 

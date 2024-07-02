@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5056151685947421492}
   - component: {fileID: 4838768368387434412}
+  - component: {fileID: 7850107448440216613}
   m_Layer: 0
   m_Name: MinigunTower
   m_TagString: Untagged
@@ -78,6 +79,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPoint: {fileID: 747830958485369677}
+  OnTowerShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7850107448440216613}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7850107448440216613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3954392070589726180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: 63c15d13ffdd56e4595e5fb4ecb57992, type: 3}
+  isStoppable: 1
+  volume: 1
 --- !u!1 &3965612591385318649
 GameObject:
   m_ObjectHideFlags: 0

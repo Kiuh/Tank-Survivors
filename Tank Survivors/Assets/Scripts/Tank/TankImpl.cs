@@ -12,6 +12,7 @@ using Tank.UpgradablePiece;
 using Tank.Upgrades;
 using Tank.Weapons;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.PostProcessing;
 
 namespace Tank
@@ -119,6 +120,9 @@ namespace Tank
         public IEnumerable<IWeapon> Weapons => weapons;
 
         public event Action OnDeath;
+        public UnityEvent OnDeathEvent;
+        public UnityEvent OnDamageTaken;
+
         private bool isDead = false;
         public bool IsDead => isDead;
 
@@ -201,6 +205,7 @@ namespace Tank
 
             Health.Value -= damageAmount;
             ShowDamageTaken(damageAmount);
+            OnDamageTaken?.Invoke();
             if (Health.Value <= 0)
             {
                 Health.Value = 0;
@@ -239,6 +244,7 @@ namespace Tank
                 sr.material.color = darkColor;
             }
             instance.Play();
+            OnDeathEvent?.Invoke();
             float delay = instance.main.duration * instance.main.startLifetimeMultiplier;
             deathDelayTween = DOVirtual.DelayedCall(
                 delay,

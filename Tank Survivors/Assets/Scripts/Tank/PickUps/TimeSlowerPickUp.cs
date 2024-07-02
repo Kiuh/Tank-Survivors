@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tank.PickUps
 {
@@ -79,6 +80,7 @@ namespace Tank.PickUps
             effect.Launch(effectText, effectColor);
             yield return new WaitForSecondsRealtime(time);
             Time.timeScale = 1.0f;
+            OnPickupGrabbed?.Invoke();
             Destroy(gameObject);
         }
 
@@ -107,5 +109,7 @@ namespace Tank.PickUps
             _ = StartCoroutine(StartTimeSLower());
             spriteRenderer.enabled = false;
         }
+
+        public UnityEvent OnPickupGrabbed;
     }
 }

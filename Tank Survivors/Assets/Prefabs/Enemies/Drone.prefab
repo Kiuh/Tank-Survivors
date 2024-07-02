@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 7078847720920089569}
   - component: {fileID: 2533712333556167135}
   - component: {fileID: 8986145598681584307}
+  - component: {fileID: -2067847425464727665}
   m_Layer: 6
   m_Name: Drone
   m_TagString: Untagged
@@ -310,6 +311,21 @@ MonoBehaviour:
   - rid: 3201943389564829765
   - rid: 3201943389564829766
   - rid: 3201943389564829767
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2067847425464727665}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damageTaking: {fileID: 8986145598681584307}
   floatingEffect: {fileID: 5479560840813253952, guid: 2201f8319082c6e43a0524163b2d3104, type: 3}
   references:
@@ -359,6 +375,22 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageTime: 0.6
+--- !u!114 &-2067847425464727665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017579110327134564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: 2c48dfa1d3d08ca4aa6b7d166d55da62, type: 3}
+  isStoppable: 1
+  volume: 1
 --- !u!1001 &343139905336202281
 PrefabInstance:
   m_ObjectHideFlags: 0

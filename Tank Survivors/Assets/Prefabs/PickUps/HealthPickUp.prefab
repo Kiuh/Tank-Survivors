@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3081499776125683335}
   - component: {fileID: 7647850923129408509}
   - component: {fileID: -6094740473133621591}
+  - component: {fileID: 513465948003038418}
   m_Layer: 0
   m_Name: HealthPickUp
   m_TagString: Untagged
@@ -108,6 +109,21 @@ MonoBehaviour:
   tank: {fileID: 0}
   followSpeed: 5
   timeToSelfDestroy: 120
+  OnPickupGrabbed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 513465948003038418}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &7647850923129408509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +186,19 @@ MonoBehaviour:
   maxScale: 1.1
   interval: 2
   intervalBias: 0
+--- !u!114 &513465948003038418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827374683090020991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: b04235012babbc34d809064136f0574c, type: 3}
+  isStoppable: 1
+  volume: 1

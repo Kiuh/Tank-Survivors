@@ -1,7 +1,9 @@
 ﻿using System.Text;
+using Audio;
 using General;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Panels.Win
 {
@@ -20,6 +22,8 @@ namespace Panels.Win
         [SerializeField]
         private View view;
 
+        public UnityEvent OnWinPanelShown;
+
         private void Awake()
         {
             progressController.OnWin += Show;
@@ -28,11 +32,14 @@ namespace Panels.Win
         private void Show()
         {
             Time.timeScale = 0.0f;
+            OnWinPanelShown?.Invoke();
+            SoundsManager.Instance.PauseSounds();
             view.ShowWinPanel(GetInfoString(), progressController.Progress);
         }
 
         public void Hide()
         {
+            SoundsManager.Instance.UnPauseSounds();
             Time.timeScale = 1.0f;
             view.HideLosePanel();
         }

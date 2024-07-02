@@ -8,6 +8,7 @@ using Tank;
 using Tank.PickUps;
 using Tank.Weapons;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemies
 {
@@ -52,6 +53,7 @@ namespace Enemies
         private TankImpl tank;
 
         public event Action OnDeath;
+        public UnityEvent OnDeathEvent;
 
         [SerializeField]
         private DamageTaking damageTaking;
@@ -69,6 +71,7 @@ namespace Enemies
         {
             enemyTransform = null;
             tank.EnemyPickupsGenerator.GeneratePickup(this, transform);
+            OnDeathEvent?.Invoke();
             Destroy(gameObject);
         }
 

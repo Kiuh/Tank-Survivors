@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 89765787069609111}
   - component: {fileID: 2523342809426214904}
   - component: {fileID: 3141799806773127342}
+  - component: {fileID: 16432398047175390}
   m_Layer: 0
   m_Name: RailGunTower
   m_TagString: Untagged
@@ -211,6 +212,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPoint: {fileID: 4543352314124611832}
+  OnTowerShoot:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 16432398047175390}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2523342809426214904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +265,22 @@ MonoBehaviour:
   properties:
   - {fileID: 8208022948070074690}
   - {fileID: 4983938973484194356}
+--- !u!114 &16432398047175390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588998031394041276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: 8b583b4797c8f1940a8829d5361c0be5, type: 3}
+  isStoppable: 1
+  volume: 1
 --- !u!1 &3548179898109261679
 GameObject:
   m_ObjectHideFlags: 0

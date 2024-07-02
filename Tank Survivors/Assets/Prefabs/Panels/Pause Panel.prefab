@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 845229489688499465}
   - component: {fileID: 7356961623660903969}
   - component: {fileID: 6555807586266379200}
+  - component: {fileID: 6457283014664481416}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -357,6 +358,21 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   duration: 0
   path: []
+--- !u!114 &6457283014664481416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081947623615778536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: bcef78fcab8e4e745b9cdaad11c30cb1, type: 3}
+  volume: 1
 --- !u!1 &4306034307261311238
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +754,8 @@ GameObject:
   - component: {fileID: 4528546468900227237}
   - component: {fileID: 2421598983566516742}
   - component: {fileID: 5445198848935933957}
+  - component: {fileID: 406174292141041686}
+  - component: {fileID: 6427682224412513105}
   m_Layer: 5
   m_Name: Repeat
   m_TagString: Untagged
@@ -869,6 +887,36 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   duration: 0
   path: []
+--- !u!114 &406174292141041686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021755604777072910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: bcef78fcab8e4e745b9cdaad11c30cb1, type: 3}
+  volume: 1
+--- !u!114 &6427682224412513105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021755604777072910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: 3c3759740cf14d249985b3aa52aa21bf, type: 3}
+  volume: 1
 --- !u!1 &8036694989239661076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1198,8 @@ GameObject:
   - component: {fileID: 4690410394247261410}
   - component: {fileID: 7932344333408529545}
   - component: {fileID: 7817051441669949614}
+  - component: {fileID: 1382349449407983480}
+  - component: {fileID: 9020068454626764044}
   m_Layer: 5
   m_Name: Leave
   m_TagString: Untagged
@@ -1281,6 +1331,36 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   duration: 0
   path: []
+--- !u!114 &1382349449407983480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347599667056368858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: bcef78fcab8e4e745b9cdaad11c30cb1, type: 3}
+  volume: 1
+--- !u!114 &9020068454626764044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347599667056368858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: 3c3759740cf14d249985b3aa52aa21bf, type: 3}
+  volume: 1
 --- !u!1 &8457508881701370372
 GameObject:
   m_ObjectHideFlags: 0

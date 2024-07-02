@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Tank.PickUps
 {
@@ -88,7 +89,10 @@ namespace Tank.PickUps
                 Quaternion.identity
             );
             effect.Launch(effectText, effectColor);
+            OnPickupGrabbed?.Invoke();
             Destroy(gameObject);
         }
+
+        public UnityEvent OnPickupGrabbed;
     }
 }

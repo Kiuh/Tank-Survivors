@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using Common;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -7,6 +8,7 @@ using Tank;
 using Tank.UpgradablePiece;
 using Tank.Weapons;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Panels.LevelUp
@@ -44,6 +46,8 @@ namespace Panels.LevelUp
         [SerializeField]
         private Image lerpImage;
 
+        public UnityEvent OnLevelUpPanelOpen;
+
         private void OnEnable()
         {
             tank.PlayerLevel.OnLevelUp += LevelUpRelease;
@@ -51,8 +55,10 @@ namespace Panels.LevelUp
 
         public void LevelUpRelease()
         {
+            SoundsManager.Instance.PauseSounds();
             Time.timeScale = 0.0f;
             tank.StopScreenEffects();
+            OnLevelUpPanelOpen?.Invoke();
             if (!levelUpPanel.activeSelf)
             {
                 levelUpPanel.SetActive(true);
@@ -149,6 +155,7 @@ namespace Panels.LevelUp
                     .OnComplete(() =>
                     {
                         Time.timeScale = 1.0f;
+                        SoundsManager.Instance.UnPauseSounds();
                         lerpImage.gameObject.SetActive(false);
                     });
             }

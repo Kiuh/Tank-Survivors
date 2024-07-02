@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Audio;
 using General;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -31,11 +32,13 @@ namespace Panels.Death
         public void ShowLosePanel()
         {
             Time.timeScale = 0.0f;
+            SoundsManager.Instance.PauseSounds();
             view.ShowLosePanel(GetInfoString(), progressController.Progress);
         }
 
         public void HideLosePanel()
         {
+            SoundsManager.Instance.UnPauseSounds();
             Time.timeScale = 1.0f;
             view.HideLosePanel();
         }

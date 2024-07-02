@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2450157710332944171}
   - component: {fileID: 129387815438884194}
   - component: {fileID: 6200531058229242480}
+  - component: {fileID: 8527996211730941327}
   m_Layer: 5
   m_Name: Win Panel
   m_TagString: Untagged
@@ -79,6 +80,37 @@ MonoBehaviour:
   progressController: {fileID: 0}
   timer: {fileID: 0}
   view: {fileID: 129387815438884194}
+  OnWinPanelShown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8527996211730941327}
+        m_TargetAssemblyTypeName: Audio.InvokeSoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8527996211730941327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328837066940100759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7097dfa895456745a592d86cf7eb2f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourcePrefab: {fileID: 3436721488220420816, guid: a5fa816f2e9a2d6449ade07fea107e7a, type: 3}
+  audioClip: {fileID: 8300000, guid: 8ef2455c0c45ff241ada6f26a6c099bb, type: 3}
+  isStoppable: 0
+  volume: 1
 --- !u!1 &927308352326866527
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +923,8 @@ GameObject:
   - component: {fileID: 6670569960601242052}
   - component: {fileID: 7618144378341135363}
   - component: {fileID: 5148440343715694452}
+  - component: {fileID: 5269707921565284385}
+  - component: {fileID: 3072586606437791956}
   m_Layer: 5
   m_Name: Leave
   m_TagString: Untagged
@@ -1001,6 +1035,36 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5269707921565284385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603999707018187923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: bcef78fcab8e4e745b9cdaad11c30cb1, type: 3}
+  volume: 1
+--- !u!114 &3072586606437791956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603999707018187923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eedcc5ecf1942341995cc31a0dd9119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeSoundPlayerPrefab: {fileID: 7335721657256600828, guid: bdf59eef0bccc6b4e87a8c0e7f977c3a, type: 3}
+  audioClip: {fileID: 8300000, guid: 3c3759740cf14d249985b3aa52aa21bf, type: 3}
+  volume: 1
 --- !u!1 &6865244129075976603
 GameObject:
   m_ObjectHideFlags: 0
