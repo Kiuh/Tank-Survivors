@@ -46,7 +46,7 @@ namespace Panels.Win
         private string GetInfoString()
         {
             StringBuilder stringBuilder = new();
-            _ = stringBuilder.AppendLine($"Время: {timer.CurrentTime:0.0}");
+            _ = stringBuilder.AppendLine($"Время: {timer.FormattedCurrentTime}");
             return stringBuilder.ToString();
         }
     }

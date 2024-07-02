@@ -10,11 +10,9 @@ namespace Panels.Timer
         [SerializeField]
         private TMP_Text timer;
 
-        public void UpdateTime(float time)
+        public void UpdateTime(string time)
         {
-            int minutes = (int)time / 60;
-            int seconds = (int)time % 60;
-            timer.text = $"{minutes}:{seconds}";
+            timer.text = time;
         }
     }
 }

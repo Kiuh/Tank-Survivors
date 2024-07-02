@@ -12,6 +12,9 @@ namespace General
         public float CurrentTime => timer;
         public bool IsPaused => isPaused;
 
+        private System.TimeSpan TimeSpanTime => System.TimeSpan.FromSeconds(timer);
+        public string FormattedCurrentTime => $"{TimeSpanTime.Minutes}м {TimeSpanTime.Seconds}c";
+
         private void Awake()
         {
             timer = 0;

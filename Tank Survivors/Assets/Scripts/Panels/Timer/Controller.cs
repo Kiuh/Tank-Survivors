@@ -17,7 +17,7 @@ namespace Panels.Timer
         {
             if (!timer.IsPaused)
             {
-                view.UpdateTime(timer.CurrentTime);
+                view.UpdateTime(timer.FormattedCurrentTime);
             }
         }
     }
