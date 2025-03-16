@@ -1,0 +1,258 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84acb4cde4f6b684e939a41e2cb93c47, type: 3}
+  m_Name: 3 Level Enemies
+  m_EditorClassIdentifier: 
+  enemyProducers:
+  - rid: 6135827125412823041
+  - rid: 6135827168694894696
+  - rid: 6135827168694894705
+  bossProducers:
+  - rid: 6135827168694894710
+  - rid: 6135827168694894716
+  - rid: 6135827168694894722
+  references:
+    version: 2
+    RefIds:
+    - rid: 6135827125412823041
+      type: {class: DefaultEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
+      data:
+        EnemyPrefab: {fileID: 3017579110327134564, guid: b94f883cc07092845aa7cfb09119252f, type: 3}
+        baseModules:
+        - rid: 6135827237198364676
+        - rid: 6135827237198364677
+        - rid: 6135827237198364678
+        - rid: 6135827237198364679
+        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
+        spawnInterval: 4
+        radiusPreset: 0
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+        startTime: 0
+        endTime: 60
+    - rid: 6135827168694894696
+      type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
+      data:
+        EnemyPrefab: {fileID: 7993388808786971018, guid: 641081256b9441043abffb83714bf3ca, type: 3}
+        baseModules:
+        - rid: 6135827168694894701
+        - rid: 6135827168694894702
+        - rid: 6135827168694894703
+        - rid: 6135827168694894704
+        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
+        spawnInterval: 6
+        radiusPreset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 6135827168694894701
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 2
+    - rid: 6135827168694894702
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 2
+    - rid: 6135827168694894703
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 20
+    - rid: 6135827168694894704
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 10
+    - rid: 6135827168694894705
+      type: {class: ConstantEnemyProducer, ns: Enemies.Producers, asm: Assembly-CSharp}
+      data:
+        EnemyPrefab: {fileID: 7993388808786971018, guid: 641081256b9441043abffb83714bf3ca, type: 3}
+        baseModules:
+        - rid: 6135827168694894706
+        - rid: 6135827168694894707
+        - rid: 6135827168694894708
+        - rid: 6135827168694894709
+        progressor: {fileID: 11400000, guid: 40e054e4b72f0fd409a0c8c945d3990e, type: 2}
+        spawnInterval: 4
+        radiusPreset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 6135827168694894706
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 2
+    - rid: 6135827168694894707
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 2
+    - rid: 6135827168694894708
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 20
+    - rid: 6135827168694894709
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 10
+    - rid: 6135827168694894710
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 473315305190883074, guid: ddefc7b26b2c8e249b8523397c14ae71, type: 3}
+        baseModules:
+        - rid: 6135827168694894711
+        - rid: 6135827168694894712
+        - rid: 6135827168694894713
+        - rid: 6135827168694894714
+        - rid: 6135827168694894715
+        startTime: 1
+        preset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 6135827168694894711
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 1
+    - rid: 6135827168694894712
+      type: {class: DashModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        aimTime: 2
+        slowPercent: 0.5
+        dashSpeedMultiplier: 10
+        circleZone:
+          min: 0
+          max: 3
+        coolDown: 5
+        damageMultiplier: 1.2
+    - rid: 6135827168694894713
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 4
+    - rid: 6135827168694894714
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 150
+    - rid: 6135827168694894715
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 12
+    - rid: 6135827168694894716
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 473315305190883074, guid: ddefc7b26b2c8e249b8523397c14ae71, type: 3}
+        baseModules:
+        - rid: 6135827168694894717
+        - rid: 6135827168694894718
+        - rid: 6135827168694894719
+        - rid: 6135827168694894720
+        - rid: 6135827168694894721
+        startTime: 1
+        preset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 6135827168694894717
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 1
+    - rid: 6135827168694894718
+      type: {class: DashModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        aimTime: 3
+        slowPercent: 0.5
+        dashSpeedMultiplier: 2
+        circleZone:
+          min: 0
+          max: 3
+        coolDown: 5
+        damageMultiplier: 1.5
+    - rid: 6135827168694894719
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 4
+    - rid: 6135827168694894720
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 200
+    - rid: 6135827168694894721
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 15
+    - rid: 6135827168694894722
+      type: {class: BossProducer, ns: Enemies.EnemyProducers, asm: Assembly-CSharp}
+      data:
+        bossPrefab: {fileID: 473315305190883074, guid: ddefc7b26b2c8e249b8523397c14ae71, type: 3}
+        baseModules:
+        - rid: 6135827168694894723
+        - rid: 6135827168694894724
+        - rid: 6135827168694894725
+        - rid: 6135827168694894726
+        - rid: 6135827168694894727
+        startTime: 1
+        preset: 1
+        radius: {fileID: 11400000, guid: bb7cae7b30989e648a5e5336e8cf17d2, type: 2}
+    - rid: 6135827168694894723
+      type: {class: AttackCooldownModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        cooldown:
+          sourceValue: 1
+    - rid: 6135827168694894724
+      type: {class: DashModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        aimTime: 3
+        slowPercent: 0.5
+        dashSpeedMultiplier: 2
+        circleZone:
+          min: 0
+          max: 3
+        coolDown: 5
+        damageMultiplier: 2
+    - rid: 6135827168694894725
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 4
+    - rid: 6135827168694894726
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 300
+    - rid: 6135827168694894727
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 20
+    - rid: 6135827237198364676
+      type: {class: MovementModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        speed:
+          sourceValue: 2.7
+    - rid: 6135827237198364677
+      type: {class: ExplosionModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        radius:
+          sourceValue: 2
+    - rid: 6135827237198364678
+      type: {class: HealthModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        health:
+          sourceValue: 5
+    - rid: 6135827237198364679
+      type: {class: DamageModule, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 5

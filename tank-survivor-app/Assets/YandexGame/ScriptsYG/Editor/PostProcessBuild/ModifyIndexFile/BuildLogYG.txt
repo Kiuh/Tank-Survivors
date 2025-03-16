@@ -1,0 +1,2 @@
+Build path: D:/GitHub/Tank-Survivors/Builds/YandexGame
+Build number: 80

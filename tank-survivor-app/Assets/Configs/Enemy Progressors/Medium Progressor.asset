@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f297e0db238794a42b56068da1aa1845, type: 3}
+  m_Name: Medium Progressor
+  m_EditorClassIdentifier: 
+  interval: 8
+  currentMode: 0
+  upgradableModules:
+  - rid: 6135826874140197020
+  - rid: 6135826874140197021
+  - rid: 6135826874140197022
+  - rid: 6135826874140197023
+  references:
+    version: 2
+    RefIds:
+    - rid: 6135826874140197020
+      type: {class: HealthUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 15
+        operation: 0
+    - rid: 6135826874140197021
+      type: {class: MovementUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 1
+        operation: 0
+    - rid: 6135826874140197022
+      type: {class: DamageUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 10
+        operation: 0
+    - rid: 6135826874140197023
+      type: {class: FireRateUpgrade, ns: Enemies, asm: Assembly-CSharp}
+      data:
+        present: 0.5
+        operation: 0

@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758204deb3e66ea4a9658b2b1a44fdc8, type: 3}
+  m_Name: StatsModuleSerializer
+  m_EditorClassIdentifier: 
+  moduleViews:
+  - ModuleName: Tank.Weapons.Modules.FireRangeModule
+    ModuleViewName: "\u0414\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
+    ModuleViewValueFormat: '{0:0.0}'
+  - ModuleName: Tank.Weapons.Modules.DamageModule
+    ModuleViewName: "\u0423\u0440\u043E\u043D"
+    ModuleViewValueFormat: '{0:0.00}'
+  - ModuleName: Tank.Weapons.Modules.FireRateModule
+    ModuleViewName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438"
+    ModuleViewValueFormat: "{0:0.000}\u0441"
+  - ModuleName: Tank.Weapons.Modules.CriticalChanceModule
+    ModuleViewName: "\u041A\u0440\u0438\u0442 \u0448\u0430\u043D\u0441"
+    ModuleViewValueFormat: '{0:0}%'
+  - ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
+    ModuleViewName: "\u041A\u0440\u0438\u0442 \u0443\u0440\u043E\u043D"
+    ModuleViewValueFormat: '{0:0}%'
+  - ModuleName: Tank.Weapons.Modules.PenetrationModule
+    ModuleViewName: "\u041F\u0440\u043E\u0431\u0438\u0432\u0430\u043D\u0438\u0435"
+    ModuleViewValueFormat: "{0:0} \u0448\u0442 "
+  - ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
+    ModuleViewName: "\u0421\u043D\u0430\u0440\u044F\u0434\u044B"
+    ModuleViewValueFormat: "{0:0} \u0448\u0442"
+  - ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
+    ModuleViewName: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: Tank.Weapons.Modules.RayDurationModule
+    ModuleViewName: "\u0414\u043B\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+      \u043B\u0443\u0447\u0430"
+    ModuleViewValueFormat: "{0:0.00} \u0441"
+  - ModuleName: Tank.Weapons.Modules.RayFireRateModule
+    ModuleViewName: "\u0422\u0438\u043A \u0443\u0440\u043E\u043D\u0430 \u043B\u0443\u0447\u0430 "
+    ModuleViewValueFormat: "{0:0.00} \u0441"
+  - ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
+    ModuleViewName: "\u0423\u0433\u043E\u043B \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430
+      \u0441\u043D\u0430\u0440\u044F\u0434\u043E\u0432"
+    ModuleViewValueFormat: '{0:0}*'
+  - ModuleName: Tank.Weapons.Modules.TowerRotationModule
+    ModuleViewName: "\u041F\u043E\u0432\u043E\u0440\u043E\u0442 \u0431\u0430\u0448\u043D\u0438"
+    ModuleViewValueFormat: '{0:0}*'
+  - ModuleName: Tank.Weapons.Modules.FireDamageModule
+    ModuleViewName: "\u0423\u0440\u043E\u043D \u043E\u0433\u043D\u044F"
+    ModuleViewValueFormat: '{0:0.00}'
+  - ModuleName: Tank.Weapons.Modules.FireFireRateModule
+    ModuleViewName: "\u0422\u0438\u043A \u0443\u0440\u043E\u043D\u0430 \u043E\u0433\u043D\u044F "
+    ModuleViewValueFormat: "{0:0.00} \u0441"
+  - ModuleName: Tank.Weapons.Modules.SelfExplosion.SelfExplosionCountModule
+    ModuleViewName: "\u0421\u0430\u043C\u043E\u0432\u0437\u0440\u044B\u0432"
+    ModuleViewValueFormat: "{0:0} \u0448\u0442"
+  - ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
+    ModuleViewName: "\u0420\u0430\u0437\u043C\u0435\u0440 \u043F\u0443\u043B\u0438"
+    ModuleViewValueFormat: '{0:0.0} x'
+  - ModuleName: Tank.Weapons.Modules.ProjectileDamageRadiusModule
+    ModuleViewName: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0432\u0437\u0440\u044B\u0432\u0430"
+    ModuleViewValueFormat: '{0:0}'
+  - ModuleName: Tank.Weapons.Modules.SelfExplosion.DamageModule
+    ModuleViewName: "\u0423\u0440\u043E\u043D \u0441\u0430\u043C\u043E\u0432\u0437\u0440\u044B\u0432\u0430"
+    ModuleViewValueFormat: '{0:0.00}'
+  - ModuleName: Tank.Weapons.Modules.SelfExplosion.FireTimerModule
+    ModuleViewName: "\u0412\u0440\u0435\u043C\u044F \u0433\u043E\u0440\u0435\u043D\u0438\u044F "
+    ModuleViewValueFormat: "{0:0.00} \u0441"

@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fd812a07569cd49abd9ff146a2cfa1, type: 3}
+  m_Name: StartWeaponsConfig
+  m_EditorClassIdentifier: 
+  weapons:
+  - rid: 2815594792133853203
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2815594792133853203
+      type: {class: BasicGun, ns: Tank.Weapons, asm: Assembly-CSharp}
+      data:
+        upgradeName: "\u042D\u0432\u043E\u043B\u044E\u0446\u0438\u044F"
+        maxLevel: 0
+        leveledUpgrades: []
+        levelUpUpgrades:
+        - levelForUpgrade: 4
+          description: "\u0414\u0432\u043E\u0439\u043D\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943431452033154
+        - levelForUpgrade: 4
+          description: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
+          moduleUpgrades:
+          - rid: 3201943431452033293
+        - levelForUpgrade: 4
+          description: "\u0413\u0440\u0430\u043D\u0430\u0442\u043E\u043C\u0451\u0442"
+          moduleUpgrades:
+          - rid: 3201943431452033294
+        - levelForUpgrade: 4
+          description: "\u0420\u0435\u043B\u044C\u0441\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+          moduleUpgrades:
+          - rid: 3201943431452033295
+        modules:
+        - rid: 2815594792133853205
+        - rid: 2815594792133853206
+        - rid: 2815594792133853207
+        - rid: 2815594792133853208
+        - rid: 2815594792133853209
+        - rid: 2815594792133853210
+        - rid: 2815594792133853211
+        - rid: 2815594792133853212
+        - rid: 2815594792133853213
+        - rid: 2815594792133853214
+        - rid: 2815594792133853215
+        - rid: 2815594792133853216
+        - rid: 2815594792133853217
+        weaponName: "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F \u043F\u0443\u0448\u043A\u0430"
+        weaponViewTable:
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.DamageModule
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.FireRateModule
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.CriticalChanceModule
+        - Show: 1
+          ModuleName: Tank.Weapons.Modules.CriticalMultiplierModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.FireRangeModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.PenetrationModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSizeModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpeedModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectilesPerShootModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.ProjectileSpreadAngleModule
+        - Show: 0
+          ModuleName: Tank.Weapons.Modules.TowerRotationModule
+    - rid: 2815594792133853205
+      type: {class: DamageModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        damage:
+          sourceValue: 10
+    - rid: 2815594792133853206
+      type: {class: FireRateModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        fireRate:
+          sourceValue: 1
+    - rid: 2815594792133853207
+      type: {class: CriticalChanceModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        criticalChance:
+          sourceValue:
+            value: 10
+    - rid: 2815594792133853208
+      type: {class: CriticalMultiplierModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        criticalMultiplier:
+          sourceValue:
+            value: 100
+    - rid: 2815594792133853209
+      type: {class: FireRangeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        fireRange:
+          sourceValue: 15
+    - rid: 2815594792133853210
+      type: {class: PenetrationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        penetration:
+          sourceValue: 0
+    - rid: 2815594792133853211
+      type: {class: ProjectileModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectilePrefab:
+          mode: 0
+          unityReference: {fileID: 8283122730491187785, guid: e361c9ecc42fe134986e21da4bebe1d4, type: 3}
+          rawReference:
+            rid: -2
+    - rid: 2815594792133853212
+      type: {class: ProjectileSizeModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectileSize:
+          sourceValue: 1
+    - rid: 2815594792133853213
+      type: {class: ProjectileSpeedModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectileSpeed:
+          sourceValue: 10
+    - rid: 2815594792133853214
+      type: {class: ProjectilesPerShootModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        projectilesPerShoot:
+          sourceValue: 1
+    - rid: 2815594792133853215
+      type: {class: TowerModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        towerPrefab:
+          mode: 0
+          unityReference: {fileID: 6267967647746527568, guid: 4997d5c0438945b45b4b828047c25dec, type: 3}
+          rawReference:
+            rid: -2
+        tower:
+          mode: 0
+          unityReference: {fileID: 0}
+          rawReference:
+            rid: -2
+    - rid: 2815594792133853216
+      type: {class: ProjectileSpreadAngleModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        spreadAngle:
+          sourceValue: 0
+    - rid: 2815594792133853217
+      type: {class: TowerRotationModule, ns: Tank.Weapons.Modules, asm: Assembly-CSharp}
+      data:
+        rotationSpeed:
+          sourceValue: 10
+    - rid: 3201943431452033154
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 0050c64f236a50445a55ec59cd5f62ba, type: 2}
+    - rid: 3201943431452033293
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 9acfea7218651dc43804181261e4b4c8, type: 2}
+    - rid: 3201943431452033294
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: 8918dc45c35288c4b95359b4677b6723, type: 2}
+    - rid: 3201943431452033295
+      type: {class: SwapWeapon, ns: Tank.Weapons.ModulesUpgrades, asm: Assembly-CSharp}
+      data:
+        NewWeapon: {fileID: 11400000, guid: a019c0425566f1b48bcd8c8076605150, type: 2}

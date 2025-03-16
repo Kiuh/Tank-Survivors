@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8738ece600a0df84fb1f8e3fd9fb881d, type: 3}
+  m_Name: LevelsConfig
+  m_EditorClassIdentifier: 
+  LevelInfos:
+  - Name: 1
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 6868b0c36fea9c74ab28ae3a7e94b5db, type: 2}
+  - Name: 2
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 8c938ba763a9a9548b3854382bb2c7c0, type: 2}
+  - Name: 3
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 63f0b823eadae454a86c19758cfd010a, type: 2}
+  - Name: 4
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: b2222bc955b0e7f498e03cf5e3f26716, type: 2}
+  - Name: 5
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 22ffd9eeb9a82804f988f8592a945e14, type: 2}
+  - Name: 6
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 4ba9cdb2ff9ec084493c847877f30b7a, type: 2}
+  - Name: 7
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 553fb1ba51f47ae46b6ef60f026dc670, type: 2}
+  - Name: 8
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 9ec0f23843e983a4d84928ae3fc9cf0e, type: 2}
+  - Name: 9
+    Progress: 0
+    Enemies: {fileID: 11400000, guid: 8b0c663d1ff05c6408faecf5d032186f, type: 2}

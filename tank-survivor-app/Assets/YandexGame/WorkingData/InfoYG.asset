@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa747916aa66674d96ea40ca8a480b2, type: 3}
+  m_Name: InfoYG
+  m_EditorClassIdentifier: 
+  scopes: 1
+  playerPhotoSize: 0
+  autoGameReadyAPI: 1
+  playerInfoSimulation:
+    authorized: 1
+    isMobile: 0
+    language: ru
+    name: Player this
+    uniqueID: 000
+    photo: https://justplaygames.ru/public/icon_player.png
+  AdWhenLoadingScene: 0
+  showFirstAd: 0
+  rewardedAfterClosing: 0
+  adDisplayCalls: 0
+  fullscreenAdInterval: 60
+  durationOfAdSimulation: 0.5
+  loadAdWithDelaySimulation: 0
+  testErrorOfRewardedAdsInEditor: 0
+  saveCloud: 1
+  flush: 1
+  localSaveSync: 1
+  saveCloudInterval: 3
+  saveOnQuitGame: 1
+  quitGameParameters:
+    objectName: YandexGame
+    methodName: _SaveProgress
+  leaderboardEnable: 0
+  saveScoreAnonymousPlayers: 1
+  leaderboardSimulation: []
+  LocalizationEnable: 0
+  callingLanguageCheck: 1
+  translateMethod: 0
+  domainAutoLocalization: com
+  CSVFileTranslate:
+    format: 0
+    name: TranslateCSV
+  languages:
+    ru: 1
+    en: 1
+    tr: 1
+    az: 0
+    be: 0
+    he: 0
+    hy: 0
+    ka: 0
+    et: 0
+    fr: 0
+    kk: 0
+    ky: 0
+    lt: 0
+    lv: 0
+    ro: 0
+    tg: 0
+    tk: 0
+    uk: 0
+    uz: 0
+    es: 0
+    pt: 0
+    ar: 0
+    id: 0
+    ja: 0
+    it: 0
+    de: 0
+    hi: 0
+  fonts:
+    defaultFont: []
+    ru: []
+    en: []
+    tr: []
+    az: []
+    be: []
+    he: []
+    hy: []
+    ka: []
+    et: []
+    fr: []
+    kk: []
+    ky: []
+    lt: []
+    lv: []
+    ro: []
+    tg: []
+    tk: []
+    uk: []
+    uz: []
+    es: []
+    pt: []
+    ar: []
+    id: []
+    ja: []
+    it: []
+    de: []
+    hi: []
+  fontsSizeCorrect:
+    ru: 
+    en: 
+    tr: 
+    az: 
+    be: 
+    he: 
+    hy: 
+    ka: 
+    et: 
+    fr: 
+    kk: 
+    ky: 
+    lt: 
+    lv: 
+    ro: 
+    tg: 
+    tk: 
+    uk: 
+    uz: 
+    es: 
+    pt: 
+    ar: 
+    id: 
+    ja: 
+    it: 
+    de: 
+    hi: 
+  purshasesSimulation: []
+  metricaEnable: 0
+  metricaCounterID: 0
+  debug: 1
+  archivingBuild: 0
+  logoImageFormat: 1
+  backgroundImageFormat: 2
+  pixelRatioEnable: 0
+  pixelRatioValue: 1
+  loadGameRun: 0
+  staticRBTInGame: 0
